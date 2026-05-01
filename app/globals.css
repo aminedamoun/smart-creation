@@ -202,15 +202,15 @@
   animation-timing-function: linear;
   will-change: offset-distance;
 }
-.scg-line-1  { offset-path: path("M 250 220 h 70 q 14 0 14 14 v 52 q 0 14 14 14 h 42");                                      animation-duration: 3.5s;  animation-delay: -0.6s; }
-.scg-line-2  { offset-path: path("M 184 360 h 207");                                                                          animation-duration: 4s;    animation-delay: -1.4s; }
-.scg-line-3  { offset-path: path("M 250 500 h 70 q 14 0 14 -14 v -52 q 0 -14 14 -14 h 42");                                  animation-duration: 3.5s;  animation-delay: -2.2s; }
-.scg-line-4  { offset-path: path("M 390 140 v 70 q 0 14 14 14 h 92 q 14 0 14 14 v 42");                                      animation-duration: 3s;    animation-delay: -1s;   }
-.scg-line-5  { offset-path: path("M 710 140 v 70 q 0 14 -14 14 h -92 q -14 0 -14 14 v 42");                                  animation-duration: 3s;    animation-delay: -1.8s; }
-.scg-line-6  { offset-path: path("M 850 220 h -70 q -14 0 -14 14 v 52 q 0 14 -14 14 h -42");                                 animation-duration: 3.5s;  animation-delay: -2.7s; }
-.scg-line-7  { offset-path: path("M 916 360 h -207");                                                                         animation-duration: 4s;    animation-delay: -0.5s; }
-.scg-line-8  { offset-path: path("M 850 500 h -70 q -14 0 -14 -14 v -52 q 0 -14 -14 -14 h -42");                             animation-duration: 3.5s;  animation-delay: -0.4s; }
-.scg-line-9  { offset-path: path("M 550 586 v -133");                                                                         animation-duration: 3s;    animation-delay: -1.4s; }
+.scg-line-1  { offset-path: path("M 390 300 h -42 q -14 0 -14 -14 v -52 q 0 -14 -14 -14 h -70");                              animation-duration: 3.5s;  animation-delay: -0.6s; }
+.scg-line-2  { offset-path: path("M 391 360 h -207");                                                                          animation-duration: 4s;    animation-delay: -1.4s; }
+.scg-line-3  { offset-path: path("M 390 420 h -42 q -14 0 -14 14 v 52 q 0 14 -14 14 h -70");                                  animation-duration: 3.5s;  animation-delay: -2.2s; }
+.scg-line-4  { offset-path: path("M 510 280 v -42 q 0 -14 -14 -14 h -92 q -14 0 -14 -14 v -70");                              animation-duration: 3s;    animation-delay: -1s;   }
+.scg-line-5  { offset-path: path("M 590 280 v -42 q 0 -14 14 -14 h 92 q 14 0 14 -14 v -70");                                  animation-duration: 3s;    animation-delay: -1.8s; }
+.scg-line-6  { offset-path: path("M 710 300 h 42 q 14 0 14 -14 v -52 q 0 -14 14 -14 h 70");                                   animation-duration: 3.5s;  animation-delay: -2.7s; }
+.scg-line-7  { offset-path: path("M 709 360 h 207");                                                                           animation-duration: 4s;    animation-delay: -0.5s; }
+.scg-line-8  { offset-path: path("M 710 420 h 42 q 14 0 14 14 v 52 q 0 14 14 14 h 70");                                       animation-duration: 3.5s;  animation-delay: -0.4s; }
+.scg-line-9  { offset-path: path("M 550 453 v 133");                                                                           animation-duration: 3s;    animation-delay: -1.4s; }
 
 .scg-chip { cursor: pointer; }
 .scg-chip .scg-chip-bg {

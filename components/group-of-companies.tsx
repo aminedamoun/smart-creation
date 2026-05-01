@@ -29,66 +29,67 @@ type Chip = {
   anim: { duration: string; delay: string };
 };
 
-// Card centres are far enough apart to fit ~190×130 px cards without overlap.
-//   LEFT(3) · TOP(2) · RIGHT(3) · BOTTOM(1) = 9
+// Paths START at the Smart Creation Group centre card edge and travel OUT to
+// each perimeter card. Orbs animate offset-distance 0%→100%, so light flows
+// from the centre outward.
 const CHIPS: Chip[] = [
-  // ── LEFT (cable goes from card-right-edge to centre-card-left-edge) ──
+  // ── LEFT ──
   {
     companyId: "smart-place-bc",
     cx: 160,
     cy: 220,
-    path: "M 250 220 h 70 q 14 0 14 14 v 52 q 0 14 14 14 h 42",
+    path: "M 390 300 h -42 q -14 0 -14 -14 v -52 q 0 -14 -14 -14 h -70",
     anim: { duration: "2s", delay: "-0.5s" },
   },
   {
     companyId: "smart-view-bc",
     cx: 100,
     cy: 360,
-    path: "M 184 360 h 207",
+    path: "M 391 360 h -207",
     anim: { duration: "2.5s", delay: "-1s" },
   },
   {
     companyId: "future-space-bc",
     cx: 160,
     cy: 500,
-    path: "M 250 500 h 70 q 14 0 14 -14 v -52 q 0 -14 14 -14 h 42",
+    path: "M 390 420 h -42 q -14 0 -14 14 v 52 q 0 14 -14 14 h -70",
     anim: { duration: "2s", delay: "-1.5s" },
   },
-  // ── TOP (cable from card-bottom-edge to centre-card-top-edge) ──
+  // ── TOP ──
   {
     companyId: "smart-creation-bc",
     cx: 390,
     cy: 80,
-    path: "M 390 140 v 70 q 0 14 14 14 h 92 q 14 0 14 14 v 42",
+    path: "M 510 280 v -42 q 0 -14 -14 -14 h -92 q -14 0 -14 -14 v -70",
     anim: { duration: "1.7s", delay: "-0.7s" },
   },
   {
     companyId: "abna-rashid",
     cx: 710,
     cy: 80,
-    path: "M 710 140 v 70 q 0 14 -14 14 h -92 q -14 0 -14 14 v 42",
+    path: "M 590 280 v -42 q 0 -14 14 -14 h 92 q 14 0 14 -14 v -70",
     anim: { duration: "1.7s", delay: "-1.2s" },
   },
-  // ── RIGHT (cable from card-left-edge to centre-card-right-edge) ──
+  // ── RIGHT ──
   {
     companyId: "next-journey",
     cx: 940,
     cy: 220,
-    path: "M 850 220 h -70 q -14 0 -14 14 v 52 q 0 14 -14 14 h -42",
+    path: "M 710 300 h 42 q 14 0 14 -14 v -52 q 0 -14 14 -14 h 70",
     anim: { duration: "2s", delay: "-1.8s" },
   },
   {
     companyId: "smart-holiday-homes",
     cx: 1000,
     cy: 360,
-    path: "M 916 360 h -207",
+    path: "M 709 360 h 207",
     anim: { duration: "2.5s", delay: "-0.4s" },
   },
   {
     companyId: "intercity-bus",
     cx: 940,
     cy: 500,
-    path: "M 850 500 h -70 q -14 0 -14 -14 v -52 q 0 -14 -14 -14 h -42",
+    path: "M 710 420 h 42 q 14 0 14 14 v 52 q 0 14 14 14 h 70",
     anim: { duration: "2s", delay: "-0.3s" },
   },
   // ── BOTTOM ──
@@ -96,7 +97,7 @@ const CHIPS: Chip[] = [
     companyId: "mm-contractor",
     cx: 550,
     cy: 640,
-    path: "M 550 586 v -133",
+    path: "M 550 453 v 133",
     anim: { duration: "1.7s", delay: "-1s" },
   },
 ];
@@ -193,9 +194,10 @@ export function GroupOfCompanies() {
       />
 
       <div className="container-edit relative z-[2]">
-        <div className="max-w-3xl mb-12 md:mb-16">
+        <div className="mb-12 md:mb-16">
           <SectionHeader
             theme="dark"
+            align="center"
             section="§ 04 — The Group"
             title={
               <>
@@ -247,13 +249,18 @@ export function GroupOfCompanies() {
               </filter>
             </defs>
 
-            {/* Cards finish loading at ~1.1s. Cables turn on one-by-one
+            {/* Cards finish loading at ~1.1s. Cables fade in one-by-one
                 from 1.2s. Orbs become visible at ~2.2s and travel slowly. */}
 
-            {/* PER-CABLE TURN-ON: glow + crisp + dashed chase */}
+            {/* Single faint trace — the moving orb supplies the motion */}
             {CHIPS.map((c, i) => (
-              <motion.g
+              <motion.path
                 key={`cable-${i}`}
+                d={c.path}
+                stroke="rgba(155,214,239,0.18)"
+                fill="none"
+                strokeWidth="0.7"
+                strokeLinecap="round"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
@@ -262,42 +269,7 @@ export function GroupOfCompanies() {
                   delay: 1.2 + i * 0.09,
                   ease: "easeOut",
                 }}
-              >
-                {/* Glow halo */}
-                <path
-                  d={c.path}
-                  stroke="rgba(72,168,219,0.55)"
-                  fill="none"
-                  strokeWidth="3.6"
-                  strokeLinecap="round"
-                  filter="url(#cable-glow)"
-                />
-                {/* Crisp trace */}
-                <path
-                  d={c.path}
-                  stroke="rgba(155,214,239,0.6)"
-                  fill="none"
-                  strokeWidth="0.9"
-                  strokeLinecap="round"
-                />
-                {/* Dashed LED chase */}
-                <path
-                  d={c.path}
-                  stroke="rgba(255,255,255,0.55)"
-                  fill="none"
-                  strokeWidth="0.7"
-                  strokeLinecap="round"
-                  strokeDasharray="2 16"
-                >
-                  <animate
-                    attributeName="stroke-dashoffset"
-                    from="0"
-                    to="-18"
-                    dur="1.6s"
-                    repeatCount="indefinite"
-                  />
-                </path>
-              </motion.g>
+              />
             ))}
 
             {/* COMET ORBS — fade in once all cables are lit */}
@@ -307,7 +279,7 @@ export function GroupOfCompanies() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 2.2, ease: "easeOut" }}
             >
-              {CHIPS.map((c, i) => (
+              {CHIPS.map((_, i) => (
                 <g key={`o-${i}`} mask={`url(#scg-mask-${i + 1})`}>
                   <circle
                     className={`scg-architecture scg-line-${i + 1}`}
