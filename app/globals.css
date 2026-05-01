@@ -1,0 +1,316 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — paper & ink editorial system */
+  --color-paper: #f6f3ec;
+  --color-paper-soft: #fbf9f3;
+  --color-paper-deep: #ede8dc;
+  --color-ink: #0d1013;
+  --color-ink-soft: #2a2d33;
+  --color-ink-mute: #4a4e56;
+
+  --color-brand: #48a8db;
+  --color-brand-deep: #2e8ab8;
+  --color-brand-soft: #8dc2dd;
+  --color-brand-wash: #e8f3f9;
+
+  --color-stone: #737574;
+  --color-mist: #b5b6b8;
+  --color-sand: #c9a876;
+
+  /* Fonts — corporate sans system */
+  --font-display: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Custom breakpoints */
+  --breakpoint-xs: 30rem;
+
+  /* Radii & shadows */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* Animation */
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11", "cv01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  /* Editorial selection */
+  ::selection {
+    background: var(--color-brand);
+    color: white;
+  }
+
+  /* Display typography fine-tuning — corporate sans */
+  .font-display {
+    font-feature-settings: "ss01", "ss02", "cv01", "cv11";
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+
+  .font-mono {
+    font-feature-settings: "zero", "ss01";
+  }
+
+  /* Focus rings — keyboard only */
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Subtle paper grain overlay — applied to fixed layer */
+  .grain-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: multiply;
+  }
+
+  .hairline-t { border-top: 1px solid color-mix(in srgb, var(--color-ink) 15%, transparent); }
+  .hairline-b { border-bottom: 1px solid color-mix(in srgb, var(--color-ink) 15%, transparent); }
+  .hairline-y {
+    border-top: 1px solid color-mix(in srgb, var(--color-ink) 15%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-ink) 15%, transparent);
+  }
+
+  /* Editorial small-caps marker */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-stone);
+  }
+
+  /* Container with editorial gutters */
+  .container-edit {
+    width: 100%;
+    max-width: 88rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 48rem) {
+    .container-edit { padding-inline: 2.5rem; }
+  }
+  @media (min-width: 80rem) {
+    .container-edit { padding-inline: 4rem; }
+  }
+}
+
+/* Marquee for free-zones ticker */
+@keyframes marquee-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+.marquee-track {
+  animation: marquee-scroll 48s linear infinite;
+  will-change: transform;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+/* Slow float for cube */
+@keyframes cube-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(-0.5deg); }
+}
+.cube-float { animation: cube-float 9s ease-in-out infinite; }
+
+/* Rotating donut rings */
+@keyframes ring-spin-cw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes ring-spin-ccw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+.ring-spin-cw {
+  animation: ring-spin-cw 80s linear infinite;
+  transform-origin: 250px 250px;
+  transform-box: view-box;
+}
+.ring-spin-ccw {
+  animation: ring-spin-ccw 60s linear infinite;
+  transform-origin: 250px 250px;
+  transform-box: view-box;
+}
+.ring-spin-cw-fast {
+  animation: ring-spin-cw 45s linear infinite;
+  transform-origin: 250px 250px;
+  transform-box: view-box;
+}
+
+/* Gradient sheen for glass cards */
+.glass-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.3) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.45);
+}
+
+/* SVG cube side hover pulse */
+@keyframes pulse-blue {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.88; }
+}
+
+/* ── The Group circuit board (Dubai-Prod-style) ──────────────────── */
+@keyframes scg-flow {
+  0%   { offset-distance: 0%;   }
+  100% { offset-distance: 100%; }
+}
+.scg-architecture {
+  offset-anchor: 10px 0px;
+  animation-name: scg-flow;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  will-change: offset-distance;
+}
+.scg-line-1  { offset-path: path("M 250 220 h 70 q 14 0 14 14 v 52 q 0 14 14 14 h 42");                                      animation-duration: 3.5s;  animation-delay: -0.6s; }
+.scg-line-2  { offset-path: path("M 184 360 h 207");                                                                          animation-duration: 4s;    animation-delay: -1.4s; }
+.scg-line-3  { offset-path: path("M 250 500 h 70 q 14 0 14 -14 v -52 q 0 -14 14 -14 h 42");                                  animation-duration: 3.5s;  animation-delay: -2.2s; }
+.scg-line-4  { offset-path: path("M 390 140 v 70 q 0 14 14 14 h 92 q 14 0 14 14 v 42");                                      animation-duration: 3s;    animation-delay: -1s;   }
+.scg-line-5  { offset-path: path("M 710 140 v 70 q 0 14 -14 14 h -92 q -14 0 -14 14 v 42");                                  animation-duration: 3s;    animation-delay: -1.8s; }
+.scg-line-6  { offset-path: path("M 850 220 h -70 q -14 0 -14 14 v 52 q 0 14 -14 14 h -42");                                 animation-duration: 3.5s;  animation-delay: -2.7s; }
+.scg-line-7  { offset-path: path("M 916 360 h -207");                                                                         animation-duration: 4s;    animation-delay: -0.5s; }
+.scg-line-8  { offset-path: path("M 850 500 h -70 q -14 0 -14 -14 v -52 q 0 -14 -14 -14 h -42");                             animation-duration: 3.5s;  animation-delay: -0.4s; }
+.scg-line-9  { offset-path: path("M 550 586 v -133");                                                                         animation-duration: 3s;    animation-delay: -1.4s; }
+
+.scg-chip { cursor: pointer; }
+.scg-chip .scg-chip-bg {
+  transition: stroke 0.2s, fill 0.2s;
+}
+.scg-chip:hover .scg-chip-bg {
+  stroke: rgba(72, 168, 219, 0.7) !important;
+  fill: rgba(20, 24, 28, 0.96) !important;
+}
+
+/* Rotating perimeter ring on The Group constellation — viewBox 100x60, centre 50,30 */
+@keyframes group-perimeter-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.group-perimeter-spin {
+  animation: group-perimeter-spin 90s linear infinite;
+  transform-origin: 50px 30px;
+  transform-box: view-box;
+  will-change: transform;
+}
+
+/* Connecting edges in The Group orbital diagram — dashes flow toward centre */
+@keyframes edge-pulse {
+  0%   { stroke-dashoffset: 0;   opacity: 0.45; }
+  50%  {                         opacity: 0.95; }
+  100% { stroke-dashoffset: -2.4; opacity: 0.45; }
+}
+.edge-pulse {
+  animation: edge-pulse 4.5s linear infinite;
+  will-change: stroke-dashoffset, opacity;
+}
+
+/* Pulsing halo behind the centered SC cube */
+@keyframes halo-pulse {
+  0%, 100% { transform: scale(1);    opacity: 0.75; }
+  50%      { transform: scale(1.08); opacity: 1;    }
+}
+.halo-pulse {
+  animation: halo-pulse 4.5s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Continuous diagonal light sweep clipped to the cube silhouette.
+   Two evenly-spaced streaks in the gradient so as one exits the other
+   enters — animation loops seamlessly with no visible gap. */
+@keyframes cube-sheen-sweep {
+  0%   { background-position:  100% 0; }
+  100% { background-position: -100% 0; }
+}
+.cube-sheen {
+  background:
+    linear-gradient(
+      110deg,
+      transparent           0%,
+      transparent          18%,
+      rgba(255,255,255,0.55) 23%,
+      rgba(255,255,255,0.9)  25%,
+      rgba(255,255,255,0.55) 27%,
+      transparent          32%,
+      transparent          68%,
+      rgba(255,255,255,0.55) 73%,
+      rgba(255,255,255,0.9)  75%,
+      rgba(255,255,255,0.55) 77%,
+      transparent          82%,
+      transparent         100%
+    );
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  -webkit-mask-image: url('/sc-cube.png');
+          mask-image: url('/sc-cube.png');
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  mix-blend-mode: screen;
+  animation: cube-sheen-sweep 3.2s linear infinite;
+  will-change: background-position;
+}
+
+/* ── 3D spinning SC cube ─────────────────────────────────────────── */
+.cube-stage-3d {
+  perspective: 900px;
+  perspective-origin: 50% 30%;
+}
+@keyframes cube-spin-3d {
+  0%   { transform: rotateX(-14deg) rotateY(0deg); }
+  100% { transform: rotateX(-14deg) rotateY(360deg); }
+}
+.cube-3d-rotate {
+  animation: cube-spin-3d 14s linear infinite;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.cube-3d-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border: 1.5px solid #0d1013;
+  box-shadow: inset 0 0 0 1px rgba(13,16,19,0.08);
+}
