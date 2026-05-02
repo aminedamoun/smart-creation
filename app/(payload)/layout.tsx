@@ -1,26 +1,28 @@
-/* Payload admin layout — provides its own <html>/<body>. */
-import type { ServerFunctionClient } from "payload";
-import { handleServerFunctions, RootLayout } from "@payloadcms/next/layouts";
+/* Payload admin layout — provides its own <html>/<body> via RootLayout. */
 import config from "@payload-config";
-import { importMap } from "./admin/importMap";
-
 import "@payloadcms/next/css";
+import { handleServerFunctions, RootLayout } from "@payloadcms/next/layouts";
+import React from "react";
 
-const serverFunction: ServerFunctionClient = async function (args) {
-  "use server";
-  return handleServerFunctions({
-    ...args,
-    config,
-    importMap,
-  });
-};
+import { importMap } from "./admin/importMap.js";
 
 type Args = {
   children: React.ReactNode;
 };
 
 const Layout = ({ children }: Args) => (
-  <RootLayout config={config} importMap={importMap} serverFunction={serverFunction}>
+  <RootLayout
+    config={config}
+    importMap={importMap}
+    serverFunction={async (args) => {
+      "use server";
+      return handleServerFunctions({
+        ...args,
+        config,
+        importMap,
+      });
+    }}
+  >
     {children}
   </RootLayout>
 );
