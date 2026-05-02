@@ -35,7 +35,7 @@ type Media = { url?: string | null; filename?: string | null; alt?: string | nul
 function mediaUrl(m: Media | undefined | null): string {
   if (!m) return "";
   let raw = m.url || (m.filename ? `/api/media/file/${m.filename}` : "");
-  if (raw.startsWith("http://") || raw.startsWith("https://")) {
+  if (raw.startsWith("http://localhost") || raw.startsWith("http://127.0.0.1")) {
     try {
       raw = new URL(raw).pathname;
     } catch {

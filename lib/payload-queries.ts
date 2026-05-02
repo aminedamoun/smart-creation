@@ -19,11 +19,23 @@ function mediaUrl(m: unknown): string {
   if (!m || typeof m !== "object") return "";
   const media = m as PayloadMedia;
   let raw = media.url || (media.filename ? `/api/media/file/${media.filename}` : "");
-  // Payload prefixes the serverURL onto media paths; strip it so next/image
-  // treats the URL as same-origin (and so the same code works in any env).
-  if (raw.startsWith("http://") || raw.startsWith("https://")) {
+  // Strip the origin only if it's a localhost / serverURL prefix on a
+  // SAME-ORIGIN path (e.g. dev). Cross-origin URLs (Vercel Blob CDN) must
+  // stay absolute so the browser fetches the right host.
+  if (raw.startsWith("http://localhost") || raw.startsWith("http://127.0.0.1")) {
     try {
       raw = new URL(raw).pathname;
+    } catch {
+      /* ignore */
+    }
+  } else if (raw.startsWith("https://") || raw.startsWith("http://")) {
+    try {
+      const u = new URL(raw);
+      // If it's the same origin as our serverURL, strip it.
+      const server = process.env.PAYLOAD_PUBLIC_SERVER_URL;
+      if (server && raw.startsWith(server)) {
+        raw = u.pathname;
+      }
     } catch {
       /* ignore */
     }

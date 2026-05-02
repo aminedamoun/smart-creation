@@ -56,10 +56,17 @@ export default buildConfig({
     limits: { fileSize: 10_000_000 },
   },
   // Vercel Blob in production (set BLOB_READ_WRITE_TOKEN); local disk in dev.
+  // disablePayloadAccessControl makes media URLs point directly at the Blob
+  // CDN domain instead of being proxied through /api/media/file/* (which 404s
+  // unless we explicitly stream files through Payload). Public assets only.
   plugins: blobToken
     ? [
         vercelBlobStorage({
-          collections: { media: true },
+          collections: {
+            media: {
+              disablePayloadAccessControl: true,
+            },
+          },
           token: blobToken,
         }),
       ]

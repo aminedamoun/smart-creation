@@ -19,7 +19,7 @@ type CentreDoc = Awaited<ReturnType<typeof getCentres>>[number];
 function heroUrl(c: CentreDoc): string {
   const h = c.heroImage as { url?: string | null; filename?: string | null } | undefined;
   let raw = h?.url || (h?.filename ? `/api/media/file/${h.filename}` : "/sc-cube.png");
-  if (raw.startsWith("http://") || raw.startsWith("https://")) {
+  if (raw.startsWith("http://localhost") || raw.startsWith("http://127.0.0.1")) {
     try {
       raw = new URL(raw).pathname;
     } catch {
