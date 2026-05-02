@@ -5,11 +5,11 @@ import { buildConfig } from "payload";
 import { sqliteAdapter } from "@payloadcms/db-sqlite";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 
-import { Users } from "./collections/Users.ts";
-import { Media } from "./collections/Media.ts";
-import { Centers } from "./collections/Centers.ts";
-import { Properties } from "./collections/Properties.ts";
-import { BlogPosts } from "./collections/BlogPosts.ts";
+import { Users } from "./collections/Users";
+import { Media } from "./collections/Media";
+import { Centers } from "./collections/Centers";
+import { Properties } from "./collections/Properties";
+import { BlogPosts } from "./collections/BlogPosts";
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
