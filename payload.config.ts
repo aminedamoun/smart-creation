@@ -15,11 +15,24 @@ import { BlogPosts } from "./collections/BlogPosts";
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const dbUri = process.env.DATABASE_URI ?? "file:./payload.db";
+// Accept either DATABASE_URI (Payload convention) or DATABASE_URL (Vercel/Neon).
+const dbUri =
+  process.env.DATABASE_URI ?? process.env.DATABASE_URL ?? "file:./payload.db";
 
 // Postgres for production / hosted environments, SQLite for local dev.
 const db = dbUri.startsWith("postgres")
-  ? postgresAdapter({ pool: { connectionString: dbUri } })
+  ? postgresAdapter({
+      pool: {
+        connectionString: dbUri,
+        // Neon / Vercel Postgres require SSL; allow it without verifying CA.
+        ssl: dbUri.includes("sslmode=disable")
+          ? false
+          : { rejectUnauthorized: false },
+      },
+      // Auto-create schema on first connect. Switch to proper migrations
+      // (`payload migrate`) once schema settles down.
+      push: true,
+    })
   : sqliteAdapter({ client: { url: dbUri } });
 
 const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
