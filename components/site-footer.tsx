@@ -53,7 +53,7 @@ export function SiteFooter() {
         <div className="grid grid-cols-12 gap-x-8 gap-y-14">
           {/* Brand column */}
           <div className="col-span-12 lg:col-span-4">
-            <Logo />
+            <Logo onLight />
             <p className="mt-6 max-w-sm text-[0.95rem] leading-relaxed text-ink-mute">
               A multi-sector group spanning four Dubai business centres, real estate,
               technology, hospitality, transport and contracting — trusted since 2013.

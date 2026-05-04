@@ -56,7 +56,7 @@ export function Process() {
           title={
             <>
               From first call to fully operational —{" "}
-              <span className="italic text-brand">in forty-five days.</span>
+              <span className="text-brand">in forty-five days.</span>
             </>
           }
           lede="No mystery fees, no chasing for document lists. A senior consultant owns your file from start to finish, with a single written timeline you can share with your board."

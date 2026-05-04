@@ -83,7 +83,7 @@ export function CeoWord() {
           >
             <h2 className="font-display text-balance text-[clamp(1.75rem,3.4vw,2.75rem)] leading-[1.05] tracking-[-0.02em] text-paper">
               A word from our{" "}
-              <span className="italic text-brand-soft">CEO.</span>
+              <span className="text-brand-soft">CEO.</span>
             </h2>
 
             <div className="mt-8 space-y-5 text-[1.02rem] leading-[1.75] text-mist text-pretty max-w-2xl">

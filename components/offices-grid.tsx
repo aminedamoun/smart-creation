@@ -21,6 +21,7 @@ type Centre = {
   key: string;
   name: string;
   city?: string;
+  logo?: string;
 };
 
 const accentBg: Record<OfficeListing["accent"], string> = {
@@ -73,7 +74,7 @@ export function OfficesGrid({
               title={
                 <>
                   Five centres, one group —{" "}
-                  <span className="italic text-brand-deep">
+                  <span className="text-brand-deep">
                     pick where you want to work.
                   </span>
                 </>
@@ -99,7 +100,7 @@ export function OfficesGrid({
         <div
           role="tablist"
           aria-label="Filter offices by business centre"
-          className="mb-10 md:mb-12 -mx-1 flex flex-wrap items-center gap-2"
+          className="mb-10 md:mb-12 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 md:gap-3"
         >
           <FilterPill
             active={filter === "all"}
@@ -117,6 +118,7 @@ export function OfficesGrid({
                 onClick={() => setFilter(c.key)}
                 primary={c.name}
                 secondary={c.city ? `${c.city} · ${count}` : `${count}`}
+                logo={c.logo}
               />
             );
           })}
@@ -199,12 +201,14 @@ function FilterPill({
   onClick,
   primary,
   secondary,
+  logo,
 }: {
   active: boolean;
   disabled?: boolean;
   onClick: () => void;
   primary: string;
   secondary: string;
+  logo?: string;
 }) {
   return (
     <button
@@ -214,8 +218,9 @@ function FilterPill({
       aria-disabled={disabled}
       disabled={disabled}
       onClick={onClick}
+      title={primary}
       className={cn(
-        "group inline-flex flex-col items-start rounded-2xl border px-4 py-2.5 text-left transition-all",
+        "group flex h-[88px] w-full flex-col items-center justify-center gap-2 rounded-2xl border px-3 py-3 text-center transition-all",
         active
           ? "border-ink bg-ink text-paper shadow-[0_10px_25px_-12px_rgba(13,16,19,0.35)]"
           : disabled
@@ -223,10 +228,25 @@ function FilterPill({
           : "border-ink/15 bg-paper text-ink hover:border-ink/40 hover:bg-paper-soft"
       )}
     >
-      <span className="text-[0.92rem] font-medium leading-tight">{primary}</span>
+      {logo ? (
+        <span className="relative h-10 w-full">
+          <Image
+            src={logo}
+            alt={primary}
+            fill
+            sizes="160px"
+            className={cn(
+              "object-contain transition-opacity",
+              active && "brightness-0 invert"
+            )}
+          />
+        </span>
+      ) : (
+        <span className="text-[1rem] font-medium leading-tight">{primary}</span>
+      )}
       <span
         className={cn(
-          "mt-0.5 font-mono text-[0.6rem] uppercase tracking-[0.18em]",
+          "max-w-full truncate font-mono text-[0.58rem] uppercase tracking-[0.16em]",
           active ? "text-mist" : "text-stone"
         )}
       >

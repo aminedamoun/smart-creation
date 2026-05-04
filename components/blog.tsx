@@ -18,7 +18,7 @@ export function Blog() {
               title={
                 <>
                   Playbooks & field notes{" "}
-                  <span className="italic text-brand-deep">from the ground.</span>
+                  <span className="text-brand-deep">from the ground.</span>
                 </>
               }
               lede="Practical, no-fluff writing on Dubai company formation, Corporate Tax, banking, and the edge cases that actually slow founders down."

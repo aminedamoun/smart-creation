@@ -89,7 +89,7 @@ export default async function CentrePage({ params }: PageProps) {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-28 md:pt-32 pb-16 md:pb-24 bg-ink text-paper overflow-hidden">
+      <section data-dark-hero className="relative pt-28 md:pt-32 pb-16 md:pb-24 bg-ink text-paper overflow-hidden">
         {heroSrc && (
           <div className="absolute inset-0 -z-10">
             <Image
@@ -149,8 +149,43 @@ export default async function CentrePage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Gallery */}
+      {galleryArr.length > 0 && (
+        <section className="py-16 md:py-24">
+          <div className="container-edit">
+            <div className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-stone mb-6">
+              Inside the centre
+            </div>
+            <ul className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+              {galleryArr.map((g, i) => {
+                const src = mediaUrl(g.image);
+                if (!src) return null;
+                return (
+                  <li key={i} className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-paper-deep">
+                    <Image
+                      src={src}
+                      alt={g.caption ?? `${String(centre.name)} — ${i + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      className="object-cover hover:scale-[1.03] transition-transform duration-700"
+                    />
+                    {g.caption && (
+                      <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-ink/70 to-transparent">
+                        <span className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-paper">
+                          {g.caption}
+                        </span>
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </section>
+      )}
+
       {/* About */}
-      <section className="py-16 md:py-24">
+      <section className="pb-16 md:pb-24">
         <div className="container-edit grid grid-cols-12 gap-x-10 gap-y-12">
           <div className="col-span-12 lg:col-span-7">
             <div className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-stone mb-3">
@@ -250,72 +285,8 @@ export default async function CentrePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Gallery */}
-      {galleryArr.length > 0 && (
-        <section className="pb-16 md:pb-24">
-          <div className="container-edit">
-            <div className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-stone mb-6">
-              Inside the centre
-            </div>
-            <ul className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-              {galleryArr.map((g, i) => {
-                const src = mediaUrl(g.image);
-                if (!src) return null;
-                return (
-                  <li key={i} className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-paper-deep">
-                    <Image
-                      src={src}
-                      alt={g.caption ?? `${String(centre.name)} — ${i + 1}`}
-                      fill
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                      className="object-cover hover:scale-[1.03] transition-transform duration-700"
-                    />
-                    {g.caption && (
-                      <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-ink/70 to-transparent">
-                        <span className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-paper">
-                          {g.caption}
-                        </span>
-                      </div>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </section>
-      )}
-
-      {/* Nearby */}
-      {nearby.length > 0 && (
-        <section className="pb-16 md:pb-24 bg-paper-soft">
-          <div className="container-edit pt-16 md:pt-20">
-            <div className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-stone mb-6">
-              What's nearby
-            </div>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {nearby.map((n, i) => (
-                <li
-                  key={i}
-                  className="flex items-center justify-between gap-3 rounded-2xl border border-ink/10 bg-paper px-4 py-3.5"
-                >
-                  <div className="min-w-0">
-                    <div className="text-[0.95rem] text-ink truncate">{n.name}</div>
-                    <div className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-stone">
-                      {n.category}
-                    </div>
-                  </div>
-                  <span className="shrink-0 rounded-full bg-paper-deep px-3 py-1 text-[0.78rem] text-ink-mute">
-                    {n.distance}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      )}
-
       {/* Properties at this centre */}
-      <section className="py-16 md:py-24">
+      <section className="pb-16 md:pb-24">
         <div className="container-edit">
           <div className="flex items-end justify-between mb-10 gap-4">
             <div>
@@ -431,6 +402,35 @@ export default async function CentrePage({ params }: PageProps) {
           )}
         </div>
       </section>
+
+      {/* Nearby */}
+      {nearby.length > 0 && (
+        <section className="pb-16 md:pb-24 bg-paper-soft">
+          <div className="container-edit pt-16 md:pt-20">
+            <div className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-stone mb-6">
+              What's nearby
+            </div>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {nearby.map((n, i) => (
+                <li
+                  key={i}
+                  className="flex items-center justify-between gap-3 rounded-2xl border border-ink/10 bg-paper px-4 py-3.5"
+                >
+                  <div className="min-w-0">
+                    <div className="text-[0.95rem] text-ink truncate">{n.name}</div>
+                    <div className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-stone">
+                      {n.category}
+                    </div>
+                  </div>
+                  <span className="shrink-0 rounded-full bg-paper-deep px-3 py-1 text-[0.78rem] text-ink-mute">
+                    {n.distance}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
     </>
   );
 }

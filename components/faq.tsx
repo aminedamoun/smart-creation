@@ -20,7 +20,7 @@ export function FAQ() {
               title={
                 <>
                   The questions{" "}
-                  <span className="italic text-brand-deep">founders actually ask.</span>
+                  <span className="text-brand-deep">founders actually ask.</span>
                 </>
               }
               lede="Straight answers to the eight questions we hear most often — the same ones we'll walk through on our first call."

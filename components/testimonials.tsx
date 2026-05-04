@@ -17,7 +17,7 @@ export function Testimonials() {
               title={
                 <>
                   The references are our founders.{" "}
-                  <span className="italic text-brand-deep">
+                  <span className="text-brand-deep">
                     Read every review on Google.
                   </span>
                 </>

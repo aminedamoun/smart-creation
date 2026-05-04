@@ -21,7 +21,7 @@ export function Services() {
               title={
                 <>
                   Everything a company needs —{" "}
-                  <span className="italic text-brand-deep">under one group.</span>
+                  <span className="text-brand-deep">under one group.</span>
                 </>
               }
               lede="From trade license to corporate bank account to Corporate Tax filing, Smart Creation Group is the one partner a Dubai business actually needs. Eight practices, one standard — backed by four owned-and-operated business centres."

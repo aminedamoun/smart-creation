@@ -29,7 +29,7 @@ export function BusinessCenter() {
               className="font-display mt-5 text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[1.04] tracking-[-0.02em] text-ink text-balance max-w-3xl"
             >
               Four real Dubai addresses,{" "}
-              <span className="italic text-brand-deep">all owned and operated.</span>
+              <span className="text-brand-deep">all owned and operated.</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 10 }}

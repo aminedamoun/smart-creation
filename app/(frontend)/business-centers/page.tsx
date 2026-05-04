@@ -48,7 +48,7 @@ export default async function BusinessCentresIndexPage() {
           </div>
           <h1 className="max-w-4xl font-display text-[clamp(2.2rem,5vw,4rem)] leading-[1.02] tracking-[-0.025em] text-ink text-balance">
             Five centres across Dubai —{" "}
-            <span className="italic text-brand-deep">pick where you want to work.</span>
+            <span className="text-brand-deep">pick where you want to work.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-[1.05rem] leading-relaxed text-ink-mute">
             Each Smart Creation Group business centre is fully serviced, Ejari-ready,

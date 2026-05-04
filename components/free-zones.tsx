@@ -18,7 +18,7 @@ export function FreeZones() {
               title={
                 <>
                   Twelve jurisdictions.{" "}
-                  <span className="italic text-brand-deep">One honest recommendation.</span>
+                  <span className="text-brand-deep">One honest recommendation.</span>
                 </>
               }
               lede="Direct relationships with every major free zone in the U.A.E. — and we're not paid more for sending you to any one of them. That is deliberate."
@@ -118,10 +118,7 @@ function ZoneCard({ zone }: { zone: FreeZone }) {
 
       {/* Body */}
       <div className="flex flex-1 flex-col gap-2 p-4">
-        <div className="font-display text-[0.95rem] leading-tight tracking-[-0.01em] text-ink line-clamp-2">
-          {zone.name}
-        </div>
-        <div className="text-[0.78rem] text-ink-mute line-clamp-2">{zone.focus}</div>
+        <div className="text-[0.85rem] text-ink-mute line-clamp-2">{zone.focus}</div>
         <div className="mt-auto pt-3 flex items-center justify-between border-t border-ink/10">
           <span className="font-mono text-[0.68rem] uppercase tracking-[0.18em] text-stone">
             {zone.leadTime}

@@ -103,7 +103,7 @@ const CHIPS: Chip[] = [
 ];
 
 const shortName: Record<string, string> = {
-  "smart-creation-bc": "Smart Creation BC",
+  "smart-creation-bc": "Smart Business Centre",
   "smart-place-bc": "Smart Place BC",
   "smart-view-bc": "Smart View BC",
   "future-space-bc": "Future Space BC",
@@ -202,7 +202,7 @@ export function GroupOfCompanies() {
             title={
               <>
                 Smart Creation Group —{" "}
-                <span className="italic text-brand-soft">
+                <span className="text-brand-soft">
                   one parent, nine affiliated companies.
                 </span>
               </>
@@ -414,7 +414,7 @@ function CentreCard({ compact = false }: { compact?: boolean }) {
           Holding entity · Est. 2013
         </div>
         <Image
-          src="/sc-group-logo.png"
+          src="/sc-group-logo-light.webp"
           alt="Smart Creation Group"
           width={551}
           height={228}

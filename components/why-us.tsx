@@ -34,7 +34,7 @@ export function WhyUs() {
             title={
               <>
                 Why founders who have done it before{" "}
-                <span className="italic text-brand-deep">come back to us.</span>
+                <span className="text-brand-deep">come back to us.</span>
               </>
             }
             lede="Setup agencies are not commodities. The difference shows up in the second year — when the hand-off fails, the visa renewal gets stuck, or the Corporate Tax deadline arrives. Here's what we do differently."

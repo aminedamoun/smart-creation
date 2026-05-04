@@ -68,37 +68,37 @@ export const navigation: NavItem[] = [
         {
           title: "Company formation",
           links: [
-            { label: "Mainland setup", href: "/services/mainland", desc: "Dubai DET license, LLC, branches" },
-            { label: "Free zone setup", href: "/services/free-zone", desc: "Every major UAE free zone" },
-            { label: "Offshore structure", href: "/services/offshore", desc: "JAFZA, RAK ICC, Ajman" },
-            { label: "Holding & subsidiary", href: "/services/holding", desc: "Group structuring" },
+            { label: "Mainland setup", href: "/services/company-formation#mainland", desc: "Dubai DET license, LLC, branches" },
+            { label: "Free zone setup", href: "/services/company-formation#free-zone", desc: "Every major UAE free zone" },
+            { label: "Offshore structure", href: "/services/company-formation#offshore", desc: "JAFZA, RAK ICC, Ajman" },
+            { label: "Holding & subsidiary", href: "/services/company-formation#holding", desc: "Group structuring" },
           ],
         },
         {
           title: "Visas & residency",
           links: [
-            { label: "PRO services", href: "/services/pro-visa", desc: "Visa, Emirates ID, labour" },
-            { label: "Investor visa", href: "/services/investor-visa", desc: "2, 5 and 10-year options" },
-            { label: "Golden visa", href: "/services/golden-visa", desc: "10-year long-term residency", badge: "Popular" },
-            { label: "Family sponsorship", href: "/services/family-visa", desc: "Spouse, children, parents" },
+            { label: "PRO services", href: "/services/visas#pro-visa", desc: "Visa, Emirates ID, labour" },
+            { label: "Investor visa", href: "/services/visas#investor-visa", desc: "2, 5 and 10-year options" },
+            { label: "Golden visa", href: "/services/visas#golden-visa", desc: "10-year long-term residency", badge: "Popular" },
+            { label: "Family sponsorship", href: "/services/visas#family-visa", desc: "Spouse, children, parents" },
           ],
         },
         {
           title: "Financial",
           links: [
-            { label: "Corporate banking", href: "/services/banking", desc: "UAE & international banks" },
-            { label: "Accounting & VAT", href: "/services/accounting", desc: "Monthly books, VAT filing" },
-            { label: "Corporate tax", href: "/services/corporate-tax", desc: "Registration, returns, advisory" },
-            { label: "Audit", href: "/services/audit", desc: "Statutory, internal, due diligence" },
+            { label: "Corporate banking", href: "/services/financial#banking", desc: "UAE & international banks" },
+            { label: "Accounting & VAT", href: "/services/financial#accounting", desc: "Monthly books, VAT filing" },
+            { label: "Corporate tax", href: "/services/financial#corporate-tax", desc: "Registration, returns, advisory" },
+            { label: "Audit", href: "/services/financial#audit", desc: "Statutory, internal, due diligence" },
           ],
         },
         {
           title: "Compliance & licensing",
           links: [
-            { label: "Trademark", href: "/services/trademark", desc: "UAE & international filing" },
-            { label: "AML / ESR / UBO", href: "/services/compliance", desc: "Frameworks and filings" },
-            { label: "Document attestation", href: "/services/attestation", desc: "MOFA, notarisation, embassy" },
-            { label: "License renewal", href: "/services/renewal", desc: "Annual renewals across zones" },
+            { label: "Trademark", href: "/services/compliance#trademark", desc: "UAE & international filing" },
+            { label: "AML / ESR / UBO", href: "/services/compliance#aml-esr-ubo", desc: "Frameworks and filings" },
+            { label: "Document attestation", href: "/services/compliance#attestation", desc: "MOFA, notarisation, embassy" },
+            { label: "License renewal", href: "/services/compliance#renewal", desc: "Annual renewals across zones" },
           ],
         },
       ],
@@ -119,23 +119,23 @@ export const navigation: NavItem[] = [
         {
           title: "Dubai",
           links: [
-            { label: "IFZA", href: "/free-zones/ifza", desc: "International Free Zone Authority" },
-            { label: "DMCC", href: "/free-zones/dmcc", desc: "Multi Commodities Centre" },
-            { label: "JAFZA", href: "/free-zones/jafza", desc: "Jebel Ali Free Zone" },
-            { label: "DIFC", href: "/free-zones/difc", desc: "International Financial Centre" },
-            { label: "Meydan", href: "/free-zones/meydan", desc: "Professional services" },
-            { label: "DAFZA", href: "/free-zones/dafza", desc: "Airport Free Zone" },
-            { label: "DWTC", href: "/free-zones/dwtc", desc: "World Trade Centre" },
-            { label: "DCC", href: "/free-zones/dcc", desc: "Dubai CommerCity — e-commerce" },
+            { label: "IFZA", href: "/free-zones/dubai#ifza", desc: "International Free Zone Authority" },
+            { label: "DMCC", href: "/free-zones/dubai#dmcc", desc: "Multi Commodities Centre" },
+            { label: "JAFZA", href: "/free-zones/dubai#jafza", desc: "Jebel Ali Free Zone" },
+            { label: "DIFC", href: "/free-zones/dubai#difc", desc: "International Financial Centre" },
+            { label: "Meydan", href: "/free-zones/dubai#meydan", desc: "Professional services" },
+            { label: "DAFZA", href: "/free-zones/dubai#dafza", desc: "Airport Free Zone" },
+            { label: "DWTC", href: "/free-zones/dubai#dwtc", desc: "World Trade Centre" },
+            { label: "DCC", href: "/free-zones/dubai#dcc", desc: "Dubai CommerCity — e-commerce" },
           ],
         },
         {
           title: "Sharjah & northern emirates",
           links: [
-            { label: "SHAMS", href: "/free-zones/shams", desc: "Sharjah Media City" },
-            { label: "SPC", href: "/free-zones/spc", desc: "Sharjah Publishing City" },
-            { label: "RAKEZ", href: "/free-zones/rakez", desc: "Ras Al Khaimah Economic Zone" },
-            { label: "AFZA", href: "/free-zones/ajman", desc: "Ajman Free Zone" },
+            { label: "SHAMS", href: "/free-zones/northern-emirates#shams", desc: "Sharjah Media City" },
+            { label: "SPC", href: "/free-zones/northern-emirates#spc", desc: "Sharjah Publishing City" },
+            { label: "RAKEZ", href: "/free-zones/northern-emirates#rakez", desc: "Ras Al Khaimah Economic Zone" },
+            { label: "AFZA", href: "/free-zones/northern-emirates#afza", desc: "Ajman Free Zone" },
           ],
         },
       ],
@@ -151,10 +151,6 @@ export const navigation: NavItem[] = [
   {
     label: "Business Centers",
     href: "/business-centers",
-  },
-  {
-    label: "About",
-    href: "/about",
   },
   {
     label: "Insights",
@@ -268,7 +264,7 @@ export const groupCompanies: GroupCompany[] = [
     summary:
       "Flagship 500-office business centre at Damac Executive Heights — end-to-end company formation, licensing, PRO and tax services.",
     icon: Building2,
-    logo: "/group-logos/smart-creation-bc.png",
+    logo: "/group-logos/smart-creation-bc.webp",
   },
   {
     id: "smart-place-bc",
@@ -290,6 +286,7 @@ export const groupCompanies: GroupCompany[] = [
     summary:
       "Professional business hub in Bur Dubai for credible daily operations and confident growth.",
     icon: Building2,
+    logo: "/group-logos/smart-view.webp",
   },
   {
     id: "future-space-bc",
@@ -300,6 +297,7 @@ export const groupCompanies: GroupCompany[] = [
     summary:
       "Premium serviced offices, flexi desks and virtual offices on Salah Al Din Street, Al Muraqabat.",
     icon: Building2,
+    logo: "/group-logos/future-space.webp",
   },
   {
     id: "abna-rashid",
@@ -310,6 +308,7 @@ export const groupCompanies: GroupCompany[] = [
     summary:
       "Premium residential, commercial and retail property in Deira, managed by Daw Alard Real Estate Management Supervision Services L.L.C.",
     icon: Building,
+    logo: "/group-logos/abna-rashid.webp",
   },
   {
     id: "next-journey",

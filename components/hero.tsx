@@ -61,6 +61,7 @@ export function Hero() {
   return (
     <section
       ref={sectionRef}
+      data-dark-hero
       className="relative overflow-hidden pt-32 md:pt-40 pb-20 md:pb-28 bg-ink text-paper"
       style={
         {

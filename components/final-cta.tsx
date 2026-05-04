@@ -50,7 +50,7 @@ export function FinalCTA() {
               className="font-display mt-6 text-[clamp(2.2rem,5.5vw,4.2rem)] leading-[1.02] tracking-[-0.025em] text-paper text-balance"
             >
               Your U.A.E. company starts with{" "}
-              <span className="italic text-brand">one conversation.</span>
+              <span className="text-brand">one conversation.</span>
             </motion.h2>
 
             <motion.p

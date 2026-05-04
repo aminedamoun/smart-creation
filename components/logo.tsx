@@ -7,14 +7,22 @@ type LogoProps = {
   markOnly?: boolean;
   /** Inverts colors for dark backgrounds */
   inverted?: boolean;
+  /** Use the light-background variant of the logo (legible wordmark for paper bg) */
+  onLight?: boolean;
 };
 
 /**
  * Smart Creation Group — official logo lockup.
- * Served from /public/sc-group-logo.png. When placed on dark backgrounds
- * `inverted` applies a filter to keep the wordmark legible.
+ * Two WEBP variants live in /public: sc-group-logo.webp (dark-bg) and
+ * sc-group-logo-light.webp (light-bg). Pass `onLight` to swap to the
+ * light-background lockup so the wordmark stays legible.
  */
-export function Logo({ className, markOnly = false, inverted = false }: LogoProps) {
+export function Logo({
+  className,
+  markOnly = false,
+  inverted = false,
+  onLight = false,
+}: LogoProps) {
   if (markOnly) {
     return (
       <span className={cn("inline-flex items-center", className)}>
@@ -22,10 +30,11 @@ export function Logo({ className, markOnly = false, inverted = false }: LogoProp
       </span>
     );
   }
+  const src = onLight ? "/sc-group-logo-light.webp" : "/sc-group-logo.webp";
   return (
     <span className={cn("inline-flex items-center", className)}>
       <Image
-        src="/sc-group-logo.png"
+        src={src}
         alt="Smart Creation Group"
         width={551}
         height={228}

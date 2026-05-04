@@ -112,7 +112,7 @@ const jsonLd = {
       name: "Smart Creation Group of Companies",
       alternateName: ["Smart Creation Group", "SCG"],
       url: SITE_URL,
-      logo: `${SITE_URL}/sc-group-logo.png`,
+      logo: `${SITE_URL}/sc-group-logo.webp`,
       foundingDate: "2013",
       founder: { "@type": "Person", name: "Asad Hashmi" },
       description:

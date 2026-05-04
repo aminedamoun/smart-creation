@@ -19,17 +19,32 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeMega, setActiveMega] = useState<string | null>(null);
+  const [isClosing, setIsClosing] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const exitTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Inverted = over the dark hero (top of page). Once scrolled the header
-  // flips to paper-bg / ink-text editorial mode.
+  // Inverted = over the dark hero (top of page). Once scrolled past the dark
+  // hero (or on pages with no dark hero at all) the header flips to paper-bg
+  // / ink-text editorial mode.
   const inverted = !scrolled;
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 70);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const update = () => {
+      const dark = document.querySelector<HTMLElement>("[data-dark-hero]");
+      if (!dark) {
+        setScrolled(true);
+        return;
+      }
+      const rect = dark.getBoundingClientRect();
+      setScrolled(rect.bottom < 80);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
   }, []);
 
   // Close mega on Esc
@@ -54,13 +69,37 @@ export function SiteHeader() {
   }, [menuOpen]);
 
   const openMega = (label: string) => {
+    if (isClosing) return;
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setActiveMega(label);
   };
   const scheduleCloseMega = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => setActiveMega(null), 120);
+    closeTimer.current = setTimeout(() => {
+      setIsClosing(true);
+      setActiveMega(null);
+      if (exitTimer.current) clearTimeout(exitTimer.current);
+      exitTimer.current = setTimeout(() => setIsClosing(false), 260);
+    }, 120);
   };
+
+  // If the cursor leaves the entire viewport, force-close immediately
+  // (catches the case where the user mouses out of the browser without
+  // ever firing mouseleave on the panel).
+  useEffect(() => {
+    if (!activeMega) return;
+    const onWindowLeave = () => scheduleCloseMega();
+    document.addEventListener("mouseleave", onWindowLeave);
+    return () => document.removeEventListener("mouseleave", onWindowLeave);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeMega]);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+      if (exitTimer.current) clearTimeout(exitTimer.current);
+    };
+  }, []);
 
   const activeItem = navigation.find((n) => n.label === activeMega);
 
@@ -70,7 +109,7 @@ export function SiteHeader() {
         "fixed top-0 left-0 right-0 z-50 transition-colors duration-300",
         scrolled
           ? "bg-paper/85 backdrop-blur-xl border-b border-ink/10"
-          : "bg-transparent"
+          : "bg-ink/30 backdrop-blur-md border-b border-paper/5"
       )}
     >
       {/* Editorial masthead line */}
@@ -107,7 +146,7 @@ export function SiteHeader() {
       <div className="container-edit">
         <nav className="flex h-20 md:h-24 items-center justify-between">
           <Link href="/" aria-label="Smart Creation Group of Companies" className="shrink-0">
-            <Logo />
+            <Logo onLight={scrolled} />
           </Link>
 
           {/* Desktop nav */}
@@ -178,11 +217,14 @@ export function SiteHeader() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute left-0 right-0 top-full hidden lg:block"
-            onMouseEnter={() => openMega(activeItem.label)}
-            onMouseLeave={scheduleCloseMega}
+            className="pointer-events-none absolute left-0 right-0 top-full hidden lg:block"
           >
-            <div className="container-edit pt-2">
+            <div
+              className="container-edit pt-2"
+              style={{ pointerEvents: isClosing ? "none" : "auto" }}
+              onMouseEnter={() => openMega(activeItem.label)}
+              onMouseLeave={scheduleCloseMega}
+            >
               <MegaPanel item={activeItem} inverted={inverted} />
             </div>
           </motion.div>
