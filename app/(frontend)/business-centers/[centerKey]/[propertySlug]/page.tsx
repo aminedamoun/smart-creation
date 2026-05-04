@@ -22,7 +22,7 @@ import {
   getSimilarProperties,
   propertyToOffice,
   propertyToImages,
-} from "@/lib/payload-queries";
+} from "@/lib/supabase-queries";
 import { CONTACT } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
@@ -69,7 +69,7 @@ export default async function PropertyDetailPage({ params }: PageProps) {
 
   const images = propertyToImages(raw);
 
-  const centreId = (raw.center as { id: string | number } | null)?.id;
+  const centreId = raw.centre?.id;
   const similarRaw = centreId
     ? await getSimilarProperties({ centreId, excludeSlug: propertySlug, limit: 3 })
     : [];

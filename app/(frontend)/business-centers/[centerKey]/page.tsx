@@ -20,7 +20,7 @@ import {
   getCentreByKey,
   getProperties,
   propertyToOffice,
-} from "@/lib/payload-queries";
+} from "@/lib/supabase-queries";
 import { CONTACT } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
@@ -30,30 +30,15 @@ type PageProps = {
   params: Promise<{ centerKey: string }>;
 };
 
-type Media = { url?: string | null; filename?: string | null; alt?: string | null };
-
-function mediaUrl(m: Media | undefined | null): string {
-  if (!m) return "";
-  let raw = m.url || (m.filename ? `/api/media/file/${m.filename}` : "");
-  if (raw.startsWith("http://") || raw.startsWith("https://")) {
-    try {
-      raw = new URL(raw).pathname;
-    } catch {
-      /* ignore */
-    }
-  }
-  return raw;
-}
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { centerKey } = await params;
   const centre = await getCentreByKey(centerKey);
   if (!centre) return {};
 
-  const title = String(centre.name);
-  const description = String(centre.tagline ?? centre.description ?? "");
+  const title = centre.name;
+  const description = centre.tagline ?? centre.description ?? "";
   const url = `/business-centers/${centerKey}`;
-  const heroSrc = mediaUrl(centre.heroImage as Media);
+  const heroSrc = centre.hero_image ?? undefined;
 
   return {
     title,
@@ -77,14 +62,14 @@ export default async function CentrePage({ params }: PageProps) {
   const propsRaw = await getProperties({ centreKey: centerKey, limit: 100 });
   const offices = propsRaw.map(propertyToOffice);
 
-  const heroSrc = mediaUrl(centre.heroImage as Media);
-  const advantages = (centre.advantages as { title: string; description?: string }[]) ?? [];
-  const nearby = (centre.nearby as { name: string; category: string; distance: string }[]) ?? [];
-  const galleryArr = (centre.gallery as { image: Media; caption?: string }[]) ?? [];
+  const heroSrc = centre.hero_image ?? "";
+  const advantages = centre.advantages ?? [];
+  const nearby = centre.nearby ?? [];
+  const galleryArr = centre.gallery ?? [];
 
-  const phone = (centre.phone as string) || CONTACT.phone;
-  const email = (centre.email as string) || "info@thesmartcreation.com";
-  const mapUrl = centre.googleMapsUrl as string | undefined;
+  const phone = centre.phone || CONTACT.phone;
+  const email = centre.email || "info@thesmartcreation.com";
+  const mapUrl = centre.google_maps_url ?? undefined;
 
   return (
     <>
@@ -158,7 +143,7 @@ export default async function CentrePage({ params }: PageProps) {
             </div>
             <ul className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
               {galleryArr.map((g, i) => {
-                const src = mediaUrl(g.image);
+                const src = g.url;
                 if (!src) return null;
                 return (
                   <li key={i} className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-paper-deep">
@@ -230,7 +215,7 @@ export default async function CentrePage({ params }: PageProps) {
                 <MapPin className="h-4 w-4 text-stone mt-0.5 shrink-0" strokeWidth={1.8} />
                 <div>
                   <div>{String(centre.building)}</div>
-                  {centre.addressLine ? <div className="text-ink-mute">{String(centre.addressLine)}</div> : (
+                  {centre.address_line ? <div className="text-ink-mute">{String(centre.address_line)}</div> : (
                     <div className="text-ink-mute">{String(centre.location)}</div>
                   )}
                   <div className="text-ink-mute">{String(centre.emirate)}</div>

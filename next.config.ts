@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-import { withPayload } from "@payloadcms/next/withPayload";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -9,12 +8,16 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
+      // Vercel Blob — every store has its own subdomain on this host.
+      { protocol: "https", hostname: "*.public.blob.vercel-storage.com" },
+      // Supabase Storage — public bucket URLs.
+      { protocol: "https", hostname: "*.supabase.co" },
     ],
   },
   async headers() {
     return [
       {
-        source: "/((?!admin|api).*)",
+        source: "/((?!admin).*)",
         headers: [
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "X-Frame-Options", value: "DENY" },
@@ -26,4 +29,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default withPayload(nextConfig, { devBundleServerPackages: false });
+export default nextConfig;

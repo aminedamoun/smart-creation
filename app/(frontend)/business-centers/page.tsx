@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, Building2, MapPin } from "lucide-react";
 
-import { getCentres, getProperties, propertyToOffice } from "@/lib/payload-queries";
+import { getCentres, getProperties, propertyToOffice, type CentreRow } from "@/lib/supabase-queries";
 
 export const dynamic = "force-dynamic";
 
@@ -14,19 +14,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/business-centers" },
 };
 
-type CentreDoc = Awaited<ReturnType<typeof getCentres>>[number];
-
-function heroUrl(c: CentreDoc): string {
-  const h = c.heroImage as { url?: string | null; filename?: string | null } | undefined;
-  let raw = h?.url || (h?.filename ? `/api/media/file/${h.filename}` : "/sc-cube.png");
-  if (raw.startsWith("http://") || raw.startsWith("https://")) {
-    try {
-      raw = new URL(raw).pathname;
-    } catch {
-      /* ignore */
-    }
-  }
-  return raw;
+function heroUrl(c: CentreRow): string {
+  return c.hero_image || "/sc-cube.png";
 }
 
 export default async function BusinessCentresIndexPage() {

@@ -1,4 +1,4 @@
-import { getCentres, getProperties, propertyToOffice } from "@/lib/payload-queries";
+import { getCentres, getProperties, propertyToOffice } from "@/lib/supabase-queries";
 import { OfficesGrid } from "@/components/offices-grid";
 
 const CENTRE_CITY: Record<string, string> = {
