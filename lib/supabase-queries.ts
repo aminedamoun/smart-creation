@@ -95,12 +95,14 @@ export async function getCentreByKey(key: string): Promise<CentreRow | null> {
 export type PropertyQuery = {
   centreKey?: string;
   featured?: boolean;
+  showOnHome?: boolean;
   limit?: number;
 };
 
 export async function getProperties({
   centreKey,
   featured,
+  showOnHome,
   limit = 200,
 }: PropertyQuery = {}): Promise<PropertyWithCentre[]> {
   let q = supabasePublic
@@ -110,6 +112,7 @@ export async function getProperties({
     .order("id", { ascending: true })
     .limit(limit);
   if (featured) q = q.eq("featured", true);
+  if (showOnHome) q = q.eq("show_on_home", true);
   if (centreKey) {
     const centre = await getCentreByKey(centreKey);
     if (!centre) return [];

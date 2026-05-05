@@ -22,7 +22,7 @@ const CENTRE_LOGO: Record<string, string> = {
 export async function Offices() {
   const [centresRaw, propertiesRaw] = await Promise.all([
     getCentres(),
-    getProperties({ limit: 200 }),
+    getProperties({ showOnHome: true, limit: 200 }),
   ]);
 
   const centres = centresRaw.map((c) => ({
