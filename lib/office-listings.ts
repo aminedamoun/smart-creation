@@ -22,7 +22,16 @@ export type OfficeListing = {
   slug: string;
   officeNo: string;
   title: string;
-  category: "Private office" | "Co-working" | "Dedicated desk";
+  category:
+    | "Private office"
+    | "Co-working"
+    | "Dedicated desk"
+    | "Virtual Office"
+    | "Flexi Desk"
+    | "Day Office"
+    | "Meeting Room"
+    | "Business Address"
+    | "Telephone Answering";
   accent: OfficeAccent;
 
   // Location

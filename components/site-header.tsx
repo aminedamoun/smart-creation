@@ -257,36 +257,57 @@ function NavItemTrigger({
   onClose: () => void;
 }) {
   const hasMega = !!item.mega;
+  const isLabelOnly = item.noLink === true;
+  const triggerClass = cn(
+    "inline-flex items-center gap-1 px-3.5 py-2 rounded-full transition-colors",
+    inverted
+      ? "text-paper/80 hover:text-paper"
+      : "text-ink/80 hover:text-ink",
+    isActive && (inverted ? "text-paper" : "text-ink"),
+    isLabelOnly && hasMega ? "cursor-default" : undefined,
+  );
+  const triggerInner = (
+    <>
+      {item.label}
+      {hasMega && (
+        <ChevronDown
+          className={cn(
+            "h-3.5 w-3.5 transition-transform duration-200",
+            isActive && "rotate-180"
+          )}
+          strokeWidth={2}
+        />
+      )}
+    </>
+  );
   return (
     <li
       className="relative"
       onMouseEnter={hasMega ? onOpen : undefined}
       onMouseLeave={hasMega ? onClose : undefined}
     >
-      <Link
-        href={item.href}
-        className={cn(
-          "inline-flex items-center gap-1 px-3.5 py-2 rounded-full transition-colors",
-          inverted
-            ? "text-paper/80 hover:text-paper"
-            : "text-ink/80 hover:text-ink",
-          isActive && (inverted ? "text-paper" : "text-ink")
-        )}
-        onFocus={hasMega ? onOpen : undefined}
-        aria-expanded={hasMega ? isActive : undefined}
-        aria-haspopup={hasMega ? "true" : undefined}
-      >
-        {item.label}
-        {hasMega && (
-          <ChevronDown
-            className={cn(
-              "h-3.5 w-3.5 transition-transform duration-200",
-              isActive && "rotate-180"
-            )}
-            strokeWidth={2}
-          />
-        )}
-      </Link>
+      {isLabelOnly && hasMega ? (
+        <button
+          type="button"
+          className={triggerClass}
+          onFocus={onOpen}
+          onClick={() => (isActive ? onClose() : onOpen())}
+          aria-expanded={isActive}
+          aria-haspopup="true"
+        >
+          {triggerInner}
+        </button>
+      ) : (
+        <Link
+          href={item.href}
+          className={triggerClass}
+          onFocus={hasMega ? onOpen : undefined}
+          aria-expanded={hasMega ? isActive : undefined}
+          aria-haspopup={hasMega ? "true" : undefined}
+        >
+          {triggerInner}
+        </Link>
+      )}
     </li>
   );
 }

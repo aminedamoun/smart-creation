@@ -80,6 +80,13 @@ export type ServiceSectionData = {
   highlight: { eyebrow: string; title: string; body: string };
   steps: string[];
   badge?: string;
+  /**
+   * Media mode for the right-hand card.
+   * - "image" (default): show the parallax photo overlaid with the logo pill.
+   * - "logo": show a brand-blue gradient card with the logo centred (matches the
+   *   free-zone-style boxes on the homepage). Requires `logoSrc`.
+   */
+  mediaMode?: "image" | "logo";
 };
 
 function MaskedLogo({
@@ -281,49 +288,90 @@ export function ServiceSection({
                 flip && "-translate-x-3",
               )}
             />
-            <motion.div
-              style={{ y: imgY }}
-              whileHover={{ scale: 1.01 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="relative aspect-[5/4] overflow-hidden rounded-3xl border border-ink/10 shadow-[0_30px_80px_-30px_rgba(13,16,19,0.45)]"
-            >
-              <Image
-                src={s.image.src}
-                alt={s.image.alt}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover transition-transform duration-700 hover:scale-[1.06]"
-              />
-              <div
-                aria-hidden
-                className="absolute inset-0 bg-gradient-to-tr from-ink/40 via-ink/0 to-transparent"
-              />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -bottom-16 -right-16 h-56 w-56 rounded-full"
-                style={{
-                  background:
-                    "radial-gradient(closest-side, rgba(72,168,219,0.4), rgba(72,168,219,0) 70%)",
-                }}
-              />
-              {s.logoSrc ? (
-                <div className="absolute left-5 top-5 inline-flex items-center justify-center rounded-2xl border border-paper/25 bg-gradient-to-br from-[#62b5df] via-[#48a8db] to-[#2e8ab8] px-4 py-2.5 shadow-[0_12px_30px_-12px_rgba(72,168,219,0.55)]">
-                  <MaskedLogo src={s.logoSrc} tone="paper" className="h-6 w-[100px]" />
+            {s.mediaMode === "logo" && s.logoSrc ? (
+              <motion.div
+                style={{ y: imgY }}
+                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                className="relative aspect-[5/4] overflow-hidden rounded-3xl border border-ink/10 bg-[#48a8db] shadow-[0_30px_80px_-30px_rgba(72,168,219,0.55)]"
+              >
+                <div
+                  aria-hidden
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #62b5df 0%, #48a8db 55%, #2e8ab8 100%)",
+                  }}
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 opacity-[0.12]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(to right, rgba(246,243,236,0.6) 1px, transparent 1px), linear-gradient(to bottom, rgba(246,243,236,0.6) 1px, transparent 1px)",
+                    backgroundSize: "32px 32px",
+                  }}
+                />
+                <div className="absolute inset-0 flex items-center justify-center p-10">
+                  <MaskedLogo
+                    src={s.logoSrc}
+                    tone="paper"
+                    className="h-[55%] w-[70%] drop-shadow-[0_2px_12px_rgba(0,0,0,0.25)]"
+                  />
                 </div>
-              ) : (
-                <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full border border-paper/30 bg-ink/60 backdrop-blur-md px-3 py-1 font-mono text-[0.6rem] uppercase tracking-[0.22em] text-paper">
-                  <Icon className="h-3.5 w-3.5" strokeWidth={1.7} />
-                  {s.title}
+                <div className="absolute right-5 bottom-5 inline-flex items-center gap-1.5 rounded-full border border-paper/25 bg-ink/40 backdrop-blur-md px-3 py-1 font-mono text-[0.58rem] uppercase tracking-[0.22em] text-paper">
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="absolute inset-0 animate-ping rounded-full bg-paper opacity-75" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-paper" />
+                  </span>
+                  Trusted since 2013
                 </div>
-              )}
-              <div className="absolute right-5 bottom-5 inline-flex items-center gap-1.5 rounded-full border border-paper/30 bg-ink/60 backdrop-blur-md px-3 py-1 font-mono text-[0.58rem] uppercase tracking-[0.22em] text-paper">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inset-0 animate-ping rounded-full bg-brand opacity-75" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
-                </span>
-                Trusted since 2013
-              </div>
-            </motion.div>
+              </motion.div>
+            ) : (
+              <motion.div
+                style={{ y: imgY }}
+                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                className="relative aspect-[5/4] overflow-hidden rounded-3xl border border-ink/10 shadow-[0_30px_80px_-30px_rgba(13,16,19,0.45)]"
+              >
+                <Image
+                  src={s.image.src}
+                  alt={s.image.alt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-700 hover:scale-[1.06]"
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-tr from-ink/40 via-ink/0 to-transparent"
+                />
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute -bottom-16 -right-16 h-56 w-56 rounded-full"
+                  style={{
+                    background:
+                      "radial-gradient(closest-side, rgba(72,168,219,0.4), rgba(72,168,219,0) 70%)",
+                  }}
+                />
+                {s.logoSrc ? (
+                  <div className="absolute left-5 top-5 inline-flex items-center justify-center rounded-2xl border border-paper/25 bg-gradient-to-br from-[#62b5df] via-[#48a8db] to-[#2e8ab8] px-4 py-2.5 shadow-[0_12px_30px_-12px_rgba(72,168,219,0.55)]">
+                    <MaskedLogo src={s.logoSrc} tone="paper" className="h-6 w-[100px]" />
+                  </div>
+                ) : (
+                  <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full border border-paper/30 bg-ink/60 backdrop-blur-md px-3 py-1 font-mono text-[0.6rem] uppercase tracking-[0.22em] text-paper">
+                    <Icon className="h-3.5 w-3.5" strokeWidth={1.7} />
+                    {s.title}
+                  </div>
+                )}
+                <div className="absolute right-5 bottom-5 inline-flex items-center gap-1.5 rounded-full border border-paper/30 bg-ink/60 backdrop-blur-md px-3 py-1 font-mono text-[0.58rem] uppercase tracking-[0.22em] text-paper">
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="absolute inset-0 animate-ping rounded-full bg-brand opacity-75" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
+                  </span>
+                  Trusted since 2013
+                </div>
+              </motion.div>
+            )}
           </motion.div>
         </motion.div>
 

@@ -24,8 +24,8 @@ const sections: ServiceSectionData[] = [
     lede:
       "Register your brand name, logo and word-marks in the UAE — and, when you're ready, internationally through the Madrid System. Most disputes start because the trademark wasn't filed early enough; we make sure yours is.",
     image: {
-      src: "/building/building-5.jpg",
-      alt: "Trademark filing — placeholder image",
+      src: "/services/compliance/trademark.webp",
+      alt: "Trademark filing",
     },
     good: [
       "Founders launching a new brand or product line",
@@ -67,8 +67,8 @@ const sections: ServiceSectionData[] = [
     lede:
       "Anti-Money-Laundering frameworks, Economic Substance Regulations notifications and Ultimate Beneficial Owner filings. Each one carries fines if missed — we put the framework in place and file every cycle on time.",
     image: {
-      src: "/building/building-2.jpg",
-      alt: "AML, ESR and UBO compliance — placeholder image",
+      src: "/services/compliance/aml-esr-ubo.webp",
+      alt: "AML, ESR and UBO compliance",
     },
     good: [
       "DNFBPs (real estate, dealers in precious metals, accountants, advisors)",
@@ -110,8 +110,8 @@ const sections: ServiceSectionData[] = [
     lede:
       "Notarisation, Ministry of Foreign Affairs and embassy attestation for documents you need accepted in the UAE — or UAE documents you need accepted abroad. Education certificates, marriage certificates, MOAs, powers of attorney and corporate documents.",
     image: {
-      src: "/building/building-7.jpg",
-      alt: "Document attestation — placeholder image",
+      src: "/services/compliance/attestation.webp",
+      alt: "Document attestation",
     },
     good: [
       "Newcomers attesting marriage, birth and education certificates",
@@ -153,8 +153,8 @@ const sections: ServiceSectionData[] = [
     lede:
       "Trade licence renewals across mainland, every UAE free zone and offshore. We run the calendar, send the invoice, file before expiry and keep a clean activity history — so your licence never lapses and your operations never stop.",
     image: {
-      src: "/building/building-1.jpg",
-      alt: "Annual licence renewal — placeholder image",
+      src: "/services/compliance/renewal.webp",
+      alt: "Annual licence renewal",
     },
     good: [
       "Companies that missed a renewal once and don't want to repeat it",

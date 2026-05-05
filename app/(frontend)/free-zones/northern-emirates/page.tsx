@@ -3,9 +3,9 @@ import Link from "next/link";
 import { ArrowUpRight, Calendar } from "lucide-react";
 import { NorthernEmiratesZonesHero } from "@/components/northern-emirates-zones-hero";
 import {
-  FreeZoneSpotlight,
-  type FreeZoneSpotlightData,
-} from "@/components/free-zone-spotlight";
+  ServiceSection,
+  type ServiceSectionData,
+} from "@/components/service-section";
 
 export const metadata: Metadata = {
   title: "Sharjah & Northern Emirates Free Zones — SHAMS, SPC, RAKEZ, AFZA",
@@ -14,18 +14,18 @@ export const metadata: Metadata = {
   alternates: { canonical: "/free-zones/northern-emirates" },
 };
 
-const zones: FreeZoneSpotlightData[] = [
+const sections: ServiceSectionData[] = [
   {
     id: "shams",
     index: "01",
-    code: "SHAMS",
-    name: "Sharjah Media City",
     eyebrow: "Sharjah · media & creative",
-    emirate: "Sharjah",
+    title: "SHAMS",
+    icon: "globe",
     logoSrc: "/free-zones/shams.png",
-    image: { src: "/building/building-2.jpg", alt: "SHAMS — Sharjah" },
+    mediaMode: "logo",
+    image: { src: "/free-zones/shams.png", alt: "SHAMS — Sharjah" },
     lede:
-      "Affordable, fast and creative-friendly. Right for content creators, freelancers, agencies and small media-adjacent businesses. Two-day licence, low cost, broad activity list.",
+      "Sharjah Media City — affordable, fast and creative-friendly. Right for content creators, freelancers, agencies and small media-adjacent businesses. Two-day licence, low cost, broad activity list.",
     good: [
       "Solo founders, freelancers and creators",
       "Marketing agencies and content studios on a budget",
@@ -60,14 +60,14 @@ const zones: FreeZoneSpotlightData[] = [
   {
     id: "spc",
     index: "02",
-    code: "SPC",
-    name: "Sharjah Publishing City",
     eyebrow: "Sharjah · publishing & content",
-    emirate: "Sharjah",
+    title: "SPC",
+    icon: "globe",
     logoSrc: "/free-zones/spc.png",
-    image: { src: "/building/building-1.jpg", alt: "SPC — Sharjah" },
+    mediaMode: "logo",
+    image: { src: "/free-zones/spc.png", alt: "SPC — Sharjah" },
     lede:
-      "Built for publishing, e-learning, content production and intellectual-property businesses. Strong cultural and academic ecosystem, IP-friendly licensing.",
+      "Sharjah Publishing City — built for publishing, e-learning, content production and intellectual-property businesses. Strong cultural and academic ecosystem, IP-friendly licensing.",
     good: [
       "Publishers, e-learning and EdTech companies",
       "Authors, agents and rights-management businesses",
@@ -102,14 +102,14 @@ const zones: FreeZoneSpotlightData[] = [
   {
     id: "rakez",
     index: "03",
-    code: "RAKEZ",
-    name: "Ras Al Khaimah Economic Zone",
     eyebrow: "RAK · industrial & SME",
-    emirate: "Ras Al Khaimah",
+    title: "RAKEZ",
+    icon: "globe",
     logoSrc: "/free-zones/rakez.png",
-    image: { src: "/building/building-3.jpg", alt: "RAKEZ — Ras Al Khaimah" },
+    mediaMode: "logo",
+    image: { src: "/free-zones/rakez.png", alt: "RAKEZ — Ras Al Khaimah" },
     lede:
-      "The most cost-efficient industrial and SME licensing in the UAE. Industrial parks, plots, warehouses and offices at a fraction of Dubai pricing, with broad activity lists and 0% personal income tax.",
+      "Ras Al Khaimah Economic Zone — the most cost-efficient industrial and SME licensing in the UAE. Industrial parks, plots, warehouses and offices at a fraction of Dubai pricing, with broad activity lists and 0% personal income tax.",
     good: [
       "Manufacturing, industrial and SME operators",
       "Cost-sensitive trading and import-export businesses",
@@ -144,14 +144,14 @@ const zones: FreeZoneSpotlightData[] = [
   {
     id: "afza",
     index: "04",
-    code: "AFZA",
-    name: "Ajman Free Zone",
     eyebrow: "Ajman · fastest entry",
-    emirate: "Ajman",
+    title: "AFZA",
+    icon: "globe",
     logoSrc: "/free-zones/afza.png",
-    image: { src: "/building/building-8.jpg", alt: "AFZA — Ajman" },
+    mediaMode: "logo",
+    image: { src: "/free-zones/afza.png", alt: "AFZA — Ajman" },
     lede:
-      "One of the fastest and cheapest UAE free-zone licences. Right for first-time entrepreneurs, small trading and consulting firms, and bootstrapped founders who want a real UAE licence without Dubai overhead.",
+      "Ajman Free Zone (AFZA) — one of the fastest and cheapest UAE free-zone licences. Right for first-time entrepreneurs, small trading and consulting firms, and bootstrapped founders who want a real UAE licence without Dubai overhead.",
     good: [
       "First-time founders launching their first UAE business",
       "Small consulting, trading and service businesses",
@@ -190,8 +190,8 @@ export default function NorthernEmiratesZonesPage() {
     <>
       <NorthernEmiratesZonesHero />
 
-      {zones.map((z, idx) => (
-        <FreeZoneSpotlight key={z.id} zone={z} idx={idx} />
+      {sections.map((s, idx) => (
+        <ServiceSection key={s.id} section={s} idx={idx} />
       ))}
 
       {/* CTA */}

@@ -52,6 +52,8 @@ export type MegaFeature = {
 export type NavItem = {
   label: string;
   href: string;
+  /** When true, the top-level nav label is a non-link trigger (only opens the mega). */
+  noLink?: boolean;
   mega?: {
     groups: MegaGroup[];
     feature?: MegaFeature;
@@ -63,6 +65,7 @@ export const navigation: NavItem[] = [
   {
     label: "Services",
     href: "/services",
+    noLink: true,
     mega: {
       groups: [
         {
@@ -114,6 +117,7 @@ export const navigation: NavItem[] = [
   {
     label: "Free Zones",
     href: "/free-zones",
+    noLink: true,
     mega: {
       groups: [
         {
@@ -151,6 +155,10 @@ export const navigation: NavItem[] = [
   {
     label: "Business Centers",
     href: "/business-centers",
+  },
+  {
+    label: "About",
+    href: "/about",
   },
   {
     label: "Insights",
@@ -356,19 +364,65 @@ export const groupCompanies: GroupCompany[] = [
   },
 ];
 
-// ── Leadership team ──────────────────────────────────────────────────
+// ── Team ─────────────────────────────────────────────────────────────
+export type TeamDepartment =
+  | "leadership"
+  | "consulting"
+  | "finance"
+  | "pro"
+  | "operations";
+
 export type TeamMember = {
   name: string;
   role: string;
+  department: TeamDepartment;
+  /** Path under /public; omit for placeholder initials */
+  photo?: string;
 };
 
 export const team: TeamMember[] = [
-  { name: "Mahwish", role: "Managing Partner" },
-  { name: "Shrushti Gupta", role: "Business Operations Manager" },
-  { name: "Yulia Golovko", role: "HR Manager" },
-  { name: "Shaista Rehman", role: "Business Development Manager" },
-  { name: "Saeed Ur Rehman", role: "Manager Audit, Compliance & Advisory" },
-  { name: "Khakan Abbasi", role: "Business & Banking Setup Consultant" },
+  // Leadership
+  { name: "Asad Hashmi",       role: "Chief Executive Officer",            department: "leadership", photo: "/ceo-asad-hashmi.webp" },
+  { name: "Tahir Hashmi",      role: "Director & Co-Founder",              department: "leadership", photo: "/team/tahir-hashmi.webp" },
+  { name: "Khakan Abbasi",     role: "Business & Banking Setup Consultant", department: "leadership", photo: "/team/khakan-abbasi.webp" },
+  { name: "Saeed Ur Rehman",   role: "Manager · Audit, Compliance & Advisory", department: "leadership", photo: "/team/saeed-ur-rehman.webp" },
+  { name: "Shrushti Gupta",    role: "Business Operations Manager",        department: "leadership", photo: "/team/shrushti-gupta.webp" },
+
+  // Consulting & Business setup
+  { name: "Jawad Khan",        role: "Senior Business Setup Consultant",   department: "consulting", photo: "/team/jawad-khan.webp" },
+  { name: "Yusuf Khan",        role: "Business Setup Consultant",          department: "consulting", photo: "/team/yusuf-khan.webp" },
+  { name: "Zeeshan Rasheed",   role: "Business Setup Consultant",          department: "consulting", photo: "/team/zeeshan-rasheed.webp" },
+  { name: "Asher Ejaz",        role: "Free Zone Specialist",               department: "consulting", photo: "/team/asher-ejaz.webp" },
+  { name: "Volodymyr Fedorets",role: "International Markets Lead",         department: "consulting", photo: "/team/volodymyr-fedorets.webp" },
+  { name: "Rifat Noor",        role: "Business Setup Consultant",          department: "consulting", photo: "/team/rifat-noor.webp" },
+
+  // Finance, Audit & Tax
+  { name: "Renju Raj",         role: "Senior Accountant",                  department: "finance",    photo: "/team/renju-raj.webp" },
+  { name: "Sidra Subhani",     role: "Tax & VAT Specialist",               department: "finance",    photo: "/team/sidra-subhani.webp" },
+  { name: "Maha Khan",         role: "Audit Associate",                    department: "finance",    photo: "/team/maha-khan.webp" },
+  { name: "Khabar",            role: "Compliance Officer",                 department: "finance",    photo: "/team/khabar.webp" },
+
+  // PRO, Visa & Immigration
+  { name: "Wardah Minhaj",     role: "PRO Services Lead",                  department: "pro",        photo: "/team/wardah-minhaj.webp" },
+  { name: "Athena Saysongadiana", role: "Visa & Immigration Specialist",   department: "pro",        photo: "/team/athena-saysongadiana.webp" },
+  { name: "Trish Anonuevo",    role: "PRO Services",                       department: "pro",        photo: "/team/trish-anonuevo.webp" },
+
+  // Operations & client experience
+  { name: "Ayesha Ahmad",      role: "Marketing Lead",                     department: "operations", photo: "/team/ayesha-ahmad.webp" },
+  { name: "Afrin Hameed",      role: "Brand & Communications",             department: "operations", photo: "/team/afrin-hameed.webp" },
+  { name: "Ashenafi Tsigab",   role: "Office Manager",                     department: "operations", photo: "/team/ashenafi-tsigab.webp" },
+  { name: "Fariha Nasir",      role: "Client Coordinator",                 department: "operations", photo: "/team/fariha-nasir.webp" },
+  { name: "Ruby Sharma",       role: "HR Specialist",                      department: "operations", photo: "/team/ruby-sharma.webp" },
+  { name: "Shamsa Kanwal",     role: "Administrative Assistant",           department: "operations", photo: "/team/shamsa-kanwal.webp" },
+  { name: "Deewash",           role: "Reception & Front Office",           department: "operations", photo: "/team/deewash.webp" },
+];
+
+export const teamDepartments: { key: TeamDepartment; label: string; caption: string }[] = [
+  { key: "leadership", label: "Leadership",                     caption: "The people who own the file." },
+  { key: "consulting", label: "Business setup & consulting",    caption: "From activity to licence — the people who get you trading." },
+  { key: "finance",    label: "Finance, audit & tax",           caption: "Books, VAT, Corporate Tax, audit — handled monthly." },
+  { key: "pro",        label: "PRO, visa & immigration",        caption: "ICP, GDRFA, MOHRE — the queues we run, so you don't." },
+  { key: "operations", label: "Operations & client experience", caption: "The team behind every reply, every renewal." },
 ];
 
 export type Service = {

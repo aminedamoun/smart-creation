@@ -24,8 +24,8 @@ const sections: ServiceSectionData[] = [
     lede:
       "Visa stamping, Emirates ID, labour cards and the recurring government touchpoints that keep your team legally on the ground. Our typing centre and PROs handle the queues so your staff don't.",
     image: {
-      src: "/building/building-1.jpg",
-      alt: "PRO desk with a UAE visa file — placeholder image",
+      src: "/services/visas/pro-visa.webp",
+      alt: "UAE PRO services",
     },
     good: [
       "Founders and HR teams who don't want to chase ICP / GDRFA portals",
@@ -67,8 +67,8 @@ const sections: ServiceSectionData[] = [
     lede:
       "Residency for company owners and shareholders. Two-, five- or ten-year terms depending on the structure — sponsoring you and (if you choose) your family directly through your business.",
     image: {
-      src: "/building/building-3.jpg",
-      alt: "UAE investor visa file — placeholder image",
+      src: "/services/visas/investor-visa.webp",
+      alt: "UAE investor visa",
     },
     good: [
       "Shareholders of UAE mainland or free-zone companies",
@@ -111,8 +111,8 @@ const sections: ServiceSectionData[] = [
     lede:
       "The UAE's flagship 10-year residency. Routes for investors, entrepreneurs, specialised talent, scientists, top students and select humanitarian work. We assess your case against every category and apply through the strongest one.",
     image: {
-      src: "/building/building-5.jpg",
-      alt: "Golden visa application — placeholder image",
+      src: "/services/visas/golden-visa.webp",
+      alt: "UAE Golden visa",
     },
     good: [
       "Founders and investors with sustained business activity in the UAE",
@@ -154,8 +154,8 @@ const sections: ServiceSectionData[] = [
     lede:
       "Bring your spouse, children and (where eligible) parents under your residency. We set the salary thresholds, attestations and tenancy requirements first — so the application doesn't get rejected after you've paid the fees.",
     image: {
-      src: "/building/building-7.jpg",
-      alt: "Family sponsorship paperwork — placeholder image",
+      src: "/services/visas/family-visa.webp",
+      alt: "Family & dependent sponsorship",
     },
     good: [
       "Residents who just got their own visa and want to bring family",

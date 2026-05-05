@@ -145,6 +145,80 @@ export async function getSimilarProperties(opts: {
   return (data ?? []) as PropertyWithCentre[];
 }
 
+/**
+ * Map-pin data per centre: { officesCount, priceMin, priceMax } where
+ * "price" is parsed from the free-text `price_amount` field. Returns one
+ * entry per centre (in display order) so the map can render a pin for each.
+ */
+export type CentreMapData = {
+  id: number;
+  key: string;
+  name: string;
+  address: string;
+  officesCount: number;
+  priceMin: number | null;
+  priceMax: number | null;
+  /** Lightweight property list for the map's "available offices" grid */
+  properties: {
+    slug: string;
+    title: string;
+    officeNo: string;
+    category: string;
+    image: string;
+    sqft: string | null;
+    capacity: string;
+    priceAmount: string;
+    pricePeriod: string | null;
+    availability: string;
+    availabilityAccent: string;
+  }[];
+};
+
+function parseAmount(raw: string | null | undefined): number | null {
+  if (!raw) return null;
+  const m = raw.replace(/[, ]/g, "").match(/(\d+(?:\.\d+)?)/);
+  if (!m) return null;
+  const n = Number(m[1]);
+  return Number.isFinite(n) ? n : null;
+}
+
+export async function getCentresWithMapData(): Promise<CentreMapData[]> {
+  const [centres, props] = await Promise.all([
+    getCentres(),
+    getProperties({ limit: 500 }),
+  ]);
+  return centres.map((c) => {
+    const own = props.filter((p) => p.centre?.id === c.id);
+    const prices = own.map((p) => parseAmount(p.price_amount)).filter((n): n is number => n !== null);
+    return {
+      id: c.id,
+      key: c.key,
+      name: c.name,
+      address:
+        [c.building, c.location, c.emirate].filter(Boolean).join(", ") ||
+        c.address_line ||
+        c.location ||
+        "",
+      officesCount: own.length,
+      priceMin: prices.length ? Math.min(...prices) : null,
+      priceMax: prices.length ? Math.max(...prices) : null,
+      properties: own.map((p) => ({
+        slug: p.slug,
+        title: p.title,
+        officeNo: p.office_no,
+        category: p.category,
+        image: p.hero_image ?? "",
+        sqft: p.sqft,
+        capacity: p.capacity,
+        priceAmount: p.price_amount,
+        pricePeriod: p.price_period,
+        availability: p.availability,
+        availabilityAccent: p.availability_accent,
+      })),
+    };
+  });
+}
+
 /* ── Adapter: PropertyWithCentre → legacy OfficeListing shape ─────── */
 
 export function propertyToOffice(p: PropertyWithCentre): OfficeListing {

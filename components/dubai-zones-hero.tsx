@@ -256,7 +256,7 @@ export function DubaiZonesHero() {
                 </span>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              <div className="grid grid-cols-2 gap-3">
                 {pillars.map((p, i) => (
                   <motion.div
                     key={p.id}
@@ -271,32 +271,38 @@ export function DubaiZonesHero() {
                     <Link
                       href={`#${p.id}`}
                       title={p.name}
-                      className="group relative flex h-[110px] flex-col items-center justify-center rounded-2xl border border-paper/12 bg-paper/[0.04] backdrop-blur-sm p-3 overflow-hidden transition-all hover:border-brand/50 hover:bg-paper/[0.07] hover:-translate-y-0.5"
+                      aria-label={p.name}
+                      className="group relative block aspect-[16/9] rounded-2xl border border-paper/15 bg-[#48a8db] overflow-hidden transition-all hover:border-brand hover:shadow-[0_18px_40px_-20px_rgba(72,168,219,0.7)] hover:-translate-y-0.5"
                     >
                       <span
                         aria-hidden
-                        className="pointer-events-none absolute -top-12 -right-12 h-24 w-24 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                        className="absolute inset-0"
                         style={{
                           background:
-                            "radial-gradient(closest-side, rgba(72,168,219,0.55), rgba(72,168,219,0) 70%)",
+                            "linear-gradient(135deg, #62b5df 0%, #48a8db 55%, #2e8ab8 100%)",
                         }}
                       />
                       <span
                         aria-hidden
-                        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/60 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"
+                        className="absolute inset-0 opacity-[0.14]"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(to right, rgba(246,243,236,0.6) 1px, transparent 1px), linear-gradient(to bottom, rgba(246,243,236,0.6) 1px, transparent 1px)",
+                          backgroundSize: "24px 24px",
+                        }}
                       />
-                      <span className="absolute right-2 top-2 font-mono text-[0.52rem] uppercase tracking-[0.22em] text-mist">
+                      <span className="absolute right-2 top-2 font-mono text-[0.52rem] uppercase tracking-[0.22em] text-paper/70">
                         {p.index}
                       </span>
-
-                      <MaskedLogo
-                        src={p.logoSrc}
-                        className="h-10 w-[80%] transition-transform group-hover:scale-[1.04]"
-                        tone="brand"
-                      />
-
+                      <span className="absolute inset-0 flex items-center justify-center p-4">
+                        <MaskedLogo
+                          src={p.logoSrc}
+                          className="h-[55%] w-[80%] drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)] transition-transform group-hover:scale-[1.04]"
+                          tone="paper"
+                        />
+                      </span>
                       <ArrowUpRight
-                        className="absolute right-2 bottom-2 h-3 w-3 text-mist opacity-60 group-hover:opacity-100 group-hover:text-brand transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        className="absolute right-2 bottom-2 h-3 w-3 text-paper/70 opacity-60 group-hover:opacity-100 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                         strokeWidth={1.8}
                       />
                     </Link>

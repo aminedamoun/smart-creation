@@ -74,6 +74,12 @@ export function PropertyForm({ data, centres }: { data: PropertyFormData; centre
                 <option>Private office</option>
                 <option>Co-working</option>
                 <option>Dedicated desk</option>
+                <option>Virtual Office</option>
+                <option>Flexi Desk</option>
+                <option>Day Office</option>
+                <option>Meeting Room</option>
+                <option>Business Address</option>
+                <option>Telephone Answering</option>
               </select>
             </label>
             <label className="block">

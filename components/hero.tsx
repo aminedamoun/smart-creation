@@ -76,7 +76,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(720px circle at var(--glow-x) var(--glow-y), rgba(72,168,219,0.14), transparent 55%)",
+            "radial-gradient(720px circle at var(--glow-x) var(--glow-y), rgba(72,168,219,0.25), transparent 60%)",
         }}
       />
       {/* Secondary soft pool on the left */}

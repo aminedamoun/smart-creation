@@ -3,9 +3,9 @@ import Link from "next/link";
 import { ArrowUpRight, Calendar } from "lucide-react";
 import { DubaiZonesHero } from "@/components/dubai-zones-hero";
 import {
-  FreeZoneSpotlight,
-  type FreeZoneSpotlightData,
-} from "@/components/free-zone-spotlight";
+  ServiceSection,
+  type ServiceSectionData,
+} from "@/components/service-section";
 
 export const metadata: Metadata = {
   title: "Dubai Free Zones — IFZA, DMCC, JAFZA, DIFC & More",
@@ -14,18 +14,18 @@ export const metadata: Metadata = {
   alternates: { canonical: "/free-zones/dubai" },
 };
 
-const zones: FreeZoneSpotlightData[] = [
+const sections: ServiceSectionData[] = [
   {
     id: "ifza",
     index: "01",
-    code: "IFZA",
-    name: "International Free Zone Authority",
     eyebrow: "Most popular all-rounder",
-    emirate: "Dubai · Silicon Oasis",
+    title: "IFZA",
+    icon: "globe",
     logoSrc: "/free-zones/ifza.png",
-    image: { src: "/building/building-3.jpg", alt: "IFZA — Dubai Silicon Oasis" },
+    mediaMode: "logo",
+    image: { src: "/free-zones/ifza.png", alt: "IFZA — Dubai Silicon Oasis" },
     lede:
-      "Dubai's most-applied-for free zone. Wide activity list, low setup cost, fast turnaround. The default starting point for consultancies, trading firms and small teams that need a clean licence quickly.",
+      "International Free Zone Authority — Dubai's most-applied-for free zone. Wide activity list, low setup cost, fast turnaround. The default starting point for consultancies, trading firms and small teams that need a clean licence quickly.",
     good: [
       "Consulting, marketing, design and small-team services",
       "Trading companies that don't need a port or warehouse",
@@ -60,14 +60,14 @@ const zones: FreeZoneSpotlightData[] = [
   {
     id: "dmcc",
     index: "02",
-    code: "DMCC",
-    name: "Multi Commodities Centre",
     eyebrow: "Premium · global trade",
-    emirate: "Dubai · JLT",
+    title: "DMCC",
+    icon: "globe",
     logoSrc: "/free-zones/dmcc.png",
-    image: { src: "/building/building-4.jpg", alt: "DMCC — JLT" },
+    mediaMode: "logo",
+    image: { src: "/free-zones/dmcc.png", alt: "DMCC — JLT" },
     lede:
-      "The gold standard for traders, commodity firms and serious global businesses. Higher cost, higher prestige, premier location at Jumeirah Lakes Towers and a bank-friendly reputation.",
+      "Dubai Multi Commodities Centre — the gold standard for traders, commodity firms and serious global businesses. Higher cost, higher prestige, premier location at Jumeirah Lakes Towers and a bank-friendly reputation.",
     good: [
       "Commodity, gold, crypto, precious metals and trading firms",
       "Companies prioritising prestige and easier banking",
@@ -102,14 +102,14 @@ const zones: FreeZoneSpotlightData[] = [
   {
     id: "jafza",
     index: "03",
-    code: "JAFZA",
-    name: "Jebel Ali Free Zone",
     eyebrow: "Industrial & port-side",
-    emirate: "Dubai · Jebel Ali",
+    title: "JAFZA",
+    icon: "globe",
     logoSrc: "/free-zones/jafza.png",
-    image: { src: "/building/building-2.jpg", alt: "JAFZA — Jebel Ali" },
+    mediaMode: "logo",
+    image: { src: "/free-zones/jafza.png", alt: "JAFZA — Jebel Ali" },
     lede:
-      "The UAE's industrial heart. Direct port access, large warehouse and plot leases, customs bonded zone. Right for manufacturing, heavy logistics, import-export at scale and businesses that move physical goods.",
+      "Jebel Ali Free Zone — the UAE's industrial heart. Direct port access, large warehouse and plot leases, customs bonded zone. Right for manufacturing, heavy logistics, import-export at scale and businesses that move physical goods.",
     good: [
       "Manufacturing, assembly and industrial businesses",
       "Import-export firms moving sea or air freight",
@@ -144,14 +144,14 @@ const zones: FreeZoneSpotlightData[] = [
   {
     id: "difc",
     index: "04",
-    code: "DIFC",
-    name: "International Financial Centre",
     eyebrow: "Finance & professional",
-    emirate: "Dubai · DIFC",
+    title: "DIFC",
+    icon: "globe",
     logoSrc: "/free-zones/difc.png",
-    image: { src: "/building/building-5.jpg", alt: "DIFC — Dubai" },
+    mediaMode: "logo",
+    image: { src: "/free-zones/difc.png", alt: "DIFC — Dubai" },
     lede:
-      "The region's financial district. Common-law jurisdiction, independent regulator (DFSA), home to most major banks, asset managers and fintechs. A serious commitment, but unmatched for finance.",
+      "Dubai International Financial Centre — the region's financial district. Common-law jurisdiction, independent regulator (DFSA), home to most major banks, asset managers and fintechs. A serious commitment, but unmatched for finance.",
     good: [
       "Banks, asset managers, family offices and fintechs",
       "Wealth-management and advisory firms",
@@ -186,14 +186,14 @@ const zones: FreeZoneSpotlightData[] = [
   {
     id: "meydan",
     index: "05",
-    code: "MEYDAN",
-    name: "Meydan Free Zone",
     eyebrow: "Professional services",
-    emirate: "Dubai · Meydan",
+    title: "Meydan",
+    icon: "globe",
     logoSrc: "/free-zones/meydan.png",
-    image: { src: "/building/building-6.jpg", alt: "Meydan — Dubai" },
+    mediaMode: "logo",
+    image: { src: "/free-zones/meydan.png", alt: "Meydan — Dubai" },
     lede:
-      "Quick licensing for professional services, consulting, marketing and digital businesses. Affordable and fast, with a smart-office concept that suits 1–5 person teams.",
+      "Meydan Free Zone — quick licensing for professional services, consulting, marketing and digital businesses. Affordable and fast, with a smart-office concept that suits 1–5 person teams.",
     good: [
       "Consulting, marketing, branding, design firms",
       "Coaches, trainers and professional service providers",
@@ -228,14 +228,14 @@ const zones: FreeZoneSpotlightData[] = [
   {
     id: "dafza",
     index: "06",
-    code: "DAFZA",
-    name: "Dubai Airport Free Zone",
     eyebrow: "Aviation & e-commerce",
-    emirate: "Dubai · DXB-adjacent",
+    title: "DAFZA",
+    icon: "globe",
     logoSrc: "/free-zones/dafza.png",
-    image: { src: "/building/building-7.jpg", alt: "DAFZA — Dubai Airport" },
+    mediaMode: "logo",
+    image: { src: "/free-zones/dafza.png", alt: "DAFZA — Dubai Airport" },
     lede:
-      "Adjacent to DXB, ideal for aviation services, MRO, e-commerce fulfilment and any business that benefits from airside proximity. Strong logistics ecosystem and bonded-warehouse options.",
+      "Dubai Airport Free Zone — adjacent to DXB, ideal for aviation services, MRO, e-commerce fulfilment and any business that benefits from airside proximity. Strong logistics ecosystem and bonded-warehouse options.",
     good: [
       "Aviation services, MRO, parts trading",
       "E-commerce fulfilment with global air freight needs",
@@ -270,14 +270,14 @@ const zones: FreeZoneSpotlightData[] = [
   {
     id: "dwtc",
     index: "07",
-    code: "DWTC",
-    name: "Dubai World Trade Centre",
     eyebrow: "Events & business services",
-    emirate: "Dubai · Sheikh Zayed Road",
+    title: "DWTC",
+    icon: "globe",
     logoSrc: "/free-zones/dwtc.png",
-    image: { src: "/building/building-1.jpg", alt: "DWTC — Sheikh Zayed Road" },
+    mediaMode: "logo",
+    image: { src: "/free-zones/dwtc.png", alt: "DWTC — Sheikh Zayed Road" },
     lede:
-      "The events, exhibitions and business-services hub right on Sheikh Zayed Road. Right for event organisers, conference businesses, professional services with a central address.",
+      "Dubai World Trade Centre Free Zone — the events, exhibitions and business-services hub right on Sheikh Zayed Road. Right for event organisers, conference businesses, professional services with a central address.",
     good: [
       "Event-management, conference and exhibitions companies",
       "Marketing agencies tied to the events industry",
@@ -312,14 +312,14 @@ const zones: FreeZoneSpotlightData[] = [
   {
     id: "dcc",
     index: "08",
-    code: "DCC",
-    name: "Dubai CommerCity",
     eyebrow: "Pure e-commerce zone",
-    emirate: "Dubai · CommerCity",
+    title: "DCC",
+    icon: "globe",
     logoSrc: "/free-zones/dcc.png",
-    image: { src: "/building/building-8.jpg", alt: "DCC — Dubai" },
+    mediaMode: "logo",
+    image: { src: "/free-zones/dcc.png", alt: "DCC — Dubai" },
     lede:
-      "The UAE's first dedicated e-commerce free zone. Built around fulfilment, last-mile and digital retail. Right for online brands, marketplace sellers and D2C operators serving GCC and beyond.",
+      "Dubai CommerCity — the UAE's first dedicated e-commerce free zone. Built around fulfilment, last-mile and digital retail. Right for online brands, marketplace sellers and D2C operators serving GCC and beyond.",
     good: [
       "Online retail brands and marketplace sellers",
       "D2C operators with GCC fulfilment needs",
@@ -358,8 +358,8 @@ export default function DubaiZonesPage() {
     <>
       <DubaiZonesHero />
 
-      {zones.map((z, idx) => (
-        <FreeZoneSpotlight key={z.id} zone={z} idx={idx} />
+      {sections.map((s, idx) => (
+        <ServiceSection key={s.id} section={s} idx={idx} />
       ))}
 
       {/* CTA */}

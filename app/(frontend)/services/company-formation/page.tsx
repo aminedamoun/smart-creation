@@ -24,8 +24,8 @@ const sections: ServiceSectionData[] = [
     lede:
       "Trade anywhere in the UAE — including direct contracts with government, hotels, malls and other onshore entities. Most of our clients setting up to actively serve the local market choose mainland for the freedom and credibility it carries.",
     image: {
-      src: "/building/building-4.jpg",
-      alt: "Dubai mainland commercial district — placeholder image",
+      src: "/services/company-formation/mainland.webp",
+      alt: "Dubai mainland setup",
     },
     good: [
       "Selling B2B or B2C inside the UAE without restriction",
@@ -67,8 +67,8 @@ const sections: ServiceSectionData[] = [
     lede:
       "100% foreign ownership, 0% personal income tax, fast-tracked licensing and a defined activity list. We work across every major UAE free zone — IFZA, DMCC, JAFZA, DIFC, RAKEZ, SHAMS, DAFZA, Meydan and more.",
     image: {
-      src: "/damac-executive.webp",
-      alt: "Dubai free zone tower — placeholder image",
+      src: "/services/company-formation/free-zone.webp",
+      alt: "Dubai free zone setup",
     },
     good: [
       "International trading, holding intellectual property, e-commerce",
@@ -110,8 +110,8 @@ const sections: ServiceSectionData[] = [
     lede:
       "An offshore company holds assets, IP or shares — it doesn't trade inside the UAE. Right for asset protection, international holding, succession planning and ring-fencing IP from operating entities.",
     image: {
-      src: "/building/building-6.jpg",
-      alt: "Offshore corporate structure — placeholder image",
+      src: "/services/company-formation/offshore.webp",
+      alt: "Offshore corporate structure",
     },
     good: [
       "Holding shares of UAE or foreign operating companies",
@@ -153,8 +153,8 @@ const sections: ServiceSectionData[] = [
     lede:
       "Build a parent → subsidiary group across multiple jurisdictions. Right for founders running several brands, investors with multiple verticals, or operators who need to separate IP, trading and real-estate arms.",
     image: {
-      src: "/building/building-2.jpg",
-      alt: "Multi-entity group structure — placeholder image",
+      src: "/services/company-formation/holding.webp",
+      alt: "Holding & subsidiary group structure",
     },
     good: [
       "Family offices and multi-brand operators",

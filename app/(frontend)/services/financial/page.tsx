@@ -24,8 +24,8 @@ const sections: ServiceSectionData[] = [
     lede:
       "Open a UAE corporate account that actually approves — and, if you need it, an international account too. We pre-screen your file against each bank's compliance bar, frame the documents the way they expect, and stay on the application until it's live.",
     image: {
-      src: "/building/building-3.jpg",
-      alt: "UAE corporate banking — placeholder image",
+      src: "/services/financial/banking.webp",
+      alt: "UAE corporate banking",
     },
     good: [
       "New companies that need a working account in the first month",
@@ -67,8 +67,8 @@ const sections: ServiceSectionData[] = [
     lede:
       "Monthly bookkeeping, financial statements and VAT registration plus quarterly returns. Clean books from day one — so when an audit, an investor or a Corporate Tax return shows up, you don't scramble for six months of receipts.",
     image: {
-      src: "/building/building-7.jpg",
-      alt: "Monthly bookkeeping and VAT — placeholder image",
+      src: "/services/financial/accounting.webp",
+      alt: "Accounting & VAT filings",
     },
     good: [
       "Companies invoicing regularly — local or cross-border",
@@ -110,8 +110,8 @@ const sections: ServiceSectionData[] = [
     lede:
       "UAE Corporate Tax is here at 9% above AED 375,000 — with special rules for free zones, holding structures and small business relief. We register, file and structure so you pay what you owe and not a dirham more.",
     image: {
-      src: "/building/building-2.jpg",
-      alt: "UAE Corporate Tax filings — placeholder image",
+      src: "/services/financial/corporate-tax.webp",
+      alt: "UAE Corporate Tax",
     },
     good: [
       "Mainland companies above the AED 375k profit threshold",
@@ -153,8 +153,8 @@ const sections: ServiceSectionData[] = [
     lede:
       "Statutory audits for free-zone and mainland companies, internal audits for risk and control reviews, and financial due diligence for investments and exits. Audit-ready books mean no surprises — and a faster, cleaner audit when it matters.",
     image: {
-      src: "/building/building-8.jpg",
-      alt: "Audit and assurance — placeholder image",
+      src: "/services/financial/audit.webp",
+      alt: "Statutory & internal audit",
     },
     good: [
       "Free-zone entities required to audit annually (DMCC, JAFZA, ADGM, DIFC)",
