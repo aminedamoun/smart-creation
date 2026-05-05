@@ -24,14 +24,6 @@ export async function logoutAction() {
 
 /* ── Helpers ───────────────────────────────────────────────────────── */
 
-function valueArr(formData: FormData, name: string): { value: string }[] {
-  return formData
-    .getAll(name)
-    .map((v) => String(v).trim())
-    .filter(Boolean)
-    .map((value) => ({ value }));
-}
-
 function jsonArr<T>(formData: FormData, name: string): T[] {
   const raw = String(formData.get(name) ?? "");
   if (!raw) return [];
@@ -143,19 +135,25 @@ export async function savePropertyAction(formData: FormData) {
     category: String(formData.get("category") ?? "Private office"),
     accent: String(formData.get("accent") ?? "blue"),
     description: String(formData.get("description") ?? "").trim(),
-    highlights: valueArr(formData, "highlights"),
+    highlights: jsonArr<{ value: string }>(formData, "highlights").filter(
+      (h) => typeof h?.value === "string" && h.value.trim() !== ""
+    ),
     featured: formData.get("featured") === "on",
     show_on_home: formData.get("show_on_home") === "on",
     floor: String(formData.get("floor") ?? "").trim() || null,
     sqft: String(formData.get("sqft") ?? "").trim() || null,
     capacity: String(formData.get("capacity") ?? "").trim(),
     view: String(formData.get("view") ?? "").trim() || null,
-    features: valueArr(formData, "features"),
+    features: jsonArr<{ value: string }>(formData, "features").filter(
+      (f) => typeof f?.value === "string" && f.value.trim() !== ""
+    ),
     price_amount: String(formData.get("price_amount") ?? "").trim(),
     price_period: String(formData.get("price_period") ?? "").trim() || null,
     price_note: String(formData.get("price_note") ?? "").trim() || null,
     payment_terms: String(formData.get("payment_terms") ?? "").trim() || null,
-    payment_options: valueArr(formData, "payment_options"),
+    payment_options: jsonArr<{ value: string }>(formData, "payment_options").filter(
+      (p) => typeof p?.value === "string" && p.value.trim() !== ""
+    ),
     fees: {
       securityDeposit: String(formData.get("fee_securityDeposit") ?? "").trim() || undefined,
       managementFee: String(formData.get("fee_managementFee") ?? "").trim() || undefined,
