@@ -6,12 +6,14 @@ export function AdminShell({
   active,
 }: {
   children: React.ReactNode;
-  active?: "dashboard" | "centres" | "properties";
+  active?: "dashboard" | "centres" | "properties" | "insights" | "team";
 }) {
   const links: { href: string; label: string; key: NonNullable<typeof active> }[] = [
     { href: "/admin", label: "Dashboard", key: "dashboard" },
     { href: "/admin/centres", label: "Business Centres", key: "centres" },
     { href: "/admin/properties", label: "Properties", key: "properties" },
+    { href: "/admin/team", label: "Team", key: "team" },
+    { href: "/admin/insights", label: "Insights", key: "insights" },
   ];
   return (
     <div className="min-h-screen grid grid-cols-1 md:grid-cols-[240px_1fr]">

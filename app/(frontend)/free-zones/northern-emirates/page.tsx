@@ -21,9 +21,7 @@ const sections: ServiceSectionData[] = [
     eyebrow: "Sharjah · media & creative",
     title: "SHAMS",
     icon: "globe",
-    logoSrc: "/free-zones/shams.png",
-    mediaMode: "logo",
-    image: { src: "/free-zones/shams.png", alt: "SHAMS — Sharjah" },
+    image: { src: "/free-zones/shams-large.webp", alt: "SHAMS — Sharjah" },
     lede:
       "Sharjah Media City — affordable, fast and creative-friendly. Right for content creators, freelancers, agencies and small media-adjacent businesses. Two-day licence, low cost, broad activity list.",
     good: [
@@ -63,9 +61,7 @@ const sections: ServiceSectionData[] = [
     eyebrow: "Sharjah · publishing & content",
     title: "SPC",
     icon: "globe",
-    logoSrc: "/free-zones/spc.png",
-    mediaMode: "logo",
-    image: { src: "/free-zones/spc.png", alt: "SPC — Sharjah" },
+    image: { src: "/free-zones/spc-large.webp", alt: "SPC — Sharjah" },
     lede:
       "Sharjah Publishing City — built for publishing, e-learning, content production and intellectual-property businesses. Strong cultural and academic ecosystem, IP-friendly licensing.",
     good: [
@@ -105,9 +101,7 @@ const sections: ServiceSectionData[] = [
     eyebrow: "RAK · industrial & SME",
     title: "RAKEZ",
     icon: "globe",
-    logoSrc: "/free-zones/rakez.png",
-    mediaMode: "logo",
-    image: { src: "/free-zones/rakez.png", alt: "RAKEZ — Ras Al Khaimah" },
+    image: { src: "/free-zones/rakez-large.webp", alt: "RAKEZ — Ras Al Khaimah" },
     lede:
       "Ras Al Khaimah Economic Zone — the most cost-efficient industrial and SME licensing in the UAE. Industrial parks, plots, warehouses and offices at a fraction of Dubai pricing, with broad activity lists and 0% personal income tax.",
     good: [
@@ -147,9 +141,7 @@ const sections: ServiceSectionData[] = [
     eyebrow: "Ajman · fastest entry",
     title: "AFZA",
     icon: "globe",
-    logoSrc: "/free-zones/afza.png",
-    mediaMode: "logo",
-    image: { src: "/free-zones/afza.png", alt: "AFZA — Ajman" },
+    image: { src: "/free-zones/afza-large.webp", alt: "AFZA — Ajman" },
     lede:
       "Ajman Free Zone (AFZA) — one of the fastest and cheapest UAE free-zone licences. Right for first-time entrepreneurs, small trading and consulting firms, and bootstrapped founders who want a real UAE licence without Dubai overhead.",
     good: [

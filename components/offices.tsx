@@ -2,12 +2,12 @@ import { getCentres, getProperties, propertyToOffice } from "@/lib/supabase-quer
 import { OfficesGrid } from "@/components/offices-grid";
 
 const CENTRE_CITY: Record<string, string> = {
-  "smart-creation": "Tecom",
-  "smart-place": "Al Barsha",
+  "smart-creation": "Al Barsha Heights (Tecom)",
+  "smart-place": "Al Barsha 1",
   "smart-view": "Bur Dubai",
   "future-space": "Al Muraqabat",
-  "abna-rashid": "Deira",
-  "smart-founders": "Dubai",
+  "abna-rashid": "Deira, Naif",
+  "smart-founders": "Umm Ramool",
 };
 
 const CENTRE_LOGO: Record<string, string> = {
@@ -22,7 +22,7 @@ const CENTRE_LOGO: Record<string, string> = {
 export async function Offices() {
   const [centresRaw, propertiesRaw] = await Promise.all([
     getCentres(),
-    getProperties({ showOnHome: true, limit: 200 }),
+    getProperties({ limit: 500 }),
   ]);
 
   const centres = centresRaw.map((c) => ({
@@ -31,6 +31,11 @@ export async function Offices() {
     name: String(c.name).replace("Business Center", "BC").replace("Hamd Bin Huwaidi Building", "Bldg."),
     city: CENTRE_CITY[c.key as string],
     logo: CENTRE_LOGO[c.key as string],
+    mapsUrl:
+      (c.google_maps_url as string | null | undefined) ||
+      `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+        [c.building, c.location, c.emirate].filter(Boolean).join(", "),
+      )}`,
   }));
 
   const offices = propertiesRaw.map(propertyToOffice);

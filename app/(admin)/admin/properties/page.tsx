@@ -58,7 +58,7 @@ export default async function PropertiesList({
         </div>
         <Link
           href="/admin/properties/new"
-          className="rounded-full bg-ink text-paper px-4 py-2 text-[0.88rem] font-medium hover:bg-brand-deep transition-colors"
+          className="rounded-full bg-brand-night text-paper px-4 py-2 text-[0.88rem] font-medium hover:bg-brand transition-colors"
         >
           + Create property
         </Link>

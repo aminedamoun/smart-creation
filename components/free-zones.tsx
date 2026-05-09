@@ -72,7 +72,7 @@ export function FreeZones() {
 }
 
 function ZoneCard({ zone }: { zone: FreeZone }) {
-  const logoSrc = `/free-zones/${zone.code.toLowerCase()}.png`;
+  const logoSrc = zone.logoSrc ?? `/free-zones/${zone.code.toLowerCase()}.png`;
   return (
     <Link
       href={zone.href}

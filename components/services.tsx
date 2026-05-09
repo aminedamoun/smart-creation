@@ -20,7 +20,7 @@ export function Services() {
               section="§ 01 — Services"
               title={
                 <>
-                  Everything a company needs —{" "}
+                  Everything a company needs{" "}
                   <span className="text-brand-deep">under one group.</span>
                 </>
               }
@@ -52,11 +52,11 @@ export function Services() {
 
               {/* Editorial overlay — top-left marker */}
               <div className="absolute top-4 left-4 right-4 flex items-start justify-between pointer-events-none">
-                <div className="flex items-center gap-2 rounded-full bg-ink/70 backdrop-blur-md px-3 py-1.5 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-paper">
+                <div className="flex items-center gap-2 rounded-full bg-brand-night/85 backdrop-blur-md px-3 py-1.5 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-paper">
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand" />
                   fig. 02 · Reception
                 </div>
-                <div className="hidden sm:flex items-center gap-2 rounded-full bg-ink/70 backdrop-blur-md px-3 py-1.5 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-paper/85">
+                <div className="hidden sm:flex items-center gap-2 rounded-full bg-brand-night/85 backdrop-blur-md px-3 py-1.5 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-paper/85">
                   Floor XIX
                 </div>
               </div>

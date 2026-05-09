@@ -20,7 +20,7 @@ export default function NotFound() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/#offices"
-              className="group inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-[0.9rem] font-medium text-paper hover:bg-brand-deep transition-colors"
+              className="group inline-flex items-center gap-2 rounded-full bg-brand-night px-5 py-3 text-[0.9rem] font-medium text-paper hover:bg-brand transition-colors"
             >
               <ArrowLeft
                 className="h-4 w-4 transition-transform group-hover:-translate-x-0.5"

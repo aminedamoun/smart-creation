@@ -15,9 +15,16 @@ import {
 import { cn } from "@/lib/utils";
 import { freeZones, type FreeZone } from "@/lib/data";
 
-const popularZones = new Set(["IFZA", "DMCC", "DIFC"]);
+const popularZones = new Set(["IFZA", "MEYDAN", "DTEC"]);
 
-type Filter = "all" | "Dubai" | "Sharjah" | "RAK" | "Ajman";
+type Filter =
+  | "all"
+  | "Dubai"
+  | "Sharjah"
+  | "RAK"
+  | "Ajman"
+  | "UAQ"
+  | "Abu Dhabi";
 
 const FILTERS: { key: Filter; label: string; sub?: string }[] = [
   { key: "all", label: "All zones", sub: "Across the U.A.E." },
@@ -25,6 +32,8 @@ const FILTERS: { key: Filter; label: string; sub?: string }[] = [
   { key: "Sharjah", label: "Sharjah" },
   { key: "RAK", label: "RAK" },
   { key: "Ajman", label: "Ajman" },
+  { key: "UAQ", label: "UAQ" },
+  { key: "Abu Dhabi", label: "Abu Dhabi" },
 ];
 
 const fadeUp = {
@@ -47,6 +56,8 @@ export function FreeZonesExplorer() {
       Sharjah: 0,
       RAK: 0,
       Ajman: 0,
+      UAQ: 0,
+      "Abu Dhabi": 0,
     };
     for (const z of freeZones) {
       const k = z.emirate as Filter;
@@ -124,7 +135,7 @@ export function FreeZonesExplorer() {
                 className={cn(
                   "group relative inline-flex items-center gap-3 rounded-full border px-4 py-2.5 transition-all",
                   active
-                    ? "border-ink bg-ink text-paper shadow-[0_10px_25px_-12px_rgba(13,16,19,0.35)]"
+                    ? "border-brand-night bg-brand-night text-paper shadow-[0_10px_25px_-12px_rgba(14,53,84,0.5)]"
                     : disabled
                     ? "border-ink/10 bg-paper/60 text-ink-mute/60 cursor-not-allowed"
                     : "border-ink/15 bg-paper text-ink hover:border-ink/40 hover:bg-paper-soft",
@@ -166,7 +177,7 @@ export function FreeZonesExplorer() {
 }
 
 function ZoneCard({ zone }: { zone: FreeZone }) {
-  const logoSrc = `/free-zones/${zone.code.toLowerCase()}.png`;
+  const logoSrc = zone.logoSrc ?? `/free-zones/${zone.code.toLowerCase()}.png`;
   const isPopular = popularZones.has(zone.code);
 
   return (
@@ -427,7 +438,7 @@ export function FreeZoneMethod() {
         <div className="mt-10 flex flex-wrap items-center gap-3">
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-[0.92rem] font-medium text-paper hover:bg-brand-deep transition-colors"
+            className="group inline-flex items-center gap-2 rounded-full bg-brand-night px-5 py-3 text-[0.92rem] font-medium text-paper hover:bg-brand transition-colors"
           >
             Get my zone recommendation
             <ChevronRight

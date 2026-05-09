@@ -3,9 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
-  ArrowLeft,
   ArrowUpRight,
-  Building2,
   CheckCircle2,
   Eye,
   Mail,
@@ -23,6 +21,7 @@ import {
 } from "@/lib/supabase-queries";
 import { CONTACT } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import { CentreDetailHero } from "@/components/centre-detail-hero";
 
 export const dynamic = "force-dynamic";
 
@@ -73,66 +72,14 @@ export default async function CentrePage({ params }: PageProps) {
 
   return (
     <>
-      {/* Hero */}
-      <section data-dark-hero className="relative pt-28 md:pt-32 pb-16 md:pb-24 bg-ink text-paper overflow-hidden">
-        {heroSrc && (
-          <div className="absolute inset-0 -z-10">
-            <Image
-              src={heroSrc}
-              alt={String(centre.name)}
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover opacity-30"
-            />
-            <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/70 to-ink" />
-          </div>
-        )}
-
-        <div className="container-edit relative">
-          <nav
-            aria-label="Breadcrumb"
-            className="flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.22em] text-mist mb-6"
-          >
-            <Link href="/" className="hover:text-paper transition-colors">Home</Link>
-            <span className="text-mist/60">/</span>
-            <Link href="/business-centers" className="hover:text-paper transition-colors">Business centres</Link>
-            <span className="text-mist/60">/</span>
-            <span className="text-paper">{String(centre.name)}</span>
-          </nav>
-
-          <Link
-            href="/business-centers"
-            className="group inline-flex items-center gap-1.5 text-[0.88rem] text-mist hover:text-paper transition-colors mb-8"
-          >
-            <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-0.5" strokeWidth={1.8} />
-            All centres
-          </Link>
-
-          <h1 className="max-w-4xl font-display text-[clamp(2.2rem,5vw,4rem)] leading-[1.02] tracking-[-0.025em] text-paper text-balance">
-            {String(centre.name)}
-          </h1>
-          {centre.tagline && (
-            <p className="mt-5 max-w-2xl text-[1.1rem] leading-relaxed text-mist">
-              {String(centre.tagline)}
-            </p>
-          )}
-
-          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-mist">
-            <span className="inline-flex items-center gap-1.5">
-              <MapPin className="h-3.5 w-3.5" strokeWidth={1.8} />
-              {String(centre.location)}
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <Building2 className="h-3.5 w-3.5" strokeWidth={1.8} />
-              {String(centre.building)}
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              {offices.length} {offices.length === 1 ? "property" : "properties"} available
-            </span>
-          </div>
-        </div>
-      </section>
+      <CentreDetailHero
+        name={String(centre.name)}
+        tagline={centre.tagline ? String(centre.tagline) : null}
+        location={String(centre.location)}
+        building={String(centre.building)}
+        emirate={centre.emirate ? String(centre.emirate) : null}
+        officesCount={offices.length}
+      />
 
       {/* Gallery */}
       {galleryArr.length > 0 && (
@@ -170,7 +117,7 @@ export default async function CentrePage({ params }: PageProps) {
       )}
 
       {/* About */}
-      <section className="pb-16 md:pb-24">
+      <section id="about" className="scroll-mt-28 md:scroll-mt-32 pb-16 md:pb-24">
         <div className="container-edit grid grid-cols-12 gap-x-10 gap-y-12">
           <div className="col-span-12 lg:col-span-7">
             <div className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-stone mb-3">
@@ -225,7 +172,7 @@ export default async function CentrePage({ params }: PageProps) {
               <div className="space-y-2.5">
                 <Link
                   href="/contact"
-                  className="group flex items-center justify-center gap-2 rounded-full bg-ink px-5 py-3.5 text-[0.92rem] font-medium text-paper hover:bg-brand-deep transition-colors"
+                  className="group flex items-center justify-center gap-2 rounded-full bg-brand-night px-5 py-3.5 text-[0.92rem] font-medium text-paper hover:bg-brand transition-colors"
                 >
                   Book a viewing
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={1.8} />
@@ -271,7 +218,7 @@ export default async function CentrePage({ params }: PageProps) {
       </section>
 
       {/* Properties at this centre */}
-      <section className="pb-16 md:pb-24">
+      <section id="properties" className="scroll-mt-28 md:scroll-mt-32 pb-16 md:pb-24">
         <div className="container-edit">
           <div className="flex items-end justify-between mb-10 gap-4">
             <div>
@@ -378,7 +325,7 @@ export default async function CentrePage({ params }: PageProps) {
               </p>
               <Link
                 href="/contact"
-                className="mt-6 inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-[0.9rem] font-medium text-paper hover:bg-brand-deep transition-colors"
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-night px-5 py-3 text-[0.9rem] font-medium text-paper hover:bg-brand transition-colors"
               >
                 Schedule a tour
                 <ArrowUpRight className="h-4 w-4" strokeWidth={1.8} />

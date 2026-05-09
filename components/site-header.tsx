@@ -183,7 +183,7 @@ export function SiteHeader() {
                 "group inline-flex items-center gap-1.5 rounded-full px-4 py-2.5 text-[0.85rem] font-medium transition-colors",
                 inverted
                   ? "bg-brand text-ink hover:bg-paper"
-                  : "bg-ink text-paper hover:bg-brand-deep"
+                  : "bg-brand-night text-paper hover:bg-brand"
               )}
             >
               <span>Book consultation</span>
@@ -490,7 +490,7 @@ function MegaPanel({
                     "mt-6 self-start group inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-[0.82rem] font-medium transition-colors",
                     inverted
                       ? "bg-brand text-ink hover:bg-paper"
-                      : "bg-ink text-paper hover:bg-brand-deep"
+                      : "bg-brand-night text-paper hover:bg-brand"
                   )}
                 >
                   {feature.cta.label}

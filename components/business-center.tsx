@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, MapPin } from "lucide-react";
@@ -28,7 +29,7 @@ export function BusinessCenter() {
               transition={{ duration: 0.6, delay: 0.08 }}
               className="font-display mt-5 text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[1.04] tracking-[-0.02em] text-ink text-balance max-w-3xl"
             >
-              Four real Dubai addresses,{" "}
+              Six real Dubai addresses,{" "}
               <span className="text-brand-deep">all owned and operated.</span>
             </motion.h2>
             <motion.p
@@ -38,16 +39,17 @@ export function BusinessCenter() {
               transition={{ duration: 0.6, delay: 0.16 }}
               className="mt-5 text-[1.02rem] leading-relaxed text-ink-mute text-pretty max-w-2xl"
             >
-              Most setup agents send you home with a PO box. Smart Creation Group puts your
-              company inside one of four business centres across Dubai — flagship offices
-              at Damac Executive Heights, plus locations in Al Barsha, Bur Dubai and
-              Al Muraqabat.
+              Most setup agents send you home with a PO box. Smart Creation Group
+              puts your company inside one of six business centres across Dubai —
+              flagship offices at Damac Executive Heights, plus locations in Al
+              Barsha, Bur Dubai, Al Muraqabat, Smart Founders and our owned
+              freehold building in Naif, Deira.
             </motion.p>
           </div>
           <div className="col-span-12 lg:col-span-5 lg:flex lg:justify-end lg:items-end">
             <Link
               href="/business-centers"
-              className="group inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-[0.9rem] font-medium text-paper hover:bg-brand-deep transition-colors"
+              className="group inline-flex items-center gap-2 rounded-full bg-brand-night px-5 py-3 text-[0.9rem] font-medium text-paper hover:bg-brand transition-colors"
             >
               Book an office tour
               <ArrowUpRight
@@ -82,9 +84,15 @@ export function BusinessCenter() {
                 </span>
               </div>
 
-              <h3 className="font-display mt-6 text-[1.4rem] md:text-[1.55rem] leading-[1.12] tracking-[-0.015em] text-ink text-balance">
-                {center.name}
-              </h3>
+              <div className="mt-6 relative h-12 md:h-14 w-full">
+                <Image
+                  src={center.logo}
+                  alt={center.name}
+                  fill
+                  sizes="(max-width: 768px) 90vw, 360px"
+                  className="object-contain object-left"
+                />
+              </div>
 
               <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-mute text-pretty">
                 {center.summary}

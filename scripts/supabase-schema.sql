@@ -69,6 +69,25 @@ create index if not exists sc_properties_featured_idx
   on public.sc_properties (featured);
 
 -- ─────────────────────────────────────────────────────────────────────
+-- Team
+-- ─────────────────────────────────────────────────────────────────────
+
+create table if not exists public.sc_team (
+  id            bigserial   primary key,
+  name          text        not null,
+  role          text        not null default '',
+  photo         text,
+  linkedin      text,
+  display_order integer     not null default 100,
+  visible       boolean     not null default true,
+  created_at    timestamptz not null default now(),
+  updated_at    timestamptz not null default now()
+);
+
+create index if not exists sc_team_display_order_idx
+  on public.sc_team (display_order);
+
+-- ─────────────────────────────────────────────────────────────────────
 -- updated_at trigger
 -- ─────────────────────────────────────────────────────────────────────
 
@@ -89,15 +108,22 @@ create trigger sc_properties_updated_at
   before update on public.sc_properties
   for each row execute function public.sc_set_updated_at();
 
+drop trigger if exists sc_team_updated_at on public.sc_team;
+create trigger sc_team_updated_at
+  before update on public.sc_team
+  for each row execute function public.sc_set_updated_at();
+
 -- ─────────────────────────────────────────────────────────────────────
 -- Row Level Security — anon can read everything, only service role writes
 -- ─────────────────────────────────────────────────────────────────────
 
 alter table public.sc_centres    enable row level security;
 alter table public.sc_properties enable row level security;
+alter table public.sc_team       enable row level security;
 
 drop policy if exists "sc_centres anon read"    on public.sc_centres;
 drop policy if exists "sc_properties anon read" on public.sc_properties;
+drop policy if exists "sc_team anon read"       on public.sc_team;
 
 create policy "sc_centres anon read"
   on public.sc_centres for select
@@ -108,6 +134,11 @@ create policy "sc_properties anon read"
   on public.sc_properties for select
   to anon, authenticated
   using (true);
+
+create policy "sc_team anon read"
+  on public.sc_team for select
+  to anon, authenticated
+  using (visible = true);
 
 -- ─────────────────────────────────────────────────────────────────────
 -- Storage bucket — sc-media (public)

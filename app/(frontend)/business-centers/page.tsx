@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowUpRight, Building2, MapPin } from "lucide-react";
 
 import { getCentres, getProperties, propertyToOffice, type CentreRow } from "@/lib/supabase-queries";
+import { CentresHero } from "@/components/centres-hero";
 
 export const dynamic = "force-dynamic";
 
@@ -29,23 +30,7 @@ export default async function BusinessCentresIndexPage() {
 
   return (
     <>
-      <section className="pt-28 md:pt-32 pb-12 md:pb-20 bg-paper-soft">
-        <div className="container-edit">
-          <div className="flex items-center gap-3 font-mono text-[0.66rem] uppercase tracking-[0.22em] text-stone mb-4">
-            <span className="h-px w-8 bg-ink/25" />
-            § Business Centres
-          </div>
-          <h1 className="max-w-4xl font-display text-[clamp(2.2rem,5vw,4rem)] leading-[1.02] tracking-[-0.025em] text-ink text-balance">
-            Five centres across Dubai —{" "}
-            <span className="text-brand-deep">pick where you want to work.</span>
-          </h1>
-          <p className="mt-6 max-w-2xl text-[1.05rem] leading-relaxed text-ink-mute">
-            Each Smart Creation Group business centre is fully serviced, Ejari-ready,
-            and managed by the same team. Click into a centre for the full address,
-            local advantages, and current property availability.
-          </p>
-        </div>
-      </section>
+      <CentresHero centresCount={centres.length} officesCount={offices.length} />
 
       <section className="py-16 md:py-24">
         <div className="container-edit">

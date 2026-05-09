@@ -1,28 +1,35 @@
-import { freeZones } from "@/lib/data";
+import Image from "next/image";
+import { groupCompanies } from "@/lib/data";
 
 /**
- * Continuous-scroll ticker of free-zone abbreviations.
- * Reinforces "every jurisdiction" positioning. Pause on hover via CSS.
+ * Continuous-scroll ticker of the Group of Companies logos —
+ * same artwork the circuit-board section below uses. Pause on hover via CSS.
  */
 export function ZonesTicker() {
-  const items = [...freeZones, ...freeZones]; // duplicated for seamless loop
+  // Duplicate the list so the marquee loop is seamless.
+  const items = [...groupCompanies, ...groupCompanies];
+
   return (
     <section
-      aria-label="Free zones covered"
-      className="relative overflow-hidden border-y border-ink/10 bg-ink text-paper py-5"
+      aria-label="Smart Creation Group of Companies"
+      className="relative overflow-hidden border-y border-ink/10 bg-ink text-paper py-6"
     >
-      <div className="marquee-track flex gap-12 whitespace-nowrap will-change-transform">
-        {items.map((zone, idx) => (
+      <div className="marquee-track flex items-center gap-14 whitespace-nowrap will-change-transform">
+        {items.map((company, idx) => (
           <div
-            key={`${zone.code}-${idx}`}
-            className="flex items-center gap-3 font-mono text-[0.72rem] uppercase tracking-[0.24em] text-paper/80"
+            key={`${company.id}-${idx}`}
+            className="flex items-center gap-3 shrink-0"
           >
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand" />
-            <span>{zone.code}</span>
-            <span className="text-paper/40">·</span>
-            <span className="text-paper/55 normal-case tracking-normal font-sans">
-              {zone.emirate}
-            </span>
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand shrink-0" />
+            <div className="relative h-9 w-[140px] shrink-0">
+              <Image
+                src={company.logo ?? "/group-logos/smart-creation-bc.webp"}
+                alt={company.name}
+                fill
+                sizes="200px"
+                className="object-contain object-left"
+              />
+            </div>
           </div>
         ))}
       </div>

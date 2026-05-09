@@ -17,18 +17,18 @@ type Pillar = {
 const pillars: Pillar[] = [
   { id: "ifza", index: "01", code: "IFZA", name: "International Free Zone Authority", focus: "General trading & services", logoSrc: "/free-zones/ifza.png" },
   { id: "dmcc", index: "02", code: "DMCC", name: "Dubai Multi Commodities Centre", focus: "Commodities & global trade", logoSrc: "/free-zones/dmcc.png" },
-  { id: "jafza", index: "03", code: "JAFZA", name: "Jebel Ali Free Zone", focus: "Industrial & logistics", logoSrc: "/free-zones/jafza.png" },
-  { id: "difc", index: "04", code: "DIFC", name: "Dubai International Financial Centre", focus: "Finance & fintech", logoSrc: "/free-zones/difc.png" },
-  { id: "meydan", index: "05", code: "MEYDAN", name: "Meydan Free Zone", focus: "Professional services", logoSrc: "/free-zones/meydan.png" },
-  { id: "dafza", index: "06", code: "DAFZA", name: "Dubai Airport Free Zone", focus: "Aviation & e-commerce", logoSrc: "/free-zones/dafza.png" },
-  { id: "dwtc", index: "07", code: "DWTC", name: "Dubai World Trade Centre", focus: "Events & services", logoSrc: "/free-zones/dwtc.png" },
-  { id: "dcc", index: "08", code: "DCC", name: "Dubai CommerCity", focus: "E-commerce & digital", logoSrc: "/free-zones/dcc.png" },
+  { id: "difc", index: "03", code: "DIFC", name: "Dubai International Financial Centre", focus: "Finance & fintech", logoSrc: "/free-zones/difc.png" },
+  { id: "meydan", index: "04", code: "MEYDAN", name: "Meydan Free Zone", focus: "Professional services", logoSrc: "/free-zones/meydan.png" },
+  { id: "dcc", index: "05", code: "DCC", name: "Dubai CommerCity", focus: "E-commerce & digital", logoSrc: "/free-zones/dcc.png" },
+  { id: "dtec", index: "06", code: "DTEC", name: "Dubai Technology Entrepreneur Campus", focus: "Technology & digital focus", logoSrc: "/free-zones/dtec.webp" },
+  { id: "ancfz", index: "07", code: "ANCFZ", name: "Ajman NuVentures Centre Free Zone", focus: "Tailored for startups & SMEs", logoSrc: "/free-zones/anc.webp" },
+  { id: "uaq", index: "08", code: "UAQ", name: "Umm Al Quwain Free Trade Zone Authority", focus: "Fast-setup environment for SMEs", logoSrc: "/free-zones/uaq.webp" },
 ];
 
 const trust = [
-  { value: "8", label: "Dubai free zones", meta: "All major authorities covered" },
-  { value: "3 days", label: "Fastest licence", meta: "IFZA · Meydan · DAFZA" },
-  { value: "100%", label: "Foreign ownership", meta: "Across every Dubai zone" },
+  { value: "8", label: "Free zones covered", meta: "Across the U.A.E." },
+  { value: "3 days", label: "Fastest licence", meta: "IFZA · Meydan · UAQ" },
+  { value: "100%", label: "Foreign ownership", meta: "Across every U.A.E. zone" },
   { value: "0%", label: "Personal income tax", meta: "9% CT above AED 375k" },
 ];
 

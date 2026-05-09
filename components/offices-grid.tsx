@@ -22,6 +22,7 @@ type Centre = {
   name: string;
   city?: string;
   logo?: string;
+  mapsUrl?: string | null;
 };
 
 const accentBg: Record<OfficeListing["accent"], string> = {
@@ -59,10 +60,34 @@ export function OfficesGrid({
     return c;
   }, [offices, centres]);
 
-  const visible = useMemo(
-    () => (filter === "all" ? offices : offices.filter((o) => o.centerId === filter)),
-    [offices, filter]
-  );
+  // Always cap the homepage grid to 6 cards. `getProperties` already sorts
+  // by `featured DESC, id ASC`, so featured properties surface first; if a
+  // centre has fewer than 6 featured, the remaining slots are filled with
+  // its other live inventory.
+  const HOMEPAGE_PER_FILTER = 6;
+  const totalForFilter =
+    filter === "all"
+      ? offices.length
+      : offices.filter((o) => o.centerId === filter).length;
+  const visible = useMemo(() => {
+    const base =
+      filter === "all"
+        ? offices
+        : offices.filter((o) => o.centerId === filter);
+    return base.slice(0, HOMEPAGE_PER_FILTER);
+  }, [offices, filter]);
+
+  const activeCentre =
+    filter === "all" ? null : centres.find((c) => c.key === filter) ?? null;
+  const browseHref =
+    filter === "all"
+      ? "/business-centers"
+      : `/business-centers/${filter}#properties`;
+  const browseLabel =
+    filter === "all"
+      ? "Browse all properties across centres"
+      : `Browse all ${activeCentre?.name ?? "centre"} properties`;
+  const moreCount = Math.max(0, totalForFilter - visible.length);
 
   return (
     <section id="offices" className="relative py-24 md:py-36 bg-paper-deep">
@@ -73,9 +98,9 @@ export function OfficesGrid({
               section="§ 02 — Available offices"
               title={
                 <>
-                  Five centres, one group —{" "}
-                  <span className="text-brand-deep">
-                    pick where you want to work.
+                  Five centres, one group
+                  <span className="block text-brand-deep">
+                    Pick where you want to work.
                   </span>
                 </>
               }
@@ -83,16 +108,19 @@ export function OfficesGrid({
             />
           </div>
           <div className="col-span-12 lg:col-span-5 lg:text-right">
-            <div className="inline-flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-stone">
+            <div className="inline-flex flex-col gap-1.5 lg:items-end font-mono text-[0.7rem] uppercase tracking-[0.2em] text-stone">
               <span className="inline-flex items-center gap-1.5">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inset-0 inline-flex animate-ping rounded-full bg-emerald-500 opacity-60" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
                 </span>
-                Live inventory · {visible.length} shown
+                Live inventory · {offices.length} total {offices.length === 1 ? "property" : "properties"}
               </span>
-              <span className="text-mist/70">·</span>
-              <span>Updated daily</span>
+              <span className="text-stone/80">
+                Showing {visible.length}
+                {filter === "all" ? " featured across all centres" : ` at ${activeCentre?.name ?? ""}`}
+                {" · Updated daily"}
+              </span>
             </div>
           </div>
         </div>
@@ -117,8 +145,10 @@ export function OfficesGrid({
                 disabled={count === 0}
                 onClick={() => setFilter(c.key)}
                 primary={c.name}
-                secondary={c.city ? `${c.city} · ${count}` : `${count}`}
+                secondary={`${count} office${count === 1 ? "" : "s"}`}
                 logo={c.logo}
+                city={c.city}
+                mapsUrl={c.mapsUrl}
               />
             );
           })}
@@ -146,6 +176,28 @@ export function OfficesGrid({
           <EmptyCenterState />
         )}
 
+        {/* Contextual "Browse" CTA — leads to either the full catalog or the
+            specific centre page anchored to its properties section */}
+        {visible.length > 0 && (
+          <div className="mt-10 md:mt-12 flex justify-center">
+            <Link
+              href={browseHref}
+              className="group inline-flex items-center gap-2 rounded-full border border-ink/15 bg-paper px-6 py-3 text-[0.92rem] font-medium text-ink hover:border-brand/45 hover:bg-paper-soft hover:shadow-[0_18px_50px_-28px_rgba(72,168,219,0.5)] transition-all"
+            >
+              {browseLabel}
+              {moreCount > 0 && (
+                <span className="rounded-full bg-brand-night/10 px-2 py-0.5 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-brand-deep">
+                  +{moreCount} more
+                </span>
+              )}
+              <ArrowUpRight
+                className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                strokeWidth={1.8}
+              />
+            </Link>
+          </div>
+        )}
+
         <div className="mt-14 md:mt-16 grid grid-cols-12 gap-x-8 gap-y-8 border-t border-ink/10 pt-10">
           <div className="col-span-12 lg:col-span-8">
             <div className="flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.22em] text-stone mb-5">
@@ -171,7 +223,7 @@ export function OfficesGrid({
           <div className="col-span-12 lg:col-span-4 flex flex-col justify-end gap-3">
             <Link
               href="/contact"
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-ink px-5 py-3.5 text-[0.92rem] font-medium text-paper hover:bg-brand-deep transition-colors"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-brand-night px-5 py-3.5 text-[0.92rem] font-medium text-paper hover:bg-brand transition-colors"
             >
               Book an office tour
               <ArrowUpRight
@@ -202,6 +254,8 @@ function FilterPill({
   primary,
   secondary,
   logo,
+  city,
+  mapsUrl,
 }: {
   active: boolean;
   disabled?: boolean;
@@ -209,50 +263,76 @@ function FilterPill({
   primary: string;
   secondary: string;
   logo?: string;
+  city?: string;
+  mapsUrl?: string | null;
 }) {
   return (
-    <button
-      type="button"
-      role="tab"
-      aria-selected={active}
-      aria-disabled={disabled}
-      disabled={disabled}
-      onClick={onClick}
-      title={primary}
-      className={cn(
-        "group flex h-[88px] w-full flex-col items-center justify-center gap-2 rounded-2xl border px-3 py-3 text-center transition-all",
-        active
-          ? "border-ink bg-ink text-paper shadow-[0_10px_25px_-12px_rgba(13,16,19,0.35)]"
-          : disabled
-          ? "border-ink/10 bg-paper/60 text-ink-mute/60 cursor-not-allowed"
-          : "border-ink/15 bg-paper text-ink hover:border-ink/40 hover:bg-paper-soft"
-      )}
-    >
-      {logo ? (
-        <span className="relative h-10 w-full">
-          <Image
-            src={logo}
-            alt={primary}
-            fill
-            sizes="160px"
-            className={cn(
-              "object-contain transition-opacity",
-              active && "brightness-0 invert"
-            )}
-          />
-        </span>
-      ) : (
-        <span className="text-[1rem] font-medium leading-tight">{primary}</span>
-      )}
-      <span
+    <div className="flex flex-col gap-2">
+      {/* Top: filter button — logo (centred, bigger) + small count */}
+      <button
+        type="button"
+        role="tab"
+        aria-selected={active}
+        aria-disabled={disabled}
+        disabled={disabled}
+        onClick={onClick}
+        title={primary}
         className={cn(
-          "max-w-full truncate font-mono text-[0.58rem] uppercase tracking-[0.16em]",
-          active ? "text-mist" : "text-stone"
+          "group flex min-h-[112px] w-full flex-col items-center justify-center gap-3 rounded-2xl border px-3 py-4 text-center transition-all",
+          active
+            ? "border-brand-night bg-brand-night text-paper shadow-[0_10px_25px_-12px_rgba(14,53,84,0.5)]"
+            : disabled
+            ? "border-ink/10 bg-paper/60 text-ink-mute/60 cursor-not-allowed"
+            : "border-ink/15 bg-paper text-ink hover:border-ink/40 hover:bg-paper-soft",
         )}
       >
-        {secondary}
-      </span>
-    </button>
+        {logo ? (
+          <span className="relative h-14 w-full">
+            <Image
+              src={logo}
+              alt={primary}
+              fill
+              sizes="200px"
+              className={cn(
+                "object-contain transition-opacity",
+                active && "brightness-0 invert",
+              )}
+            />
+          </span>
+        ) : (
+          <span className="text-[1.05rem] font-medium leading-tight">
+            {primary}
+          </span>
+        )}
+        <span
+          className={cn(
+            "max-w-full leading-tight font-mono text-[0.58rem] uppercase tracking-[0.18em]",
+            active ? "text-mist" : "text-stone",
+          )}
+        >
+          {secondary}
+        </span>
+      </button>
+
+      {/* Bottom: location chip — opens Google Maps in a new tab */}
+      {city && mapsUrl && (
+        <a
+          href={mapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Open ${primary} on Google Maps — ${city}`}
+          className="group/chip inline-flex items-center justify-center gap-1.5 rounded-xl border border-ink/12 bg-paper px-2.5 py-2 text-center transition-all hover:border-brand/45 hover:bg-paper-soft"
+        >
+          <MapPin
+            className="h-3.5 w-3.5 shrink-0 text-brand-deep"
+            strokeWidth={1.8}
+          />
+          <span className="text-balance leading-tight font-mono text-[0.55rem] uppercase tracking-[0.14em] text-stone group-hover/chip:text-ink">
+            {city}
+          </span>
+        </a>
+      )}
+    </div>
   );
 }
 
@@ -272,7 +352,7 @@ function EmptyCenterState() {
       <div className="mt-6 flex flex-wrap justify-center gap-3">
         <Link
           href="/contact"
-          className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-[0.9rem] font-medium text-paper hover:bg-brand-deep transition-colors"
+          className="inline-flex items-center gap-2 rounded-full bg-brand-night px-5 py-3 text-[0.9rem] font-medium text-paper hover:bg-brand transition-colors"
         >
           Schedule a tour
           <ArrowUpRight className="h-4 w-4" strokeWidth={1.8} />
@@ -310,7 +390,7 @@ function OfficeCard({
         <div aria-hidden className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-ink/45 to-transparent" />
 
         <div className="absolute inset-0 p-4 md:p-5 flex items-start justify-between pointer-events-none">
-          <span className="rounded-full bg-ink/70 backdrop-blur-md px-3 py-1 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-paper">
+          <span className="rounded-full bg-brand-night/90 backdrop-blur-md px-3 py-1 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-paper">
             {office.category}
           </span>
           <span className="inline-flex items-center gap-1.5 rounded-full bg-paper/95 backdrop-blur-md px-2.5 py-1 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-ink">
@@ -391,7 +471,7 @@ function OfficeCard({
           </div>
           <Link
             href={href}
-            className="group/cta inline-flex items-center gap-1.5 rounded-full bg-ink text-paper px-4 py-2.5 text-[0.82rem] font-medium hover:bg-brand-deep transition-colors shrink-0"
+            className="group/cta inline-flex items-center gap-1.5 rounded-full bg-brand-night text-paper px-4 py-2.5 text-[0.82rem] font-medium hover:bg-brand transition-colors shrink-0"
           >
             View office
             <ArrowUpRight

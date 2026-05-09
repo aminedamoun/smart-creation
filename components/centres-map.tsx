@@ -10,6 +10,12 @@ import {
   AdvancedMarker,
   useMap,
 } from "@vis.gl/react-google-maps";
+
+/** Brand palette shared across the markers — kept inline so the pin
+ *  visuals stay together and easy to tune. */
+const COLOR_DARK = "#173e58"; // deep navy-blue head background
+const COLOR_DEEP = "#2e8ab8"; // brand-deep — used for stem + dot core
+const COLOR_BLUE = "#48a8db"; // brand — used for ring accents + halos
 import {
   ArrowUpRight,
   ChevronLeft,
@@ -19,7 +25,6 @@ import {
   Users,
 } from "lucide-react";
 import { CENTRE_COORDS, DUBAI_CENTER } from "@/lib/centre-coordinates";
-import { CENTRE_POLYGONS, CENTRE_POLYGON_COLOR } from "@/lib/centre-polygons";
 
 export type CentreMapPin = {
   id: number;
@@ -64,60 +69,28 @@ function formatRange(min: number | null, max: number | null): string {
   return `AED ${fmtAed(v)}`;
 }
 
-function CentrePolygons({
-  pins,
-  selected,
-  hovered,
-  onSelect,
-  onHover,
-}: {
-  pins: CentreMapPin[];
-  selected: CentreMapPin | null;
-  hovered: string | null;
-  onSelect: (p: CentreMapPin) => void;
-  onHover: (key: string | null) => void;
-}) {
-  const map = useMap();
-
-  useEffect(() => {
-    if (!map || typeof google === "undefined") return;
-    const polygons: google.maps.Polygon[] = [];
-
-    pins.forEach((p) => {
-      const rings = CENTRE_POLYGONS[p.key];
-      if (!rings) return;
-      const color = CENTRE_POLYGON_COLOR[p.key] ?? "#2563EB";
-      const isSelected = selected?.key === p.key;
-      const isHovered = hovered === p.key;
-
-      const polygon = new google.maps.Polygon({
-        paths: rings,
-        strokeColor: color,
-        strokeOpacity: isSelected ? 1 : isHovered ? 0.95 : 0.7,
-        strokeWeight: isSelected ? 3 : isHovered ? 2 : 1.2,
-        fillColor: color,
-        fillOpacity: isSelected ? 0.55 : isHovered ? 0.45 : 0.22,
-        clickable: true,
-        zIndex: isSelected ? 100 : isHovered ? 50 : 1,
-      });
-      polygon.setMap(map);
-      polygons.push(polygon);
-
-      polygon.addListener("mouseover", () => onHover(p.key));
-      polygon.addListener("mouseout", () => onHover(null));
-      polygon.addListener("click", () => {
-        onSelect(p);
-        const bounds = new google.maps.LatLngBounds();
-        rings.forEach((ring) => ring.forEach((pt) => bounds.extend(pt)));
-        map.fitBounds(bounds, 100);
-      });
-    });
-
-    return () => polygons.forEach((p) => p.setMap(null));
-  }, [map, pins, selected, hovered, onSelect, onHover]);
-
-  return null;
+/** Strip the redundant "Business Center" suffix so the pin head reads cleanly. */
+function shortCentreName(name: string): string {
+  return name
+    .replace(/\s*Business Center(s)?\s*/i, "")
+    .replace(/Hamd Bin Huwaidi Building/i, "Bldg.")
+    .trim();
 }
+
+/**
+ * Per-centre stem length in pixels. Pins anchor at their geographic
+ * coordinate (the bottom dot) and the head floats above by `STEM_PX`,
+ * so geographically close centres can be staggered vertically to avoid
+ * head-on collisions on the map.
+ */
+const STEM_PX: Record<string, number> = {
+  "smart-creation": 64,
+  "smart-place": 96,
+  "smart-view": 40,
+  "future-space": 72,
+  "abna-rashid": 48,
+  "smart-founders": 110,
+};
 
 function MapCameraSync({
   selected,
@@ -129,7 +102,14 @@ function MapCameraSync({
   const map = useMap();
   useEffect(() => {
     if (!map || typeof google === "undefined") return;
-    if (selected) return; // polygon click handler already centred
+    if (selected) {
+      const c = CENTRE_COORDS[selected.key];
+      if (c) {
+        map.panTo(c);
+        map.setZoom(14);
+      }
+      return;
+    }
     if (pins.length > 0) {
       const bounds = new google.maps.LatLngBounds();
       pins.forEach((p) => {
@@ -195,19 +175,13 @@ export function CentresMap({ pins }: { pins: CentreMapPin[] }) {
             clickableIcons={false}
             style={{ width: "100%", height: "100%" }}
           >
-            <CentrePolygons
-              pins={valid}
-              selected={selected}
-              hovered={hovered}
-              onSelect={setSelected}
-              onHover={setHovered}
-            />
             <MapCameraSync selected={selected} pins={valid} />
 
             {valid.map((p) => {
               const c = CENTRE_COORDS[p.key]!;
               const isActive = selected?.key === p.key;
               const isHovered = hovered === p.key;
+              const stem = STEM_PX[p.key] ?? 56;
               return (
                 <AdvancedMarker
                   key={p.key}
@@ -215,41 +189,100 @@ export function CentresMap({ pins }: { pins: CentreMapPin[] }) {
                   onClick={() => setSelected(p)}
                   zIndex={isActive ? 9999 : isHovered ? 5000 : 100}
                 >
+                  {/* Bottom-anchored column: head card sits `stem` px above the dot. */}
                   <div
                     onMouseEnter={() => setHovered(p.key)}
                     onMouseLeave={() => setHovered(null)}
-                    className={
-                      "group relative flex items-center gap-2 rounded-2xl border px-2.5 py-1.5 backdrop-blur-md transition-all cursor-pointer " +
-                      (isActive
-                        ? "border-brand bg-ink text-paper shadow-[0_18px_45px_-12px_rgba(72,168,219,0.7)] -translate-y-1 scale-[1.05]"
-                        : isHovered
-                        ? "border-brand/70 bg-ink/95 text-paper -translate-y-0.5 shadow-[0_18px_45px_-20px_rgba(72,168,219,0.55)]"
-                        : "border-paper/35 bg-ink/85 text-paper hover:border-brand/70 hover:-translate-y-0.5")
-                    }
+                    className="relative flex flex-col items-center cursor-pointer group"
                   >
-                    <span className="relative h-5 w-12 shrink-0">
-                      <Image
-                        src={p.logo}
-                        alt=""
-                        fill
-                        sizes="48px"
-                        className="object-contain object-left"
-                      />
-                    </span>
-                    <span className="font-mono text-[0.55rem] uppercase tracking-[0.18em] text-paper">
-                      {p.officesCount} office{p.officesCount === 1 ? "" : "s"}
-                    </span>
+                    {/* Head card — dark navy blue with centre name + office count */}
+                    <div
+                      className={
+                        "relative inline-flex items-center gap-2 rounded-full px-3 py-1.5 transition-all duration-300 whitespace-nowrap " +
+                        (isActive
+                          ? "shadow-[0_18px_42px_-10px_rgba(23,62,88,0.85)] scale-[1.06]"
+                          : isHovered
+                          ? "shadow-[0_16px_38px_-14px_rgba(23,62,88,0.7)] scale-[1.04]"
+                          : "shadow-[0_12px_28px_-14px_rgba(23,62,88,0.55)]")
+                      }
+                      style={{
+                        backgroundColor: COLOR_DARK,
+                        boxShadow: isActive
+                          ? `0 0 0 2px ${COLOR_BLUE}80, 0 18px 42px -10px rgba(23,62,88,0.85)`
+                          : undefined,
+                      }}
+                    >
+                      <span className="font-display text-[0.78rem] font-medium tracking-[-0.005em] text-paper">
+                        {shortCentreName(p.name)}
+                      </span>
+                      <span
+                        className="inline-flex items-center justify-center rounded-full px-1.5 py-0.5 font-mono text-[0.56rem] font-semibold tracking-[0.08em] text-paper"
+                        style={{ backgroundColor: COLOR_BLUE + "33" }}
+                      >
+                        {p.officesCount}
+                      </span>
+                    </div>
+
+                    {/* Stem — fades from dark navy down to brand blue */}
+                    <span
+                      aria-hidden
+                      className="block w-[2px] rounded-full transition-all duration-300"
+                      style={{
+                        height: `${stem}px`,
+                        background: `linear-gradient(to bottom, ${COLOR_DARK} 0%, ${COLOR_DEEP} 60%, ${COLOR_BLUE} 100%)`,
+                        opacity: isActive ? 1 : isHovered ? 0.95 : 0.85,
+                      }}
+                    />
+
+                    {/* Pin at the actual coordinate — bigger, with always-on animated rings */}
                     <span
                       aria-hidden
                       className={
-                        "absolute left-1/2 -bottom-1 h-2 w-2 -translate-x-1/2 rotate-45 border-r border-b " +
-                        (isActive
-                          ? "bg-ink border-brand"
-                          : isHovered
-                          ? "bg-ink/95 border-brand/70"
-                          : "bg-ink/85 border-paper/35")
+                        "relative flex items-center justify-center transition-transform duration-300 " +
+                        (isActive ? "scale-110" : isHovered ? "scale-[1.07]" : "")
                       }
-                    />
+                      style={{ height: 28, width: 28 }}
+                    >
+                      {/* Outer always-pulsing ring */}
+                      <span
+                        className="absolute inset-0 rounded-full animate-ping"
+                        style={{
+                          backgroundColor: COLOR_BLUE,
+                          opacity: 0.28,
+                          animationDuration: "2.4s",
+                        }}
+                      />
+                      {/* Soft static halo */}
+                      <span
+                        className="absolute rounded-full transition-opacity duration-300"
+                        style={{
+                          height: 22,
+                          width: 22,
+                          backgroundColor: COLOR_BLUE,
+                          opacity: isActive ? 0.45 : isHovered ? 0.35 : 0.22,
+                        }}
+                      />
+                      {/* Outer ring */}
+                      <span
+                        className="absolute rounded-full"
+                        style={{
+                          height: 18,
+                          width: 18,
+                          backgroundColor: "white",
+                          boxShadow: `0 4px 12px rgba(23,62,88,0.45)`,
+                        }}
+                      />
+                      {/* Solid dot — the actual marker tip */}
+                      <span
+                        className="relative rounded-full"
+                        style={{
+                          height: 12,
+                          width: 12,
+                          background: `radial-gradient(circle at 35% 30%, ${COLOR_BLUE}, ${COLOR_DARK})`,
+                          boxShadow: `0 2px 6px rgba(23,62,88,0.7), inset 0 0 0 1.5px ${COLOR_DEEP}`,
+                        }}
+                      />
+                    </span>
                   </div>
                 </AdvancedMarker>
               );
@@ -286,7 +319,7 @@ export function CentresMap({ pins }: { pins: CentreMapPin[] }) {
               </button>
 
               <div className="px-5 pb-5">
-                <div className="relative h-24 mb-4 rounded-xl bg-ink overflow-hidden">
+                <div className="relative h-36 mb-4 rounded-xl bg-ink overflow-hidden">
                   <div
                     aria-hidden
                     className="absolute inset-0"
@@ -304,12 +337,12 @@ export function CentresMap({ pins }: { pins: CentreMapPin[] }) {
                     }}
                   />
                   <div className="absolute inset-0 flex items-center justify-center p-4">
-                    <div className="relative h-[55%] w-[78%]">
+                    <div className="relative h-[78%] w-[88%]">
                       <Image
                         src={selected.logo}
                         alt={selected.name}
                         fill
-                        sizes="200px"
+                        sizes="280px"
                         className="object-contain drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
                       />
                     </div>
@@ -345,7 +378,7 @@ export function CentresMap({ pins }: { pins: CentreMapPin[] }) {
                 <div className="mt-5 space-y-2">
                   <Link
                     href={`/business-centers/${selected.key}`}
-                    className="group flex items-center justify-center w-full gap-1.5 rounded-full bg-ink px-4 py-2.5 text-[0.85rem] font-medium text-paper hover:bg-brand-deep transition-colors"
+                    className="group flex items-center justify-center w-full gap-1.5 rounded-full bg-brand-night px-4 py-2.5 text-[0.85rem] font-medium text-paper hover:bg-brand transition-colors"
                   >
                     Visit centre
                     <ArrowUpRight

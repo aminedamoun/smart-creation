@@ -42,7 +42,7 @@ const CHIPS: Chip[] = [
     anim: { duration: "2s", delay: "-0.5s" },
   },
   {
-    companyId: "smart-view-bc",
+    companyId: "mm-contractor",
     cx: 100,
     cy: 360,
     path: "M 391 360 h -207",
@@ -64,7 +64,7 @@ const CHIPS: Chip[] = [
     anim: { duration: "1.7s", delay: "-0.7s" },
   },
   {
-    companyId: "abna-rashid",
+    companyId: "smart-accounting-tax",
     cx: 710,
     cy: 80,
     path: "M 590 280 v -42 q 0 -14 14 -14 h 92 q 14 0 14 -14 v -70",
@@ -72,47 +72,42 @@ const CHIPS: Chip[] = [
   },
   // ── RIGHT ──
   {
-    companyId: "next-journey",
+    companyId: "smart-founders",
     cx: 940,
     cy: 220,
     path: "M 710 300 h 42 q 14 0 14 -14 v -52 q 0 -14 14 -14 h 70",
     anim: { duration: "2s", delay: "-1.8s" },
   },
   {
-    companyId: "smart-holiday-homes",
+    companyId: "smart-view-bc",
     cx: 1000,
     cy: 360,
     path: "M 709 360 h 207",
     anim: { duration: "2.5s", delay: "-0.4s" },
   },
   {
-    companyId: "intercity-bus",
+    companyId: "abna-rashid",
     cx: 940,
     cy: 500,
     path: "M 710 420 h 42 q 14 0 14 14 v 52 q 0 14 14 14 h 70",
     anim: { duration: "2s", delay: "-0.3s" },
   },
-  // ── BOTTOM ──
+  // ── BOTTOM ── (mirrored pair, same as the top row)
   {
-    companyId: "mm-contractor",
-    cx: 550,
+    companyId: "smart-holiday-homes",
+    cx: 390,
     cy: 640,
-    path: "M 550 453 v 133",
-    anim: { duration: "1.7s", delay: "-1s" },
+    path: "M 510 440 v 42 q 0 14 -14 14 h -92 q -14 0 -14 14 v 70",
+    anim: { duration: "1.8s", delay: "-0.6s" },
+  },
+  {
+    companyId: "intercity-bus",
+    cx: 710,
+    cy: 640,
+    path: "M 590 440 v 42 q 0 14 14 14 h 92 q 14 0 14 14 v 70",
+    anim: { duration: "1.8s", delay: "-1.4s" },
   },
 ];
-
-const shortName: Record<string, string> = {
-  "smart-creation-bc": "Smart Business Centre",
-  "smart-place-bc": "Smart Place BC",
-  "smart-view-bc": "Smart View BC",
-  "future-space-bc": "Future Space BC",
-  "abna-rashid": "Abna Rashid Bldg.",
-  "next-journey": "Next Journey",
-  "smart-holiday-homes": "Smart Holiday Homes",
-  "intercity-bus": "Intercity Bus",
-  "mm-contractor": "MM Contractor",
-};
 
 const companyById: Record<string, GroupCompany> = Object.fromEntries(
   groupCompanies.map((c) => [c.id, c])
@@ -201,13 +196,13 @@ export function GroupOfCompanies() {
             section="§ 04 — The Group"
             title={
               <>
-                Smart Creation Group —{" "}
-                <span className="text-brand-soft">
-                  one parent, nine affiliated companies.
+                Smart Creation Group
+                <span className="block text-brand-soft">
+                  One parent, ten affiliated companies.
                 </span>
               </>
             }
-            lede="The Group sits at the centre of the circuit. Around it, nine specialist companies plug in — four sister business centres, plus real estate, technology, hospitality, transport and contracting across the UAE, Canada and Pakistan."
+            lede="The Group sits at the centre of the circuit. Around it, ten specialist companies plug in — five sister business centres, real estate, hospitality, transport, contracting and accounting & tax across the UAE, Canada and Pakistan."
           />
         </div>
 
@@ -262,8 +257,7 @@ export function GroupOfCompanies() {
                 strokeWidth="0.7"
                 strokeLinecap="round"
                 initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
+                animate={{ opacity: 1 }}
                 transition={{
                   duration: 0.55,
                   delay: 1.2 + i * 0.09,
@@ -275,8 +269,7 @@ export function GroupOfCompanies() {
             {/* COMET ORBS — fade in once all cables are lit */}
             <motion.g
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 2.2, ease: "easeOut" }}
             >
               {CHIPS.map((_, i) => (
@@ -296,8 +289,7 @@ export function GroupOfCompanies() {
           {/* Centre card — Smart Creation Group (bigger) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
           >
@@ -312,8 +304,7 @@ export function GroupOfCompanies() {
               <motion.div
                 key={c.companyId}
                 initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.5,
                   delay: 0.15 + i * 0.06,
@@ -376,7 +367,7 @@ export function GroupOfCompanies() {
 
         {/* Footnote */}
         <div className="mt-10 hidden md:flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-mist">
-          <span>Live circuit · 9 affiliates · 3 countries</span>
+          <span>Live circuit · 10 affiliates · 3 countries</span>
           <span className="text-mist/50">·</span>
           <Link
             href="/business-centers"
@@ -430,7 +421,7 @@ function CentreCard({ compact = false }: { compact?: boolean }) {
             <span className="absolute inset-0 inline-flex animate-ping rounded-full bg-brand opacity-70" />
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
           </span>
-          9 affiliates · 3 countries
+          10 affiliates · 3 countries
         </div>
       </div>
     </div>
@@ -439,43 +430,56 @@ function CentreCard({ compact = false }: { compact?: boolean }) {
 
 function PerimeterCard({ company }: { company: GroupCompany }) {
   const Icon = company.icon;
-  const label = shortName[company.id] ?? company.name;
-  const sector = company.sector.split("·")[0].trim();
+
+  // Per-company scale — different logos have different intrinsic aspect
+  // ratios. Tweak each so they read at roughly the same visual size on the
+  // dark glass card. Default (anything not in the map) is 1.0×.
+  const logoScale: Record<string, string> = {
+    "smart-place-bc": "scale-[1.12]",
+    "smart-founders": "scale-[1.12]",
+    "future-space-bc": "scale-[1.05]",
+    "smart-holiday-homes": "scale-[1.15]",
+    "abna-rashid": "scale-[1.2]",
+    "mm-contractor": "scale-[1.85]",
+    "intercity-bus": "scale-[1.05]",
+  };
+  const scaleClass = logoScale[company.id] ?? "";
 
   return (
-    <div className="group w-[180px]">
+    <div className="group w-[200px]">
       <div className="relative rounded-2xl border border-brand/35 bg-[rgba(15,20,24,0.88)] backdrop-blur-md transition-all hover:border-brand/70 hover:bg-[rgba(20,28,36,0.94)] hover:-translate-y-0.5 shadow-[0_18px_40px_-20px_rgba(0,0,0,0.6)]">
         {/* Top brand bar */}
         <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-brand to-transparent rounded-t-2xl" />
 
-        {/* Logo plate */}
-        <div className="flex h-[58px] items-center justify-center px-3 pt-3">
+        {/* Logo plate — bigger so the wordmark inside stays readable */}
+        <div className="flex h-[88px] items-center justify-center px-4 pt-4 pb-2">
           {company.logo ? (
             <Image
               src={company.logo}
               alt={`${company.name} logo`}
-              width={260}
-              height={120}
-              className="max-h-full max-w-full w-auto h-auto object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]"
+              width={320}
+              height={160}
+              className={
+                "max-h-full max-w-full w-auto h-auto object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)] " +
+                scaleClass
+              }
             />
           ) : (
-            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/15 border border-brand/30 text-brand-soft">
-              <Icon className="h-5 w-5" strokeWidth={1.6} />
+            <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand/15 border border-brand/30 text-brand-soft">
+              <Icon className="h-6 w-6" strokeWidth={1.6} />
             </span>
           )}
         </div>
 
-        {/* Caption */}
-        <div className="px-3 pb-3 pt-2 text-center">
-          <div className="font-display text-[0.8rem] leading-tight text-paper truncate">
-            {label}
-          </div>
-          <div className="mt-1 font-mono text-[0.55rem] uppercase tracking-[0.18em] text-mist truncate">
-            <span aria-hidden className="mr-1 text-base leading-none">
-              {company.flag}
-            </span>
-            {sector}
-          </div>
+        {/* Flag-only footer — country badge */}
+        <div className="px-3 pb-3 pt-1 flex justify-center">
+          <span
+            aria-label={company.country}
+            title={company.country}
+            className="text-[1.1rem] leading-none"
+          >
+            {company.flag}
+          </span>
         </div>
       </div>
     </div>

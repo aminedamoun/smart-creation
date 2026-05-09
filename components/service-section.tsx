@@ -257,7 +257,7 @@ export function ServiceSection({
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-[0.92rem] font-medium text-paper hover:bg-brand-deep transition-colors"
+                className="group inline-flex items-center gap-2 rounded-full bg-brand-night px-5 py-3 text-[0.92rem] font-medium text-paper hover:bg-brand transition-colors"
               >
                 Discuss this option
                 <ArrowUpRight
@@ -313,11 +313,15 @@ export function ServiceSection({
                   }}
                 />
                 <div className="absolute inset-0 flex items-center justify-center p-10">
-                  <MaskedLogo
-                    src={s.logoSrc}
-                    tone="paper"
-                    className="h-[55%] w-[70%] drop-shadow-[0_2px_12px_rgba(0,0,0,0.25)]"
-                  />
+                  <div className="relative h-[60%] w-[75%] drop-shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
+                    <Image
+                      src={s.logoSrc}
+                      alt={s.image.alt}
+                      fill
+                      sizes="(max-width: 1024px) 60vw, 35vw"
+                      className="object-contain"
+                    />
+                  </div>
                 </div>
                 <div className="absolute right-5 bottom-5 inline-flex items-center gap-1.5 rounded-full border border-paper/25 bg-ink/40 backdrop-blur-md px-3 py-1 font-mono text-[0.58rem] uppercase tracking-[0.22em] text-paper">
                   <span className="relative flex h-1.5 w-1.5">

@@ -13,8 +13,21 @@ import { CentresMapSection } from "@/components/centres-map-section";
 import { Stats } from "@/components/stats";
 import { Testimonials } from "@/components/testimonials";
 import { FAQ } from "@/components/faq";
-import { Blog } from "@/components/blog";
+import { Blog, type BlogCardPost } from "@/components/blog";
 import { FinalCTA } from "@/components/final-cta";
+import { getInsightsList } from "@/lib/insights";
+
+function readMins(n: number) {
+  return `${n} min read`;
+}
+
+function fmtDate(iso: string) {
+  return new Date(iso).toLocaleDateString("en-US", {
+    month: "short",
+    day: "2-digit",
+    year: "numeric",
+  });
+}
 
 export const dynamic = "force-dynamic";
 
@@ -32,7 +45,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+  const insights = await getInsightsList();
+  const posts: BlogCardPost[] = insights
+    .slice(0, 3)
+    .map((m) => ({
+      slug: m.slug,
+      title: m.title,
+      excerpt: m.excerpt,
+      category: m.category,
+      date: fmtDate(m.date),
+      readTime: readMins(m.readMinutes),
+      image: m.cover,
+      href: `/insights/${m.slug}`,
+    }));
+
   return (
     <>
       <Hero />
@@ -43,8 +70,8 @@ export default function HomePage() {
         eyebrow="§ 03 — On the map"
         title={
           <>
-            Six centres across Dubai —{" "}
-            <span className="text-brand-deep">live office count and price range.</span>
+            Six centres across Dubai
+            <span className="block text-brand-deep">Live office count and price range.</span>
           </>
         }
         lede="Click any pin to see what's available right now and the entry price at that centre. Same team handles your file regardless of which one you start from."
@@ -57,7 +84,7 @@ export default function HomePage() {
       <BusinessCenter />
       <Stats />
       <Testimonials />
-      <Blog />
+      <Blog posts={posts} />
       <FAQ />
       <FinalCTA />
     </>

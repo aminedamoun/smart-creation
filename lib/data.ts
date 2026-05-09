@@ -125,12 +125,12 @@ export const navigation: NavItem[] = [
           links: [
             { label: "IFZA", href: "/free-zones/dubai#ifza", desc: "International Free Zone Authority" },
             { label: "DMCC", href: "/free-zones/dubai#dmcc", desc: "Multi Commodities Centre" },
-            { label: "JAFZA", href: "/free-zones/dubai#jafza", desc: "Jebel Ali Free Zone" },
             { label: "DIFC", href: "/free-zones/dubai#difc", desc: "International Financial Centre" },
             { label: "Meydan", href: "/free-zones/dubai#meydan", desc: "Professional services" },
-            { label: "DAFZA", href: "/free-zones/dubai#dafza", desc: "Airport Free Zone" },
-            { label: "DWTC", href: "/free-zones/dubai#dwtc", desc: "World Trade Centre" },
             { label: "DCC", href: "/free-zones/dubai#dcc", desc: "Dubai CommerCity — e-commerce" },
+            { label: "DTEC", href: "/free-zones/dubai#dtec", desc: "Technology Entrepreneur Campus" },
+            { label: "ANCFZ", href: "/free-zones/dubai#ancfz", desc: "Ajman NuVentures Centre" },
+            { label: "UAQ", href: "/free-zones/dubai#uaq", desc: "Umm Al Quwain Free Trade Zone" },
           ],
         },
         {
@@ -175,6 +175,9 @@ export type GroupCenter = {
   id: string;
   index: string;
   name: string;
+  /** Brand-mark file under /public/centres/. Used in place of the
+   *  textual name on the centre cards. */
+  logo: string;
   city: string;
   country: "UAE";
   address: string;
@@ -187,6 +190,7 @@ export const groupCenters: GroupCenter[] = [
     id: "smart-creation",
     index: "01",
     name: "Smart Creation Business Center",
+    logo: "/centres/smart-creation.webp",
     city: "Dubai",
     country: "UAE",
     address: "19th Floor, Damac Executive Heights (Tecom), Jebel Ali Race Course Road, Dubai",
@@ -203,6 +207,7 @@ export const groupCenters: GroupCenter[] = [
     id: "smart-place",
     index: "02",
     name: "Smart Place Business Center",
+    logo: "/centres/smart-place.webp",
     city: "Dubai",
     country: "UAE",
     address: "Floor 226, Iridium Building, Umm Suqeim Street, Al Barsha, Dubai",
@@ -218,6 +223,7 @@ export const groupCenters: GroupCenter[] = [
     id: "smart-view",
     index: "03",
     name: "Smart View Business Center",
+    logo: "/centres/smart-view.webp",
     city: "Bur Dubai",
     country: "UAE",
     address: "Al Arif Building, 15A Street, Al Hamriya, Bur Dubai, Dubai",
@@ -234,6 +240,7 @@ export const groupCenters: GroupCenter[] = [
     id: "future-space",
     index: "04",
     name: "Future Space Business Center",
+    logo: "/centres/future-space.webp",
     city: "Al Muraqabat, Dubai",
     country: "UAE",
     address: "2nd Floor, Block A, Dubai Municipality Building, Salah Al Din Street, Al Muraqabat, Dubai",
@@ -244,6 +251,39 @@ export const groupCenters: GroupCenter[] = [
       "Flexi desks & virtual offices",
       "Complete company setup",
       "Professional PRO services",
+    ],
+  },
+  {
+    id: "smart-founders",
+    index: "05",
+    name: "Smart Founders Business Center",
+    logo: "/centres/smart-founders.webp",
+    city: "Dubai",
+    country: "UAE",
+    address: "Smart Founders Centre, Dubai, U.A.E.",
+    summary:
+      "A dedicated workspace for early-stage founders and small teams — desks, meeting space and back-office support tailored to new businesses getting off the ground.",
+    highlights: [
+      "Founder-focused workspace",
+      "Desks & meeting rooms",
+      "Back-office & PRO support",
+    ],
+  },
+  {
+    id: "abna-rashid",
+    index: "06",
+    name: "Abna Rashid Building",
+    logo: "/centres/abna-rashid.webp",
+    city: "Naif, Deira",
+    country: "UAE",
+    address: "Abna Rashid Hamd Bin Huwaidi Building, Street 27A, Al Nakhal — Naif, Deira, Dubai",
+    summary:
+      "Our owned freehold building in Naif, Deira — Dubai's historic trading core. Multiple floors of flexible space serving import/export, wholesale and trading businesses, walking distance to the gold and spice souks.",
+    highlights: [
+      "Owned freehold property",
+      "Flexible commercial floors",
+      "Trading-district address",
+      "Walk to gold & spice souks",
     ],
   },
 ];
@@ -319,15 +359,15 @@ export const groupCompanies: GroupCompany[] = [
     logo: "/group-logos/abna-rashid.webp",
   },
   {
-    id: "next-journey",
-    name: "Next Journey Technology",
-    sector: "AI · Software · Digital · UAE",
+    id: "smart-founders",
+    name: "Smart Founders Business Center",
+    sector: "Business Centers · UAE",
     country: "UAE",
     flag: "🇦🇪",
     summary:
-      "Dubai-headquartered technology arm — AI, mobile and web development, cyber-security, IoT, IT infrastructure and digital marketing.",
-    icon: Cpu,
-    logo: "/group-logos/next-journey.webp",
+      "Dedicated workspace for early-stage founders and small teams — desks, meeting rooms and back-office support tailored to new businesses getting off the ground.",
+    icon: Building2,
+    logo: "/group-logos/smart-founders.webp",
   },
   {
     id: "smart-holiday-homes",
@@ -362,67 +402,64 @@ export const groupCompanies: GroupCompany[] = [
     icon: HardHat,
     logo: "/group-logos/mm-contractor.webp",
   },
+  {
+    id: "smart-accounting-tax",
+    name: "Smart Accounting & Tax",
+    sector: "Finance & Tax · UAE",
+    country: "UAE",
+    flag: "🇦🇪",
+    summary:
+      "Dedicated bookkeeping, VAT, Corporate Tax registration and audit-readiness arm — calendared so nothing slips and every cycle files clean.",
+    icon: Calculator,
+    logo: "/group-logos/smart-accounting-tax.webp",
+  },
 ];
 
 // ── Team ─────────────────────────────────────────────────────────────
-export type TeamDepartment =
-  | "leadership"
-  | "consulting"
-  | "finance"
-  | "pro"
-  | "operations";
-
 export type TeamMember = {
   name: string;
   role: string;
-  department: TeamDepartment;
-  /** Path under /public; omit for placeholder initials */
+  /** Path under /public; omit to fall back to initials placeholder */
   photo?: string;
+  /** Public LinkedIn profile URL */
+  linkedin?: string;
 };
 
 export const team: TeamMember[] = [
-  // Leadership
-  { name: "Asad Hashmi",       role: "Chief Executive Officer",            department: "leadership", photo: "/ceo-asad-hashmi.webp" },
-  { name: "Tahir Hashmi",      role: "Director & Co-Founder",              department: "leadership", photo: "/team/tahir-hashmi.webp" },
-  { name: "Khakan Abbasi",     role: "Business & Banking Setup Consultant", department: "leadership", photo: "/team/khakan-abbasi.webp" },
-  { name: "Saeed Ur Rehman",   role: "Manager · Audit, Compliance & Advisory", department: "leadership", photo: "/team/saeed-ur-rehman.webp" },
-  { name: "Shrushti Gupta",    role: "Business Operations Manager",        department: "leadership", photo: "/team/shrushti-gupta.webp" },
+  // CEO — kept here so the dedicated spotlight section can read it.
+  // Filtered out of the team grid (he's already shown above on the about page).
+  { name: "Asad Hashmi", role: "Chief Executive Officer", photo: "/ceo-asad-hashmi.webp" },
 
-  // Consulting & Business setup
-  { name: "Jawad Khan",        role: "Senior Business Setup Consultant",   department: "consulting", photo: "/team/jawad-khan.webp" },
-  { name: "Yusuf Khan",        role: "Business Setup Consultant",          department: "consulting", photo: "/team/yusuf-khan.webp" },
-  { name: "Zeeshan Rasheed",   role: "Business Setup Consultant",          department: "consulting", photo: "/team/zeeshan-rasheed.webp" },
-  { name: "Asher Ejaz",        role: "Free Zone Specialist",               department: "consulting", photo: "/team/asher-ejaz.webp" },
-  { name: "Volodymyr Fedorets",role: "International Markets Lead",         department: "consulting", photo: "/team/volodymyr-fedorets.webp" },
-  { name: "Rifat Noor",        role: "Business Setup Consultant",          department: "consulting", photo: "/team/rifat-noor.webp" },
+  // Management
+  { name: "Mahwish", role: "Managing Partner", linkedin: "https://www.linkedin.com/in/mahwishch/" },
+  { name: "Shrushti Gupta", role: "Business Operations & HR Manager", photo: "/team/shrushti-gupta.webp", linkedin: "https://www.linkedin.com/in/shrushti-gupta-lion-%E2%9C%8C-7351a3112/" },
 
-  // Finance, Audit & Tax
-  { name: "Renju Raj",         role: "Senior Accountant",                  department: "finance",    photo: "/team/renju-raj.webp" },
-  { name: "Sidra Subhani",     role: "Tax & VAT Specialist",               department: "finance",    photo: "/team/sidra-subhani.webp" },
-  { name: "Maha Khan",         role: "Audit Associate",                    department: "finance",    photo: "/team/maha-khan.webp" },
-  { name: "Khabar",            role: "Compliance Officer",                 department: "finance",    photo: "/team/khabar.webp" },
+  // Business Setup Consultants
+  { name: "Mian Aqib Riaz", role: "Business Setup Consultant", linkedin: "https://www.linkedin.com/in/mian-aqib-3227426b/" },
+  { name: "Shaista Rehman", role: "Business Setup Consultant", linkedin: "https://www.linkedin.com/in/shaista-rehman-/" },
+  { name: "Jawad Khan", role: "Business Setup Consultant & Public Relations Officer", photo: "/team/jawad-khan.webp", linkedin: "https://www.linkedin.com/in/jawadd-khan/" },
+  { name: "Asher Ejaz", role: "Business Setup Consultant", photo: "/team/asher-ejaz.webp", linkedin: "https://www.linkedin.com/in/asher-e-3a8939188/" },
+  { name: "Ayesha Ahmed", role: "Business Setup Consultant", photo: "/team/ayesha-ahmad.webp", linkedin: "https://www.linkedin.com/in/ayesha-ahmed-1873223ab/" },
+  { name: "Ruby Sharma", role: "Business Setup Consultant", photo: "/team/ruby-sharma.webp", linkedin: "https://www.linkedin.com/in/ruby-sharma-8089842b7/" },
+  { name: "Sidra Subhani", role: "Business Setup Consultant", photo: "/team/sidra-subhani.webp", linkedin: "https://www.linkedin.com/in/sidra-subhani-446020288/" },
+  { name: "Zeeshan Rasheed", role: "Business Setup Consultant", photo: "/team/zeeshan-rasheed.webp", linkedin: "https://www.linkedin.com/in/zeeshan-rasheed-188463351/" },
+  { name: "Shamsa Kanwal", role: "Business Setup Consultant & Public Relations Officer", photo: "/team/shamsa-kanwal.webp", linkedin: "https://www.linkedin.com/in/shamsa-farooq-749b12322/" },
+  { name: "Famey Johnson", role: "Business Setup Consultant", linkedin: "https://www.linkedin.com/in/famey-johnson-1703892a5/" },
+  { name: "Ashenafi Tsigab", role: "Business Setup Consultant", photo: "/team/ashenafi-tsigab.webp", linkedin: "https://www.linkedin.com/in/ashenafi-tsigab-118956374/" },
+  { name: "Volodymyr Fedorets", role: "Business Setup Consultant", photo: "/team/volodymyr-fedorets.webp", linkedin: "https://www.linkedin.com/in/volodymyr-fedorets/" },
+  { name: "Sarath Shaji", role: "Business Setup Consultant", linkedin: "https://www.linkedin.com/in/sarathshajismartbusinescreation/" },
+  { name: "Yousuf Khan", role: "Business Setup Consultant", photo: "/team/yusuf-khan.webp", linkedin: "https://www.linkedin.com/in/yousuf-khan-227309263/" },
 
-  // PRO, Visa & Immigration
-  { name: "Wardah Minhaj",     role: "PRO Services Lead",                  department: "pro",        photo: "/team/wardah-minhaj.webp" },
-  { name: "Athena Saysongadiana", role: "Visa & Immigration Specialist",   department: "pro",        photo: "/team/athena-saysongadiana.webp" },
-  { name: "Trish Anonuevo",    role: "PRO Services",                       department: "pro",        photo: "/team/trish-anonuevo.webp" },
+  // Accounts & Banking
+  { name: "Saeed Ur Rehman", role: "Audit, Advisory & Compliance Manager", photo: "/team/saeed-ur-rehman.webp", linkedin: "https://www.linkedin.com/in/saeed-ur-rehman-aca-4b4143387/" },
+  { name: "Renju Raj", role: "Accountant", photo: "/team/renju-raj.webp" },
+  { name: "Khakan Abbasi", role: "Banking & Business Setup Consultant", photo: "/team/khakan-abbasi.webp", linkedin: "https://www.linkedin.com/in/khakan-abbasi-84ab6261/" },
 
-  // Operations & client experience
-  { name: "Ayesha Ahmad",      role: "Marketing Lead",                     department: "operations", photo: "/team/ayesha-ahmad.webp" },
-  { name: "Afrin Hameed",      role: "Brand & Communications",             department: "operations", photo: "/team/afrin-hameed.webp" },
-  { name: "Ashenafi Tsigab",   role: "Office Manager",                     department: "operations", photo: "/team/ashenafi-tsigab.webp" },
-  { name: "Fariha Nasir",      role: "Client Coordinator",                 department: "operations", photo: "/team/fariha-nasir.webp" },
-  { name: "Ruby Sharma",       role: "HR Specialist",                      department: "operations", photo: "/team/ruby-sharma.webp" },
-  { name: "Shamsa Kanwal",     role: "Administrative Assistant",           department: "operations", photo: "/team/shamsa-kanwal.webp" },
-  { name: "Deewash",           role: "Reception & Front Office",           department: "operations", photo: "/team/deewash.webp" },
-];
-
-export const teamDepartments: { key: TeamDepartment; label: string; caption: string }[] = [
-  { key: "leadership", label: "Leadership",                     caption: "The people who own the file." },
-  { key: "consulting", label: "Business setup & consulting",    caption: "From activity to licence — the people who get you trading." },
-  { key: "finance",    label: "Finance, audit & tax",           caption: "Books, VAT, Corporate Tax, audit — handled monthly." },
-  { key: "pro",        label: "PRO, visa & immigration",        caption: "ICP, GDRFA, MOHRE — the queues we run, so you don't." },
-  { key: "operations", label: "Operations & client experience", caption: "The team behind every reply, every renewal." },
+  // Operations
+  { name: "Afrin Hameed", role: "Business Coordinator", photo: "/team/afrin-hameed.webp", linkedin: "https://www.linkedin.com/in/afrin-hameed-9956b1129/" },
+  { name: "Faria Nasir", role: "Digital Marketing & Business Development Specialist", photo: "/team/fariha-nasir.webp", linkedin: "https://www.linkedin.com/in/faria-nasir-068856252/" },
+  { name: "Athena Janin Sayson Gadiana", role: "Administrative Assistant", photo: "/team/athena-saysongadiana.webp", linkedin: "https://www.linkedin.com/in/athena-janin-gadiana-2086a02b4/" },
+  { name: "Wardah Minhaj", role: "Administrative Operations Executive", photo: "/team/wardah-minhaj.webp", linkedin: "https://www.linkedin.com/in/wardah-minhaj-8836b9182" },
 ];
 
 export type Service = {
@@ -516,21 +553,23 @@ export type FreeZone = {
   focus: string;
   leadTime: string;
   href: string;
+  /** Optional explicit logo path. Falls back to /free-zones/{code}.png. */
+  logoSrc?: string;
 };
 
 export const freeZones: FreeZone[] = [
   { code: "IFZA", name: "International Free Zone Authority", emirate: "Dubai", focus: "General trading & services", leadTime: "3–5 days", href: "/free-zones/ifza" },
-  { code: "DMCC", name: "Dubai Multi Commodities Centre", emirate: "Dubai", focus: "Commodities & global trade", leadTime: "7–10 days", href: "/free-zones/dmcc" },
   { code: "JAFZA", name: "Jebel Ali Free Zone", emirate: "Dubai", focus: "Industrial & logistics", leadTime: "5–10 days", href: "/free-zones/jafza" },
   { code: "MEYDAN", name: "Meydan Free Zone", emirate: "Dubai", focus: "Professional services", leadTime: "3–5 days", href: "/free-zones/meydan" },
-  { code: "DIFC", name: "Dubai International Financial Centre", emirate: "Dubai", focus: "Finance & fintech", leadTime: "4–6 weeks", href: "/free-zones/difc" },
   { code: "DAFZA", name: "Dubai Airport Free Zone", emirate: "Dubai", focus: "Aviation & e-commerce", leadTime: "5–7 days", href: "/free-zones/dafza" },
-  { code: "DCC", name: "Dubai CommerCity", emirate: "Dubai", focus: "E-commerce & digital", leadTime: "5–7 days", href: "/free-zones/dcc" },
   { code: "DWTC", name: "Dubai World Trade Centre", emirate: "Dubai", focus: "Events & services", leadTime: "5–7 days", href: "/free-zones/dwtc" },
+  { code: "DTEC", name: "Dubai Technology Entrepreneur Campus", emirate: "Dubai", focus: "Technology & digital focus", leadTime: "3–5 days", href: "/free-zones/dtec", logoSrc: "/free-zones/dtec.webp" },
   { code: "SHAMS", name: "Sharjah Media City", emirate: "Sharjah", focus: "Media & creative", leadTime: "2–4 days", href: "/free-zones/shams" },
   { code: "SPC", name: "Sharjah Publishing City", emirate: "Sharjah", focus: "Publishing & content", leadTime: "3–5 days", href: "/free-zones/spc" },
   { code: "RAKEZ", name: "Ras Al Khaimah Economic Zone", emirate: "RAK", focus: "Industrial & SME", leadTime: "3–5 days", href: "/free-zones/rakez" },
   { code: "AFZA", name: "Ajman Free Zone", emirate: "Ajman", focus: "SMEs & low-cost trade", leadTime: "2–4 days", href: "/free-zones/ajman" },
+  { code: "UAQ", name: "Umm Al Quwain Free Trade Zone", emirate: "UAQ", focus: "Fast-setup environment for SMEs", leadTime: "2–4 days", href: "/free-zones/uaq", logoSrc: "/free-zones/uaq.webp" },
+  { code: "ANC", name: "ANC Free Zone", emirate: "Abu Dhabi", focus: "Tailored for startups & SMEs", leadTime: "2–4 days", href: "/free-zones/anc", logoSrc: "/free-zones/anc.webp" },
 ];
 
 export type Differentiator = {

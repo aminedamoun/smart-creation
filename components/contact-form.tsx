@@ -118,7 +118,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="group relative inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-[0.92rem] font-medium text-paper transition-all hover:bg-brand-deep disabled:opacity-70 shadow-[0_18px_45px_-22px_rgba(13,16,19,0.5)]"
+          className="group relative inline-flex items-center gap-2 rounded-full bg-brand-night px-6 py-3.5 text-[0.92rem] font-medium text-paper transition-all hover:bg-brand disabled:opacity-70 shadow-[0_18px_45px_-22px_rgba(13,16,19,0.5)]"
         >
           {status === "sending" ? (
             <>

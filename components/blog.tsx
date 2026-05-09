@@ -4,10 +4,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Clock } from "lucide-react";
-import { blogPosts } from "@/lib/data";
 import { SectionHeader } from "@/components/ui/section-header";
 
-export function Blog() {
+export type BlogCardPost = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  date: string;
+  readTime: string;
+  image: string;
+  href: string;
+};
+
+export function Blog({ posts }: { posts: BlogCardPost[] }) {
+  const blogPosts = posts;
   return (
     <section id="journal" className="relative py-24 md:py-36 bg-paper-soft">
       <div className="container-edit">
@@ -56,7 +67,7 @@ export function Blog() {
                 className="group flex h-full flex-col rounded-3xl border border-ink/10 bg-paper overflow-hidden transition-all hover:border-ink/25 hover:shadow-[0_18px_50px_-28px_rgba(13,16,19,0.3)]"
               >
                 {/* Image */}
-                <div className="relative aspect-[16/10] overflow-hidden bg-paper-deep">
+                <div className="relative aspect-[16/9] overflow-hidden bg-paper-deep">
                   <Image
                     src={post.image}
                     alt={post.title}

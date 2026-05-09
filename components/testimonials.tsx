@@ -117,7 +117,7 @@ export function Testimonials() {
             href={googleRating.profileUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-[0.9rem] font-medium text-paper hover:bg-brand-deep transition-colors"
+            className="group inline-flex items-center gap-2 rounded-full bg-brand-night px-5 py-2.5 text-[0.9rem] font-medium text-paper hover:bg-brand transition-colors"
           >
             <GoogleLogo className="h-4 w-4" invertForDarkBg />
             Write a Google review

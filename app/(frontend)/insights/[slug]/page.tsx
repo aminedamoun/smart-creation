@@ -2,8 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, Clock, Sparkles, Tag } from "lucide-react";
+import {
+  ArrowUpRight,
+  Clock,
+  Mail,
+  MessageCircle,
+  Sparkles,
+  Users,
+} from "lucide-react";
 import { InsightArticle } from "@/components/insight-article";
+import { ArticleHeroBg } from "@/components/article-hero-bg";
+import { ArticleProgress } from "@/components/article-progress";
+import { ArticleShare } from "@/components/article-share";
 import {
   extractInsightToc,
   getInsightContent,
@@ -14,7 +24,8 @@ import {
 type Params = { slug: string };
 
 export async function generateStaticParams(): Promise<Params[]> {
-  return getInsightsList().map((p) => ({ slug: p.slug }));
+  const posts = await getInsightsList();
+  return posts.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
@@ -23,7 +34,7 @@ export async function generateMetadata({
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const meta = getInsightMeta(slug);
+  const meta = await getInsightMeta(slug);
   if (!meta) return {};
   return {
     title: meta.metaTitle,
@@ -53,53 +64,26 @@ export default async function InsightArticlePage({
   params: Promise<Params>;
 }) {
   const { slug } = await params;
-  const meta = getInsightMeta(slug);
+  const meta = await getInsightMeta(slug);
   if (!meta) notFound();
 
   const body = await getInsightContent(slug);
   const toc = extractInsightToc(body);
-  const headline = meta.title.split(":")[0];
 
-  const related = getInsightsList()
+  const related = (await getInsightsList())
     .filter((p) => p.slug !== slug)
     .slice(0, 2);
 
   return (
     <>
-      {/* Hero */}
+      <ArticleProgress />
+
+      {/* Masthead — slim editorial band, no big H1 (title is in the cover) */}
       <section
         data-dark-hero
-        className="relative overflow-hidden pt-32 md:pt-40 pb-16 md:pb-20 bg-ink text-paper"
+        className="relative overflow-hidden pt-36 md:pt-44 pb-12 md:pb-16 bg-ink text-paper"
       >
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(720px circle at 78% 28%, rgba(72,168,219,0.16), transparent 55%)",
-          }}
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -bottom-40 -left-40 h-[560px] w-[560px] rounded-full"
-          style={{
-            background:
-              "radial-gradient(closest-side, rgba(72,168,219,0.12), rgba(72,168,219,0) 70%)",
-          }}
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.055]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, #f6f3ec 1px, transparent 1px), linear-gradient(to bottom, #f6f3ec 1px, transparent 1px)",
-            backgroundSize: "72px 72px",
-            maskImage:
-              "radial-gradient(ellipse at center, black 45%, transparent 80%)",
-            WebkitMaskImage:
-              "radial-gradient(ellipse at center, black 45%, transparent 80%)",
-          }}
-        />
+        <ArticleHeroBg />
 
         <div className="container-edit relative">
           <nav
@@ -114,28 +98,15 @@ export default async function InsightArticlePage({
             <span className="text-paper truncate max-w-[40ch]">{meta.category}</span>
           </nav>
 
-          <Link
-            href="/insights"
-            className="group inline-flex items-center gap-1.5 text-[0.88rem] text-mist hover:text-paper transition-colors mb-8"
-          >
-            <ArrowLeft
-              className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-0.5"
-              strokeWidth={1.8}
-            />
-            All insights
-          </Link>
-
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-paper/15 bg-paper/[0.04] px-3 py-1 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-mist">
+          <div className="inline-flex items-center gap-2 rounded-full border border-paper/15 bg-paper/[0.04] px-3 py-1 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-mist">
             <Sparkles className="h-3 w-3 text-brand" strokeWidth={2} />
             {meta.category}
           </div>
 
-          <h1 className="max-w-5xl font-display font-medium tracking-[-0.025em] leading-[1.02] text-[clamp(2rem,4.6vw,3.8rem)] text-paper text-balance">
-            {headline}
-            <span className="text-brand">.</span>
-          </h1>
+          {/* SEO / a11y title — visually carried by the cover image below */}
+          <h1 className="sr-only">{meta.title}</h1>
 
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-mist">
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-mist">
             <span className="inline-flex items-center gap-1.5 text-paper">
               <Clock className="h-3.5 w-3.5 text-brand" strokeWidth={2} />
               {meta.readMinutes} min read
@@ -148,58 +119,135 @@ export default async function InsightArticlePage({
         </div>
       </section>
 
-      {/* Cover */}
-      <section className="-mt-8 md:-mt-12 pb-12 bg-paper">
+      {/* Cover — capped width so it sits as a feature image, not a full-bleed hero */}
+      <section className="-mt-10 md:-mt-14 pb-10 md:pb-14 bg-paper">
         <div className="container-edit">
-          <div className="relative aspect-[21/9] overflow-hidden rounded-3xl border border-ink/10 shadow-[0_30px_80px_-30px_rgba(13,16,19,0.45)]">
+          <div className="relative mx-auto max-w-4xl aspect-[16/9] overflow-hidden rounded-3xl border border-ink/10 shadow-[0_30px_80px_-30px_rgba(13,16,19,0.45)]">
             <Image
               src={meta.cover}
               alt={meta.title}
               fill
-              sizes="(max-width: 1280px) 100vw, 1100px"
+              sizes="(max-width: 1024px) 100vw, 900px"
               className="object-cover"
               priority
             />
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -bottom-16 -right-16 h-56 w-56 rounded-full"
-              style={{
-                background:
-                  "radial-gradient(closest-side, rgba(72,168,219,0.4), rgba(72,168,219,0) 70%)",
-              }}
-            />
           </div>
         </div>
       </section>
 
-      {/* Excerpt callout */}
+      {/* Author byline + share — premium editorial strip */}
       <section className="bg-paper">
         <div className="container-edit">
-          <div className="mx-auto max-w-3xl py-10 md:py-14 border-b border-ink/8">
-            <div className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-stone mb-4 flex items-center gap-2">
-              <span className="h-px w-8 bg-ink/25" />§ The gist
-            </div>
-            <p className="font-display font-medium text-[clamp(1.15rem,1.7vw,1.45rem)] leading-[1.4] tracking-[-0.01em] text-ink text-balance">
-              {meta.excerpt}
-            </p>
-            <div className="mt-6 flex flex-wrap items-center gap-2">
-              {meta.secondaryKeywords.slice(0, 4).map((kw) => (
+          <div className="mx-auto max-w-3xl flex flex-wrap items-center justify-between gap-6 py-6 md:py-8 border-y border-ink/8">
+            <div className="flex items-center gap-3">
+              <span className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-brand/35 bg-brand/10 text-brand-deep">
+                <Users className="h-4 w-4" strokeWidth={1.8} />
                 <span
-                  key={kw}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-ink/10 bg-paper-soft px-3 py-1 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-stone"
-                >
-                  <Tag className="h-3 w-3" strokeWidth={1.8} />
-                  {kw}
-                </span>
-              ))}
+                  aria-hidden
+                  className="absolute inset-0 rounded-full bg-brand/15 animate-pulse"
+                />
+              </span>
+              <div>
+                <div className="font-display text-[0.95rem] tracking-[-0.005em] text-ink leading-tight">
+                  Smart Creation team
+                </div>
+                <div className="mt-0.5 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-stone">
+                  Setup · banking · tax · written from Tecom
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center gap-2 lg:hidden">
+              <ArticleShare title={meta.title} slug={meta.slug} />
             </div>
           </div>
         </div>
       </section>
 
+      {/* Pull-quote excerpt */}
+      <section className="bg-paper">
+        <div className="container-edit">
+          <figure className="mx-auto max-w-3xl py-12 md:py-16 border-b border-ink/8 relative">
+            <span
+              aria-hidden
+              className="absolute -top-2 -left-2 md:left-0 font-display font-semibold text-[clamp(5rem,9vw,7rem)] leading-none text-brand/25 select-none pointer-events-none"
+            >
+              &ldquo;
+            </span>
+            <blockquote className="pl-10 md:pl-14 border-l-2 border-brand/50">
+              <p className="font-display font-medium text-[clamp(1.2rem,1.85vw,1.55rem)] leading-[1.4] tracking-[-0.012em] text-ink text-balance">
+                {meta.excerpt}
+              </p>
+            </blockquote>
+          </figure>
+        </div>
+      </section>
+
+      {/* Desktop sticky share rail (mobile share is in the byline strip above) */}
+      <div className="hidden lg:block">
+        <ArticleShare title={meta.title} slug={meta.slug} />
+      </div>
+
       {/* Body */}
-      <section className="py-12 md:py-16 bg-paper">
+      <section className="py-10 md:py-14 bg-paper">
         <InsightArticle body={body} toc={toc} />
+      </section>
+
+      {/* Newsletter — premium subscribe card */}
+      <section className="py-14 md:py-20 bg-paper">
+        <div className="container-edit">
+          <div className="relative mx-auto max-w-3xl overflow-hidden rounded-3xl border border-brand/30 bg-gradient-to-br from-brand/[0.08] via-paper to-paper p-8 md:p-10 shadow-[0_22px_60px_-30px_rgba(72,168,219,0.45)]">
+            <span
+              aria-hidden
+              className="pointer-events-none absolute -bottom-20 -right-20 h-56 w-56 rounded-full"
+              style={{
+                background:
+                  "radial-gradient(closest-side, rgba(72,168,219,0.35), rgba(72,168,219,0) 70%)",
+              }}
+            />
+            <div className="relative">
+              <div className="flex items-center gap-2 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-brand-deep mb-4">
+                <Mail className="h-3.5 w-3.5" strokeWidth={2} />
+                The insider — every other Thursday
+              </div>
+              <h2 className="font-display font-semibold text-[clamp(1.4rem,2.2vw,1.9rem)] leading-[1.15] tracking-[-0.015em] text-ink text-balance">
+                One sharp note on Dubai setup,{" "}
+                <span className="text-brand-deep">straight to your inbox.</span>
+              </h2>
+              <p className="mt-3 max-w-xl text-[0.96rem] leading-relaxed text-ink-mute">
+                New rules, new free zones, new banking quirks — explained the
+                same way we explain them to clients. Free, no spam, unsubscribe
+                in one click.
+              </p>
+              <form
+                className="mt-6 flex flex-col sm:flex-row gap-3"
+                action="https://formspree.io/f/xnnjkkkk"
+                method="POST"
+              >
+                <label className="sr-only" htmlFor="newsletter-email">
+                  Email address
+                </label>
+                <input
+                  id="newsletter-email"
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="you@company.com"
+                  className="flex-1 rounded-full border border-ink/15 bg-paper px-5 py-3 text-[0.95rem] text-ink placeholder:text-stone focus:outline-none focus:border-brand/60 focus:ring-2 focus:ring-brand/30"
+                />
+                <button
+                  type="submit"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-brand-night px-6 py-3 text-[0.92rem] font-medium text-paper hover:bg-brand transition-colors"
+                >
+                  Subscribe
+                  <ArrowUpRight
+                    className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    strokeWidth={1.8}
+                  />
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* FAQ */}
@@ -221,7 +269,7 @@ export default async function InsightArticlePage({
                 </p>
                 <Link
                   href="/contact"
-                  className="group mt-6 inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-[0.92rem] font-medium text-paper hover:bg-brand-deep transition-colors"
+                  className="group mt-6 inline-flex items-center gap-2 rounded-full bg-brand-night px-5 py-3 text-[0.92rem] font-medium text-paper hover:bg-brand transition-colors"
                 >
                   Ask your question
                   <ArrowUpRight
@@ -343,16 +391,25 @@ export default async function InsightArticlePage({
               </p>
             </div>
             <div className="col-span-12 lg:col-span-5 lg:text-right">
-              <Link
-                href="/contact"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-brand px-6 py-3.5 text-[0.95rem] font-medium text-ink hover:bg-paper transition-colors"
-              >
-                Book a consultation
-                <ArrowUpRight
-                  className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  strokeWidth={1.8}
-                />
-              </Link>
+              <div className="inline-flex flex-col gap-3 lg:items-end">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-brand px-6 py-3.5 text-[0.95rem] font-medium text-ink hover:bg-paper transition-colors"
+                >
+                  Book a consultation
+                  <ArrowUpRight
+                    className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    strokeWidth={1.8}
+                  />
+                </Link>
+                <Link
+                  href="/insights"
+                  className="group inline-flex items-center justify-center gap-2 rounded-full border border-paper/20 bg-paper/5 backdrop-blur px-5 py-3 text-[0.9rem] text-paper hover:bg-paper/10 transition-colors"
+                >
+                  <MessageCircle className="h-3.5 w-3.5" strokeWidth={1.8} />
+                  Read more insights
+                </Link>
+              </div>
             </div>
           </div>
         </div>

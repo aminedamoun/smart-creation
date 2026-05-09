@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Phone, Mail, MessageCircle, MapPin } from "lucide-react";
 import { CONTACT } from "@/lib/data";
-import { LogoMark } from "@/components/logo";
+import { Logo } from "@/components/logo";
 
 export function FinalCTA() {
   return (
@@ -103,7 +103,7 @@ export function FinalCTA() {
             className="col-span-12 lg:col-span-5"
           >
             <div className="relative rounded-3xl border border-paper/15 bg-paper/5 backdrop-blur-xl p-8 md:p-10">
-              <LogoMark size={48} inverted />
+              <Logo />
               <div className="mt-8 space-y-5">
                 <ContactRow
                   icon={<Phone className="h-4 w-4" strokeWidth={1.8} />}

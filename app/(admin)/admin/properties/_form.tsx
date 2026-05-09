@@ -167,7 +167,7 @@ export function PropertyForm({ data, centres }: { data: PropertyFormData; centre
         <div className="flex items-center justify-between pt-4 border-t border-ink/10">
           <button
             type="submit"
-            className="rounded-full bg-ink text-paper px-5 py-2.5 text-[0.92rem] font-medium hover:bg-brand-deep transition-colors"
+            className="rounded-full bg-brand-night text-paper px-5 py-2.5 text-[0.92rem] font-medium hover:bg-brand transition-colors"
           >
             {isNew ? "Create property" : "Save changes"}
           </button>

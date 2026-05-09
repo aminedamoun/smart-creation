@@ -24,6 +24,7 @@ export function InsightArticle({
   toc: TocEntry[];
 }) {
   const articleRef = useRef<HTMLDivElement>(null);
+  const tocListRef = useRef<HTMLUListElement>(null);
   const [activeId, setActiveId] = useState<string | null>(null);
 
   // Reading progress (scroll-bound)
@@ -32,25 +33,65 @@ export function InsightArticle({
     offset: ["start 30%", "end end"],
   });
 
-  // Highlight the heading currently in view
+  // Auto-scroll the active TOC item into view inside its scroll container,
+  // so the user always sees where they are even on long articles.
+  useEffect(() => {
+    if (!activeId) return;
+    const list = tocListRef.current;
+    if (!list) return;
+    const activeEl = list.querySelector<HTMLElement>(
+      `a[href="#${CSS.escape(activeId)}"]`,
+    );
+    if (!activeEl) return;
+    const listRect = list.getBoundingClientRect();
+    const elRect = activeEl.getBoundingClientRect();
+    // Only scroll if the active element is partially or fully outside.
+    const above = elRect.top < listRect.top + 8;
+    const below = elRect.bottom > listRect.bottom - 8;
+    if (above || below) {
+      const target =
+        list.scrollTop +
+        elRect.top -
+        listRect.top -
+        listRect.height / 2 +
+        elRect.height / 2;
+      list.scrollTo({ top: Math.max(0, target), behavior: "smooth" });
+    }
+  }, [activeId]);
+
+  // Highlight the heading currently in view — scroll-position based so the
+  // active item always tracks the user's reading position, even when
+  // scrolling fast (IntersectionObserver with a narrow band misses fast scrolls).
   useEffect(() => {
     if (toc.length === 0) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible.length > 0) {
-          setActiveId(visible[0].target.id);
+    let raf = 0;
+    const compute = () => {
+      raf = 0;
+      const triggerY = window.innerHeight * 0.25; // 25% from the top
+      let current = toc[0]?.id ?? null;
+      for (const t of toc) {
+        const el = document.getElementById(t.id);
+        if (!el) continue;
+        const top = el.getBoundingClientRect().top;
+        if (top - triggerY <= 0) {
+          current = t.id;
+        } else {
+          break;
         }
-      },
-      { rootMargin: "-25% 0px -65% 0px", threshold: [0, 1] },
-    );
-    for (const t of toc) {
-      const el = document.getElementById(t.id);
-      if (el) observer.observe(el);
-    }
-    return () => observer.disconnect();
+      }
+      setActiveId(current);
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(compute);
+    };
+    compute();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, [toc]);
 
   // Per-render counters for heading order + first-paragraph (drop cap) detection
@@ -229,25 +270,42 @@ export function InsightArticle({
                   In this article
                 </div>
                 <nav>
-                  <ul className="space-y-1.5">
+                  <ul
+                    ref={tocListRef}
+                    className="space-y-1 max-h-[calc(100vh-22rem)] overflow-y-auto pr-2 scroll-smooth [scrollbar-width:thin] [scrollbar-color:rgba(13,16,19,0.18)_transparent]"
+                  >
                     {toc.map((t) => {
                       const active = activeId === t.id;
                       return (
                         <li key={t.id}>
                           <a
                             href={`#${t.id}`}
+                            onClick={(e) => {
+                              const el = document.getElementById(t.id);
+                              if (el) {
+                                e.preventDefault();
+                                setActiveId(t.id);
+                                el.scrollIntoView({
+                                  behavior: "smooth",
+                                  block: "start",
+                                });
+                                history.replaceState(null, "", `#${t.id}`);
+                              }
+                            }}
                             className={cn(
-                              "group relative block pl-4 pr-2 py-1.5 text-[0.86rem] leading-snug border-l-2 transition-colors",
+                              "group relative block pl-4 pr-2 py-1.5 text-[0.86rem] leading-snug border-l-2 transition-all duration-200 rounded-r-md",
                               active
-                                ? "border-brand text-ink"
-                                : "border-ink/10 text-ink-mute hover:text-ink hover:border-ink/30",
+                                ? "border-brand text-brand-deep font-medium bg-brand/[0.06]"
+                                : "border-ink/10 text-ink-mute hover:text-ink hover:border-ink/30 hover:bg-ink/[0.02]",
                             )}
                           >
                             <span
                               aria-hidden
                               className={cn(
-                                "absolute -left-[5px] top-1/2 -translate-y-1/2 h-2 w-2 rounded-full transition-colors",
-                                active ? "bg-brand" : "bg-transparent",
+                                "absolute -left-[5px] top-1/2 -translate-y-1/2 h-2 w-2 rounded-full transition-all duration-200",
+                                active
+                                  ? "bg-brand scale-100 shadow-[0_0_0_3px_rgba(72,168,219,0.18)]"
+                                  : "bg-transparent scale-75",
                               )}
                             />
                             {t.text}

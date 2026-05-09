@@ -108,9 +108,15 @@ export function CeoWord() {
                 for excellence, innovation and client satisfaction. We aspire to create a
                 business ecosystem where entrepreneurs thrive.
               </p>
+              <p>
+                Twelve years on, that promise has only deepened. We've helped over{" "}
+                <span className="text-paper font-semibold">10,000 businesses</span> find
+                their footing in the U.A.E. — every file passing through the same
+                accountable team that's been doing this since 2013.
+              </p>
             </div>
 
-            <div className="mt-10">
+            <div className="mt-10 pt-6 border-t border-paper/10">
               <div className="font-display text-[1.05rem] font-semibold text-paper leading-none">
                 Asad Hashmi
               </div>

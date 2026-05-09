@@ -41,7 +41,7 @@ export default async function LoginPage({ searchParams }: Args) {
         />
         <button
           type="submit"
-          className="mt-5 w-full rounded-full bg-ink text-paper px-5 py-3 text-[0.95rem] font-medium hover:bg-brand-deep transition-colors"
+          className="mt-5 w-full rounded-full bg-brand-night text-paper px-5 py-3 text-[0.95rem] font-medium hover:bg-brand transition-colors"
         >
           Sign in
         </button>

@@ -8,16 +8,18 @@ export const dynamic = "force-dynamic";
 export default async function AdminDashboard() {
   await requireAdmin();
 
-  const [centres, properties, featured] = await Promise.all([
+  const [centres, properties, featured, team] = await Promise.all([
     supabaseAdmin.from("sc_centres").select("id", { count: "exact", head: true }),
     supabaseAdmin.from("sc_properties").select("id", { count: "exact", head: true }),
     supabaseAdmin.from("sc_properties").select("id", { count: "exact", head: true }).eq("featured", true),
+    supabaseAdmin.from("sc_team").select("id", { count: "exact", head: true }),
   ]);
 
   const stats = [
     { label: "Centres", value: centres.count ?? 0, href: "/admin/centres" },
     { label: "Properties", value: properties.count ?? 0, href: "/admin/properties" },
     { label: "Featured", value: featured.count ?? 0, href: "/admin/properties?featured=1" },
+    { label: "Team", value: team.count ?? 0, href: "/admin/team" },
   ];
 
   return (
@@ -27,7 +29,7 @@ export default async function AdminDashboard() {
       </div>
       <h1 className="font-display text-[2rem] tracking-[-0.02em] text-ink mb-8">Dashboard</h1>
 
-      <ul className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
+      <ul className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl">
         {stats.map((s) => (
           <li key={s.label}>
             <Link
