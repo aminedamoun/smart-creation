@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useMemo, useState } from "react";
-import { m } from "framer-motion";
 import {
   ArrowUpRight,
   Eye,
@@ -157,19 +156,11 @@ export function OfficesGrid({
         {visible.length > 0 ? (
           <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-6">
             {visible.map((office, idx) => (
-              <m.li
+              <li
                 key={office.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{
-                  duration: 0.55,
-                  delay: (idx % 3) * 0.06,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
+                                                                              >
                 <OfficeCard office={office} />
-              </m.li>
+              </li>
             ))}
           </ul>
         ) : (

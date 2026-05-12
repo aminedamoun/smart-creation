@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { m } from "framer-motion";
 import { groupCompanies, type GroupCompany } from "@/lib/data";
 import { SectionHeader } from "@/components/ui/section-header";
 
