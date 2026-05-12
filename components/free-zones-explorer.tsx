@@ -116,7 +116,7 @@ export function FreeZonesExplorer() {
 
         {/* Filter pills */}
         <div
-          role="tablist"
+          role="group"
           aria-label="Filter free zones by emirate"
           className="mb-10 md:mb-12 flex flex-wrap gap-2 md:gap-3"
         >

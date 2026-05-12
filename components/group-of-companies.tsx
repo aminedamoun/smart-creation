@@ -249,29 +249,19 @@ export function GroupOfCompanies() {
 
             {/* Single faint trace — the moving orb supplies the motion */}
             {CHIPS.map((c, i) => (
-              <m.path
+              <path
                 key={`cable-${i}`}
                 d={c.path}
                 stroke="rgba(155,214,239,0.18)"
                 fill="none"
                 strokeWidth="0.7"
                 strokeLinecap="round"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{
-                  duration: 0.55,
-                  delay: 1.2 + i * 0.09,
-                  ease: "easeOut",
-                }}
-              />
+                                                              />
             ))}
 
             {/* COMET ORBS — fade in once all cables are lit */}
-            <m.g
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 2.2, ease: "easeOut" }}
-            >
+            <g
+                                                      >
               {CHIPS.map((_, i) => (
                 <g key={`o-${i}`} mask={`url(#scg-mask-${i + 1})`}>
                   <circle
@@ -283,41 +273,31 @@ export function GroupOfCompanies() {
                   />
                 </g>
               ))}
-            </m.g>
+            </g>
           </svg>
 
           {/* Centre card — Smart Creation Group (bigger) */}
-          <m.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
+          <div
+                                                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
           >
             <CentreCard />
-          </m.div>
+          </div>
 
           {/* Perimeter cards */}
           {CHIPS.map((c, i) => {
             const company = companyById[c.companyId];
             if (!company) return null;
             return (
-              <m.div
+              <div
                 key={c.companyId}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.15 + i * 0.06,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="absolute -translate-x-1/2 -translate-y-1/2 z-10"
+                                                                className="absolute -translate-x-1/2 -translate-y-1/2 z-10"
                 style={{
                   left: `${(c.cx / VBOX_W) * 100}%`,
                   top: `${(c.cy / VBOX_H) * 100}%`,
                 }}
               >
                 <PerimeterCard company={company} />
-              </m.div>
+              </div>
             );
           })}
         </div>

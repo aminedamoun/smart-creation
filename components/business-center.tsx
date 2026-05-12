@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { m } from "framer-motion";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import { groupCenters } from "@/lib/data";
 
@@ -12,39 +9,27 @@ export function BusinessCenter() {
       <div className="container-edit">
         <div className="grid grid-cols-12 gap-x-8 gap-y-12 mb-14 md:mb-20">
           <div className="col-span-12 lg:col-span-7">
-            <m.span
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-stone"
+            <span
+                                                                      className="flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-stone"
             >
               <span className="h-px w-8 bg-ink/20" />
               § 08 — Our Business Centres
-            </m.span>
-            <m.h2
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.08 }}
-              className="font-display mt-5 text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[1.04] tracking-[-0.02em] text-ink text-balance max-w-3xl"
+            </span>
+            <h2
+                                                                      className="font-display mt-5 text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[1.04] tracking-[-0.02em] text-ink text-balance max-w-3xl"
             >
               Six real Dubai addresses,{" "}
               <span className="text-brand-deep">all owned and operated.</span>
-            </m.h2>
-            <m.p
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.16 }}
-              className="mt-5 text-[1.02rem] leading-relaxed text-ink-mute text-pretty max-w-2xl"
+            </h2>
+            <p
+                                                                      className="mt-5 text-[1.02rem] leading-relaxed text-ink-mute text-pretty max-w-2xl"
             >
               Most setup agents send you home with a PO box. Smart Creation Group
               puts your company inside one of six business centres across Dubai —
               flagship offices at Damac Executive Heights, plus locations in Al
               Barsha, Bur Dubai, Al Muraqabat, Smart Founders and our owned
               freehold building in Naif, Deira.
-            </m.p>
+            </p>
           </div>
           <div className="col-span-12 lg:col-span-5 lg:flex lg:justify-end lg:items-end">
             <Link
@@ -62,17 +47,9 @@ export function BusinessCenter() {
 
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
           {groupCenters.map((center, idx) => (
-            <m.li
+            <li
               key={center.id}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{
-                duration: 0.55,
-                delay: (idx % 2) * 0.08,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="group relative flex flex-col rounded-3xl border border-ink/10 bg-paper p-7 md:p-8 transition-all hover:border-ink/25 hover:shadow-[0_18px_50px_-28px_rgba(13,16,19,0.3)]"
+                                                                      className="group relative flex flex-col rounded-3xl border border-ink/10 bg-paper p-7 md:p-8 transition-all hover:border-ink/25 hover:shadow-[0_18px_50px_-28px_rgba(13,16,19,0.3)]"
             >
               <div className="flex items-start justify-between">
                 <span className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-stone">
@@ -118,7 +95,7 @@ export function BusinessCenter() {
                 aria-hidden
                 className="pointer-events-none absolute left-0 top-0 h-px w-0 bg-brand transition-all duration-500 group-hover:w-full"
               />
-            </m.li>
+            </li>
           ))}
         </ul>
       </div>

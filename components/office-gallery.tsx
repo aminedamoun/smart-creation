@@ -96,7 +96,7 @@ export function OfficeGallery({ images, title }: OfficeGalleryProps) {
           style={{
             gridTemplateColumns: `repeat(auto-fill, minmax(84px, 1fr))`,
           }}
-          role="tablist"
+          role="group"
           aria-label={`${title} photos`}
         >
           {images.map((img, i) => {

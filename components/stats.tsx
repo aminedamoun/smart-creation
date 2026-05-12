@@ -1,6 +1,3 @@
-"use client";
-
-import { m } from "framer-motion";
 import { Counter } from "@/components/ui/counter";
 import { stats } from "@/lib/data";
 
@@ -15,17 +12,9 @@ export function Stats() {
 
         <ul className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8">
           {stats.map((s, idx) => (
-            <m.li
+            <li
               key={s.label}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{
-                duration: 0.55,
-                delay: idx * 0.08,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className={
+                                                                      className={
                 "relative " + (idx > 0 ? "lg:border-l lg:border-ink/15 lg:pl-8" : "")
               }
             >
@@ -37,7 +26,7 @@ export function Stats() {
               />
               <div className="mt-4 font-medium text-[1rem] text-ink">{s.label}</div>
               <div className="mt-1 text-[0.85rem] text-ink-mute">{s.caption}</div>
-            </m.li>
+            </li>
           ))}
         </ul>
       </div>

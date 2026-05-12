@@ -126,7 +126,7 @@ export function OfficesGrid({
         </div>
 
         <div
-          role="tablist"
+          role="group"
           aria-label="Filter offices by business centre"
           className="mb-10 md:mb-12 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 md:gap-3"
         >

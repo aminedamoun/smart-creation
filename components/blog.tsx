@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { m } from "framer-motion";
 import { ArrowUpRight, Clock } from "lucide-react";
 import { SectionHeader } from "@/components/ui/section-header";
 
@@ -51,17 +48,9 @@ export function Blog({ posts }: { posts: BlogCardPost[] }) {
 
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {blogPosts.map((post, idx) => (
-            <m.li
+            <li
               key={post.slug}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{
-                duration: 0.55,
-                delay: idx * 0.08,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
+                                                                    >
               <Link
                 href={post.href}
                 className="group flex h-full flex-col rounded-3xl border border-ink/10 bg-paper overflow-hidden transition-all hover:border-ink/25 hover:shadow-[0_18px_50px_-28px_rgba(13,16,19,0.3)]"
@@ -113,7 +102,7 @@ export function Blog({ posts }: { posts: BlogCardPost[] }) {
                   </div>
                 </div>
               </Link>
-            </m.li>
+            </li>
           ))}
         </ul>
       </div>

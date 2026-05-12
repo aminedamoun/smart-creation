@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { m } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { freeZones, type FreeZone } from "@/lib/data";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -34,19 +31,11 @@ export function FreeZones() {
 
         <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
           {freeZones.map((zone, idx) => (
-            <m.li
+            <li
               key={zone.code}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{
-                duration: 0.4,
-                delay: Math.min(idx * 0.025, 0.25),
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
+                                                                    >
               <ZoneCard zone={zone} />
-            </m.li>
+            </li>
           ))}
         </ul>
 

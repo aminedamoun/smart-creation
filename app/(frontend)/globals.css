@@ -10,12 +10,12 @@
   --color-ink-mute: #4a4e56;
 
   --color-brand: #48a8db;
-  --color-brand-deep: #2e8ab8;
+  --color-brand-deep: #1f6e95;
   --color-brand-soft: #8dc2dd;
   --color-brand-wash: #e8f3f9;
   --color-brand-night: #0e3554;
 
-  --color-stone: #737574;
+  --color-stone: #595b5a;
   --color-mist: #b5b6b8;
   --color-sand: #c9a876;
 
@@ -281,8 +281,8 @@
     );
   background-size: 200% 100%;
   background-repeat: no-repeat;
-  -webkit-mask-image: url('/sc-cube.png');
-          mask-image: url('/sc-cube.png');
+  -webkit-mask-image: url('/sc-cube-mask.png');
+          mask-image: url('/sc-cube-mask.png');
   -webkit-mask-size: contain;
           mask-size: contain;
   -webkit-mask-repeat: no-repeat;

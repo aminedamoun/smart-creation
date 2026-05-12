@@ -1,8 +1,5 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { m } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { services } from "@/lib/data";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -29,12 +26,8 @@ export function Services() {
           </div>
 
           {/* Reception image — editorial feature frame */}
-          <m.figure
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="col-span-12 lg:col-span-7 relative"
+          <figure
+                                                            className="col-span-12 lg:col-span-7 relative"
           >
             <div className="relative aspect-[4/3] md:aspect-[5/3] rounded-3xl overflow-hidden border border-ink/10 bg-paper-deep">
               {RECEPTION_IMAGE_READY ? (
@@ -86,24 +79,16 @@ export function Services() {
                 />
               </Link>
             </figcaption>
-          </m.figure>
+          </figure>
         </div>
 
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-ink/10">
           {services.map((service, idx) => {
             const Icon = service.icon;
             return (
-              <m.li
+              <li
                 key={service.id}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{
-                  duration: 0.5,
-                  delay: (idx % 4) * 0.06,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="border-b border-r border-ink/10"
+                                                                                className="border-b border-r border-ink/10"
               >
                 <Link
                   href={service.href}
@@ -137,7 +122,7 @@ export function Services() {
                     className="pointer-events-none absolute left-0 top-0 h-px w-0 bg-brand transition-all duration-500 group-hover:w-full"
                   />
                 </Link>
-              </m.li>
+              </li>
             );
           })}
         </ul>

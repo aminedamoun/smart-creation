@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { m } from "framer-motion";
 import { ArrowRight, Phone, Mail, MessageCircle, MapPin } from "lucide-react";
 import { CONTACT } from "@/lib/data";
 import { Logo } from "@/components/logo";
@@ -31,47 +28,23 @@ export function FinalCTA() {
       <div className="container-edit relative">
         <div className="grid grid-cols-12 gap-x-8 gap-y-16 items-center">
           <div className="col-span-12 lg:col-span-7">
-            <m.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-mist"
-            >
+            <div className="flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-mist">
               <span className="h-px w-8 bg-paper/25" />
               § 10 — Start your company
-            </m.div>
+            </div>
 
-            <m.h2
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.08 }}
-              className="font-display mt-6 text-[clamp(2.2rem,5.5vw,4.2rem)] leading-[1.02] tracking-[-0.025em] text-paper text-balance"
-            >
+            <h2 className="font-display mt-6 text-[clamp(2.2rem,5.5vw,4.2rem)] leading-[1.02] tracking-[-0.025em] text-paper text-balance">
               Your U.A.E. company starts with{" "}
               <span className="text-brand">one conversation.</span>
-            </m.h2>
+            </h2>
 
-            <m.p
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.16 }}
-              className="mt-6 max-w-xl text-[1.05rem] leading-relaxed text-paper/75 text-pretty"
-            >
+            <p className="mt-6 max-w-xl text-[1.05rem] leading-relaxed text-paper/75 text-pretty">
               Book a free 45-minute consultation. Tell us what you're building. We'll come
               back with a written plan — jurisdiction, costs, timeline, and the next steps —
               within one working day. No sales script.
-            </m.p>
+            </p>
 
-            <m.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.24 }}
-              className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4"
-            >
+            <div className="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link
                 href="/contact"
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-brand px-6 py-3.5 text-[0.95rem] font-medium text-ink hover:bg-paper transition-colors"
@@ -91,17 +64,11 @@ export function FinalCTA() {
                 <MessageCircle className="h-4 w-4" strokeWidth={1.8} />
                 WhatsApp us
               </Link>
-            </m.div>
+            </div>
           </div>
 
           {/* Contact card */}
-          <m.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="col-span-12 lg:col-span-5"
-          >
+          <div className="col-span-12 lg:col-span-5">
             <div className="relative rounded-3xl border border-paper/15 bg-paper/5 backdrop-blur-xl p-8 md:p-10">
               <Logo />
               <div className="mt-8 space-y-5">
@@ -144,7 +111,7 @@ export function FinalCTA() {
                 </span>
               </div>
             </div>
-          </m.div>
+          </div>
         </div>
       </div>
     </section>

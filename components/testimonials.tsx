@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { m } from "framer-motion";
 import { ArrowUpRight, Star } from "lucide-react";
 import { googleRating, testimonials } from "@/lib/data";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -56,17 +53,9 @@ export function Testimonials() {
 
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {testimonials.map((t, idx) => (
-            <m.li
+            <li
               key={t.name}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{
-                duration: 0.55,
-                delay: (idx % 3) * 0.08,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="flex flex-col rounded-3xl border border-ink/10 bg-paper p-6 md:p-7"
+                                                                      className="flex flex-col rounded-3xl border border-ink/10 bg-paper p-6 md:p-7"
             >
               {/* Header — avatar + name + Google badge */}
               <div className="flex items-start gap-3">
@@ -103,7 +92,7 @@ export function Testimonials() {
               <p className="mt-4 text-[0.95rem] leading-relaxed text-ink-mute text-pretty">
                 {t.quote}
               </p>
-            </m.li>
+            </li>
           ))}
         </ul>
 
@@ -143,7 +132,7 @@ function Stars({
 }) {
   const dim = size === "md" ? "h-4 w-4" : "h-3.5 w-3.5";
   return (
-    <div className="flex items-center gap-0.5" aria-label={`${rating} out of 5 stars`}>
+    <div className="flex items-center gap-0.5" role="img" aria-label={`${rating} out of 5 stars`}>
       {Array.from({ length: 5 }).map((_, i) => (
         <Star
           key={i}

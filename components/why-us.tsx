@@ -1,7 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import { m } from "framer-motion";
 import { differentiators } from "@/lib/data";
 import { SectionHeader } from "@/components/ui/section-header";
 
@@ -45,17 +42,9 @@ export function WhyUs() {
           {differentiators.map((d, idx) => {
             const img = cardImages[d.index];
             return (
-              <m.li
+              <li
                 key={d.index}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{
-                  duration: 0.6,
-                  delay: idx * 0.08,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="group flex flex-col rounded-3xl border border-ink/10 bg-paper overflow-hidden transition-all hover:border-ink/25 hover:shadow-[0_18px_50px_-28px_rgba(13,16,19,0.3)]"
+                                                                                className="group flex flex-col rounded-3xl border border-ink/10 bg-paper overflow-hidden transition-all hover:border-ink/25 hover:shadow-[0_18px_50px_-28px_rgba(13,16,19,0.3)]"
               >
                 {/* Image */}
                 <div className="relative aspect-[4/3] overflow-hidden bg-paper-deep">
@@ -90,7 +79,7 @@ export function WhyUs() {
                     {d.body}
                   </p>
                 </div>
-              </m.li>
+              </li>
             );
           })}
         </ul>

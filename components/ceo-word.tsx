@@ -1,7 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import { m } from "framer-motion";
 
 export function CeoWord() {
   return (
@@ -27,27 +24,19 @@ export function CeoWord() {
 
       <div className="container-edit relative">
         {/* Eyebrow */}
-        <m.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="flex items-center gap-3 text-mist mb-10 md:mb-14"
+        <div
+                                                  className="flex items-center gap-3 text-mist mb-10 md:mb-14"
         >
           <span className="h-px w-8 bg-mist/40" />
           <span className="font-mono text-[0.65rem] uppercase tracking-[0.22em]">
             § 03 — A word from the CEO
           </span>
-        </m.div>
+        </div>
 
         <div className="grid grid-cols-12 gap-x-8 gap-y-12 items-start">
           {/* Portrait */}
-          <m.figure
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="col-span-12 md:col-span-5 relative"
+          <figure
+                                                            className="col-span-12 md:col-span-5 relative"
           >
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-paper/10 bg-ink-soft">
               <Image
@@ -71,15 +60,11 @@ export function CeoWord() {
             <figcaption className="mt-3 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-mist">
               — Portrait · Asad Hashmi, Dubai
             </figcaption>
-          </m.figure>
+          </figure>
 
           {/* Letter */}
-          <m.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="col-span-12 md:col-span-7 md:pl-4 lg:pl-10"
+          <div
+                                                            className="col-span-12 md:col-span-7 md:pl-4 lg:pl-10"
           >
             <h2 className="font-display text-balance text-[clamp(1.75rem,3.4vw,2.75rem)] leading-[1.05] tracking-[-0.02em] text-paper">
               A word from our{" "}
@@ -124,7 +109,7 @@ export function CeoWord() {
                 CEO · Smart Creation Group of Companies
               </div>
             </div>
-          </m.div>
+          </div>
         </div>
       </div>
     </section>
