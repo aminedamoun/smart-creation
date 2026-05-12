@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { m } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { ServiceDonut } from "@/components/service-donut";
 
@@ -158,14 +157,8 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Trust strip — keep entrance animation, below fold on mobile */}
-        <m.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-20 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-y-10 border-t border-paper/15 pt-10"
-        >
+        {/* Trust strip */}
+        <div className="mt-20 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-y-10 border-t border-paper/15 pt-10">
           {trustItems.map((item, i) => (
             <div
               key={item.label}
@@ -185,7 +178,7 @@ export function Hero() {
               </div>
             </div>
           ))}
-        </m.div>
+        </div>
       </div>
     </section>
   );

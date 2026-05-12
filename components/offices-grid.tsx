@@ -116,7 +116,7 @@ export function OfficesGrid({
                 </span>
                 Live inventory · {offices.length} total {offices.length === 1 ? "property" : "properties"}
               </span>
-              <span className="text-stone/80">
+              <span className="text-stone">
                 Showing {visible.length}
                 {filter === "all" ? " featured across all centres" : ` at ${activeCentre?.name ?? ""}`}
                 {" · Updated daily"}
@@ -186,7 +186,7 @@ export function OfficesGrid({
             >
               {browseLabel}
               {moreCount > 0 && (
-                <span className="rounded-full bg-brand-night/10 px-2 py-0.5 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-brand-deep">
+                <span className="rounded-full bg-brand-night/10 px-2 py-0.5 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-brand-night">
                   +{moreCount} more
                 </span>
               )}
@@ -271,8 +271,7 @@ function FilterPill({
       {/* Top: filter button — logo (centred, bigger) + small count */}
       <button
         type="button"
-        role="tab"
-        aria-selected={active}
+        aria-pressed={active}
         aria-disabled={disabled}
         disabled={disabled}
         onClick={onClick}

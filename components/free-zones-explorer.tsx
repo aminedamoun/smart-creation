@@ -128,8 +128,7 @@ export function FreeZonesExplorer() {
               <button
                 key={f.key}
                 type="button"
-                role="tab"
-                aria-selected={active}
+                aria-pressed={active}
                 disabled={disabled}
                 onClick={() => setFilter(f.key)}
                 className={cn(

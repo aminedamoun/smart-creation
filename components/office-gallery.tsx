@@ -105,8 +105,7 @@ export function OfficeGallery({ images, title }: OfficeGalleryProps) {
               <li key={img}>
                 <button
                   type="button"
-                  role="tab"
-                  aria-selected={isActive}
+                  aria-pressed={isActive}
                   aria-label={`Show photo ${i + 1}`}
                   onClick={() => setActiveIdx(i)}
                   className={cn(
