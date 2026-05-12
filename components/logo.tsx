@@ -39,6 +39,7 @@ export function Logo({
         width={551}
         height={228}
         priority
+        sizes="(min-width: 768px) 200px, 130px"
         className={cn(
           "h-12 w-auto sm:h-14 md:h-20",
           inverted && "brightness-0 invert"
