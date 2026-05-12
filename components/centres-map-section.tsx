@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import { getCentresWithMapData } from "@/lib/supabase-queries";
-import { CentresMap, type CentreMapPin } from "@/components/centres-map";
+import type { CentreMapPin } from "@/components/centres-map";
+import { CentresMapLazy } from "@/components/centres-map-lazy";
 
 const CENTRE_LOGO: Record<string, string> = {
   "smart-creation": "/group-logos/smart-creation-bc.webp",
@@ -111,7 +112,7 @@ export async function CentresMapSection({
           </div>
         </div>
 
-        <CentresMap pins={pins} />
+        <CentresMapLazy pins={pins} />
       </div>
     </section>
   );

@@ -104,46 +104,26 @@ export function Hero() {
       />
 
       <div className="container-edit relative">
-        {/* Masthead line */}
-        <m.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-10 flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-mist"
-        >
+        {/* Masthead line — visible immediately for LCP/SI */}
+        <div className="mb-10 flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-mist">
           <span className="h-px w-8 bg-paper/25" />
           <span>Smart Creation Group of Companies — UAE · Canada · Pakistan</span>
-        </m.div>
+        </div>
 
         <div className="grid grid-cols-12 gap-x-8 gap-y-14 items-center">
-          {/* Left — headline + cta */}
+          {/* Left — headline + cta (no entrance fade so LCP fires on first paint) */}
           <div className="col-span-12 lg:col-span-7">
-            <m.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="font-display font-medium tracking-[-0.03em] leading-[0.98] text-[clamp(2.4rem,6.2vw,4.8rem)] text-paper text-balance"
-            >
+            <h1 className="font-display font-medium tracking-[-0.03em] leading-[0.98] text-[clamp(2.4rem,6.2vw,4.8rem)] text-paper text-balance">
               <span className="block">A group of companies</span>
               <span className="block">built around your</span>
               <span className="block text-brand">business success.</span>
-            </m.h1>
+            </h1>
 
-            <m.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-7 max-w-[34rem] text-[1.05rem] md:text-[1.12rem] leading-relaxed text-paper/70 text-pretty"
-            >
+            <p className="mt-7 max-w-[34rem] text-[1.05rem] md:text-[1.12rem] leading-relaxed text-paper/70 text-pretty">
               Smart Creation Group brings four Dubai business centres together with company formation, technology, real estate, holiday rentals, transport and contracting — one trusted partner since 2013.
-            </m.p>
+            </p>
 
-            <m.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-9 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4"
-            >
+            <div className="mt-9 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
               <Link
                 href="/contact"
                 className="group inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3.5 text-[0.95rem] font-medium text-ink transition-colors hover:bg-paper shadow-[0_10px_30px_-10px_rgba(72,168,219,0.55)]"
@@ -158,41 +138,32 @@ export function Hero() {
                 <Play className="h-3 w-3 fill-brand text-brand" strokeWidth={0} />
                 Explore services
               </Link>
-            </m.div>
+            </div>
 
             {/* Office status */}
-            <m.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="mt-12 flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-mist"
-            >
+            <div className="mt-12 flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-mist">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inset-0 inline-flex animate-ping rounded-full bg-brand opacity-70" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-brand" />
               </span>
               <span>Office open · Barsha Heights, Dubai</span>
-            </m.div>
+            </div>
           </div>
 
           {/* Right — rotating services donut */}
           <div className="col-span-12 lg:col-span-5 relative">
-            <m.div
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="relative mx-auto lg:mx-0 aspect-square max-w-md"
-            >
+            <div className="relative mx-auto lg:mx-0 aspect-square max-w-md">
               <ServiceDonut className="h-full w-full" />
-            </m.div>
+            </div>
           </div>
         </div>
 
-        {/* Trust strip */}
+        {/* Trust strip — keep entrance animation, below fold on mobile */}
         <m.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="mt-20 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-y-10 border-t border-paper/15 pt-10"
         >
           {trustItems.map((item, i) => (
