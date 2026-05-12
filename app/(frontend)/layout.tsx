@@ -10,13 +10,13 @@ import { LazyMotionProvider } from "@/components/lazy-motion-provider";
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-geist",
-  display: "optional",
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
-  display: "optional",
+  display: "swap",
 });
 
 const SITE_URL = "https://thesmartcreation.com";
