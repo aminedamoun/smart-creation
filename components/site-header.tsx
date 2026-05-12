@@ -128,18 +128,7 @@ export function SiteHeader() {
           )}
         >
           <span>Dubai — Abu Dhabi — Sharjah — RAK</span>
-          <span className="flex items-center gap-6">
-            <span>Est. MMXIII · Trusted since 2013</span>
-            <Link
-              href="/ar"
-              className={cn(
-                "transition-colors",
-                inverted ? "hover:text-paper" : "hover:text-ink"
-              )}
-            >
-              العربية
-            </Link>
-          </span>
+          <span>Est. MMXIII · Trusted since 2013</span>
         </div>
       </div>
 
