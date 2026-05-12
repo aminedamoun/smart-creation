@@ -160,8 +160,8 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right — rotating services donut */}
-          <div className="col-span-12 lg:col-span-5 relative">
+          {/* Right — rotating services donut (desktop only; heavy SVG hurts mobile LCP) */}
+          <div className="hidden lg:block lg:col-span-5 relative">
             <div className="relative mx-auto lg:mx-0 aspect-square max-w-md">
               <ServiceDonut className="h-full w-full" />
             </div>
