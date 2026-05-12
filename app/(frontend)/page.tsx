@@ -29,7 +29,7 @@ function fmtDate(iso: string) {
   });
 }
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: "Business Setup, Centres & More in Dubai",

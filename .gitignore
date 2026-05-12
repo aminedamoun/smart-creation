@@ -40,3 +40,6 @@ next-env.d.ts
 
 # manual backups
 *.backup
+
+# pre-optimization image originals (local only)
+.image-backup/
