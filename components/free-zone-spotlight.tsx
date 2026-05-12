@@ -366,7 +366,7 @@ export function FreeZoneSpotlight({
             aria-hidden
             className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-brand to-transparent"
           />
-          <div className="relative grid grid-cols-12 gap-x-10 gap-y-8 items-center">
+          <div className="relative grid grid-cols-12 gap-x-4 md:gap-x-10 gap-y-8 items-center">
             <div className="col-span-12 lg:col-span-8">
               <div className="font-mono text-[0.6rem] uppercase tracking-[0.22em] text-mist mb-3 flex items-center gap-2">
                 <Sparkles className="h-3 w-3 text-brand" strokeWidth={2} />

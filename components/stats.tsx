@@ -10,7 +10,7 @@ export function Stats() {
           § 09 — The record
         </div>
 
-        <ul className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8">
+        <ul className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-4 md:gap-x-8">
           {stats.map((s, idx) => (
             <li
               key={s.label}

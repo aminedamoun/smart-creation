@@ -80,8 +80,8 @@ export function ServiceDonut({ className }: { className?: string }) {
           />
           <text
             fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace"
-            fontSize="11"
-            letterSpacing="3"
+            fontSize="14"
+            letterSpacing="2.6"
             fill="#f6f3ec"
             fillOpacity="0.82"
           >
@@ -105,10 +105,10 @@ export function ServiceDonut({ className }: { className?: string }) {
           />
           <text
             fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace"
-            fontSize="9"
-            letterSpacing="3.5"
+            fontSize="12"
+            letterSpacing="3"
             fill="#8dc2dd"
-            fillOpacity="0.75"
+            fillOpacity="0.78"
           >
             <textPath href="#donut-inner-path" startOffset="0">
               {(jurisdictions + jurisdictions).toUpperCase()}

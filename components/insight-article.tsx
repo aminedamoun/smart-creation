@@ -260,7 +260,7 @@ export function InsightArticle({
       />
 
       <div className="container-edit">
-        <div className="grid grid-cols-12 gap-x-10">
+        <div className="grid grid-cols-12 gap-x-4 md:gap-x-10">
           {/* Sticky TOC (lg+) */}
           {toc.length > 0 && (
             <aside className="hidden lg:block col-span-3">

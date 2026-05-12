@@ -33,7 +33,7 @@ export function CeoWord() {
           </span>
         </div>
 
-        <div className="grid grid-cols-12 gap-x-8 gap-y-12 items-start">
+        <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-12 items-start">
           {/* Portrait */}
           <figure
                                                             className="col-span-12 md:col-span-5 relative"

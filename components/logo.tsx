@@ -40,7 +40,7 @@ export function Logo({
         height={228}
         priority
         className={cn(
-          "h-16 w-auto md:h-20",
+          "h-12 w-auto sm:h-14 md:h-20",
           inverted && "brightness-0 invert"
         )}
       />

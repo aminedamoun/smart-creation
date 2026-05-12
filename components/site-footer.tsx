@@ -50,7 +50,7 @@ export function SiteFooter() {
   return (
     <footer className="relative bg-paper-deep text-ink border-t border-ink/10">
       <div className="container-edit py-20 md:py-24">
-        <div className="grid grid-cols-12 gap-x-8 gap-y-14">
+        <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-14">
           {/* Brand column */}
           <div className="col-span-12 lg:col-span-4">
             <Logo onLight />

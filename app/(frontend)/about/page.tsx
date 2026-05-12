@@ -49,7 +49,7 @@ export default async function AboutPage() {
       {/* CEO spotlight */}
       <section className="py-20 md:py-28 bg-paper">
         <div className="container-edit">
-          <div className="grid grid-cols-12 gap-x-10 gap-y-10 items-center">
+          <div className="grid grid-cols-12 gap-x-4 md:gap-x-10 gap-y-10 items-center">
             <Reveal variant="slideRight" className="col-span-12 lg:col-span-5">
               <div className="relative">
                 <div
@@ -138,7 +138,7 @@ export default async function AboutPage() {
       {/* CTA */}
       <section className="py-20 md:py-28 bg-ink text-paper border-t border-paper/10">
         <div className="container-edit">
-          <div className="grid grid-cols-12 gap-x-10 gap-y-10 items-center">
+          <div className="grid grid-cols-12 gap-x-4 md:gap-x-10 gap-y-10 items-center">
             <div className="col-span-12 lg:col-span-7">
               <div className="flex items-center gap-3 font-mono text-[0.66rem] uppercase tracking-[0.22em] text-mist mb-4">
                 <span className="h-px w-8 bg-mist/40" />§ Work with us

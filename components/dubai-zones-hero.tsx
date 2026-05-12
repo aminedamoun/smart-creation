@@ -163,7 +163,7 @@ export function DubaiZonesHero() {
           <span className="text-paper">Dubai</span>
         </m.div>
 
-        <div className="grid grid-cols-12 gap-x-10 gap-y-14 items-start">
+        <div className="grid grid-cols-12 gap-x-4 md:gap-x-10 gap-y-14 items-start">
           {/* Left — headline */}
           <div className="col-span-12 lg:col-span-6">
             <m.div

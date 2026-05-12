@@ -103,7 +103,7 @@ export function AboutTeamGrid({ members }: { members: TeamMember[] }) {
   return (
     <>
       {/* Header */}
-      <div className="grid grid-cols-12 gap-x-10 gap-y-6 items-end mb-12 md:mb-16">
+      <div className="grid grid-cols-12 gap-x-4 md:gap-x-10 gap-y-6 items-end mb-12 md:mb-16">
         <div className="col-span-12 lg:col-span-8">
           <div className="flex items-center gap-3 font-mono text-[0.66rem] uppercase tracking-[0.22em] text-stone mb-4">
             <span className="h-px w-8 bg-ink/25" />§ The team

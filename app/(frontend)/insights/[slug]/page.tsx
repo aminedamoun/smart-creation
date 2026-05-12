@@ -254,7 +254,7 @@ export default async function InsightArticlePage({
       {meta.faqs.length > 0 && (
         <section className="py-16 md:py-20 bg-paper-soft border-t border-ink/8">
           <div className="container-edit">
-            <div className="grid grid-cols-12 gap-x-10 gap-y-8">
+            <div className="grid grid-cols-12 gap-x-4 md:gap-x-10 gap-y-8">
               <div className="col-span-12 lg:col-span-4">
                 <div className="font-mono text-[0.66rem] uppercase tracking-[0.22em] text-stone mb-4 flex items-center gap-2">
                   <span className="h-px w-8 bg-ink/25" />§ Frequently asked
@@ -375,7 +375,7 @@ export default async function InsightArticlePage({
       {/* CTA */}
       <section className="py-20 md:py-28 bg-ink text-paper border-t border-paper/10">
         <div className="container-edit">
-          <div className="grid grid-cols-12 gap-x-10 gap-y-10 items-center">
+          <div className="grid grid-cols-12 gap-x-4 md:gap-x-10 gap-y-10 items-center">
             <div className="col-span-12 lg:col-span-7">
               <div className="flex items-center gap-3 font-mono text-[0.66rem] uppercase tracking-[0.22em] text-mist mb-4">
                 <span className="h-px w-8 bg-mist/40" />§ Talk to us

@@ -118,7 +118,7 @@ export default async function CentrePage({ params }: PageProps) {
 
       {/* About */}
       <section id="about" className="scroll-mt-28 md:scroll-mt-32 pb-16 md:pb-24">
-        <div className="container-edit grid grid-cols-12 gap-x-10 gap-y-12">
+        <div className="container-edit grid grid-cols-12 gap-x-4 md:gap-x-10 gap-y-12">
           <div className="col-span-12 lg:col-span-7">
             <div className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-stone mb-3">
               About this centre
@@ -132,7 +132,7 @@ export default async function CentrePage({ params }: PageProps) {
                 <div className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-stone mb-5">
                   Why tenants pick this centre
                 </div>
-                <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-5">
+                <ul className="grid sm:grid-cols-2 gap-x-4 md:gap-x-8 gap-y-5">
                   {advantages.map((a, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <CheckCircle2 className="h-5 w-5 text-brand-deep mt-0.5 shrink-0" strokeWidth={2} />

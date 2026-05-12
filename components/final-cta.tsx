@@ -26,7 +26,7 @@ export function FinalCTA() {
       />
 
       <div className="container-edit relative">
-        <div className="grid grid-cols-12 gap-x-8 gap-y-16 items-center">
+        <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-16 items-center">
           <div className="col-span-12 lg:col-span-7">
             <div className="flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-mist">
               <span className="h-px w-8 bg-paper/25" />

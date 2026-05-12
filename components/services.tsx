@@ -11,7 +11,7 @@ export function Services() {
   return (
     <section id="services" className="relative py-24 md:py-36">
       <div className="container-edit">
-        <div className="grid grid-cols-12 gap-x-8 gap-y-12 items-end mb-16 md:mb-24">
+        <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-12 items-end mb-16 md:mb-24">
           <div className="col-span-12 lg:col-span-5">
             <SectionHeader
               section="§ 01 — Services"

@@ -81,7 +81,7 @@ export function AboutPresence() {
 
       <div className="container-edit relative">
         {/* Header */}
-        <div className="grid grid-cols-12 gap-x-10 gap-y-8 items-end">
+        <div className="grid grid-cols-12 gap-x-4 md:gap-x-10 gap-y-8 items-end">
           <m.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -153,7 +153,7 @@ export function AboutPresence() {
                   }}
                 />
 
-                <div className="relative grid grid-cols-12 gap-x-8 gap-y-6 items-start">
+                <div className="relative grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-6 items-start">
                   {/* Country block */}
                   <div className="col-span-12 lg:col-span-4">
                     <div className="flex items-center gap-3">

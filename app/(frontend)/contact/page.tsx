@@ -102,7 +102,7 @@ export default function ContactPage() {
       {/* Form + sidebar */}
       <section className="py-16 md:py-24 bg-paper">
         <div className="container-edit">
-          <div className="grid grid-cols-12 gap-x-10 gap-y-10">
+          <div className="grid grid-cols-12 gap-x-4 md:gap-x-10 gap-y-10">
             {/* Form column with watermark */}
             <div className="col-span-12 lg:col-span-7 relative">
               {/* Decorative watermark number */}
@@ -375,7 +375,7 @@ export default function ContactPage() {
           }}
         />
         <div className="container-edit relative">
-          <div className="grid grid-cols-12 gap-x-10 gap-y-8 items-end mb-10 md:mb-12">
+          <div className="grid grid-cols-12 gap-x-4 md:gap-x-10 gap-y-8 items-end mb-10 md:mb-12">
             <div className="col-span-12 lg:col-span-7">
               <div className="flex items-center gap-3 font-mono text-[0.66rem] uppercase tracking-[0.22em] text-stone mb-4">
                 <span className="h-px w-8 bg-ink/25" />§ What happens after you send
@@ -442,7 +442,7 @@ export default function ContactPage() {
       {/* Offices */}
       <section className="py-16 md:py-24 bg-paper border-t border-ink/8">
         <div className="container-edit">
-          <div className="grid grid-cols-12 gap-x-10 gap-y-10 items-end mb-10 md:mb-14">
+          <div className="grid grid-cols-12 gap-x-4 md:gap-x-10 gap-y-10 items-end mb-10 md:mb-14">
             <div className="col-span-12 lg:col-span-7">
               <div className="flex items-center gap-3 font-mono text-[0.66rem] uppercase tracking-[0.22em] text-stone mb-4">
                 <span className="h-px w-8 bg-ink/25" />§ Where to find us

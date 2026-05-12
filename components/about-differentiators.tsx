@@ -79,7 +79,7 @@ export function AboutDifferentiators() {
       />
 
       <div className="container-edit relative">
-        <div className="grid grid-cols-12 gap-x-10 gap-y-8 items-end">
+        <div className="grid grid-cols-12 gap-x-4 md:gap-x-10 gap-y-8 items-end">
           <m.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -185,7 +185,7 @@ export function AboutDifferentiators() {
               }}
             />
 
-            <div className="relative grid grid-cols-12 gap-x-8 gap-y-6 items-center">
+            <div className="relative grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-6 items-center">
               <div className="col-span-12 lg:col-span-8">
                 <div className="flex items-center gap-3 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-stone mb-3">
                   <span className="flex h-8 w-8 items-center justify-center rounded-xl border border-ink/10 bg-paper-soft text-brand-deep">

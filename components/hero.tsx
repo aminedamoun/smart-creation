@@ -120,7 +120,7 @@ export function Hero() {
           <span>Smart Creation Group of Companies — UAE · Canada · Pakistan</span>
         </div>
 
-        <div className="grid grid-cols-12 gap-x-8 gap-y-14 items-center">
+        <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-14 items-center">
           {/* Left — headline + cta (no entrance fade so LCP fires on first paint) */}
           <div className="col-span-12 lg:col-span-7">
             <h1 className="font-display font-medium tracking-[-0.03em] leading-[0.98] text-[clamp(2.4rem,6.2vw,4.8rem)] text-paper text-balance">

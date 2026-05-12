@@ -92,7 +92,7 @@ export function OfficesGrid({
   return (
     <section id="offices" className="relative py-24 md:py-36 bg-paper-deep">
       <div className="container-edit">
-        <div className="grid grid-cols-12 gap-x-8 gap-y-10 items-end mb-12 md:mb-16">
+        <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-10 items-end mb-12 md:mb-16">
           <div className="col-span-12 lg:col-span-7">
             <SectionHeader
               section="§ 02 — Available offices"
@@ -198,7 +198,7 @@ export function OfficesGrid({
           </div>
         )}
 
-        <div className="mt-14 md:mt-16 grid grid-cols-12 gap-x-8 gap-y-8 border-t border-ink/10 pt-10">
+        <div className="mt-14 md:mt-16 grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-8 border-t border-ink/10 pt-10">
           <div className="col-span-12 lg:col-span-8">
             <div className="flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.22em] text-stone mb-5">
               <Info className="h-3.5 w-3.5" strokeWidth={1.8} />

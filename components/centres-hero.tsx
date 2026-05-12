@@ -178,7 +178,7 @@ export function CentresHero({
           <span className="text-paper">Business Centres</span>
         </nav>
 
-        <div className="grid grid-cols-12 gap-x-10 gap-y-12 items-center">
+        <div className="grid grid-cols-12 gap-x-4 md:gap-x-10 gap-y-12 items-center">
           {/* Left — copy */}
           <div className="col-span-12 lg:col-span-7">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-paper/15 bg-paper/[0.04] px-3 py-1 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-mist">

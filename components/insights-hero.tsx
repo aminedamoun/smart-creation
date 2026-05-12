@@ -103,7 +103,7 @@ export function InsightsHero({ liveCount }: { liveCount: number }) {
           <span className="text-paper">Insights</span>
         </nav>
 
-        <div className="grid grid-cols-12 gap-x-10 gap-y-8 items-end">
+        <div className="grid grid-cols-12 gap-x-4 md:gap-x-10 gap-y-8 items-end">
           <div className="col-span-12 lg:col-span-8">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-paper/15 bg-paper/[0.04] px-3 py-1 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-mist">
               <span className="h-1.5 w-1.5 rounded-full bg-brand" />§ Insights

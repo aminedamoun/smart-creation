@@ -124,7 +124,7 @@ export default async function PropertyDetailPage({ params }: PageProps) {
       </section>
 
       <section className="pb-16 md:pb-24">
-        <div className="container-edit grid grid-cols-12 gap-x-10 gap-y-10">
+        <div className="container-edit grid grid-cols-12 gap-x-4 md:gap-x-10 gap-y-10">
           <div className="col-span-12 lg:col-span-8">
             <div className="flex flex-wrap items-center gap-3 mb-5">
               <span className="rounded-full border border-ink/15 bg-paper-soft px-3 py-1 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-ink">

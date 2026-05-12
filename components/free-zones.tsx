@@ -8,7 +8,7 @@ export function FreeZones() {
   return (
     <section id="free-zones" className="relative py-20 md:py-28 bg-paper-soft">
       <div className="container-edit">
-        <div className="grid grid-cols-12 gap-x-8 gap-y-6 items-end mb-10 md:mb-14">
+        <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-6 items-end mb-10 md:mb-14">
           <div className="col-span-12 lg:col-span-8">
             <SectionHeader
               section="§ 05 — Free Zones"

@@ -140,7 +140,7 @@ export function FreeZonesHero() {
           <span className="text-paper">Free zones</span>
         </m.div>
 
-        <div className="grid grid-cols-12 gap-x-10 gap-y-14 items-center">
+        <div className="grid grid-cols-12 gap-x-4 md:gap-x-10 gap-y-14 items-center">
           <div className="col-span-12 lg:col-span-7">
             <m.div
               initial={{ opacity: 0, y: 8 }}

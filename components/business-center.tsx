@@ -7,7 +7,7 @@ export function BusinessCenter() {
   return (
     <section id="office" className="relative py-24 md:py-36 bg-paper-soft">
       <div className="container-edit">
-        <div className="grid grid-cols-12 gap-x-8 gap-y-12 mb-14 md:mb-20">
+        <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-12 mb-14 md:mb-20">
           <div className="col-span-12 lg:col-span-7">
             <span
                                                                       className="flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-stone"

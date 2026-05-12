@@ -214,7 +214,7 @@ export function ServiceSection({
           viewport={{ once: true, margin: "-80px" }}
           variants={stagger}
           className={cn(
-            "relative grid grid-cols-12 gap-x-10 gap-y-10 items-center mb-16 md:mb-24 z-[1]",
+            "relative grid grid-cols-12 gap-x-4 md:gap-x-10 gap-y-10 items-center mb-16 md:mb-24 z-[1]",
             flip && "lg:[&>*:first-child]:order-2",
           )}
         >
@@ -437,7 +437,7 @@ export function ServiceSection({
         </div>
 
         {/* Below: hoverable card grids + sticky sidebar */}
-        <div className="relative grid grid-cols-12 gap-x-10 gap-y-10 z-[1]">
+        <div className="relative grid grid-cols-12 gap-x-4 md:gap-x-10 gap-y-10 z-[1]">
           <div className="col-span-12 lg:col-span-7">
             <m.div
               initial="hidden"
