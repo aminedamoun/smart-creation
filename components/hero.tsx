@@ -1,9 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { useEffect, useRef } from "react";
 import { ArrowRight, Play } from "lucide-react";
-import { ServiceDonut } from "@/components/service-donut";
+
+const ServiceDonut = dynamic(
+  () =>
+    import("@/components/service-donut").then((m) => ({
+      default: m.ServiceDonut,
+    })),
+  {
+    ssr: false,
+    loading: () => null,
+  },
+);
 
 const trustItems = [
   { value: "12+", label: "Years in U.A.E.", meta: "Founded 2013" },
