@@ -168,7 +168,7 @@ export function OfficesGrid({
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
-                <OfficeCard office={office} priority={idx < 3} />
+                <OfficeCard office={office} />
               </m.li>
             ))}
           </ul>
@@ -361,13 +361,7 @@ function EmptyCenterState() {
   );
 }
 
-function OfficeCard({
-  office,
-  priority,
-}: {
-  office: OfficeListing;
-  priority?: boolean;
-}) {
+function OfficeCard({ office }: { office: OfficeListing }) {
   const isUpcoming = office.availabilityAccent === "upcoming";
   const href = `/business-centers/${office.centerId}/${office.slug}`;
   return (
@@ -383,7 +377,7 @@ function OfficeCard({
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-            priority={!!priority}
+            loading="lazy"
           />
         )}
         <div aria-hidden className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-ink/45 to-transparent" />

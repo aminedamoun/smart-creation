@@ -30,6 +30,15 @@
     "three": "^0.184.0",
     "tiptap-markdown": "^0.9.0"
   },
+  "browserslist": [
+    "Chrome >= 110",
+    "Edge >= 110",
+    "Firefox >= 110",
+    "Safari >= 16",
+    "iOS >= 16",
+    "ChromeAndroid >= 110",
+    "not dead"
+  ],
   "devDependencies": {
     "@tailwindcss/postcss": "^4.0.0",
     "@types/node": "^22",
