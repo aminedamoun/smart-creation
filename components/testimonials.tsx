@@ -134,7 +134,7 @@ function contrastingText(hex: string): string {
   const lin = (c: number) =>
     c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
   const lum = 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
-  return lum > 0.45 ? "#0d1013" : "#ffffff";
+  return lum > 0.2 ? "#0d1013" : "#ffffff";
 }
 
 function Stars({
