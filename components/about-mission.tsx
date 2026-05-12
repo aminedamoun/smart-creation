@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Compass, HeartHandshake, Target } from "lucide-react";
 
 const pillars = [
@@ -42,7 +42,7 @@ export function AboutMission() {
 
       <div className="container-edit relative">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -61,14 +61,14 @@ export function AboutMission() {
             Group has made since we opened our first floor at Damac Executive
             Heights in 2013.
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Three-pillar grid */}
         <ul className="mt-14 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {pillars.map((p, i) => {
             const Icon = p.icon;
             return (
-              <motion.li
+              <m.li
                 key={p.title}
                 initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -125,7 +125,7 @@ export function AboutMission() {
                     className="relative mt-6 block h-[2px] w-12 origin-left scale-x-0 group-hover:scale-x-100 bg-brand transition-transform duration-700"
                   />
                 </article>
-              </motion.li>
+              </m.li>
             );
           })}
         </ul>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { services } from "@/lib/data";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -29,7 +29,7 @@ export function Services() {
           </div>
 
           {/* Reception image — editorial feature frame */}
-          <motion.figure
+          <m.figure
             initial={{ opacity: 0, y: 22 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
@@ -86,14 +86,14 @@ export function Services() {
                 />
               </Link>
             </figcaption>
-          </motion.figure>
+          </m.figure>
         </div>
 
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-ink/10">
           {services.map((service, idx) => {
             const Icon = service.icon;
             return (
-              <motion.li
+              <m.li
                 key={service.id}
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -137,7 +137,7 @@ export function Services() {
                     className="pointer-events-none absolute left-0 top-0 h-px w-0 bg-brand transition-all duration-500 group-hover:w-full"
                   />
                 </Link>
-              </motion.li>
+              </m.li>
             );
           })}
         </ul>

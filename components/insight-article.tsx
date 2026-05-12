@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { motion, useScroll } from "framer-motion";
+import { m, useScroll } from "framer-motion";
 import {
   BookOpen,
   ChevronRight,
@@ -111,7 +111,7 @@ export function InsightArticle({
       // IDs come from the precomputed TOC so anchor links land exactly here
       const id = toc[idx]?.id ?? text;
       return (
-        <motion.h2
+        <m.h2
           id={id}
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -133,11 +133,11 @@ export function InsightArticle({
               strokeWidth={2}
             />
           </a>
-        </motion.h2>
+        </m.h2>
       );
     },
     h3: ({ children }) => (
-      <motion.h3
+      <m.h3
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
@@ -145,7 +145,7 @@ export function InsightArticle({
         className="mt-9 mb-3 font-display font-medium text-ink tracking-[-0.015em] leading-[1.2] text-[1.2rem]"
       >
         {children}
-      </motion.h3>
+      </m.h3>
     ),
     p: ({ children }) => {
       paragraphCount.current.count += 1;
@@ -184,7 +184,7 @@ export function InsightArticle({
       );
     },
     blockquote: ({ children }) => (
-      <motion.blockquote
+      <m.blockquote
         initial={{ opacity: 0, x: -8 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
@@ -198,7 +198,7 @@ export function InsightArticle({
         <div className="font-display text-[1.05rem] leading-[1.5] tracking-[-0.005em]">
           {children}
         </div>
-      </motion.blockquote>
+      </m.blockquote>
     ),
     hr: () => <hr className="my-12 border-ink/10" />,
     a: ({ children, href }) => (
@@ -223,7 +223,7 @@ export function InsightArticle({
       </code>
     ),
     table: ({ children }) => (
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 14 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
@@ -233,7 +233,7 @@ export function InsightArticle({
         <div className="overflow-x-auto">
           <table className="w-full text-[0.92rem] border-collapse">{children}</table>
         </div>
-      </motion.div>
+      </m.div>
     ),
     thead: ({ children }) => (
       <thead className="bg-gradient-to-br from-ink to-[#0a1419] text-paper">
@@ -253,7 +253,7 @@ export function InsightArticle({
   return (
     <div ref={articleRef} className="relative">
       {/* Top reading-progress bar */}
-      <motion.div
+      <m.div
         aria-hidden
         className="fixed left-0 right-0 top-0 z-40 h-[3px] origin-left bg-gradient-to-r from-brand via-brand-deep to-brand"
         style={{ scaleX: scrollYProgress }}

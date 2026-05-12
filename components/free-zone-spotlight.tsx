@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   ArrowUpRight,
   CheckCircle2,
@@ -66,7 +66,7 @@ export function FreeZoneSpotlight({
       )}
     >
       {/* Massive watermark zone CODE */}
-      <motion.span
+      <m.span
         aria-hidden
         initial={{ opacity: 0, x: flip ? 30 : -30 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -83,7 +83,7 @@ export function FreeZoneSpotlight({
         }}
       >
         {z.code}
-      </motion.span>
+      </m.span>
 
       {/* Brand pool corner */}
       <div
@@ -100,7 +100,7 @@ export function FreeZoneSpotlight({
 
       <div className="container-edit relative z-[1]">
         {/* Spotlight card — full-bleed image with overlay info */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
@@ -173,7 +173,7 @@ export function FreeZoneSpotlight({
                 )}
               </div>
 
-              <motion.div variants={fadeUp}>
+              <m.div variants={fadeUp}>
                 {/* Logo card — brand-blue gradient */}
                 <div
                   className={cn(
@@ -199,7 +199,7 @@ export function FreeZoneSpotlight({
                   {z.name}
                   <span className="text-brand">.</span>
                 </h2>
-              </motion.div>
+              </m.div>
             </div>
 
             {/* Live pulse indicator */}
@@ -213,7 +213,7 @@ export function FreeZoneSpotlight({
           </div>
 
           {/* Stats strip — sits below image, inside the same card */}
-          <motion.div
+          <m.div
             variants={fadeUp}
             className="grid grid-cols-2 md:grid-cols-4 divide-x divide-paper/10 border-t border-paper/10 bg-[#0a1216]"
           >
@@ -237,11 +237,11 @@ export function FreeZoneSpotlight({
                 </div>
               </div>
             ))}
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
         {/* Lede (full-width contained) */}
-        <motion.p
+        <m.p
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -249,10 +249,10 @@ export function FreeZoneSpotlight({
           className="mt-12 md:mt-14 max-w-3xl text-[1.08rem] leading-relaxed text-ink-mute"
         >
           {z.lede}
-        </motion.p>
+        </m.p>
 
         {/* Body grid — 3 columns: Good for / Included / Process */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
@@ -260,14 +260,14 @@ export function FreeZoneSpotlight({
           className="mt-12 md:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8"
         >
           {/* Good for */}
-          <motion.div variants={fadeUp} className="lg:col-span-4">
+          <m.div variants={fadeUp} className="lg:col-span-4">
             <div className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-stone mb-4 flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-brand" />
               Good for
             </div>
             <ul className="space-y-2.5">
               {z.good.map((g, i) => (
-                <motion.li
+                <m.li
                   key={i}
                   variants={fadeUp}
                   whileHover={{ x: 3 }}
@@ -279,20 +279,20 @@ export function FreeZoneSpotlight({
                   />
                   <CheckCircle2 className="h-4 w-4 text-brand-deep mt-0.5 shrink-0" strokeWidth={2} />
                   <span className="text-[0.94rem] leading-snug text-ink">{g}</span>
-                </motion.li>
+                </m.li>
               ))}
             </ul>
-          </motion.div>
+          </m.div>
 
           {/* What's included */}
-          <motion.div variants={fadeUp} className="lg:col-span-4">
+          <m.div variants={fadeUp} className="lg:col-span-4">
             <div className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-stone mb-4 flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-stone" />
               What's included
             </div>
             <ul className="space-y-2.5">
               {z.included.map((g, i) => (
-                <motion.li
+                <m.li
                   key={i}
                   variants={fadeUp}
                   whileHover={{ x: 3 }}
@@ -300,13 +300,13 @@ export function FreeZoneSpotlight({
                 >
                   <Layers className="h-4 w-4 text-stone mt-0.5 shrink-0" strokeWidth={1.8} />
                   <span className="text-[0.94rem] leading-snug text-ink">{g}</span>
-                </motion.li>
+                </m.li>
               ))}
             </ul>
-          </motion.div>
+          </m.div>
 
           {/* Process steps — vertical numbered timeline */}
-          <motion.div variants={fadeUp} className="lg:col-span-4">
+          <m.div variants={fadeUp} className="lg:col-span-4">
             <div className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-stone mb-4 flex items-center gap-2">
               <Sparkles className="h-3 w-3 text-brand" strokeWidth={2} />
               How we run it
@@ -318,7 +318,7 @@ export function FreeZoneSpotlight({
                 className="absolute left-[18px] top-3 bottom-3 w-px bg-gradient-to-b from-brand/0 via-brand/40 to-brand/0"
               />
               {z.steps.map((step, i) => (
-                <motion.li
+                <m.li
                   key={i}
                   variants={fadeUp}
                   className="relative flex items-start gap-3"
@@ -337,14 +337,14 @@ export function FreeZoneSpotlight({
                   <span className="rounded-xl border border-ink/10 bg-paper px-3.5 py-2.5 flex-1 text-[0.92rem] leading-snug text-ink">
                     {step}
                   </span>
-                </motion.li>
+                </m.li>
               ))}
             </ol>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
         {/* Highlight banner */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -352,7 +352,7 @@ export function FreeZoneSpotlight({
           whileHover={{ y: -3 }}
           className="mt-14 md:mt-16 relative overflow-hidden rounded-3xl border border-brand/40 bg-gradient-to-br from-ink to-[#0a1419] text-paper p-7 md:p-10 shadow-[0_30px_80px_-25px_rgba(72,168,219,0.45)]"
         >
-          <motion.div
+          <m.div
             aria-hidden
             className="pointer-events-none absolute -top-20 -right-12 h-72 w-72 rounded-full"
             style={{
@@ -392,7 +392,7 @@ export function FreeZoneSpotlight({
               </Link>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

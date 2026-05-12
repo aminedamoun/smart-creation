@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import {
-  motion,
+  m,
   useInView,
   useMotionValue,
   useSpring,
@@ -129,20 +129,20 @@ export function AboutStats() {
 
       <div ref={ref} className="container-edit relative">
         {/* Eyebrow */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 12 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="flex items-center gap-3 font-mono text-[0.66rem] uppercase tracking-[0.22em] text-stone pt-12 md:pt-14"
         >
           <span className="h-px w-8 bg-ink/25" />§ By the numbers
-        </motion.div>
+        </m.div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 md:gap-x-2 pt-8 pb-14 md:pb-16">
           {stats.map((s, i) => {
             const Icon = s.icon;
             return (
-              <motion.div
+              <m.div
                 key={s.label}
                 initial={{ opacity: 0, y: 24 }}
                 animate={
@@ -191,7 +191,7 @@ export function AboutStats() {
 
                 {/* Brand bar */}
                 <div className="relative mt-4 h-[3px] w-full rounded-full bg-ink/8 overflow-hidden">
-                  <motion.span
+                  <m.span
                     aria-hidden
                     className="block h-full rounded-full bg-gradient-to-r from-brand via-brand-deep to-brand origin-left"
                     initial={{ scaleX: 0 }}
@@ -211,7 +211,7 @@ export function AboutStats() {
                 <div className="relative mt-1 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-stone">
                   {s.meta}
                 </div>
-              </motion.div>
+              </m.div>
             );
           })}
         </div>

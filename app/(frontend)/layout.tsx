@@ -5,6 +5,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFab } from "@/components/whatsapp-fab";
+import { LazyMotionProvider } from "@/components/lazy-motion-provider";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -220,12 +221,14 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <SiteHeader />
-        <main id="main" className="relative z-[2]">
-          {children}
-        </main>
-        <SiteFooter />
-        <WhatsAppFab />
+        <LazyMotionProvider>
+          <SiteHeader />
+          <main id="main" className="relative z-[2]">
+            {children}
+          </main>
+          <SiteFooter />
+          <WhatsAppFab />
+        </LazyMotionProvider>
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   ArrowUpRight,
   Building2,
@@ -82,7 +82,7 @@ export function AboutPresence() {
       <div className="container-edit relative">
         {/* Header */}
         <div className="grid grid-cols-12 gap-x-10 gap-y-8 items-end">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -101,9 +101,9 @@ export function AboutPresence() {
               Pakistan. Same family, same standards — every company we own ships
               the work it promises.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -120,13 +120,13 @@ export function AboutPresence() {
                 strokeWidth={2}
               />
             </Link>
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Country rows */}
         <ul className="mt-14 md:mt-16 space-y-5">
           {countries.map((c, i) => (
-            <motion.li
+            <m.li
               key={c.name}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -214,7 +214,7 @@ export function AboutPresence() {
                   </div>
                 </div>
               </article>
-            </motion.li>
+            </m.li>
           ))}
         </ul>
       </div>

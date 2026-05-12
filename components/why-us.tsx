@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { differentiators } from "@/lib/data";
 import { SectionHeader } from "@/components/ui/section-header";
 
@@ -45,7 +45,7 @@ export function WhyUs() {
           {differentiators.map((d, idx) => {
             const img = cardImages[d.index];
             return (
-              <motion.li
+              <m.li
                 key={d.index}
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -90,7 +90,7 @@ export function WhyUs() {
                     {d.body}
                   </p>
                 </div>
-              </motion.li>
+              </m.li>
             );
           })}
         </ul>

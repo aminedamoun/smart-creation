@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { m, type Variants } from "framer-motion";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -33,7 +33,7 @@ export function Reveal({
   className?: string;
 }) {
   return (
-    <motion.div
+    <m.div
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
@@ -42,7 +42,7 @@ export function Reveal({
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -68,7 +68,7 @@ export function StaggerGroup({
   as?: "div" | "ul" | "ol";
 }) {
   const Component =
-    as === "ul" ? motion.ul : as === "ol" ? motion.ol : motion.div;
+    as === "ul" ? m.ul : as === "ol" ? m.ol : m.div;
   return (
     <Component
       initial="hidden"
@@ -94,7 +94,7 @@ export function StaggerItem({
   className?: string;
   as?: "div" | "li";
 }) {
-  const Component = as === "li" ? motion.li : motion.div;
+  const Component = as === "li" ? m.li : m.div;
   return (
     <Component variants={itemFadeUp} className={className}>
       {children}

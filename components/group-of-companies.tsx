@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { groupCompanies, type GroupCompany } from "@/lib/data";
 import { SectionHeader } from "@/components/ui/section-header";
 
@@ -249,7 +249,7 @@ export function GroupOfCompanies() {
 
             {/* Single faint trace — the moving orb supplies the motion */}
             {CHIPS.map((c, i) => (
-              <motion.path
+              <m.path
                 key={`cable-${i}`}
                 d={c.path}
                 stroke="rgba(155,214,239,0.18)"
@@ -267,7 +267,7 @@ export function GroupOfCompanies() {
             ))}
 
             {/* COMET ORBS — fade in once all cables are lit */}
-            <motion.g
+            <m.g
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 2.2, ease: "easeOut" }}
@@ -283,25 +283,25 @@ export function GroupOfCompanies() {
                   />
                 </g>
               ))}
-            </motion.g>
+            </m.g>
           </svg>
 
           {/* Centre card — Smart Creation Group (bigger) */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
           >
             <CentreCard />
-          </motion.div>
+          </m.div>
 
           {/* Perimeter cards */}
           {CHIPS.map((c, i) => {
             const company = companyById[c.companyId];
             if (!company) return null;
             return (
-              <motion.div
+              <m.div
                 key={c.companyId}
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -317,7 +317,7 @@ export function GroupOfCompanies() {
                 }}
               >
                 <PerimeterCard company={company} />
-              </motion.div>
+              </m.div>
             );
           })}
         </div>

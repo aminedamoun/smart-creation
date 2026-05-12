@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowUpRight, Clock } from "lucide-react";
 import { SectionHeader } from "@/components/ui/section-header";
 
@@ -51,7 +51,7 @@ export function Blog({ posts }: { posts: BlogCardPost[] }) {
 
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {blogPosts.map((post, idx) => (
-            <motion.li
+            <m.li
               key={post.slug}
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -113,7 +113,7 @@ export function Blog({ posts }: { posts: BlogCardPost[] }) {
                   </div>
                 </div>
               </Link>
-            </motion.li>
+            </m.li>
           ))}
         </ul>
       </div>

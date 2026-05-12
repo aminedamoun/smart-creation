@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowRight, Phone, Mail, MessageCircle, MapPin } from "lucide-react";
 import { CONTACT } from "@/lib/data";
 import { Logo } from "@/components/logo";
@@ -31,7 +31,7 @@ export function FinalCTA() {
       <div className="container-edit relative">
         <div className="grid grid-cols-12 gap-x-8 gap-y-16 items-center">
           <div className="col-span-12 lg:col-span-7">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -40,9 +40,9 @@ export function FinalCTA() {
             >
               <span className="h-px w-8 bg-paper/25" />
               § 10 — Start your company
-            </motion.div>
+            </m.div>
 
-            <motion.h2
+            <m.h2
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -51,9 +51,9 @@ export function FinalCTA() {
             >
               Your U.A.E. company starts with{" "}
               <span className="text-brand">one conversation.</span>
-            </motion.h2>
+            </m.h2>
 
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -63,9 +63,9 @@ export function FinalCTA() {
               Book a free 45-minute consultation. Tell us what you're building. We'll come
               back with a written plan — jurisdiction, costs, timeline, and the next steps —
               within one working day. No sales script.
-            </motion.p>
+            </m.p>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -91,11 +91,11 @@ export function FinalCTA() {
                 <MessageCircle className="h-4 w-4" strokeWidth={1.8} />
                 WhatsApp us
               </Link>
-            </motion.div>
+            </m.div>
           </div>
 
           {/* Contact card */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -144,7 +144,7 @@ export function FinalCTA() {
                 </span>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

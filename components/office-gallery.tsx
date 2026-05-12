@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -42,7 +42,7 @@ export function OfficeGallery({ images, title }: OfficeGalleryProps) {
       {/* Main / hero */}
       <div className="relative aspect-[16/9] rounded-3xl overflow-hidden bg-paper-deep border border-ink/10">
         <AnimatePresence initial={false} mode="wait">
-          <motion.div
+          <m.div
             key={images[activeIdx]}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -58,7 +58,7 @@ export function OfficeGallery({ images, title }: OfficeGalleryProps) {
               sizes="(max-width: 1024px) 100vw, 80vw"
               className="object-cover"
             />
-          </motion.div>
+          </m.div>
         </AnimatePresence>
 
         {/* Prev / next */}

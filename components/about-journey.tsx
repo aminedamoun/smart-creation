@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { m, useScroll, useTransform } from "framer-motion";
 import {
   Building2,
   Compass,
@@ -104,7 +104,7 @@ export function AboutJourney() {
 
       <div className="container-edit relative">
         {/* Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -125,7 +125,7 @@ export function AboutJourney() {
             renewal we file, every company we launch sits on the same operating
             promise we made on day one.
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Timeline */}
         <div className="relative mt-14 md:mt-20">
@@ -135,19 +135,19 @@ export function AboutJourney() {
             className="pointer-events-none absolute left-5 md:left-1/2 top-0 bottom-0 w-px -translate-x-px bg-ink/10"
           />
           {/* Progress — fills as you scroll */}
-          <motion.div
+          <m.div
             aria-hidden
             style={{ height: lineHeight }}
             className="pointer-events-none absolute left-5 md:left-1/2 top-0 w-px -translate-x-px bg-gradient-to-b from-brand via-brand-deep to-brand origin-top"
           />
 
           <ol className="relative space-y-12 md:space-y-16">
-            {milestones.map((m, i) => {
-              const Icon = m.icon;
+            {milestones.map((milestone, i) => {
+              const Icon = milestone.icon;
               const isRight = i % 2 === 0;
               return (
-                <motion.li
-                  key={m.year}
+                <m.li
+                  key={milestone.year}
                   initial={{ opacity: 0, y: 28 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
@@ -161,7 +161,7 @@ export function AboutJourney() {
                   {isRight ? <div className="hidden md:block" /> : null}
 
                   {/* Node */}
-                  <motion.span
+                  <m.span
                     aria-hidden
                     initial={{ scale: 0.6, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
@@ -181,7 +181,7 @@ export function AboutJourney() {
                       className="relative h-4 w-4 text-brand-deep"
                       strokeWidth={1.8}
                     />
-                  </motion.span>
+                  </m.span>
 
                   {/* Card */}
                   <article
@@ -205,23 +205,23 @@ export function AboutJourney() {
 
                     <div className="flex items-baseline gap-3">
                       <span className="font-display font-semibold text-[1.7rem] md:text-[1.9rem] leading-none tracking-[-0.03em] text-brand-deep">
-                        {m.year}
+                        {milestone.year}
                       </span>
                       <span className="h-px flex-1 bg-ink/10" />
                     </div>
 
                     <h3 className="mt-3 font-display font-semibold text-[1.18rem] md:text-[1.28rem] leading-[1.18] tracking-[-0.015em] text-ink">
-                      {m.title}
+                      {milestone.title}
                     </h3>
                     <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-mute">
-                      {m.body}
+                      {milestone.body}
                     </p>
                     <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-ink/10 bg-paper-soft px-3 py-1 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-stone">
                       <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-                      {m.tag}
+                      {milestone.tag}
                     </div>
                   </article>
-                </motion.li>
+                </m.li>
               );
             })}
           </ol>

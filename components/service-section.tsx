@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { m, useScroll, useTransform } from "framer-motion";
 import {
   ArrowUpRight,
   BadgeCheck,
@@ -188,7 +188,7 @@ export function ServiceSection({
 
       <div className="container-edit relative">
         {/* Watermark index — outlined, big */}
-        <motion.div
+        <m.div
           aria-hidden
           initial={{ opacity: 0, x: flip ? 30 : -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -205,10 +205,10 @@ export function ServiceSection({
           }}
         >
           {s.index}
-        </motion.div>
+        </m.div>
 
         {/* Top: title + image */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
@@ -218,7 +218,7 @@ export function ServiceSection({
             flip && "lg:[&>*:first-child]:order-2",
           )}
         >
-          <motion.div variants={fadeUp} className="col-span-12 lg:col-span-6">
+          <m.div variants={fadeUp} className="col-span-12 lg:col-span-6">
             {s.badge && (
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/15 px-3 py-1 font-mono text-[0.6rem] uppercase tracking-[0.22em] text-brand-deep">
                 <Sparkles className="h-3 w-3" strokeWidth={2} />
@@ -243,7 +243,7 @@ export function ServiceSection({
                 );
               })()}
             </h2>
-            <motion.div
+            <m.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true, margin: "-80px" }}
@@ -273,9 +273,9 @@ export function ServiceSection({
                 Compare to others
               </Link>
             </div>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             ref={imageRef}
             variants={fadeUp}
             className="col-span-12 lg:col-span-6 relative"
@@ -289,7 +289,7 @@ export function ServiceSection({
               )}
             />
             {s.mediaMode === "logo" && s.logoSrc ? (
-              <motion.div
+              <m.div
                 style={{ y: imgY }}
                 whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
@@ -330,9 +330,9 @@ export function ServiceSection({
                   </span>
                   Trusted since 2013
                 </div>
-              </motion.div>
+              </m.div>
             ) : (
-              <motion.div
+              <m.div
                 style={{ y: imgY }}
                 whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
@@ -374,14 +374,14 @@ export function ServiceSection({
                   </span>
                   Trusted since 2013
                 </div>
-              </motion.div>
+              </m.div>
             )}
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
         {/* Process timeline — simple step cards */}
         <div className="relative mb-16 md:mb-24 z-[1]">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -401,9 +401,9 @@ export function ServiceSection({
             <div className="hidden md:block font-mono text-[0.6rem] uppercase tracking-[0.22em] text-stone">
               4 stages
             </div>
-          </motion.div>
+          </m.div>
 
-          <motion.ol
+          <m.ol
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
@@ -411,7 +411,7 @@ export function ServiceSection({
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5"
           >
             {s.steps.map((step, i) => (
-              <motion.li
+              <m.li
                 key={i}
                 variants={fadeUp}
                 whileHover={{ y: -4 }}
@@ -431,15 +431,15 @@ export function ServiceSection({
                   </span>
                 </div>
                 <p className="text-[0.95rem] leading-snug text-ink">{step}</p>
-              </motion.li>
+              </m.li>
             ))}
-          </motion.ol>
+          </m.ol>
         </div>
 
         {/* Below: hoverable card grids + sticky sidebar */}
         <div className="relative grid grid-cols-12 gap-x-10 gap-y-10 z-[1]">
           <div className="col-span-12 lg:col-span-7">
-            <motion.div
+            <m.div
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-80px" }}
@@ -458,13 +458,13 @@ export function ServiceSection({
                 items={s.included}
                 Icon={Layers}
               />
-            </motion.div>
+            </m.div>
           </div>
 
           <aside className="col-span-12 lg:col-span-5">
             <div className="lg:sticky lg:top-28 space-y-5">
               {/* At a glance */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
@@ -479,34 +479,34 @@ export function ServiceSection({
                   <Sparkles className="h-3 w-3 text-brand" strokeWidth={2} />
                   At a glance
                 </div>
-                <motion.dl
+                <m.dl
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true, margin: "-80px" }}
                   variants={stagger}
                   className="divide-y divide-ink/10"
                 >
-                  {s.meta.map((m) => (
-                    <motion.div
-                      key={m.label}
+                  {s.meta.map((meta) => (
+                    <m.div
+                      key={meta.label}
                       variants={fadeUp}
                       whileHover={{ x: 2 }}
                       transition={{ duration: 0.2 }}
                       className="group flex items-baseline justify-between gap-4 py-3 first:pt-0 last:pb-0"
                     >
                       <dt className="text-[0.84rem] text-ink-mute group-hover:text-ink transition-colors">
-                        {m.label}
+                        {meta.label}
                       </dt>
                       <dd className="font-mono text-[0.78rem] uppercase tracking-[0.16em] text-ink text-right">
-                        {m.value}
+                        {meta.value}
                       </dd>
-                    </motion.div>
+                    </m.div>
                   ))}
-                </motion.dl>
-              </motion.div>
+                </m.dl>
+              </m.div>
 
               {/* Highlight CTA card */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
@@ -514,7 +514,7 @@ export function ServiceSection({
                 whileHover={{ y: -3 }}
                 className="relative overflow-hidden rounded-3xl border border-brand/40 bg-gradient-to-br from-ink to-[#0a1419] text-paper p-6 md:p-7 shadow-[0_30px_80px_-25px_rgba(72,168,219,0.45)]"
               >
-                <motion.div
+                <m.div
                   aria-hidden
                   className="pointer-events-none absolute -top-20 -right-12 h-56 w-56 rounded-full"
                   style={{
@@ -550,7 +550,7 @@ export function ServiceSection({
                     />
                   </Link>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </aside>
         </div>
@@ -583,7 +583,7 @@ function ListCol({
       </div>
       <ul className="space-y-2.5">
         {items.map((item, i) => (
-          <motion.li
+          <m.li
             key={i}
             variants={fadeUp}
             whileHover={{ x: 4 }}
@@ -603,7 +603,7 @@ function ListCol({
               strokeWidth={tone === "brand" ? 2 : 1.8}
             />
             <span className="text-[0.95rem] leading-relaxed text-ink">{item}</span>
-          </motion.li>
+          </m.li>
         ))}
       </ul>
     </div>

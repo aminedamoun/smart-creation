@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Linkedin } from "lucide-react";
 
 export type TeamMember = {
@@ -30,19 +30,19 @@ function initials(name: string) {
     .toUpperCase();
 }
 
-function MemberCard({ m }: { m: TeamMember }) {
+function MemberCard({ member }: { member: TeamMember }) {
   return (
-    <motion.div
+    <m.div
       variants={fadeUp}
       whileHover={{ y: -6 }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       className="group relative"
     >
       <div className="relative overflow-hidden rounded-2xl border border-ink/10 bg-ink shadow-[0_18px_45px_-22px_rgba(13,16,19,0.4)] transition-all duration-500 group-hover:border-brand/50 group-hover:shadow-[0_28px_70px_-24px_rgba(72,168,219,0.55)] aspect-[3/4]">
-        {m.photo ? (
+        {member.photo ? (
           <Image
-            src={m.photo}
-            alt={m.name}
+            src={member.photo}
+            alt={member.name}
             fill
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
@@ -50,7 +50,7 @@ function MemberCard({ m }: { m: TeamMember }) {
         ) : (
           <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-ink to-[#0a1419]">
             <span className="font-display text-[2.6rem] tracking-[-0.04em] text-paper/80">
-              {initials(m.name)}
+              {initials(member.name)}
             </span>
           </div>
         )}
@@ -68,12 +68,12 @@ function MemberCard({ m }: { m: TeamMember }) {
         />
 
         {/* LinkedIn button — always visible when a profile exists */}
-        {m.linkedin && (
+        {member.linkedin && (
           <a
-            href={m.linkedin}
+            href={member.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`${m.name} on LinkedIn`}
+            aria-label={`${member.name} on LinkedIn`}
             className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-paper/20 bg-ink/55 backdrop-blur-md text-paper transition-all hover:bg-brand hover:text-ink hover:border-brand"
           >
             <Linkedin className="h-3.5 w-3.5" strokeWidth={1.8} />
@@ -83,10 +83,10 @@ function MemberCard({ m }: { m: TeamMember }) {
         {/* Name + role */}
         <div className="absolute inset-x-0 bottom-0 p-4 md:p-5">
           <div className="font-display font-medium tracking-[-0.015em] text-[1rem] md:text-[1.05rem] leading-[1.15] text-paper">
-            {m.name}
+            {member.name}
           </div>
           <div className="mt-1.5 font-mono text-[0.55rem] uppercase tracking-[0.18em] text-paper/75 group-hover:text-brand-soft transition-colors duration-500 line-clamp-2">
-            {m.role}
+            {member.role}
           </div>
 
           <span
@@ -95,7 +95,7 @@ function MemberCard({ m }: { m: TeamMember }) {
           />
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -125,19 +125,19 @@ export function AboutTeamGrid({ members }: { members: TeamMember[] }) {
       </div>
 
       {/* Flat 5-up grid — same size cards, LinkedIn buttons on each */}
-      <motion.ul
+      <m.ul
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-80px" }}
         variants={stagger}
         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5"
       >
-        {members.map((m) => (
-          <li key={m.name}>
-            <MemberCard m={m} />
+        {members.map((member) => (
+          <li key={member.name}>
+            <MemberCard member={member} />
           </li>
         ))}
-      </motion.ul>
+      </m.ul>
     </>
   );
 }

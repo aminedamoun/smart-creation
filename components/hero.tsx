@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { ServiceDonut } from "@/components/service-donut";
 
@@ -105,7 +105,7 @@ export function Hero() {
 
       <div className="container-edit relative">
         {/* Masthead line */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -113,12 +113,12 @@ export function Hero() {
         >
           <span className="h-px w-8 bg-paper/25" />
           <span>Smart Creation Group of Companies — UAE · Canada · Pakistan</span>
-        </motion.div>
+        </m.div>
 
         <div className="grid grid-cols-12 gap-x-8 gap-y-14 items-center">
           {/* Left — headline + cta */}
           <div className="col-span-12 lg:col-span-7">
-            <motion.h1
+            <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -127,18 +127,18 @@ export function Hero() {
               <span className="block">A group of companies</span>
               <span className="block">built around your</span>
               <span className="block text-brand">business success.</span>
-            </motion.h1>
+            </m.h1>
 
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
               className="mt-7 max-w-[34rem] text-[1.05rem] md:text-[1.12rem] leading-relaxed text-paper/70 text-pretty"
             >
               Smart Creation Group brings four Dubai business centres together with company formation, technology, real estate, holiday rentals, transport and contracting — one trusted partner since 2013.
-            </motion.p>
+            </m.p>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
@@ -158,10 +158,10 @@ export function Hero() {
                 <Play className="h-3 w-3 fill-brand text-brand" strokeWidth={0} />
                 Explore services
               </Link>
-            </motion.div>
+            </m.div>
 
             {/* Office status */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -172,24 +172,24 @@ export function Hero() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-brand" />
               </span>
               <span>Office open · Barsha Heights, Dubai</span>
-            </motion.div>
+            </m.div>
           </div>
 
           {/* Right — rotating services donut */}
           <div className="col-span-12 lg:col-span-5 relative">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="relative mx-auto lg:mx-0 aspect-square max-w-md"
             >
               <ServiceDonut className="h-full w-full" />
-            </motion.div>
+            </m.div>
           </div>
         </div>
 
         {/* Trust strip */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -214,7 +214,7 @@ export function Hero() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

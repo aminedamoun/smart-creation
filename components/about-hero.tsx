@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Users } from "lucide-react";
 
 export function AboutHero() {
@@ -105,7 +105,7 @@ export function AboutHero() {
 
       {/* Breadcrumb — same plain style as the other dark heroes */}
       <div className="container-edit relative">
-        <motion.nav
+        <m.nav
           aria-label="Breadcrumb"
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -116,7 +116,7 @@ export function AboutHero() {
           <Link href="/" className="hover:text-paper transition-colors">Home</Link>
           <span className="text-paper/30">/</span>
           <span className="text-paper">About</span>
-        </motion.nav>
+        </m.nav>
       </div>
 
       {/* Spacer flexes — full team photo stays visible above */}
@@ -124,7 +124,7 @@ export function AboutHero() {
 
       {/* Centered copy grounded near the bottom of the hero */}
       <div className="container-edit relative text-center">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.05 }}
@@ -134,9 +134,9 @@ export function AboutHero() {
           <span className="text-paper/30">·</span>
           <Users className="h-3 w-3 text-brand" strokeWidth={2} />
           The whole team
-        </motion.div>
+        </m.div>
 
-        <motion.h1
+        <m.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -144,7 +144,7 @@ export function AboutHero() {
         >
           Built around your business{" "}
           <span className="text-brand">— since 2013.</span>
-        </motion.h1>
+        </m.h1>
       </div>
     </section>
   );

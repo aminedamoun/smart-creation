@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 type Pillar = {
@@ -145,7 +145,7 @@ export function DubaiZonesHero() {
       />
 
       <div className="container-edit relative">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -161,21 +161,21 @@ export function DubaiZonesHero() {
           </Link>
           <span className="text-paper/30">/</span>
           <span className="text-paper">Dubai</span>
-        </motion.div>
+        </m.div>
 
         <div className="grid grid-cols-12 gap-x-10 gap-y-14 items-start">
           {/* Left — headline */}
           <div className="col-span-12 lg:col-span-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.05 }}
               className="mb-6 inline-flex items-center gap-2 rounded-full border border-paper/15 bg-paper/[0.04] px-3 py-1 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-mist"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-brand" />§ Dubai · Free zones
-            </motion.div>
+            </m.div>
 
-            <motion.h1
+            <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -184,9 +184,9 @@ export function DubaiZonesHero() {
               <span className="block">Eight Dubai zones —</span>
               <span className="block">one team that</span>
               <span className="block text-brand">knows them all.</span>
-            </motion.h1>
+            </m.h1>
 
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
@@ -195,9 +195,9 @@ export function DubaiZonesHero() {
               IFZA, DMCC, JAFZA, DIFC, Meydan, DAFZA, DWTC, DCC — every Dubai
               free zone has its own activity list, cost band and visa quota.
               We compare them all and apply through the right one.
-            </motion.p>
+            </m.p>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
@@ -223,9 +223,9 @@ export function DubaiZonesHero() {
                   strokeWidth={1.8}
                 />
               </Link>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -236,12 +236,12 @@ export function DubaiZonesHero() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-brand" />
               </span>
               <span>Direct relationships with every Dubai authority</span>
-            </motion.div>
+            </m.div>
           </div>
 
           {/* Right — 8 logo pillar cards */}
           <div className="col-span-12 lg:col-span-6">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.85, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
@@ -258,7 +258,7 @@ export function DubaiZonesHero() {
 
               <div className="grid grid-cols-2 gap-3">
                 {pillars.map((p, i) => (
-                  <motion.div
+                  <m.div
                     key={p.id}
                     initial={{ opacity: 0, y: 14 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -306,14 +306,14 @@ export function DubaiZonesHero() {
                         strokeWidth={1.8}
                       />
                     </Link>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -336,7 +336,7 @@ export function DubaiZonesHero() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

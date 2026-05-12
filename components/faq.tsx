@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
 import { faqs } from "@/lib/data";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -56,7 +56,7 @@ export function FAQ() {
                     </button>
                     <AnimatePresence initial={false}>
                       {isOpen && (
-                        <motion.div
+                        <m.div
                           key="content"
                           initial="collapsed"
                           animate="open"
@@ -71,7 +71,7 @@ export function FAQ() {
                           <div className="pb-8 pr-16 md:pl-[4.75rem] text-[1rem] leading-relaxed text-ink-mute text-pretty">
                             {faq.a}
                           </div>
-                        </motion.div>
+                        </m.div>
                       )}
                     </AnimatePresence>
                   </li>

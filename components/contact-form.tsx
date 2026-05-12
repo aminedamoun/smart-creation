@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import {
   ArrowUpRight,
   CheckCircle2,
@@ -62,7 +62,7 @@ export function ContactForm() {
             type="text"
             required
             placeholder="Jane Doe"
-            className="w-full bg-transparent border-0 border-b border-ink/15 focus:border-brand-deep focus:ring-0 px-0 py-2.5 text-[0.98rem] text-ink placeholder:text-stone/60 outline-none transition-colors"
+            className="w-full bg-transparent border-0 border-b border-ink/15 focus:border-brand-deep focus:ring-0 px-0 py-2.5 text-[0.98rem] text-ink placeholder:text-stone/80 outline-none transition-colors"
           />
         </Field>
         <Field label="Email" icon={<Mail className="h-3.5 w-3.5" />}>
@@ -71,7 +71,7 @@ export function ContactForm() {
             type="email"
             required
             placeholder="you@company.com"
-            className="w-full bg-transparent border-0 border-b border-ink/15 focus:border-brand-deep focus:ring-0 px-0 py-2.5 text-[0.98rem] text-ink placeholder:text-stone/60 outline-none transition-colors"
+            className="w-full bg-transparent border-0 border-b border-ink/15 focus:border-brand-deep focus:ring-0 px-0 py-2.5 text-[0.98rem] text-ink placeholder:text-stone/80 outline-none transition-colors"
           />
         </Field>
         <Field label="Phone (optional)" icon={<Phone className="h-3.5 w-3.5" />}>
@@ -79,7 +79,7 @@ export function ContactForm() {
             name="phone"
             type="tel"
             placeholder="+971 …"
-            className="w-full bg-transparent border-0 border-b border-ink/15 focus:border-brand-deep focus:ring-0 px-0 py-2.5 text-[0.98rem] text-ink placeholder:text-stone/60 outline-none transition-colors"
+            className="w-full bg-transparent border-0 border-b border-ink/15 focus:border-brand-deep focus:ring-0 px-0 py-2.5 text-[0.98rem] text-ink placeholder:text-stone/80 outline-none transition-colors"
           />
         </Field>
         <Field label="Topic">
@@ -106,7 +106,7 @@ export function ContactForm() {
             required
             rows={5}
             placeholder="A few sentences on what you need — activity, jurisdiction preference, headcount, timing. Anything goes."
-            className="w-full bg-transparent border border-ink/15 focus:border-brand-deep focus:ring-0 rounded-xl px-3.5 py-3 text-[0.98rem] leading-relaxed text-ink placeholder:text-stone/60 outline-none transition-colors resize-none"
+            className="w-full bg-transparent border border-ink/15 focus:border-brand-deep focus:ring-0 rounded-xl px-3.5 py-3 text-[0.98rem] leading-relaxed text-ink placeholder:text-stone/80 outline-none transition-colors resize-none"
           />
         </Field>
       </div>
@@ -139,7 +139,7 @@ export function ContactForm() {
 
       <AnimatePresence>
         {status === "sent" && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 8 }}
@@ -152,16 +152,16 @@ export function ContactForm() {
                 Need it faster? Tap WhatsApp on the right.
               </span>
             </span>
-          </motion.div>
+          </m.div>
         )}
         {error && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             className="mt-6 rounded-2xl border border-red-500/30 bg-red-500/[0.06] px-4 py-3 text-[0.9rem] text-ink"
           >
             {error}
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </form>

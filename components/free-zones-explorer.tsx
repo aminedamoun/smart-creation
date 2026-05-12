@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   ArrowUpRight,
   Building2,
@@ -158,7 +158,7 @@ export function FreeZonesExplorer() {
         </div>
 
         {/* Zone grid */}
-        <motion.ul
+        <m.ul
           key={filter}
           initial="hidden"
           animate="show"
@@ -166,11 +166,11 @@ export function FreeZonesExplorer() {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5"
         >
           {visible.map((z) => (
-            <motion.li key={z.code} variants={fadeUp}>
+            <m.li key={z.code} variants={fadeUp}>
               <ZoneCard zone={z} />
-            </motion.li>
+            </m.li>
           ))}
-        </motion.ul>
+        </m.ul>
       </div>
     </section>
   );
@@ -340,7 +340,7 @@ export function FreeZoneMethod() {
               }}
             />
             {[0, 1, 2].map((n) => (
-              <motion.span
+              <m.span
                 key={n}
                 className="absolute top-1/2 -translate-y-1/2 h-2.5 w-2.5 rounded-full bg-paper"
                 style={{
@@ -362,7 +362,7 @@ export function FreeZoneMethod() {
               />
             ))}
             {[0.7, 2.1].map((d, i) => (
-              <motion.span
+              <m.span
                 key={`t-${i}`}
                 className="absolute top-1/2 -translate-y-1/2 h-1.5 w-12 rounded-full"
                 style={{
@@ -386,7 +386,7 @@ export function FreeZoneMethod() {
             ))}
           </div>
 
-          <motion.ol
+          <m.ol
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: "-80px" }}
@@ -394,7 +394,7 @@ export function FreeZoneMethod() {
             className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5"
           >
             {steps.map((s, i) => (
-              <motion.li
+              <m.li
                 key={i}
                 variants={fadeUp}
                 whileHover={{ y: -5 }}
@@ -430,9 +430,9 @@ export function FreeZoneMethod() {
                 <p className="text-[0.88rem] leading-snug text-ink-mute">
                   {s.body}
                 </p>
-              </motion.li>
+              </m.li>
             ))}
-          </motion.ol>
+          </m.ol>
         </div>
 
         <div className="mt-10 flex flex-wrap items-center gap-3">

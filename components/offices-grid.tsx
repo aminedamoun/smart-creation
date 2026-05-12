@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useMemo, useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   ArrowUpRight,
   Eye,
@@ -157,7 +157,7 @@ export function OfficesGrid({
         {visible.length > 0 ? (
           <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-6">
             {visible.map((office, idx) => (
-              <motion.li
+              <m.li
                 key={office.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -169,7 +169,7 @@ export function OfficesGrid({
                 }}
               >
                 <OfficeCard office={office} priority={idx < 3} />
-              </motion.li>
+              </m.li>
             ))}
           </ul>
         ) : (

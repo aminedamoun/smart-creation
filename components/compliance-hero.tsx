@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -119,7 +119,7 @@ export function ComplianceHero() {
       />
 
       <div className="container-edit relative">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -135,20 +135,20 @@ export function ComplianceHero() {
           </Link>
           <span className="text-paper/30">/</span>
           <span className="text-paper">Compliance & licensing</span>
-        </motion.div>
+        </m.div>
 
         <div className="grid grid-cols-12 gap-x-10 gap-y-14 items-center">
           <div className="col-span-12 lg:col-span-7">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.05 }}
               className="mb-6 inline-flex items-center gap-2 rounded-full border border-paper/15 bg-paper/[0.04] px-3 py-1 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-mist"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-brand" />§ Compliance & licensing
-            </motion.div>
+            </m.div>
 
-            <motion.h1
+            <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -157,9 +157,9 @@ export function ComplianceHero() {
               <span className="block">Stay compliant —</span>
               <span className="block">never lose a day</span>
               <span className="block text-brand">to paperwork.</span>
-            </motion.h1>
+            </m.h1>
 
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
@@ -168,9 +168,9 @@ export function ComplianceHero() {
               Trademarks, AML / ESR / UBO frameworks, MOFA attestation and
               every annual licence renewal — owned, calendared and filed by
               the same team. Nothing slips, nothing expires unnoticed.
-            </motion.p>
+            </m.p>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
@@ -196,9 +196,9 @@ export function ComplianceHero() {
                   strokeWidth={1.8}
                 />
               </Link>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -209,11 +209,11 @@ export function ComplianceHero() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-brand" />
               </span>
               <span>Renewal calendar managed in-house · we file before you need to ask</span>
-            </motion.div>
+            </m.div>
           </div>
 
           <div className="col-span-12 lg:col-span-5">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.85, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
@@ -232,7 +232,7 @@ export function ComplianceHero() {
                 {pillars.map((p, i) => {
                   const Icon = p.icon;
                   return (
-                    <motion.div
+                    <m.div
                       key={p.id}
                       initial={{ opacity: 0, y: 14 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -285,15 +285,15 @@ export function ComplianceHero() {
                           />
                         </div>
                       </Link>
-                    </motion.div>
+                    </m.div>
                   );
                 })}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -316,7 +316,7 @@ export function ComplianceHero() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

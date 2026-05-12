@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import { groupCenters } from "@/lib/data";
 
@@ -12,7 +12,7 @@ export function BusinessCenter() {
       <div className="container-edit">
         <div className="grid grid-cols-12 gap-x-8 gap-y-12 mb-14 md:mb-20">
           <div className="col-span-12 lg:col-span-7">
-            <motion.span
+            <m.span
               initial={{ opacity: 0, y: 8 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -21,8 +21,8 @@ export function BusinessCenter() {
             >
               <span className="h-px w-8 bg-ink/20" />
               § 08 — Our Business Centres
-            </motion.span>
-            <motion.h2
+            </m.span>
+            <m.h2
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -31,8 +31,8 @@ export function BusinessCenter() {
             >
               Six real Dubai addresses,{" "}
               <span className="text-brand-deep">all owned and operated.</span>
-            </motion.h2>
-            <motion.p
+            </m.h2>
+            <m.p
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -44,7 +44,7 @@ export function BusinessCenter() {
               flagship offices at Damac Executive Heights, plus locations in Al
               Barsha, Bur Dubai, Al Muraqabat, Smart Founders and our owned
               freehold building in Naif, Deira.
-            </motion.p>
+            </m.p>
           </div>
           <div className="col-span-12 lg:col-span-5 lg:flex lg:justify-end lg:items-end">
             <Link
@@ -62,7 +62,7 @@ export function BusinessCenter() {
 
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
           {groupCenters.map((center, idx) => (
-            <motion.li
+            <m.li
               key={center.id}
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ export function BusinessCenter() {
                 aria-hidden
                 className="pointer-events-none absolute left-0 top-0 h-px w-0 bg-brand transition-all duration-500 group-hover:w-full"
               />
-            </motion.li>
+            </m.li>
           ))}
         </ul>
       </div>

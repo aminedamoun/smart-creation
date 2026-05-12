@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -127,7 +127,7 @@ export function VisasHero() {
       />
 
       <div className="container-edit relative">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -143,20 +143,20 @@ export function VisasHero() {
           </Link>
           <span className="text-paper/30">/</span>
           <span className="text-paper">Visas & residency</span>
-        </motion.div>
+        </m.div>
 
         <div className="grid grid-cols-12 gap-x-10 gap-y-14 items-center">
           <div className="col-span-12 lg:col-span-7">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.05 }}
               className="mb-6 inline-flex items-center gap-2 rounded-full border border-paper/15 bg-paper/[0.04] px-3 py-1 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-mist"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-brand" />§ Visas & residency
-            </motion.div>
+            </m.div>
 
-            <motion.h1
+            <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -165,9 +165,9 @@ export function VisasHero() {
               <span className="block">Get residency right —</span>
               <span className="block">for you and</span>
               <span className="block text-brand">the people you bring.</span>
-            </motion.h1>
+            </m.h1>
 
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
@@ -176,9 +176,9 @@ export function VisasHero() {
               Investor visas, the Golden visa, family sponsorship and ongoing PRO
               services. We file, follow up and renew — so your residency stays
               valid while you focus on the business.
-            </motion.p>
+            </m.p>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
@@ -204,9 +204,9 @@ export function VisasHero() {
                   strokeWidth={1.8}
                 />
               </Link>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -217,11 +217,11 @@ export function VisasHero() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-brand" />
               </span>
               <span>Approved typing centre · ICP & GDRFA channels</span>
-            </motion.div>
+            </m.div>
           </div>
 
           <div className="col-span-12 lg:col-span-5">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.85, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
@@ -240,7 +240,7 @@ export function VisasHero() {
                 {pillars.map((p, i) => {
                   const Icon = p.icon;
                   return (
-                    <motion.div
+                    <m.div
                       key={p.id}
                       initial={{ opacity: 0, y: 14 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -300,15 +300,15 @@ export function VisasHero() {
                           />
                         </div>
                       </Link>
-                    </motion.div>
+                    </m.div>
                   );
                 })}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -331,7 +331,7 @@ export function VisasHero() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

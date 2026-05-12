@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -123,7 +123,7 @@ export function CompanyFormationHero() {
 
       <div className="container-edit relative">
         {/* Breadcrumb / masthead */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -139,12 +139,12 @@ export function CompanyFormationHero() {
           </Link>
           <span className="text-paper/30">/</span>
           <span className="text-paper">Company formation</span>
-        </motion.div>
+        </m.div>
 
         <div className="grid grid-cols-12 gap-x-10 gap-y-14 items-center">
           {/* Left — headline */}
           <div className="col-span-12 lg:col-span-7">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.05 }}
@@ -152,9 +152,9 @@ export function CompanyFormationHero() {
             >
               <span className="h-1.5 w-1.5 rounded-full bg-brand" />
               § Company formation
-            </motion.div>
+            </m.div>
 
-            <motion.h1
+            <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -163,9 +163,9 @@ export function CompanyFormationHero() {
               <span className="block">Pick the right</span>
               <span className="block">structure first —</span>
               <span className="block text-brand">everything else gets easier.</span>
-            </motion.h1>
+            </m.h1>
 
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
@@ -174,9 +174,9 @@ export function CompanyFormationHero() {
               Mainland, free zone, offshore or a holding-company group — we set up
               companies across every UAE jurisdiction. One team accountable from
               name reservation to your first invoice.
-            </motion.p>
+            </m.p>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
@@ -202,9 +202,9 @@ export function CompanyFormationHero() {
                   strokeWidth={1.8}
                 />
               </Link>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -215,12 +215,12 @@ export function CompanyFormationHero() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-brand" />
               </span>
               <span>Free, 45-min consultation · Plan within one business day</span>
-            </motion.div>
+            </m.div>
           </div>
 
           {/* Right — structure picker */}
           <div className="col-span-12 lg:col-span-5">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.85, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
@@ -240,7 +240,7 @@ export function CompanyFormationHero() {
                 {pillars.map((p, i) => {
                   const Icon = p.icon;
                   return (
-                    <motion.div
+                    <m.div
                       key={p.id}
                       initial={{ opacity: 0, y: 14 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -295,16 +295,16 @@ export function CompanyFormationHero() {
                           />
                         </div>
                       </Link>
-                    </motion.div>
+                    </m.div>
                   );
                 })}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
 
         {/* Trust strip */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -327,7 +327,7 @@ export function CompanyFormationHero() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   ArrowUpRight,
   Banknote,
@@ -80,7 +80,7 @@ export function AboutDifferentiators() {
 
       <div className="container-edit relative">
         <div className="grid grid-cols-12 gap-x-10 gap-y-8 items-end">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -101,14 +101,14 @@ export function AboutDifferentiators() {
               have trusted us with the operational backbone of their U.A.E.
               business since 2013.
             </p>
-          </motion.div>
+          </m.div>
         </div>
 
         <ul className="mt-14 md:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {items.map((it, i) => {
             const Icon = it.icon;
             return (
-              <motion.li
+              <m.li
                 key={it.title}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -162,13 +162,13 @@ export function AboutDifferentiators() {
                     </span>
                   </div>
                 </article>
-              </motion.li>
+              </m.li>
             );
           })}
         </ul>
 
         {/* Centres CTA — walk-in-ready inventory across Dubai */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -215,7 +215,7 @@ export function AboutDifferentiators() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

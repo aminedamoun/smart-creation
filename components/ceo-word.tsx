@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 export function CeoWord() {
   return (
@@ -27,7 +27,7 @@ export function CeoWord() {
 
       <div className="container-edit relative">
         {/* Eyebrow */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -38,11 +38,11 @@ export function CeoWord() {
           <span className="font-mono text-[0.65rem] uppercase tracking-[0.22em]">
             § 03 — A word from the CEO
           </span>
-        </motion.div>
+        </m.div>
 
         <div className="grid grid-cols-12 gap-x-8 gap-y-12 items-start">
           {/* Portrait */}
-          <motion.figure
+          <m.figure
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -71,10 +71,10 @@ export function CeoWord() {
             <figcaption className="mt-3 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-mist">
               — Portrait · Asad Hashmi, Dubai
             </figcaption>
-          </motion.figure>
+          </m.figure>
 
           {/* Letter */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -124,7 +124,7 @@ export function CeoWord() {
                 CEO · Smart Creation Group of Companies
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

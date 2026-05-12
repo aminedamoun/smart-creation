@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { freeZones, type FreeZone } from "@/lib/data";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -34,7 +34,7 @@ export function FreeZones() {
 
         <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
           {freeZones.map((zone, idx) => (
-            <motion.li
+            <m.li
               key={zone.code}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ export function FreeZones() {
               }}
             >
               <ZoneCard zone={zone} />
-            </motion.li>
+            </m.li>
           ))}
         </ul>
 

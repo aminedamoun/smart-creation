@@ -10,7 +10,7 @@ import {
   Phone,
   X,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { navigation, CONTACT, type NavItem } from "@/lib/data";
 import { Logo } from "@/components/logo";
 import { cn } from "@/lib/utils";
@@ -211,7 +211,7 @@ export function SiteHeader() {
       {/* Mega menu panel (outside <nav> so it can span full width) */}
       <AnimatePresence>
         {activeItem?.mega && (
-          <motion.div
+          <m.div
             key={activeItem.label}
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -227,7 +227,7 @@ export function SiteHeader() {
             >
               <MegaPanel item={activeItem} inverted={inverted} />
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
 
@@ -353,7 +353,7 @@ function MegaPanel({
           )}
         >
           {groups.map((group, gIdx) => (
-            <motion.div
+            <m.div
               key={group.title}
               initial={{ opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
@@ -431,13 +431,13 @@ function MegaPanel({
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
         {/* Right: feature / CTA card */}
         {feature && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.08 }}
@@ -501,7 +501,7 @@ function MegaPanel({
                 </Link>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </div>
 
@@ -548,7 +548,7 @@ function MobileDrawer({ onClose }: { onClose: () => void }) {
   const [expanded, setExpanded] = useState<string | null>(null);
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -616,7 +616,7 @@ function MobileDrawer({ onClose }: { onClose: () => void }) {
 
                 <AnimatePresence initial={false}>
                   {isExpanded && item.mega && (
-                    <motion.div
+                    <m.div
                       key="mega"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
@@ -668,7 +668,7 @@ function MobileDrawer({ onClose }: { onClose: () => void }) {
                           </Link>
                         )}
                       </div>
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
               </li>
@@ -693,6 +693,6 @@ function MobileDrawer({ onClose }: { onClose: () => void }) {
           Book free consultation
         </Link>
       </div>
-    </motion.div>
+    </m.div>
   );
 }

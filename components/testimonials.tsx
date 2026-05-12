@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowUpRight, Star } from "lucide-react";
 import { googleRating, testimonials } from "@/lib/data";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -56,7 +56,7 @@ export function Testimonials() {
 
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {testimonials.map((t, idx) => (
-            <motion.li
+            <m.li
               key={t.name}
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -103,7 +103,7 @@ export function Testimonials() {
               <p className="mt-4 text-[0.95rem] leading-relaxed text-ink-mute text-pretty">
                 {t.quote}
               </p>
-            </motion.li>
+            </m.li>
           ))}
         </ul>
 

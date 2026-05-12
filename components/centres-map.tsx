@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import {
   APIProvider,
   Map,
@@ -302,7 +302,7 @@ export function CentresMap({ pins }: { pins: CentreMapPin[] }) {
         {/* Side-slide details panel */}
         <AnimatePresence>
           {selected && (
-            <motion.div
+            <m.div
               key={selected.key + "-side"}
               initial={{ opacity: 0, x: -16 }}
               animate={{ opacity: 1, x: 0 }}
@@ -403,7 +403,7 @@ export function CentresMap({ pins }: { pins: CentreMapPin[] }) {
                   )}
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
       </div>
@@ -411,7 +411,7 @@ export function CentresMap({ pins }: { pins: CentreMapPin[] }) {
       {/* Properties grid — appears when a centre is selected */}
       <AnimatePresence>
         {selected && (selected.properties?.length ?? 0) > 0 && (
-          <motion.div
+          <m.div
             id="available-offices"
             key={selected.key + "-grid"}
             initial={{ opacity: 0, y: 20 }}
@@ -446,7 +446,7 @@ export function CentresMap({ pins }: { pins: CentreMapPin[] }) {
               {selected.properties.slice(0, 6).map((o, i) => {
                 const isUpcoming = o.availabilityAccent === "upcoming";
                 return (
-                  <motion.li
+                  <m.li
                     key={o.slug}
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -524,11 +524,11 @@ export function CentresMap({ pins }: { pins: CentreMapPin[] }) {
                         </div>
                       </div>
                     </Link>
-                  </motion.li>
+                  </m.li>
                 );
               })}
             </ul>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

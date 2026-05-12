@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { m, useScroll, useSpring, useTransform } from "framer-motion";
 import { processSteps } from "@/lib/data";
 import { SectionHeader } from "@/components/ui/section-header";
 
@@ -73,7 +73,7 @@ export function Process() {
           />
           {/* Rail — animated progress fill (client-only to avoid hydration mismatch) */}
           {mounted && (
-            <motion.div
+            <m.div
               aria-hidden
               style={{ scaleY: lineScale, originY: 0 }}
               className="absolute left-6 md:left-10 top-3 bottom-3 w-px bg-gradient-to-b from-brand via-brand to-brand-deep shadow-[0_0_18px_rgba(72,168,219,0.65)]"
@@ -81,7 +81,7 @@ export function Process() {
           )}
 
           {processSteps.map((step, idx) => (
-            <motion.li
+            <m.li
               key={step.index}
               initial={{ opacity: 0, x: -16 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -96,7 +96,7 @@ export function Process() {
               {/* Dot cluster */}
               <div className="absolute left-0 top-1.5 flex h-12 w-12 md:h-[5rem] md:w-[5rem] items-center justify-center">
                 {/* Outer ring — eases in */}
-                <motion.span
+                <m.span
                   initial={{ scale: 0.4, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
                   viewport={{ once: true, margin: "-80px" }}
@@ -108,7 +108,7 @@ export function Process() {
                   className="absolute h-10 w-10 md:h-14 md:w-14 rounded-full border border-paper/15"
                 />
                 {/* Continuous pulse */}
-                <motion.span
+                <m.span
                   aria-hidden
                   initial={{ scale: 0.6, opacity: 0 }}
                   whileInView={{
@@ -125,7 +125,7 @@ export function Process() {
                   className="absolute h-4 w-4 rounded-full bg-brand/35"
                 />
                 {/* Core dot */}
-                <motion.span
+                <m.span
                   initial={{ scale: 0, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
                   viewport={{ once: true, margin: "-80px" }}
@@ -152,7 +152,7 @@ export function Process() {
               <p className="mt-3 max-w-xl text-[1rem] leading-relaxed text-paper/70 text-pretty">
                 {step.summary}
               </p>
-            </motion.li>
+            </m.li>
           ))}
         </ol>
       </div>

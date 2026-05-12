@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Reorder, useDragControls, motion, AnimatePresence } from "framer-motion";
+import { Reorder, useDragControls, m, AnimatePresence } from "framer-motion";
 import {
   ArrowDown,
   ArrowUp,
@@ -291,7 +291,7 @@ export function TeamList({ initial }: { initial: Member[] }) {
         </span>
         <AnimatePresence>
           {savedFlash && (
-            <motion.span
+            <m.span
               initial={{ opacity: 0, y: -4 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -4 }}
@@ -299,7 +299,7 @@ export function TeamList({ initial }: { initial: Member[] }) {
             >
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
               Saved
-            </motion.span>
+            </m.span>
           )}
         </AnimatePresence>
       </div>

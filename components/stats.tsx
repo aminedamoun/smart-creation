@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Counter } from "@/components/ui/counter";
 import { stats } from "@/lib/data";
 
@@ -15,7 +15,7 @@ export function Stats() {
 
         <ul className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8">
           {stats.map((s, idx) => (
-            <motion.li
+            <m.li
               key={s.label}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -37,7 +37,7 @@ export function Stats() {
               />
               <div className="mt-4 font-medium text-[1rem] text-ink">{s.label}</div>
               <div className="mt-1 text-[0.85rem] text-ink-mute">{s.caption}</div>
-            </motion.li>
+            </m.li>
           ))}
         </ul>
       </div>

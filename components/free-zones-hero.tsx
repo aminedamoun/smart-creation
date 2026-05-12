@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   ArrowRight,
   Globe2,
@@ -126,7 +126,7 @@ export function FreeZonesHero() {
       />
 
       <div className="container-edit relative">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -138,20 +138,20 @@ export function FreeZonesHero() {
           </Link>
           <span className="text-paper/30">/</span>
           <span className="text-paper">Free zones</span>
-        </motion.div>
+        </m.div>
 
         <div className="grid grid-cols-12 gap-x-10 gap-y-14 items-center">
           <div className="col-span-12 lg:col-span-7">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.05 }}
               className="mb-6 inline-flex items-center gap-2 rounded-full border border-paper/15 bg-paper/[0.04] px-3 py-1 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-mist"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-brand" />§ Free zones
-            </motion.div>
+            </m.div>
 
-            <motion.h1
+            <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -160,9 +160,9 @@ export function FreeZonesHero() {
               <span className="block">Twelve UAE free zones,</span>
               <span className="block">one honest</span>
               <span className="block text-brand">recommendation.</span>
-            </motion.h1>
+            </m.h1>
 
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
@@ -172,9 +172,9 @@ export function FreeZonesHero() {
               quota and banking reputation. We compare all twelve and tell you
               which one matches your business — not the one that pays us
               highest commission.
-            </motion.p>
+            </m.p>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
@@ -200,9 +200,9 @@ export function FreeZonesHero() {
                   strokeWidth={1.8}
                 />
               </Link>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -213,11 +213,11 @@ export function FreeZonesHero() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-brand" />
               </span>
               <span>Independent advisor · we work with every authority directly</span>
-            </motion.div>
+            </m.div>
           </div>
 
           <div className="col-span-12 lg:col-span-5">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.85, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
@@ -236,7 +236,7 @@ export function FreeZonesHero() {
                 {benefits.map((b, i) => {
                   const Icon = b.icon;
                   return (
-                    <motion.div
+                    <m.div
                       key={b.label}
                       initial={{ opacity: 0, y: 14 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -274,15 +274,15 @@ export function FreeZonesHero() {
                           {b.desc}
                         </div>
                       </div>
-                    </motion.div>
+                    </m.div>
                   );
                 })}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -305,7 +305,7 @@ export function FreeZonesHero() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

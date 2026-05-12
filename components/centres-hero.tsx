@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import {
-  motion,
+  m,
   useInView,
   useMotionValue,
   useSpring,
@@ -207,7 +207,7 @@ export function CentresHero({
 
           {/* Right — operating snapshot card */}
           <div className="col-span-12 lg:col-start-9 lg:col-span-4">
-            <motion.div
+            <m.div
               ref={cardRef}
               initial={{ opacity: 0, y: 30, scale: 0.97 }}
               animate={{
@@ -219,7 +219,7 @@ export function CentresHero({
               className="relative"
             >
               {/* Decorative offset frame */}
-              <motion.div
+              <m.div
                 aria-hidden
                 className="absolute inset-0 rounded-3xl border-2 border-brand/40"
                 animate={{
@@ -234,7 +234,7 @@ export function CentresHero({
               />
 
               {/* Floating snapshot card */}
-              <motion.div
+              <m.div
                 className="relative rounded-3xl border border-paper/15 bg-paper/[0.04] backdrop-blur-md p-6 md:p-7 shadow-[0_30px_80px_-30px_rgba(72,168,219,0.4)]"
                 animate={{ y: [0, -6, 0] }}
                 transition={{
@@ -279,7 +279,7 @@ export function CentresHero({
                       </span>
                     </div>
                     <div className="mt-2 h-[2px] w-full rounded-full bg-paper/10 overflow-hidden">
-                      <motion.span
+                      <m.span
                         aria-hidden
                         className="block h-full rounded-full bg-gradient-to-r from-brand via-brand-deep to-brand origin-left"
                         initial={{ scaleX: 0 }}
@@ -309,7 +309,7 @@ export function CentresHero({
                       </span>
                     </div>
                     <div className="mt-2 h-[2px] w-full rounded-full bg-paper/10 overflow-hidden">
-                      <motion.span
+                      <m.span
                         aria-hidden
                         className="block h-full rounded-full bg-gradient-to-r from-brand via-brand-deep to-brand origin-left"
                         initial={{ scaleX: 0 }}
@@ -335,7 +335,7 @@ export function CentresHero({
                       </span>
                     </div>
                     <div className="mt-2 h-[2px] w-full rounded-full bg-paper/10 overflow-hidden">
-                      <motion.span
+                      <m.span
                         aria-hidden
                         className="block h-full rounded-full bg-gradient-to-r from-brand via-brand-deep to-brand origin-left"
                         initial={{ scaleX: 0 }}
@@ -350,8 +350,8 @@ export function CentresHero({
                     </div>
                   </li>
                 </ul>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           </div>
         </div>
       </div>
