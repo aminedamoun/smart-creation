@@ -79,7 +79,7 @@ export function ServiceDonut({ className }: { className?: string }) {
             strokeWidth="1"
           />
           <text
-            fontFamily="var(--font-mono)"
+            fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace"
             fontSize="11"
             letterSpacing="3"
             fill="#f6f3ec"
@@ -104,7 +104,7 @@ export function ServiceDonut({ className }: { className?: string }) {
             strokeDasharray="3 7"
           />
           <text
-            fontFamily="var(--font-mono)"
+            fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace"
             fontSize="9"
             letterSpacing="3.5"
             fill="#8dc2dd"
