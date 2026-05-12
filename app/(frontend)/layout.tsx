@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
 
 import { SiteHeader } from "@/components/site-header";
@@ -10,12 +10,6 @@ import { LazyMotionProvider } from "@/components/lazy-motion-provider";
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-geist",
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
   display: "swap",
 });
 
@@ -51,10 +45,6 @@ export const metadata: Metadata = {
   formatDetection: { email: false, address: false, telephone: false },
   alternates: {
     canonical: "/",
-    languages: {
-      "en-AE": "/",
-      "ar-AE": "/ar",
-    },
   },
   openGraph: {
     type: "website",
@@ -190,7 +180,7 @@ const jsonLd = {
       url: SITE_URL,
       name: "Smart Creation Group of Companies",
       publisher: { "@id": `${SITE_URL}#organization` },
-      inLanguage: ["en-AE", "ar-AE"],
+      inLanguage: "en-AE",
     },
   ],
 };
@@ -204,7 +194,7 @@ export default function RootLayout({
     <html
       lang="en"
       dir="ltr"
-      className={`${geist.variable} ${geistMono.variable}`}
+      className={geist.variable}
       suppressHydrationWarning
     >
       <head>

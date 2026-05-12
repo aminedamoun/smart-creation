@@ -61,8 +61,11 @@ export function Testimonials() {
               <div className="flex items-start gap-3">
                 <div
                   aria-hidden
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full font-semibold text-[0.95rem] text-ink"
-                  style={{ backgroundColor: t.avatarColor }}
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full font-semibold text-[0.95rem]"
+                  style={{
+                    backgroundColor: t.avatarColor,
+                    color: contrastingText(t.avatarColor),
+                  }}
                 >
                   {t.initials}
                 </div>
@@ -122,6 +125,17 @@ export function Testimonials() {
 }
 
 /* ────────────────────────────────────────────────────────────────── */
+
+function contrastingText(hex: string): string {
+  const h = hex.replace("#", "");
+  const r = parseInt(h.slice(0, 2), 16) / 255;
+  const g = parseInt(h.slice(2, 4), 16) / 255;
+  const b = parseInt(h.slice(4, 6), 16) / 255;
+  const lin = (c: number) =>
+    c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+  const lum = 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+  return lum > 0.45 ? "#0d1013" : "#ffffff";
+}
 
 function Stars({
   rating,
