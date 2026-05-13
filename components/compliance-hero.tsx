@@ -130,9 +130,7 @@ export function ComplianceHero() {
             Home
           </Link>
           <span className="text-paper/30">/</span>
-          <Link href="/services" className="hover:text-paper transition-colors">
-            Services
-          </Link>
+          <span className="text-mist">Services</span>
           <span className="text-paper/30">/</span>
           <span className="text-paper">Compliance & licensing</span>
         </m.div>

@@ -112,7 +112,7 @@ export const navigation: NavItem[] = [
         body: "Jurisdiction, costs, timeline, banking, visa quota: written up within one business day. No sales script.",
         cta: { label: "Book consultation", href: "/contact" },
       },
-      footer: { label: "View all services", href: "/services" },
+      footer: { label: "Book consultation", href: "/contact" },
     },
   },
   {
@@ -148,7 +148,7 @@ export const navigation: NavItem[] = [
         eyebrow: "Decision tool",
         title: "Not sure which zone fits?",
         body: "Compare all twelve side-by-side: cost, visa quota, activity list, setup time and Corporate Tax impact.",
-        cta: { label: "Open the comparison", href: "/compare" },
+        cta: { label: "See every zone", href: "/free-zones" },
       },
       footer: { label: "Every zone we cover", href: "/free-zones" },
     },
@@ -512,7 +512,7 @@ export const services: Service[] = [
     title: "Mainland Company Formation",
     summary:
       "Dubai Department of Economy & Tourism licensing for LLCs, branches, and professional firms, with no restriction on where you can trade.",
-    href: "/services/mainland",
+    href: "/services/company-formation#mainland",
     icon: Landmark,
   },
   {
@@ -521,7 +521,7 @@ export const services: Service[] = [
     title: "Free Zone Setup",
     summary:
       "Direct relationships with every major UAE free zone. We recommend the right one for your sector: IFZA, DMCC, JAFZA, DIFC, and nine more.",
-    href: "/services/free-zone",
+    href: "/services/company-formation#free-zone",
     icon: Building2,
   },
   {
@@ -530,7 +530,7 @@ export const services: Service[] = [
     title: "Offshore Incorporation",
     summary:
       "JAFZA Offshore, RAK ICC, and Ajman Offshore structures for holding, asset protection, and international trade.",
-    href: "/services/offshore",
+    href: "/services/company-formation#offshore",
     icon: Globe2,
   },
   {
@@ -539,7 +539,7 @@ export const services: Service[] = [
     title: "PRO & Visa Services",
     summary:
       "Investor, employment, family, and Golden Visa processing. Emirates ID, medical, Tawjeeh: all handled by our in-house PRO team.",
-    href: "/services/pro-visa",
+    href: "/services/visas#pro-visa",
     icon: IdCard,
   },
   {
@@ -548,7 +548,7 @@ export const services: Service[] = [
     title: "Corporate Banking",
     summary:
       "Introductions, pre-qualification, and full application support for Emirates NBD, Mashreq, HSBC, ADCB, WIO and more.",
-    href: "/services/banking",
+    href: "/services/financial#banking",
     icon: Banknote,
   },
   {
@@ -557,7 +557,7 @@ export const services: Service[] = [
     title: "Accounting, VAT & Corporate Tax",
     summary:
       "Monthly bookkeeping, VAT returns, Corporate Tax registration and filing, statutory audit. FTA-compliant, on time.",
-    href: "/services/accounting",
+    href: "/services/financial#accounting",
     icon: Calculator,
   },
   {
@@ -592,18 +592,18 @@ export type FreeZone = {
 };
 
 export const freeZones: FreeZone[] = [
-  { code: "IFZA", name: "International Free Zone Authority", emirate: "Dubai", focus: "General trading & services", leadTime: "3–5 days", href: "/free-zones/ifza" },
-  { code: "JAFZA", name: "Jebel Ali Free Zone", emirate: "Dubai", focus: "Industrial & logistics", leadTime: "5–10 days", href: "/free-zones/jafza" },
-  { code: "MEYDAN", name: "Meydan Free Zone", emirate: "Dubai", focus: "Professional services", leadTime: "3–5 days", href: "/free-zones/meydan" },
-  { code: "DAFZA", name: "Dubai Airport Free Zone", emirate: "Dubai", focus: "Aviation & e-commerce", leadTime: "5–7 days", href: "/free-zones/dafza" },
-  { code: "DWTC", name: "Dubai World Trade Centre", emirate: "Dubai", focus: "Events & services", leadTime: "5–7 days", href: "/free-zones/dwtc" },
-  { code: "DTEC", name: "Dubai Technology Entrepreneur Campus", emirate: "Dubai", focus: "Technology & digital focus", leadTime: "3–5 days", href: "/free-zones/dtec", logoSrc: "/free-zones/dtec.webp" },
-  { code: "SHAMS", name: "Sharjah Media City", emirate: "Sharjah", focus: "Media & creative", leadTime: "2–4 days", href: "/free-zones/shams" },
-  { code: "SPC", name: "Sharjah Publishing City", emirate: "Sharjah", focus: "Publishing & content", leadTime: "3–5 days", href: "/free-zones/spc" },
-  { code: "RAKEZ", name: "Ras Al Khaimah Economic Zone", emirate: "RAK", focus: "Industrial & SME", leadTime: "3–5 days", href: "/free-zones/rakez" },
-  { code: "AFZA", name: "Ajman Free Zone", emirate: "Ajman", focus: "SMEs & low-cost trade", leadTime: "2–4 days", href: "/free-zones/ajman" },
-  { code: "UAQ", name: "Umm Al Quwain Free Trade Zone", emirate: "UAQ", focus: "Fast-setup environment for SMEs", leadTime: "2–4 days", href: "/free-zones/uaq", logoSrc: "/free-zones/uaq.webp" },
-  { code: "ANC", name: "ANC Free Zone", emirate: "Abu Dhabi", focus: "Tailored for startups & SMEs", leadTime: "2–4 days", href: "/free-zones/anc", logoSrc: "/free-zones/anc.webp" },
+  { code: "IFZA", name: "International Free Zone Authority", emirate: "Dubai", focus: "General trading & services", leadTime: "3–5 days", href: "/free-zones/dubai#ifza" },
+  { code: "JAFZA", name: "Jebel Ali Free Zone", emirate: "Dubai", focus: "Industrial & logistics", leadTime: "5–10 days", href: "/free-zones/dubai#jafza" },
+  { code: "MEYDAN", name: "Meydan Free Zone", emirate: "Dubai", focus: "Professional services", leadTime: "3–5 days", href: "/free-zones/dubai#meydan" },
+  { code: "DAFZA", name: "Dubai Airport Free Zone", emirate: "Dubai", focus: "Aviation & e-commerce", leadTime: "5–7 days", href: "/free-zones/dubai#dafza" },
+  { code: "DWTC", name: "Dubai World Trade Centre", emirate: "Dubai", focus: "Events & services", leadTime: "5–7 days", href: "/free-zones/dubai#dwtc" },
+  { code: "DTEC", name: "Dubai Technology Entrepreneur Campus", emirate: "Dubai", focus: "Technology & digital focus", leadTime: "3–5 days", href: "/free-zones/dubai#dtec", logoSrc: "/free-zones/dtec.webp" },
+  { code: "SHAMS", name: "Sharjah Media City", emirate: "Sharjah", focus: "Media & creative", leadTime: "2–4 days", href: "/free-zones/northern-emirates#shams" },
+  { code: "SPC", name: "Sharjah Publishing City", emirate: "Sharjah", focus: "Publishing & content", leadTime: "3–5 days", href: "/free-zones/northern-emirates#spc" },
+  { code: "RAKEZ", name: "Ras Al Khaimah Economic Zone", emirate: "RAK", focus: "Industrial & SME", leadTime: "3–5 days", href: "/free-zones/northern-emirates#rakez" },
+  { code: "AFZA", name: "Ajman Free Zone", emirate: "Ajman", focus: "SMEs & low-cost trade", leadTime: "2–4 days", href: "/free-zones/northern-emirates#afza" },
+  { code: "UAQ", name: "Umm Al Quwain Free Trade Zone", emirate: "UAQ", focus: "Fast-setup environment for SMEs", leadTime: "2–4 days", href: "/free-zones/northern-emirates#uaq", logoSrc: "/free-zones/uaq.webp" },
+  { code: "ANC", name: "ANC Free Zone", emirate: "Abu Dhabi", focus: "Tailored for startups & SMEs", leadTime: "2–4 days", href: "/free-zones/dubai#anc", logoSrc: "/free-zones/anc.webp" },
 ];
 
 export type Differentiator = {
@@ -854,7 +854,7 @@ export const blogPosts: BlogPost[] = [
     date: "Apr 18, 2026",
     readTime: "14 min read",
     image: "/damac-executive.webp",
-    href: "/blog/business-setup-dubai-complete-guide-2026",
+    href: "/insights/how-to-start-business-dubai-2026",
   },
   {
     slug: "free-zone-vs-mainland-2026",
@@ -865,7 +865,7 @@ export const blogPosts: BlogPost[] = [
     date: "Apr 09, 2026",
     readTime: "9 min read",
     image: "/building/building-3.jpg",
-    href: "/blog/free-zone-vs-mainland-2026",
+    href: "/insights/free-zone-vs-mainland-dubai-2026",
   },
   {
     slug: "corporate-tax-uae-founders-2026",
@@ -876,7 +876,7 @@ export const blogPosts: BlogPost[] = [
     date: "Mar 27, 2026",
     readTime: "11 min read",
     image: "/offices/office-37.jpg",
-    href: "/blog/corporate-tax-uae-founders-2026",
+    href: "/insights/uae-corporate-tax-vat-2026-guide",
   },
 ];
 

@@ -129,10 +129,10 @@ export function Services() {
 
         <div className="mt-10 md:mt-12 flex justify-end">
           <Link
-            href="/services"
+            href="/contact"
             className="group inline-flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.2em] text-ink hover:text-brand-deep transition-colors"
           >
-            View all services
+            Talk to us
             <ArrowUpRight
               className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               strokeWidth={1.8}

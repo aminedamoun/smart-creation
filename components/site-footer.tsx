@@ -16,34 +16,34 @@ const columns = [
     })),
   },
   {
-    title: "Group",
+    title: "Business centres",
     links: [
-      { label: "About the Group", href: "/about" },
-      { label: "Our Business Centres", href: "/business-centers" },
-      { label: "Next Journey Technology", href: "/group/next-journey" },
-      { label: "Smart Holiday Homes", href: "/group/smart-holiday-homes" },
-      { label: "Intercity Bus (Canada)", href: "/group/intercity-bus" },
-      { label: "MM Contractor (Pakistan)", href: "/group/mm-contractor" },
+      { label: "Smart Creation", href: "/business-centers/smart-creation" },
+      { label: "Smart Place", href: "/business-centers/smart-place" },
+      { label: "Smart View", href: "/business-centers/smart-view" },
+      { label: "Future Space", href: "/business-centers/future-space" },
+      { label: "Smart Founders", href: "/business-centers/smart-founders" },
+      { label: "Abna Rashid", href: "/business-centers/abna-rashid" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { label: "Cost calculator", href: "/calculator" },
-      { label: "Free zone comparison", href: "/compare" },
-      { label: "Golden Visa guide", href: "/golden-visa" },
-      { label: "Corporate Tax guide", href: "/corporate-tax" },
-      { label: "VAT guide", href: "/vat" },
-      { label: "Company profile (PDF)", href: "/company-profile.pdf" },
+      { label: "Cost calculator", disabled: true },
+      { label: "Free zone comparison", href: "/free-zones" },
+      { label: "Golden Visa guide", href: "/services/visas#golden-visa" },
+      { label: "Corporate Tax guide", href: "/services/financial#corporate-tax" },
+      { label: "VAT guide", href: "/services/financial#accounting" },
+      { label: "Company profile (PDF)", href: "/smart-creation-group-profile.pdf" },
     ],
   },
 ];
 
 const socials = [
-  { label: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
-  { label: "Instagram", href: "https://instagram.com", icon: Instagram },
-  { label: "Facebook", href: "https://facebook.com", icon: Facebook },
-  { label: "YouTube", href: "https://youtube.com", icon: Youtube },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/smartbusinesscreation/", icon: Linkedin },
+  { label: "Instagram", href: "https://www.instagram.com/smartcreationuae", icon: Instagram },
+  { label: "Facebook", href: "https://www.facebook.com/smartbusinesscreationuae/", icon: Facebook },
+  { label: "YouTube", href: "https://www.youtube.com/@SmartBusinessCreation", icon: Youtube },
 ];
 
 export function SiteFooter() {
@@ -100,16 +100,41 @@ export function SiteFooter() {
                   {col.title}
                 </div>
                 <ul className="space-y-2.5">
-                  {col.links.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="group inline-flex items-center gap-1 text-[0.9rem] text-ink-mute hover:text-ink transition-colors"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
+                  {col.links.map((link) => {
+                    if ("disabled" in link && link.disabled) {
+                      return (
+                        <li key={link.label}>
+                          <span
+                            title="Coming soon"
+                            className="inline-flex items-center gap-1.5 text-[0.9rem] text-ink-mute/55 cursor-default"
+                          >
+                            {link.label}
+                          </span>
+                        </li>
+                      );
+                    }
+                    const href = link.href!;
+                    const isExternal =
+                      href.endsWith(".pdf") || href.startsWith("http");
+                    return (
+                      <li key={href}>
+                        <Link
+                          href={href}
+                          target={isExternal ? "_blank" : undefined}
+                          rel={isExternal ? "noopener noreferrer" : undefined}
+                          className="group inline-flex items-center gap-1.5 text-[0.9rem] text-ink-mute hover:text-ink transition-colors"
+                        >
+                          {link.label}
+                          {isExternal && (
+                            <ArrowUpRight
+                              className="h-3 w-3 opacity-60 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                              strokeWidth={1.8}
+                            />
+                          )}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}
@@ -136,9 +161,9 @@ export function SiteFooter() {
             </span>
           </div>
           <ul className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.82rem] text-ink-mute">
-            <li><Link href="/privacy" className="hover:text-ink transition-colors">Privacy</Link></li>
-            <li><Link href="/terms" className="hover:text-ink transition-colors">Terms</Link></li>
-            <li><Link href="/cookies" className="hover:text-ink transition-colors">Cookies</Link></li>
+            <li><span title="Coming soon" className="text-ink-mute/55 cursor-default">Privacy</span></li>
+            <li><span title="Coming soon" className="text-ink-mute/55 cursor-default">Terms</span></li>
+            <li><span title="Coming soon" className="text-ink-mute/55 cursor-default">Cookies</span></li>
             <li><Link href="/sitemap.xml" className="hover:text-ink transition-colors inline-flex items-center gap-1">
               Sitemap <ArrowUpRight className="h-3 w-3" strokeWidth={1.5} />
             </Link></li>

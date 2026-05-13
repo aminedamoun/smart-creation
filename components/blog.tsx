@@ -34,7 +34,7 @@ export function Blog({ posts }: { posts: BlogCardPost[] }) {
           </div>
           <div className="col-span-12 lg:col-span-4 lg:text-right">
             <Link
-              href="/blog"
+              href="/insights"
               className="group inline-flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.2em] text-ink hover:text-brand-deep transition-colors"
             >
               View all articles

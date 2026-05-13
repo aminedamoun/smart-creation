@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { ScrollToTop } from "@/components/scroll-to-top";
 import { WhatsAppFab } from "@/components/whatsapp-fab";
 import { LazyMotionProvider } from "@/components/lazy-motion-provider";
 
@@ -218,6 +219,7 @@ export default function RootLayout({
           </main>
           <SiteFooter />
           <WhatsAppFab />
+          <ScrollToTop />
         </LazyMotionProvider>
       </body>
     </html>

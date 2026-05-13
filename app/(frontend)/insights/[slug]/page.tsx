@@ -8,7 +8,6 @@ import {
   Mail,
   MessageCircle,
   Sparkles,
-  Users,
 } from "lucide-react";
 import { InsightArticle } from "@/components/insight-article";
 import { ArticleHeroBg } from "@/components/article-hero-bg";
@@ -104,9 +103,6 @@ export default async function InsightArticlePage({
             {meta.category}
           </div>
 
-          {/* SEO / a11y title — visually carried by the cover image below */}
-          <h1 className="sr-only">{meta.title}</h1>
-
           <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-mist">
             <span className="inline-flex items-center gap-1.5 text-paper">
               <Clock className="h-3.5 w-3.5 text-brand" strokeWidth={2} />
@@ -114,8 +110,6 @@ export default async function InsightArticlePage({
             </span>
             <span className="text-paper/40">·</span>
             <span>{fmt(meta.date)}</span>
-            <span className="text-paper/40">·</span>
-            <span>By Smart Creation team</span>
           </div>
         </div>
       </section>
@@ -136,50 +130,37 @@ export default async function InsightArticlePage({
         </div>
       </section>
 
-      {/* Author byline + share — premium editorial strip */}
-      <section className="bg-paper">
+      {/* Mobile share row (desktop has the sticky rail further down) */}
+      <section className="bg-paper lg:hidden">
         <div className="container-edit">
-          <div className="mx-auto max-w-3xl flex flex-wrap items-center justify-between gap-6 py-6 md:py-8 border-y border-ink/8">
-            <div className="flex items-center gap-3">
-              <span className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-brand/35 bg-brand/10 text-brand-deep">
-                <Users className="h-4 w-4" strokeWidth={1.8} />
-                <span
-                  aria-hidden
-                  className="absolute inset-0 rounded-full bg-brand/15 animate-pulse"
-                />
-              </span>
-              <div>
-                <div className="font-display text-[0.95rem] tracking-[-0.005em] text-ink leading-tight">
-                  Smart Creation team
-                </div>
-                <div className="mt-0.5 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-stone">
-                  Setup · banking · tax · written from Tecom
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center gap-2 lg:hidden">
-              <ArticleShare title={meta.title} slug={meta.slug} />
-            </div>
+          <div className="mx-auto max-w-3xl flex items-center justify-end gap-2 py-4 border-b border-ink/8">
+            <ArticleShare title={meta.title} slug={meta.slug} />
           </div>
         </div>
       </section>
 
-      {/* Pull-quote excerpt */}
+      {/* Title — sits between the cover image and the article body.
+          Uses the same 12-col grid as <InsightArticle/> so on lg+ the
+          headline aligns with the article body (TOC sidebar to its left). */}
       <section className="bg-paper">
         <div className="container-edit">
-          <figure className="mx-auto max-w-3xl py-12 md:py-16 border-b border-ink/8 relative">
-            <span
-              aria-hidden
-              className="absolute -top-2 -left-2 md:left-0 font-display font-semibold text-[clamp(5rem,9vw,7rem)] leading-none text-brand/25 select-none pointer-events-none"
+          <div className="grid grid-cols-12 gap-x-4 md:gap-x-10">
+            {toc.length > 0 && <div className="hidden lg:block lg:col-span-3" />}
+            <header
+              className={
+                "col-span-12 py-8 md:py-10 border-b border-ink/8 " +
+                (toc.length > 0 ? "lg:col-span-9 lg:max-w-3xl" : "max-w-3xl mx-auto")
+              }
             >
-              &ldquo;
-            </span>
-            <blockquote className="pl-10 md:pl-14 border-l-2 border-brand/50">
-              <p className="font-display font-medium text-[clamp(1.2rem,1.85vw,1.55rem)] leading-[1.4] tracking-[-0.012em] text-ink text-balance">
-                {meta.excerpt}
-              </p>
-            </blockquote>
-          </figure>
+              <div className="flex items-center gap-3 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-stone mb-4">
+                <span className="h-px w-6 bg-ink/25" />
+                Feature article
+              </div>
+              <h1 className="font-display font-semibold tracking-[-0.02em] leading-[1.15] text-[clamp(1.35rem,2.4vw,2rem)] text-ink text-balance">
+                {meta.title}
+              </h1>
+            </header>
+          </div>
         </div>
       </section>
 

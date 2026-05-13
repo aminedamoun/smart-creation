@@ -269,11 +269,11 @@ function FilterPill({
         onClick={onClick}
         title={primary}
         className={cn(
-          "group transition-all",
-          // Mobile: tab look
-          "inline-flex md:hidden items-center gap-1.5 whitespace-nowrap rounded-full border px-3.5 py-2 text-[0.82rem] font-medium",
-          // Desktop: rich pill
-          "md:flex md:min-h-[112px] md:w-full md:flex-col md:items-center md:justify-center md:gap-3 md:rounded-2xl md:border md:px-3 md:py-4 md:text-center md:font-normal md:text-base",
+          "group transition-all flex items-center",
+          // Mobile: compact tab — text + count inline, no min-height
+          "gap-1.5 whitespace-nowrap rounded-full border px-3.5 py-2 text-[0.82rem] font-medium",
+          // Desktop: rich pill with logo, stacked column layout
+          "md:min-h-[112px] md:w-full md:flex-col md:items-center md:justify-center md:gap-3 md:rounded-2xl md:px-3 md:py-4 md:text-center md:font-normal md:text-base md:whitespace-normal",
           active
             ? "border-brand-night bg-brand-night text-paper shadow-[0_10px_25px_-12px_rgba(14,53,84,0.5)]"
             : disabled
