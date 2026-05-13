@@ -315,3 +315,12 @@
   border: 1.5px solid #0d1013;
   box-shadow: inset 0 0 0 1px rgba(13,16,19,0.08);
 }
+
+/* Hide native scrollbar on overflow scrollers (mobile filter row, etc.) */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

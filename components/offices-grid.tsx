@@ -127,7 +127,7 @@ export function OfficesGrid({
         <div
           role="group"
           aria-label="Filter offices by business centre"
-          className="mb-10 md:mb-12 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 md:gap-3"
+          className="mb-8 md:mb-12 -mx-4 px-4 md:mx-0 md:px-0 flex md:grid md:grid-cols-4 lg:grid-cols-7 overflow-x-auto md:overflow-visible gap-2 md:gap-3 snap-x snap-mandatory scrollbar-hide pb-1 md:pb-0"
         >
           <FilterPill
             active={filter === "all"}
@@ -154,7 +154,7 @@ export function OfficesGrid({
         </div>
 
         {visible.length > 0 ? (
-          <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-6">
+          <ul className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-3 md:gap-5 lg:gap-6">
             {visible.map((office, idx) => (
               <li
                 key={office.id}
@@ -258,8 +258,9 @@ function FilterPill({
   mapsUrl?: string | null;
 }) {
   return (
-    <div className="flex flex-col gap-2">
-      {/* Top: filter button — logo (centred, bigger) + small count */}
+    <div className="flex flex-col gap-2 shrink-0 md:shrink snap-start">
+      {/* Mobile: compact tab — text-only, horizontally scrollable.
+          Desktop (md+): rich pill with logo. */}
       <button
         type="button"
         aria-pressed={active}
@@ -268,7 +269,11 @@ function FilterPill({
         onClick={onClick}
         title={primary}
         className={cn(
-          "group flex min-h-[112px] w-full flex-col items-center justify-center gap-3 rounded-2xl border px-3 py-4 text-center transition-all",
+          "group transition-all",
+          // Mobile: tab look
+          "inline-flex md:hidden items-center gap-1.5 whitespace-nowrap rounded-full border px-3.5 py-2 text-[0.82rem] font-medium",
+          // Desktop: rich pill
+          "md:flex md:min-h-[112px] md:w-full md:flex-col md:items-center md:justify-center md:gap-3 md:rounded-2xl md:border md:px-3 md:py-4 md:text-center md:font-normal md:text-base",
           active
             ? "border-brand-night bg-brand-night text-paper shadow-[0_10px_25px_-12px_rgba(14,53,84,0.5)]"
             : disabled
@@ -276,8 +281,20 @@ function FilterPill({
             : "border-ink/15 bg-paper text-ink hover:border-ink/40 hover:bg-paper-soft",
         )}
       >
+        {/* Mobile label — name + count inline */}
+        <span className="md:hidden">{primary}</span>
+        <span
+          className={cn(
+            "md:hidden font-mono text-[0.62rem]",
+            active ? "text-mist" : "text-stone",
+          )}
+        >
+          · {secondary.split(" ")[0]}
+        </span>
+
+        {/* Desktop logo + count */}
         {logo ? (
-          <span className="relative h-14 w-full">
+          <span className="relative hidden md:block h-14 w-full">
             <Image
               src={logo}
               alt={primary}
@@ -290,13 +307,13 @@ function FilterPill({
             />
           </span>
         ) : (
-          <span className="text-[1.05rem] font-medium leading-tight">
+          <span className="hidden md:inline text-[1.05rem] font-medium leading-tight">
             {primary}
           </span>
         )}
         <span
           className={cn(
-            "max-w-full leading-tight font-mono text-[0.58rem] uppercase tracking-[0.18em]",
+            "hidden md:inline max-w-full leading-tight font-mono text-[0.58rem] uppercase tracking-[0.18em]",
             active ? "text-mist" : "text-stone",
           )}
         >
@@ -304,14 +321,14 @@ function FilterPill({
         </span>
       </button>
 
-      {/* Bottom: location chip — opens Google Maps in a new tab */}
+      {/* Bottom: location chip — desktop only */}
       {city && mapsUrl && (
         <a
           href={mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Open ${primary} on Google Maps — ${city}`}
-          className="group/chip inline-flex items-center justify-center gap-1.5 rounded-xl border border-ink/12 bg-paper px-2.5 py-2 text-center transition-all hover:border-brand/45 hover:bg-paper-soft"
+          className="hidden md:inline-flex group/chip items-center justify-center gap-1.5 rounded-xl border border-ink/12 bg-paper px-2.5 py-2 text-center transition-all hover:border-brand/45 hover:bg-paper-soft"
         >
           <MapPin
             className="h-3.5 w-3.5 shrink-0 text-brand-deep"
@@ -356,9 +373,12 @@ function OfficeCard({ office }: { office: OfficeListing }) {
   const isUpcoming = office.availabilityAccent === "upcoming";
   const href = `/business-centers/${office.centerId}/${office.slug}`;
   return (
-    <article className="group flex flex-col h-full rounded-3xl border border-ink/10 bg-paper overflow-hidden transition-all hover:border-ink/25 hover:shadow-[0_22px_60px_-30px_rgba(13,16,19,0.28)]">
+    <Link
+      href={href}
+      className="group flex flex-col h-full rounded-2xl md:rounded-3xl border border-ink/10 bg-paper overflow-hidden transition-all hover:border-ink/25 hover:shadow-[0_22px_60px_-30px_rgba(13,16,19,0.28)]"
+    >
       <div
-        className="relative h-[200px] overflow-hidden"
+        className="relative h-[120px] md:h-[200px] overflow-hidden"
         style={{ background: accentBg[office.accent] }}
       >
         {office.image && (
@@ -366,14 +386,15 @@ function OfficeCard({ office }: { office: OfficeListing }) {
             src={office.image}
             alt={`${office.officeNo} at ${office.centerName} — ${office.title}`}
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+            sizes="(max-width: 768px) 50vw, (max-width: 1280px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
             loading="lazy"
           />
         )}
-        <div aria-hidden className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-ink/45 to-transparent" />
+        <div aria-hidden className="absolute inset-x-0 top-0 h-12 md:h-20 bg-gradient-to-b from-ink/45 to-transparent" />
 
-        <div className="absolute inset-0 p-4 md:p-5 flex items-start justify-between pointer-events-none">
+        {/* Desktop overlays */}
+        <div className="hidden md:flex absolute inset-0 p-4 md:p-5 items-start justify-between pointer-events-none">
           <span className="rounded-full bg-brand-night/90 backdrop-blur-md px-3 py-1 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-paper">
             {office.category}
           </span>
@@ -383,28 +404,35 @@ function OfficeCard({ office }: { office: OfficeListing }) {
           </span>
         </div>
 
+        {/* Mobile overlay — just availability dot */}
+        <span className="md:hidden absolute top-2 right-2 inline-flex items-center gap-1 rounded-full bg-paper/95 backdrop-blur-md px-2 py-0.5 font-mono text-[0.55rem] uppercase tracking-[0.16em] text-ink pointer-events-none">
+          <span className={cn("h-1.5 w-1.5 rounded-full", isUpcoming ? "bg-amber-500" : "bg-emerald-500")} />
+          {office.availability}
+        </span>
+
         {office.featured && (
-          <div className="absolute bottom-4 left-5 pointer-events-none">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-brand px-3 py-1 font-mono text-[0.6rem] uppercase tracking-[0.22em] text-ink">
+          <div className="absolute bottom-2 left-2 md:bottom-4 md:left-5 pointer-events-none">
+            <span className="inline-flex items-center gap-1 md:gap-1.5 rounded-full bg-brand px-2 md:px-3 py-0.5 md:py-1 font-mono text-[0.55rem] md:text-[0.6rem] uppercase tracking-[0.18em] md:tracking-[0.22em] text-ink">
               ★ Featured
             </span>
           </div>
         )}
       </div>
 
-      <div className="flex flex-col flex-1 p-6 md:p-7">
-        <div className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-brand-deep mb-1.5 inline-flex items-center gap-1.5">
-          <MapPin className="h-3 w-3" strokeWidth={1.8} />
-          {office.centerName}
+      <div className="flex flex-col flex-1 p-3 md:p-7">
+        <div className="font-mono text-[0.55rem] md:text-[0.62rem] uppercase tracking-[0.18em] md:tracking-[0.22em] text-brand-deep mb-1 md:mb-1.5 inline-flex items-center gap-1 md:gap-1.5 truncate">
+          <MapPin className="h-2.5 w-2.5 md:h-3 md:w-3 shrink-0" strokeWidth={1.8} />
+          <span className="truncate">{office.centerName}</span>
         </div>
-        <div className="font-mono text-[0.64rem] uppercase tracking-[0.22em] text-stone mb-2">
+        <div className="hidden md:block font-mono text-[0.64rem] uppercase tracking-[0.22em] text-stone mb-2">
           {office.officeNo} · {office.location}
         </div>
-        <h3 className="font-display text-[1.4rem] leading-[1.1] tracking-[-0.02em] text-ink">
+        <h3 className="font-display text-[0.95rem] md:text-[1.4rem] leading-[1.15] md:leading-[1.1] tracking-[-0.015em] md:tracking-[-0.02em] text-ink line-clamp-2 md:line-clamp-none">
           {office.title}
         </h3>
 
-        <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-[0.84rem] text-ink-mute">
+        {/* Capacity + sqft — only on desktop */}
+        <ul className="hidden md:flex mt-4 flex-wrap gap-x-4 gap-y-2 text-[0.84rem] text-ink-mute">
           {office.sqft && (
             <li className="inline-flex items-center gap-1.5">
               <Maximize2 className="h-3.5 w-3.5 text-stone" strokeWidth={1.6} />
@@ -423,7 +451,8 @@ function OfficeCard({ office }: { office: OfficeListing }) {
           )}
         </ul>
 
-        <ul className="mt-5 flex flex-wrap gap-1.5">
+        {/* Feature tags — desktop only */}
+        <ul className="hidden md:flex mt-5 flex-wrap gap-1.5">
           {office.features.slice(0, 3).map((f) => (
             <li
               key={f}
@@ -434,38 +463,42 @@ function OfficeCard({ office }: { office: OfficeListing }) {
           ))}
         </ul>
 
-        <div className="mt-auto pt-6 border-t border-ink/10 flex items-end justify-between gap-3">
-          <div className="min-w-0">
-            {office.price.note && (
-              <div className="font-mono text-[0.6rem] uppercase tracking-[0.22em] text-stone mb-0.5">
-                {office.price.note}
-              </div>
-            )}
-            <div className="flex items-baseline gap-1">
-              <span className="font-display text-[1.7rem] font-medium leading-none tracking-[-0.03em] text-ink">
+        <div className="mt-auto pt-3 md:pt-6 md:border-t md:border-ink/10 flex items-end justify-between gap-2 md:gap-3">
+          <div className="min-w-0 flex-1">
+            <div className="flex items-baseline gap-1 flex-wrap">
+              <span className="font-display text-[1.05rem] md:text-[1.7rem] font-medium leading-none tracking-[-0.02em] md:tracking-[-0.03em] text-ink">
                 {office.price.amount}
               </span>
-              <span className="text-[0.82rem] text-ink-mute">{office.price.period}</span>
+              <span className="text-[0.66rem] md:text-[0.82rem] text-ink-mute">{office.price.period}</span>
             </div>
-            {office.paymentTerms && (
-              <div className="mt-1 text-[0.72rem] text-ink-mute">
-                {office.paymentTerms}
-              </div>
-            )}
+            <div className="hidden md:block">
+              {office.paymentTerms && (
+                <div className="mt-1 text-[0.72rem] text-ink-mute">
+                  {office.paymentTerms}
+                </div>
+              )}
+            </div>
           </div>
-          <Link
-            href={href}
-            className="group/cta inline-flex items-center gap-1.5 rounded-full bg-brand-night text-paper px-4 py-2.5 text-[0.82rem] font-medium hover:bg-brand transition-colors shrink-0"
+          <span
+            aria-hidden
+            className="hidden md:inline-flex group/cta items-center gap-1.5 rounded-full bg-brand-night text-paper px-4 py-2.5 text-[0.82rem] font-medium group-hover:bg-brand transition-colors shrink-0"
           >
             View office
             <ArrowUpRight
-              className="h-3.5 w-3.5 transition-transform group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5"
+              className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               strokeWidth={2}
             />
-          </Link>
+          </span>
+          {/* Mobile compact CTA — just an arrow */}
+          <span
+            aria-hidden
+            className="md:hidden inline-flex items-center justify-center h-7 w-7 rounded-full bg-brand-night text-paper shrink-0"
+          >
+            <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2} />
+          </span>
         </div>
       </div>
-    </article>
+    </Link>
   );
 }
 // CenterId is referenced for type compatibility only.
