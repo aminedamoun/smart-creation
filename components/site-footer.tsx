@@ -118,10 +118,22 @@ export function SiteFooter() {
 
         {/* Bottom strip */}
         <div className="mt-16 pt-8 border-t border-ink/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <div className="flex items-center gap-4 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-stone">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-stone">
             <span>© 2026 Smart Creation Group of Companies</span>
             <span className="text-mist/50">·</span>
             <span>Dubai, U.A.E.</span>
+            <span className="text-mist/50">·</span>
+            <span>
+              Built by{" "}
+              <a
+                href="https://dubaiprod.com"
+                target="_blank"
+                rel="noopener"
+                className="text-ink-mute hover:text-ink transition-colors"
+              >
+                dubaiprod.com
+              </a>
+            </span>
           </div>
           <ul className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.82rem] text-ink-mute">
             <li><Link href="/privacy" className="hover:text-ink transition-colors">Privacy</Link></li>
