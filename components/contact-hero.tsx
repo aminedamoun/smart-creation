@@ -118,7 +118,7 @@ export function ContactHero() {
               <span className="block text-brand">licence, bank, visa.</span>
             </h1>
             <p className="mt-7 max-w-2xl text-[1.02rem] md:text-[1.08rem] leading-relaxed text-paper/70 text-pretty">
-              Twelve years setting up companies across the U.A.E. — mainland,
+              Twelve years setting up companies across the U.A.E.: mainland,
               free zone, offshore. One brief in, one written plan out within a
               business day. Free. 30 minutes. No sales script.
             </p>
@@ -160,7 +160,7 @@ export function ContactHero() {
                 {/* Floating "the team" pill */}
                 <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full border border-paper/30 bg-ink/55 backdrop-blur-md px-3 py-1 font-mono text-[0.6rem] uppercase tracking-[0.22em] text-paper">
                   <Sparkles className="h-3.5 w-3.5 text-brand" strokeWidth={2} />
-                  The team — Smart Creation Group
+                  The team · Smart Creation Group
                 </div>
                 {/* Live status pill bottom-right */}
                 <div className="absolute right-5 bottom-5 inline-flex items-center gap-1.5 rounded-full border border-paper/30 bg-ink/55 backdrop-blur-md px-3 py-1 font-mono text-[0.58rem] uppercase tracking-[0.22em] text-paper">

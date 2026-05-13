@@ -155,7 +155,7 @@ export function FinancialHero() {
               className="font-display font-medium tracking-[-0.03em] leading-[0.98] text-[clamp(2.4rem,6vw,4.6rem)] text-paper text-balance"
             >
               <span className="block">Books, banks and</span>
-              <span className="block">tax — handled by</span>
+              <span className="block">tax, handled by</span>
               <span className="block text-brand">one team.</span>
             </m.h1>
 

@@ -219,9 +219,9 @@ export function FreeZoneSpotlight({
           >
             {[
               { icon: MapPin, label: "Authority", value: authority },
-              { icon: Clock, label: "Setup", value: time ?? "—" },
-              { icon: Layers, label: "Visa quota", value: visa ?? "—" },
-              { icon: Wallet, label: "Year-one", value: cost ?? "—" },
+              { icon: Clock, label: "Setup", value: time ?? "–" },
+              { icon: Layers, label: "Visa quota", value: visa ?? "–" },
+              { icon: Wallet, label: "Year-one", value: cost ?? "–" },
             ].map((s) => (
               <div key={s.label} className="flex items-center gap-3 px-5 py-4 md:px-7 md:py-5">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-paper/15 bg-paper/[0.05] text-brand-soft">

@@ -94,16 +94,16 @@ export function OfficesGrid({
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-10 items-end mb-12 md:mb-16">
           <div className="col-span-12 lg:col-span-7">
             <SectionHeader
-              section="§ 02 — Available offices"
+              section="§ 02 · Available offices"
               title={
                 <>
-                  Five centres, one group
+                  Six centres, one group
                   <span className="block text-brand-deep">
                     Pick where you want to work.
                   </span>
                 </>
               }
-              lede="Real inventory across all five Smart Creation Group locations in Dubai. Filter by centre to see what's available, from flagship suites at Damac Executive Heights to flexible desks in Al Muraqabat."
+              lede="Real inventory across all six Smart Creation Group locations in Dubai. Filter by centre to see what's available, from flagship suites at Damac Executive Heights to flexible desks in Al Muraqabat."
             />
           </div>
           <div className="col-span-12 lg:col-span-5 lg:text-right">
@@ -327,7 +327,7 @@ function FilterPill({
           href={mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`Open ${primary} on Google Maps — ${city}`}
+          aria-label={`Open ${primary} on Google Maps · ${city}`}
           className="hidden md:inline-flex group/chip items-center justify-center gap-1.5 rounded-xl border border-ink/12 bg-paper px-2.5 py-2 text-center transition-all hover:border-brand/45 hover:bg-paper-soft"
         >
           <MapPin
@@ -353,7 +353,7 @@ function EmptyCenterState() {
         Fresh inventory drops weekly at this centre.
       </h3>
       <p className="mt-3 max-w-xl mx-auto text-[0.95rem] text-ink-mute">
-        Tell us your team size and timing — we'll send you the units that match
+        Tell us your team size and timing. We'll send you the units that match
         before they go on the public list.
       </p>
       <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -384,7 +384,7 @@ function OfficeCard({ office }: { office: OfficeListing }) {
         {office.image && (
           <Image
             src={office.image}
-            alt={`${office.officeNo} at ${office.centerName} — ${office.title}`}
+            alt={`${office.officeNo} at ${office.centerName} · ${office.title}`}
             fill
             sizes="(max-width: 768px) 50vw, (max-width: 1280px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"

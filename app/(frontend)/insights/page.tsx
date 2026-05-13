@@ -6,9 +6,9 @@ import { getInsightsList } from "@/lib/insights";
 import { InsightsHero } from "@/components/insights-hero";
 
 export const metadata: Metadata = {
-  title: "Insights — Dubai business setup, tax & compliance",
+  title: "Insights · Dubai business setup, tax & compliance",
   description:
-    "Long-form guides from the Smart Creation team — company formation playbooks, free-zone vs mainland breakdowns, and the UAE Corporate Tax & VAT survival guides.",
+    "Long-form guides from the Smart Creation team: company formation playbooks, free-zone vs mainland breakdowns, and the UAE Corporate Tax & VAT survival guides.",
   alternates: { canonical: "/insights" },
 };
 

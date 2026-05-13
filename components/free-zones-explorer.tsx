@@ -90,7 +90,7 @@ export function FreeZonesExplorer() {
               <span className="h-px w-8 bg-ink/25" />§ The catalog
             </div>
             <h2 className="font-display font-semibold text-ink text-balance leading-[0.96] tracking-[-0.025em] text-[clamp(2.2rem,4.4vw,3.4rem)]">
-              Compare every UAE free zone —{" "}
+              Compare every UAE free zone,{" "}
               <span className="text-brand-deep">side by side.</span>
             </h2>
             <p className="mt-5 max-w-2xl text-[1.02rem] leading-relaxed text-ink-mute">
@@ -284,11 +284,11 @@ export function FreeZoneMethod() {
   const steps = [
     {
       title: "Understand the activity",
-      body: "What you actually want to do — and which classification each zone allows. Not every activity exists in every zone.",
+      body: "What you actually want to do, and which classification each zone allows. Not every activity exists in every zone.",
     },
     {
       title: "Match cost & visa quota",
-      body: "Setup cost, renewal cost, visa quota and lease type — compared across the viable zones for your activity.",
+      body: "Setup cost, renewal cost, visa quota and lease type, compared across the viable zones for your activity.",
     },
     {
       title: "Banking compatibility",
@@ -296,7 +296,7 @@ export function FreeZoneMethod() {
     },
     {
       title: "One-page recommendation",
-      body: "You get a single sheet — the recommended zone, the runner-up, and why. No upsells, no hidden commission.",
+      body: "You get a single sheet with the recommended zone, the runner-up, and why. No upsells, no hidden commission.",
     },
   ];
 
@@ -313,7 +313,7 @@ export function FreeZoneMethod() {
           </h2>
           <p className="mt-5 text-[1.02rem] leading-relaxed text-ink-mute">
             We don't push the zone with the highest commission. We compare the
-            relevant zones for your activity against four criteria — and back
+            relevant zones for your activity against four criteria, and back
             the choice with a written one-pager.
           </p>
         </div>

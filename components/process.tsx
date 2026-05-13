@@ -51,11 +51,11 @@ export function Process() {
 
       <div className="container-edit relative">
         <SectionHeader
-          section="§ 07 — Process"
+          section="§ 07 · Process"
           theme="dark"
           title={
             <>
-              From first call to fully operational —{" "}
+              From first call to fully operational,{" "}
               <span className="text-brand">in forty-five days.</span>
             </>
           }

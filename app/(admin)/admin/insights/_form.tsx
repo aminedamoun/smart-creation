@@ -40,7 +40,7 @@ export function InsightForm({ data }: { data: InsightFormData }) {
             name="title"
             defaultValue={data.title}
             required
-            hint="The full editorial title — appears as H1 on the published page."
+            hint="The full editorial title. Appears as H1 on the published page."
           />
           <div className="grid sm:grid-cols-2 gap-4">
             <Field
@@ -138,7 +138,7 @@ export function InsightForm({ data }: { data: InsightFormData }) {
             name="secondary_keywords"
             label="Secondary keywords"
             initial={data.secondary_keywords.map((k) => k.value)}
-            description="3–5 supporting keywords. Used for internal SEO tracking only — not shown on the article page."
+            description="3–5 supporting keywords. Used for internal SEO tracking only, not shown on the article page."
           />
         </div>
 
@@ -151,7 +151,7 @@ export function InsightForm({ data }: { data: InsightFormData }) {
                 Article body
               </div>
               <p className="text-[0.78rem] text-ink-mute mt-1">
-                Just type — bold, headings, lists and links work like any
+                Just type. Bold, headings, lists and links work like any
                 normal editor. Use <kbd className="px-1.5 py-0.5 bg-paper-soft border border-ink/15 rounded text-[0.7rem] font-mono">⌘B</kbd>{" "}
                 <kbd className="px-1.5 py-0.5 bg-paper-soft border border-ink/15 rounded text-[0.7rem] font-mono">⌘I</kbd>{" "}
                 <kbd className="px-1.5 py-0.5 bg-paper-soft border border-ink/15 rounded text-[0.7rem] font-mono">⌘Z</kbd>{" "}

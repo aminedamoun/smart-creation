@@ -96,7 +96,7 @@ export default async function CentrePage({ params }: PageProps) {
                   <li key={i} className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-paper-deep">
                     <Image
                       src={src}
-                      alt={g.caption ?? `${String(centre.name)} — ${i + 1}`}
+                      alt={g.caption ?? `${String(centre.name)} · ${i + 1}`}
                       fill
                       sizes="(max-width: 768px) 50vw, 25vw"
                       className="object-cover hover:scale-[1.03] transition-transform duration-700"
@@ -227,7 +227,7 @@ export default async function CentrePage({ params }: PageProps) {
               </div>
               <h2 className="font-display font-medium text-[clamp(1.7rem,3vw,2.4rem)] tracking-[-0.02em] leading-tight text-ink">
                 {offices.length === 0
-                  ? "No live inventory at this centre — call us"
+                  ? "No live inventory at this centre. Call us"
                   : `${offices.length} ${offices.length === 1 ? "office" : "offices"} at ${String(centre.name)}`}
               </h2>
             </div>
@@ -247,7 +247,7 @@ export default async function CentrePage({ params }: PageProps) {
                         {o.image && (
                           <Image
                             src={o.image}
-                            alt={`${o.officeNo} — ${o.title}`}
+                            alt={`${o.officeNo} · ${o.title}`}
                             fill
                             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                             className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"

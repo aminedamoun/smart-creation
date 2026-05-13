@@ -8,9 +8,9 @@ import {
 } from "@/components/free-zones-explorer";
 
 export const metadata: Metadata = {
-  title: "UAE Free Zones — All 12 Compared",
+  title: "UAE Free Zones · All 12 Compared",
   description:
-    "Every major UAE free zone in one place — IFZA, DMCC, JAFZA, DIFC, DAFZA, DCC, DWTC, Meydan, SHAMS, SPC, RAKEZ and AFZA. Compare cost, activity list and visa quota with one honest recommendation.",
+    "Every major UAE free zone in one place: IFZA, DMCC, JAFZA, DIFC, DAFZA, DCC, DWTC, Meydan, SHAMS, SPC, RAKEZ and AFZA. Compare cost, activity list and visa quota with one honest recommendation.",
   alternates: { canonical: "/free-zones" },
 };
 
@@ -35,7 +35,7 @@ export default function FreeZonesPage() {
               </h2>
               <p className="mt-5 max-w-2xl text-[1.02rem] leading-relaxed text-paper/75">
                 Activity, ownership, visa quota, banking, lease type and total
-                year-one cost — assessed for your business and back to you within
+                year-one cost: assessed for your business and back to you within
                 one business day. Free, 30-minute consultation.
               </p>
             </div>

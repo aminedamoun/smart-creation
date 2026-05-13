@@ -8,7 +8,7 @@ import {
 } from "@/components/service-section";
 
 export const metadata: Metadata = {
-  title: "Financial Services — Banking, Accounting, Tax & Audit",
+  title: "Financial Services · Banking, Accounting, Tax & Audit",
   description:
     "Corporate banking, monthly accounting, VAT filing, UAE Corporate Tax registration and statutory audit. One accountable team for every number that touches your business.",
   alternates: { canonical: "/services/financial" },
@@ -22,7 +22,7 @@ const sections: ServiceSectionData[] = [
     title: "Corporate banking",
     icon: "banknote",
     lede:
-      "Open a UAE corporate account that actually approves — and, if you need it, an international account too. We pre-screen your file against each bank's compliance bar, frame the documents the way they expect, and stay on the application until it's live.",
+      "Open a UAE corporate account that actually approves, and, if you need it, an international account too. We pre-screen your file against each bank's compliance bar, frame the documents the way they expect, and stay on the application until it's live.",
     image: {
       src: "/services/financial/banking.webp",
       alt: "UAE corporate banking",
@@ -34,9 +34,9 @@ const sections: ServiceSectionData[] = [
       "Founders who've been declined elsewhere and need a fresh route",
     ],
     included: [
-      "Eligibility audit — activity, jurisdiction, beneficial-owner profile",
+      "Eligibility audit: activity, jurisdiction, beneficial-owner profile",
       "Bank shortlist with realistic approval probability per bank",
-      "KYC pack assembly — corporate docs, references, business plan",
+      "KYC pack assembly: corporate docs, references, business plan",
       "Application submission and bank-meeting accompaniment",
       "Account activation, online banking and card issuance",
     ],
@@ -44,18 +44,18 @@ const sections: ServiceSectionData[] = [
       { label: "Banks covered", value: "ENBD · Mashreq · ADIB · ADCB · FAB · WIO · RAK · HSBC" },
       { label: "Setup time", value: "2–6 weeks" },
       { label: "Currencies", value: "AED · USD · EUR · GBP · multi-CCY" },
-      { label: "International", value: "Available — case by case" },
+      { label: "International", value: "Available · case by case" },
     ],
     highlight: {
       eyebrow: "Why we get more accounts approved",
       title: "We frame the file the way the bank wants to read it.",
-      body: "Most rejections aren't about the business — they're about how the file is presented. We package activity, ownership and source of funds so compliance has the answer before they ask the question.",
+      body: "Most rejections aren't about the business; they're about how the file is presented. We package activity, ownership and source of funds so compliance has the answer before they ask the question.",
     },
     steps: [
-      "Profile review — activity, ownership, expected turnover.",
+      "Profile review: activity, ownership, expected turnover.",
       "Shortlist banks with realistic approval odds for your file.",
       "Assemble KYC pack and walk into the bank meeting prepared.",
-      "Account live — online banking, card and cheque book ready.",
+      "Account live: online banking, card and cheque book ready.",
     ],
   },
   {
@@ -65,13 +65,13 @@ const sections: ServiceSectionData[] = [
     title: "Accounting & VAT",
     icon: "calculator",
     lede:
-      "Monthly bookkeeping, financial statements and VAT registration plus quarterly returns. Clean books from day one — so when an audit, an investor or a Corporate Tax return shows up, you don't scramble for six months of receipts.",
+      "Monthly bookkeeping, financial statements and VAT registration plus quarterly returns. Clean books from day one, so when an audit, an investor or a Corporate Tax return shows up, you don't scramble for six months of receipts.",
     image: {
       src: "/services/financial/accounting.webp",
       alt: "Accounting & VAT filings",
     },
     good: [
-      "Companies invoicing regularly — local or cross-border",
+      "Companies invoicing regularly, local or cross-border",
       "Businesses approaching or above the AED 375k VAT threshold",
       "Founders who want investor-grade books from month one",
       "Owners tired of doing it themselves on a spreadsheet",
@@ -92,11 +92,11 @@ const sections: ServiceSectionData[] = [
     highlight: {
       eyebrow: "Books your CFO will thank you for",
       title: "We don't catch up. We keep up.",
-      body: "Monthly close, monthly review, monthly numbers — not a 6-month panic before tax season. When you need to share financials with a bank, an investor or the FTA, they're already there.",
+      body: "Monthly close, monthly review, monthly numbers. Not a 6-month panic before tax season. When you need to share financials with a bank, an investor or the FTA, they're already there.",
     },
     steps: [
       "Set up the chart of accounts and onboard the software.",
-      "Capture and reconcile every month — closed by day 10.",
+      "Capture and reconcile every month, closed by day 10.",
       "Register for VAT and file quarterly returns on time.",
       "Year-end statements compiled for audit and tax filing.",
     ],
@@ -108,7 +108,7 @@ const sections: ServiceSectionData[] = [
     title: "Corporate tax",
     icon: "file-text",
     lede:
-      "UAE Corporate Tax is here at 9% above AED 375,000 — with special rules for free zones, holding structures and small business relief. We register, file and structure so you pay what you owe and not a dirham more.",
+      "UAE Corporate Tax is here at 9% above AED 375,000, with special rules for free zones, holding structures and small business relief. We register, file and structure so you pay what you owe and not a dirham more.",
     image: {
       src: "/services/financial/corporate-tax.webp",
       alt: "UAE Corporate Tax",
@@ -130,18 +130,18 @@ const sections: ServiceSectionData[] = [
       { label: "Standard rate", value: "9% above AED 375k" },
       { label: "Small Business Relief", value: "Up to AED 3M revenue" },
       { label: "Free-zone status", value: "0% on qualifying income" },
-      { label: "Filing", value: "Annual — within 9 months" },
+      { label: "Filing", value: "Annual · within 9 months" },
     ],
     highlight: {
       eyebrow: "The free-zone trap most miss",
-      title: "0% isn't automatic — it's documented.",
-      body: "Free-zone entities that don't track \"qualifying income\" properly lose the 0% status and pay 9% on everything. We set up the books to evidence qualifying income from day one — so the 0% sticks under FTA review.",
+      title: "0% isn't automatic. It's documented.",
+      body: "Free-zone entities that don't track \"qualifying income\" properly lose the 0% status and pay 9% on everything. We set up the books to evidence qualifying income from day one, so the 0% sticks under FTA review.",
     },
     steps: [
-      "Assess your CT exposure — mainland vs free zone vs group.",
+      "Assess your CT exposure: mainland vs free zone vs group.",
       "Register with the FTA and get your TRN.",
       "Maintain audit-ready books with qualifying-income tags.",
-      "Compute, file and document — within 9 months of year-end.",
+      "Compute, file and document within 9 months of year-end.",
     ],
   },
   {
@@ -151,7 +151,7 @@ const sections: ServiceSectionData[] = [
     title: "Audit",
     icon: "file-search",
     lede:
-      "Statutory audits for free-zone and mainland companies, internal audits for risk and control reviews, and financial due diligence for investments and exits. Audit-ready books mean no surprises — and a faster, cleaner audit when it matters.",
+      "Statutory audits for free-zone and mainland companies, internal audits for risk and control reviews, and financial due diligence for investments and exits. Audit-ready books mean no surprises, and a faster, cleaner audit when it matters.",
     image: {
       src: "/services/financial/audit.webp",
       alt: "Statutory & internal audit",
@@ -171,18 +171,18 @@ const sections: ServiceSectionData[] = [
     ],
     meta: [
       { label: "Standards", value: "ISA · IFRS" },
-      { label: "Required for", value: "DMCC · JAFZA · ADGM · DIFC · others" },
+      { label: "Required for", value: "DMCC · JAFZA · ADGM · DIFC and others" },
       { label: "Timeline", value: "3–6 weeks once books are clean" },
       { label: "CT linkage", value: "Audited statements feed CT return" },
     ],
     highlight: {
       eyebrow: "Why our audits move faster",
       title: "Clean books in, clean report out.",
-      body: "Most audits drag because the books need fixing first. When we keep the books, the auditor walks in to a closed period — fewer adjustments, fewer follow-ups, signed report on schedule.",
+      body: "Most audits drag because the books need fixing first. When we keep the books, the auditor walks in to a closed period: fewer adjustments, fewer follow-ups, signed report on schedule.",
     },
     steps: [
-      "Scope the engagement — statutory, internal or due diligence.",
-      "Fieldwork — walkthroughs, sampling and substantive testing.",
+      "Scope the engagement: statutory, internal or due diligence.",
+      "Fieldwork: walkthroughs, sampling and substantive testing.",
       "Resolve adjusting entries with management.",
       "Issue the signed audit report and management letter.",
     ],
@@ -211,7 +211,7 @@ export default function FinancialPage() {
                 <span className="text-brand-soft">We'll tell you where the gaps are.</span>
               </h2>
               <p className="mt-5 max-w-2xl text-[1.02rem] leading-relaxed text-paper/75">
-                Banking, VAT, Corporate Tax, audit-readiness — assessed against the
+                Banking, VAT, Corporate Tax, audit-readiness: assessed against the
                 latest FTA rules and back to you within one business day. Free,
                 30-minute consultation.
               </p>

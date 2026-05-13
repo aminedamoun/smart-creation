@@ -10,7 +10,7 @@ import {
 export const metadata: Metadata = {
   title: "Company Formation in the UAE",
   description:
-    "Mainland, free zone, offshore and holding-company formation across the UAE. Smart Creation Group handles licensing, banking introductions and PRO services end-to-end — trusted since 2013.",
+    "Mainland, free zone, offshore and holding-company formation across the UAE. Smart Creation Group handles licensing, banking introductions and PRO services end-to-end, trusted since 2013.",
   alternates: { canonical: "/services/company-formation" },
 };
 
@@ -22,7 +22,7 @@ const sections: ServiceSectionData[] = [
     title: "Mainland setup",
     icon: "building",
     lede:
-      "Trade anywhere in the UAE — including direct contracts with government, hotels, malls and other onshore entities. Most of our clients setting up to actively serve the local market choose mainland for the freedom and credibility it carries.",
+      "Trade anywhere in the UAE, including direct contracts with government, hotels, malls and other onshore entities. Most of our clients setting up to actively serve the local market choose mainland for the freedom and credibility it carries.",
     image: {
       src: "/services/company-formation/mainland.webp",
       alt: "Dubai mainland setup",
@@ -37,25 +37,25 @@ const sections: ServiceSectionData[] = [
       "Initial activity & legal-form advisory (LLC, sole establishment, branch)",
       "Trade name reservation and DET initial approval",
       "MOA drafting and notarisation, including foreign-shareholder structures",
-      "Ejari office tenancy contract — issued in-house from our centres",
+      "Ejari office tenancy contract, issued in-house from our centres",
       "Trade licence issuance and immigration / labour file activation",
     ],
     meta: [
       { label: "Authority", value: "DET (formerly DED) Dubai" },
       { label: "Foreign ownership", value: "100% on most activities" },
       { label: "Setup time", value: "5–10 working days" },
-      { label: "Office requirement", value: "Ejari-compliant — included" },
+      { label: "Office requirement", value: "Ejari-compliant · included" },
     ],
     highlight: {
       eyebrow: "Why clients pick us for mainland",
       title: "We hold the office, the licence and the PRO file in one place.",
-      body: "Same team handles your DET application, Ejari, MOA, banking introduction and visa quota. No agency hand-offs, no chasing — one file owner from name reservation to your first hire.",
+      body: "Same team handles your DET application, Ejari, MOA, banking introduction and visa quota. No agency hand-offs, no chasing: one file owner from name reservation to your first hire.",
     },
     steps: [
       "Pick the activity and legal form (LLC, sole estab., branch).",
       "Reserve trade name, get DET initial approval.",
       "Sign Ejari from one of our centres and notarise the MOA.",
-      "Trade licence issued — open immigration file and start hiring.",
+      "Trade licence issued; open immigration file and start hiring.",
     ],
   },
   {
@@ -65,7 +65,7 @@ const sections: ServiceSectionData[] = [
     title: "Free zone setup",
     icon: "globe",
     lede:
-      "100% foreign ownership, 0% personal income tax, fast-tracked licensing and a defined activity list. We work across every major UAE free zone — IFZA, DMCC, JAFZA, DIFC, RAKEZ, SHAMS, DAFZA, Meydan and more.",
+      "100% foreign ownership, 0% personal income tax, fast-tracked licensing and a defined activity list. We work across every major UAE free zone: IFZA, DMCC, JAFZA, DIFC, RAKEZ, SHAMS, DAFZA, Meydan and more.",
     image: {
       src: "/services/company-formation/free-zone.webp",
       alt: "Dubai free zone setup",
@@ -79,7 +79,7 @@ const sections: ServiceSectionData[] = [
     included: [
       "Free-zone shortlist with cost, activity-list and visa-quota comparison",
       "Application package, KYC and shareholder-document attestation",
-      "Lease — flexi desk, executive desk, smart office or full unit",
+      "Lease: flexi desk, executive desk, smart office or full unit",
       "Establishment card, immigration file, e-channel registration",
       "Bank account introduction with two suitable UAE banks",
     ],
@@ -91,14 +91,14 @@ const sections: ServiceSectionData[] = [
     ],
     highlight: {
       eyebrow: "How we choose the right zone",
-      title: "Match the activity, the cost band and the visa quota — not the brochure.",
+      title: "Match the activity, the cost band and the visa quota, not the brochure.",
       body: "We compare every viable zone for your activity, factoring renewal cost, visa cap, lease type, banking acceptance and corporate-tax exposure. You get a one-page recommendation, not a sales pitch.",
     },
     steps: [
       "Shortlist the zones that match your activity.",
-      "Compare cost, visa quota, lease type — pick the winner.",
+      "Compare cost, visa quota, lease type, then pick the winner.",
       "Submit application, KYC and attested documents.",
-      "Licence + immigration file issued — open the bank account.",
+      "Licence + immigration file issued. Open the bank account.",
     ],
   },
   {
@@ -108,7 +108,7 @@ const sections: ServiceSectionData[] = [
     title: "Offshore structure",
     icon: "shield",
     lede:
-      "An offshore company holds assets, IP or shares — it doesn't trade inside the UAE. Right for asset protection, international holding, succession planning and ring-fencing IP from operating entities.",
+      "An offshore company holds assets, IP or shares; it doesn't trade inside the UAE. Right for asset protection, international holding, succession planning and ring-fencing IP from operating entities.",
     image: {
       src: "/services/company-formation/offshore.webp",
       alt: "Offshore corporate structure",
@@ -120,9 +120,9 @@ const sections: ServiceSectionData[] = [
       "Ring-fencing intellectual property from trading risk",
     ],
     included: [
-      "Jurisdiction selection — JAFZA Offshore, RAK ICC or Ajman Offshore",
+      "Jurisdiction selection: JAFZA Offshore, RAK ICC or Ajman Offshore",
       "Memorandum & Articles drafted to your shareholder structure",
-      "Registered agent and registered office (mandatory) — provided in-house",
+      "Registered agent and registered office (mandatory), provided in-house",
       "Apostilled / attested certificate of incorporation and company set",
       "Optional opening of a UAE corporate bank account",
     ],
@@ -130,7 +130,7 @@ const sections: ServiceSectionData[] = [
       { label: "Jurisdictions", value: "JAFZA · RAK ICC · Ajman" },
       { label: "Trade locally", value: "Not permitted" },
       { label: "Setup time", value: "3–10 working days" },
-      { label: "Annual reporting", value: "Minimal — varies by jurisdiction" },
+      { label: "Annual reporting", value: "Minimal · varies by jurisdiction" },
     ],
     highlight: {
       eyebrow: "Common pairing",
@@ -140,7 +140,7 @@ const sections: ServiceSectionData[] = [
     steps: [
       "Decide what the offshore co. will hold and where to register.",
       "Draft the M&A and shareholder structure.",
-      "File with the registered agent — receive incorporation set.",
+      "File with the registered agent and receive incorporation set.",
       "Apostille / attest the documents for international use.",
     ],
   },
@@ -163,11 +163,11 @@ const sections: ServiceSectionData[] = [
       "Preparing the cap table for outside investment or acquisition",
     ],
     included: [
-      "Group-structure design — parent, sub-holdings and operating subs",
+      "Group-structure design: parent, sub-holdings and operating subs",
       "Shareholder agreements and inter-company licensing terms",
       "Coordinated incorporation across mainland, free zone and offshore",
       "Corporate-tax grouping advisory and transfer-pricing readiness",
-      "Centralised compliance calendar — renewals, ESR, UBO, AML",
+      "Centralised compliance calendar: renewals, ESR, UBO, AML",
     ],
     meta: [
       { label: "Typical layers", value: "Holding → ops → IP / RE" },
@@ -178,7 +178,7 @@ const sections: ServiceSectionData[] = [
     highlight: {
       eyebrow: "We structure for the future, not just today",
       title: "A clean structure now saves a painful restructure before exit.",
-      body: "We design the group with corporate tax, future investment, and an eventual sale in mind — so when the time comes, your cap table, IP and operating entities don't need to be unwound and rebuilt under deal pressure.",
+      body: "We design the group with corporate tax, future investment, and an eventual sale in mind, so when the time comes, your cap table, IP and operating entities don't need to be unwound and rebuilt under deal pressure.",
     },
     steps: [
       "Map out the brands, IP and operating entities you need.",
@@ -211,7 +211,7 @@ export default function CompanyFormationPage() {
                 <span className="text-brand-soft">We'll come back with a plan.</span>
               </h2>
               <p className="mt-5 max-w-2xl text-[1.02rem] leading-relaxed text-paper/75">
-                Jurisdiction, costs, timeline, banking, visa quota — written up
+                Jurisdiction, costs, timeline, banking, visa quota: written up
                 within one business day. Free, 45-minute consultation. No sales
                 script.
               </p>

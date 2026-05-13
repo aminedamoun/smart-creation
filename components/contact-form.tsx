@@ -30,11 +30,41 @@ export function ContactForm() {
     e.preventDefault();
     setStatus("sending");
     setError(null);
-    // No backend wired yet — simulate a submit. Replace with /api/contact when ready.
-    await new Promise((r) => setTimeout(r, 900));
-    setStatus("sent");
-    (e.target as HTMLFormElement).reset();
-    setTimeout(() => setStatus("idle"), 5000);
+
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
+    const payload = {
+      name: String(data.get("name") ?? ""),
+      email: String(data.get("email") ?? ""),
+      phone: String(data.get("phone") ?? ""),
+      topic: String(data.get("topic") ?? ""),
+      message: String(data.get("message") ?? ""),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const json: { ok?: boolean; error?: string } = await res
+        .json()
+        .catch(() => ({}));
+      if (!res.ok || !json.ok) {
+        throw new Error(
+          json.error || `Couldn't send the brief (status ${res.status}).`,
+        );
+      }
+      setStatus("sent");
+      form.reset();
+      setTimeout(() => setStatus("idle"), 6000);
+    } catch (err) {
+      setStatus("idle");
+      setError(
+        (err as Error).message ||
+          "Something went wrong. Try again or WhatsApp us.",
+      );
+    }
   }
 
   return (
@@ -105,7 +135,7 @@ export function ContactForm() {
             name="message"
             required
             rows={5}
-            placeholder="A few sentences on what you need — activity, jurisdiction preference, headcount, timing. Anything goes."
+            placeholder="A few sentences on what you need: activity, jurisdiction preference, headcount, timing. Anything goes."
             className="w-full bg-transparent border border-ink/15 focus:border-brand-deep focus:ring-0 rounded-xl px-3.5 py-3 text-[0.98rem] leading-relaxed text-ink placeholder:text-stone/80 outline-none transition-colors resize-none"
           />
         </Field>
@@ -147,7 +177,7 @@ export function ContactForm() {
           >
             <CheckCircle2 className="h-4 w-4 text-emerald-600 mt-0.5 shrink-0" strokeWidth={2.2} />
             <span>
-              Brief received — we'll be back within one business day.{" "}
+              Brief received. We'll be back within one business day.{" "}
               <span className="text-ink-mute">
                 Need it faster? Tap WhatsApp on the right.
               </span>

@@ -16,14 +16,14 @@ export function FAQ() {
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-12">
           <div className="col-span-12 lg:col-span-4">
             <SectionHeader
-              section="§ 11 — Questions"
+              section="§ 11 · Questions"
               title={
                 <>
                   The questions{" "}
                   <span className="text-brand-deep">founders actually ask.</span>
                 </>
               }
-              lede="Straight answers to the eight questions we hear most often — the same ones we'll walk through on our first call."
+              lede="Straight answers to the eight questions we hear most often: the same ones we'll walk through on our first call."
             />
           </div>
 
@@ -80,7 +80,7 @@ export function FAQ() {
             </ul>
 
             <p className="mt-8 text-[0.92rem] text-ink-mute">
-              Still have questions? Book a free call —{" "}
+              Still have questions? Book a free call.{" "}
               <a href="/contact" className="text-brand-deep underline underline-offset-4 decoration-brand/40 hover:decoration-brand">
                 a senior consultant will call you back within one business hour.
               </a>

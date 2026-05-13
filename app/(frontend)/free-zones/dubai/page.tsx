@@ -8,9 +8,9 @@ import {
 } from "@/components/service-section";
 
 export const metadata: Metadata = {
-  title: "Dubai Free Zones — IFZA, DMCC, JAFZA, DIFC & More",
+  title: "Dubai Free Zones · IFZA, DMCC, JAFZA, DIFC & More",
   description:
-    "All eight major Dubai free zones — IFZA, DMCC, JAFZA, DIFC, Meydan, DAFZA, DWTC, DCC. Compare activity lists, cost bands and visa quotas, then apply through the right one.",
+    "All eight major Dubai free zones: IFZA, DMCC, JAFZA, DIFC, Meydan, DAFZA, DWTC, DCC. Compare activity lists, cost bands and visa quotas, then apply through the right one.",
   alternates: { canonical: "/free-zones/dubai" },
 };
 
@@ -21,9 +21,9 @@ const sections: ServiceSectionData[] = [
     eyebrow: "Most popular all-rounder",
     title: "IFZA",
     icon: "globe",
-    image: { src: "/free-zones/ifza.webp", alt: "IFZA — Dubai Silicon Oasis" },
+    image: { src: "/free-zones/ifza.webp", alt: "IFZA · Dubai Silicon Oasis" },
     lede:
-      "International Free Zone Authority — Dubai's most-applied-for free zone. Wide activity list, low setup cost, fast turnaround. The default starting point for consultancies, trading firms and small teams that need a clean licence quickly.",
+      "International Free Zone Authority, Dubai's most-applied-for free zone. Wide activity list, low setup cost, fast turnaround. The default starting point for consultancies, trading firms and small teams that need a clean licence quickly.",
     good: [
       "Consulting, marketing, design and small-team services",
       "Trading companies that don't need a port or warehouse",
@@ -33,7 +33,7 @@ const sections: ServiceSectionData[] = [
     included: [
       "Free-zone shortlist confirmation against your activity list",
       "Application package with KYC and shareholder docs",
-      "Smart office or flexi desk lease — Ejari-equivalent",
+      "Smart office or flexi desk lease (Ejari-equivalent)",
       "Establishment card, immigration file and e-channel registration",
       "Bank account introduction with two suitable UAE banks",
     ],
@@ -46,7 +46,7 @@ const sections: ServiceSectionData[] = [
     highlight: {
       eyebrow: "Why IFZA wins for most",
       title: "Cheapest credible licence in Dubai.",
-      body: "IFZA hits the sweet spot — proper Dubai address, bank-acceptable, broad activity list, fast filing. For 70% of new businesses, it's the right starting point. We tell you when it's not.",
+      body: "IFZA hits the sweet spot: proper Dubai address, bank-acceptable, broad activity list, fast filing. For 70% of new businesses, it's the right starting point. We tell you when it's not.",
     },
     steps: [
       "Confirm activity matches IFZA's list.",
@@ -61,9 +61,9 @@ const sections: ServiceSectionData[] = [
     eyebrow: "Premium · global trade",
     title: "DMCC",
     icon: "globe",
-    image: { src: "/free-zones/dmcc.webp", alt: "DMCC — JLT" },
+    image: { src: "/free-zones/dmcc.webp", alt: "DMCC · JLT" },
     lede:
-      "Dubai Multi Commodities Centre — the gold standard for traders, commodity firms and serious global businesses. Higher cost, higher prestige, premier location at Jumeirah Lakes Towers and a bank-friendly reputation.",
+      "Dubai Multi Commodities Centre, the gold standard for traders, commodity firms and serious global businesses. Higher cost, higher prestige, premier location at Jumeirah Lakes Towers and a bank-friendly reputation.",
     good: [
       "Commodity, gold, crypto, precious metals and trading firms",
       "Companies prioritising prestige and easier banking",
@@ -72,10 +72,10 @@ const sections: ServiceSectionData[] = [
     ],
     included: [
       "Activity-list mapping against DMCC's specialised categories",
-      "Premium-grade application — full corporate due diligence",
-      "Office lease in JLT — co-working, fitted or shell-and-core",
+      "Premium-grade application with full corporate due diligence",
+      "Office lease in JLT: co-working, fitted or shell-and-core",
       "Establishment card, residence visas and e-channel",
-      "Banking introduction — DMCC opens doors most zones don't",
+      "Banking introduction; DMCC opens doors most zones don't",
     ],
     meta: [
       { label: "Authority", value: "DMCC · Jumeirah Lakes Towers" },
@@ -90,8 +90,8 @@ const sections: ServiceSectionData[] = [
     },
     steps: [
       "Map your activity to DMCC's specialised list.",
-      "Full DD pack — UBO, source of funds, business plan.",
-      "Lease the right office — visa quota follows size.",
+      "Full DD pack: UBO, source of funds, business plan.",
+      "Lease the right office; visa quota follows size.",
       "Licence issued, banking introduction starts day one.",
     ],
   },
@@ -101,9 +101,9 @@ const sections: ServiceSectionData[] = [
     eyebrow: "Finance & professional",
     title: "DIFC",
     icon: "globe",
-    image: { src: "/free-zones/difc.webp", alt: "DIFC — Dubai" },
+    image: { src: "/free-zones/difc.webp", alt: "DIFC · Dubai" },
     lede:
-      "Dubai International Financial Centre — the region's financial district. Common-law jurisdiction, independent regulator (DFSA), home to most major banks, asset managers and fintechs. A serious commitment, but unmatched for finance.",
+      "Dubai International Financial Centre, the region's financial district. Common-law jurisdiction, independent regulator (DFSA), home to most major banks, asset managers and fintechs. A serious commitment, but unmatched for finance.",
     good: [
       "Banks, asset managers, family offices and fintechs",
       "Wealth-management and advisory firms",
@@ -111,11 +111,11 @@ const sections: ServiceSectionData[] = [
       "Tech firms positioning for institutional clients",
     ],
     included: [
-      "Pre-application advisory — DFSA-regulated vs non-regulated",
+      "Pre-application advisory on DFSA-regulated vs non-regulated",
       "Memorandum & Articles drafted under DIFC law",
       "DFSA application coordination if regulated",
       "Office lease in Gate Avenue / Innovation Hub / wider DIFC",
-      "Substance support — directors, secretary, registered address",
+      "Substance support: directors, secretary, registered address",
     ],
     meta: [
       { label: "Authority", value: "DIFC Authority + DFSA" },
@@ -141,9 +141,9 @@ const sections: ServiceSectionData[] = [
     eyebrow: "Professional services",
     title: "Meydan",
     icon: "globe",
-    image: { src: "/free-zones/meydan.webp", alt: "Meydan — Dubai" },
+    image: { src: "/free-zones/meydan.webp", alt: "Meydan · Dubai" },
     lede:
-      "Meydan Free Zone — quick licensing for professional services, consulting, marketing and digital businesses. Affordable and fast, with a smart-office concept that suits 1–5 person teams.",
+      "Meydan Free Zone offers quick licensing for professional services, consulting, marketing and digital businesses. Affordable and fast, with a smart-office concept that suits 1–5 person teams.",
     good: [
       "Consulting, marketing, branding, design firms",
       "Coaches, trainers and professional service providers",
@@ -165,7 +165,7 @@ const sections: ServiceSectionData[] = [
     ],
     highlight: {
       eyebrow: "Why Meydan over IFZA",
-      title: "Slightly more polished — same speed.",
+      title: "Slightly more polished, same speed.",
       body: "Meydan's smart-office concept and address quality nudge the perception above the entry-level zones. For client-facing professional services, that nudge sometimes matters.",
     },
     steps: [
@@ -181,9 +181,9 @@ const sections: ServiceSectionData[] = [
     eyebrow: "Pure e-commerce zone",
     title: "DCC",
     icon: "globe",
-    image: { src: "/free-zones/dcc.webp", alt: "DCC — Dubai" },
+    image: { src: "/free-zones/dcc.webp", alt: "DCC · Dubai" },
     lede:
-      "Dubai CommerCity — the UAE's first dedicated e-commerce free zone. Built around fulfilment, last-mile and digital retail. Right for online brands, marketplace sellers and D2C operators serving GCC and beyond.",
+      "Dubai CommerCity, the UAE's first dedicated e-commerce free zone. Built around fulfilment, last-mile and digital retail. Right for online brands, marketplace sellers and D2C operators serving GCC and beyond.",
     good: [
       "Online retail brands and marketplace sellers",
       "D2C operators with GCC fulfilment needs",
@@ -205,8 +205,8 @@ const sections: ServiceSectionData[] = [
     ],
     highlight: {
       eyebrow: "Why DCC for online brands",
-      title: "Built for e-commerce — not retrofitted.",
-      body: "DCC's licensing categories, lease types and partner ecosystem are all designed around online retail. You don't translate your business into the zone — the zone speaks your language.",
+      title: "Built for e-commerce, not retrofitted.",
+      body: "DCC's licensing categories, lease types and partner ecosystem are all designed around online retail. You don't translate your business into the zone; the zone speaks your language.",
     },
     steps: [
       "Confirm e-commerce activity classification.",
@@ -221,9 +221,9 @@ const sections: ServiceSectionData[] = [
     eyebrow: "Tech & digital focus",
     title: "DTEC",
     icon: "globe",
-    image: { src: "/free-zones/dtec-large.webp", alt: "DTEC — Dubai Silicon Oasis" },
+    image: { src: "/free-zones/dtec-large.webp", alt: "DTEC · Dubai Silicon Oasis" },
     lede:
-      "Dubai Technology Entrepreneur Campus — the region's largest tech-startup community, hosted inside Dubai Silicon Oasis. Designed for software, SaaS, AI and digital teams that want a credible tech address with co-working flexibility built in.",
+      "Dubai Technology Entrepreneur Campus, the region's largest tech-startup community, hosted inside Dubai Silicon Oasis. Designed for software, SaaS, AI and digital teams that want a credible tech address with co-working flexibility built in.",
     good: [
       "Software, SaaS, AI and digital startups",
       "Founders who want a tech-credible address from day one",
@@ -246,7 +246,7 @@ const sections: ServiceSectionData[] = [
     highlight: {
       eyebrow: "Why DTEC for builders",
       title: "Tech address with a real community attached.",
-      body: "DTEC isn't just a licence — it's a campus. Demo days, accelerator partners, investor mixers and a peer group of 800+ tech companies. The address signals you're serious; the community gets you to traction faster.",
+      body: "DTEC isn't just a licence, it's a campus. Demo days, accelerator partners, investor mixers and a peer group of 800+ tech companies. The address signals you're serious; the community gets you to traction faster.",
     },
     steps: [
       "Match your activity to DTEC's tech list.",
@@ -261,9 +261,9 @@ const sections: ServiceSectionData[] = [
     eyebrow: "Startups & SMEs · Ajman",
     title: "ANCFZ",
     icon: "globe",
-    image: { src: "/free-zones/anc-large.webp", alt: "ANCFZ — Ajman NuVentures Centre Free Zone" },
+    image: { src: "/free-zones/anc-large.webp", alt: "ANCFZ · Ajman NuVentures Centre Free Zone" },
     lede:
-      "Ajman NuVentures Centre Free Zone — purpose-built for startups and small businesses that want low setup cost, fast turnaround and a flexible activity list. Right for founders launching lean, freelancers and remote teams.",
+      "Ajman NuVentures Centre Free Zone is purpose-built for startups and small businesses that want low setup cost, fast turnaround and a flexible activity list. Right for founders launching lean, freelancers and remote teams.",
     good: [
       "Solo founders and freelancers seeking a credible licence",
       "Bootstrapped SMEs prioritising cost and speed",
@@ -301,9 +301,9 @@ const sections: ServiceSectionData[] = [
     eyebrow: "Fast setup · Umm Al Quwain",
     title: "UAQ",
     icon: "globe",
-    image: { src: "/free-zones/uaq-large.webp", alt: "UAQ — Umm Al Quwain Free Trade Zone" },
+    image: { src: "/free-zones/uaq-large.webp", alt: "UAQ · Umm Al Quwain Free Trade Zone" },
     lede:
-      "Umm Al Quwain Free Trade Zone Authority — fastest-setup environment in the U.A.E. for SMEs. Light-touch process, broad activity list, and an entry-level price point with full ownership and tax benefits.",
+      "Umm Al Quwain Free Trade Zone Authority offers the fastest-setup environment in the U.A.E. for SMEs. Light-touch process, broad activity list, and an entry-level price point with full ownership and tax benefits.",
     good: [
       "SMEs that need a quick licence on a tight timeline",
       "Trading and consulting firms without a physical footprint",
@@ -326,7 +326,7 @@ const sections: ServiceSectionData[] = [
     highlight: {
       eyebrow: "Why UAQ for speed",
       title: "From signed brief to issued licence in days, not weeks.",
-      body: "UAQ FTZ runs one of the leanest application flows in the country. For founders who need to move fast — sign a contract, hire on a visa, open a bank — UAQ lets you skip weeks of bureaucracy elsewhere.",
+      body: "UAQ FTZ runs one of the leanest application flows in the country. For founders who need to move fast (sign a contract, hire on a visa, open a bank), UAQ lets you skip weeks of bureaucracy elsewhere.",
     },
     steps: [
       "Match your activity to UAQ's list.",
@@ -360,7 +360,7 @@ export default function DubaiZonesPage() {
               </h2>
               <p className="mt-5 max-w-2xl text-[1.02rem] leading-relaxed text-paper/75">
                 Activity, ownership, visa quota, banking, lease type, total
-                year-one cost — assessed and back to you within one business day.
+                year-one cost: assessed and back to you within one business day.
                 Free, 30-minute consultation.
               </p>
             </div>

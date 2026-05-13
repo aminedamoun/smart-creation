@@ -143,7 +143,7 @@ export function AboutHero() {
           className="font-display font-medium tracking-[-0.03em] leading-[1.05] text-[clamp(1.5rem,3.4vw,2.8rem)] text-paper text-balance drop-shadow-[0_2px_24px_rgba(0,0,0,0.6)] whitespace-nowrap"
         >
           Built around your business{" "}
-          <span className="text-brand">— since 2013.</span>
+          <span className="text-brand">· since 2013.</span>
         </m.h1>
       </div>
     </section>

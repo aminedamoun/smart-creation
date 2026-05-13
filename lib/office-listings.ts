@@ -119,7 +119,7 @@ const centerLocations: Record<
     centerId: "abna-rashid",
     centerName: "Abna Rashid Hamd Bin Huwaidi Building",
     building: "Abna Rashid Hamd Bin Huwaidi Building",
-    location: "Street 27A, Al Nakhal — Naif, Deira",
+    location: "Street 27A, Al Nakhal · Naif, Deira",
     floor: "Various floors",
     emirate: "Dubai, U.A.E.",
   },
@@ -137,8 +137,8 @@ const standardFees = {
 const coworkingFees = {
   securityDeposit: "AED 1,000",
   managementFee: "AED 500",
-  ejariFee: "—",
-  ddaNoc: "—",
+  ejariFee: "–",
+  ddaNoc: "–",
   vat: "5%",
   parking: "AED 4,000 / yr (optional)",
 };
@@ -147,7 +147,7 @@ const flexFees = {
   securityDeposit: "AED 3,000",
   managementFee: "AED 1,500",
   ejariFee: "AED 500",
-  ddaNoc: "—",
+  ddaNoc: "–",
   vat: "5%",
   parking: "AED 3,500 / yr (optional)",
 };
@@ -176,7 +176,7 @@ export const officeListings: OfficeListing[] = [
     featured: true,
     showOnHome: true,
     description:
-      "Our largest available suite on the 19th floor. The Team Suite accommodates a four-to-five person team with room for a small meeting table and storage. Floor-to-ceiling glazing along one wall, direct entry off the reception corridor, and a dedicated signage strip on the door — your clients walk into your brand, not ours.",
+      "Our largest available suite on the 19th floor. The Team Suite accommodates a four-to-five person team with room for a small meeting table and storage. Floor-to-ceiling glazing along one wall, direct entry off the reception corridor, and a dedicated signage strip on the door. Your clients walk into your brand, not ours.",
     highlights: [
       "300 sq ft · 4–5 desks",
       "Direct reception-corridor entry",
@@ -210,7 +210,7 @@ export const officeListings: OfficeListing[] = [
       "Two-sided glazing in this corner office gives you double the daylight of a standard suite. Comfortable for a three-to-four person team, with a long desk line along one wall and space for a round meeting table. A favourite with design and creative teams.",
     highlights: [
       "290 sq ft · 3–4 desks",
-      "Corner windows — double daylight",
+      "Corner windows for double daylight",
       "Door signage included",
       "24/7 keycard access",
     ],
@@ -241,7 +241,7 @@ export const officeListings: OfficeListing[] = [
       "A well-proportioned two-to-three person studio with the most flexible payment terms of any unit on the floor. Take it at AED 65,000 in one or two cheques, or stretch across four at AED 70,000. Comes fully furnished and move-in ready.",
     highlights: [
       "200 sq ft · 2–3 desks",
-      "Flexible payment — 1, 2 or 4 cheques",
+      "Flexible payment: 1, 2 or 4 cheques",
       "AED 65,000 in 1–2 cheques",
       "AED 70,000 in 4 cheques",
       "Door signage included",
@@ -321,7 +321,7 @@ export const officeListings: OfficeListing[] = [
     image: "/offices/office-48.jpg",
     imageCount: 4,
     description:
-      "Identical in size and fit-out to Office 37 — a 200 sq ft private studio for two to three desks. Separate location on the floor; pick the one with the layout your team prefers.",
+      "Identical in size and fit-out to Office 37: a 200 sq ft private studio for two to three desks. Separate location on the floor; pick the one with the layout your team prefers.",
     highlights: [
       "200 sq ft · 2–3 desks",
       "Alternative layout to Office 37",
@@ -349,7 +349,7 @@ export const officeListings: OfficeListing[] = [
     image: "/offices/office-32.jpg",
     imageCount: 6,
     description:
-      "Our smallest private office — a 100 sq ft single-desk unit with a proper door. Perfect for a solo consultant or freelancer who needs their own lockable, licensed space for visa and banking KYC purposes.",
+      "Our smallest private office: a 100 sq ft single-desk unit with a proper door. Perfect for a solo consultant or freelancer who needs their own lockable, licensed space for visa and banking KYC purposes.",
     highlights: [
       "100 sq ft · 1 desk",
       "Smallest private unit on the floor",
@@ -376,10 +376,10 @@ export const officeListings: OfficeListing[] = [
     imageCount: 5,
     showOnHome: true,
     description:
-      "Our co-working lounge has a separate main entrance off the lift lobby — you and your visitors don't go through the private-office corridor. Hot-desk seating, a coffee bar, printer, and meeting-room credits. Lowest-commitment plan on the floor.",
+      "Our co-working lounge has a separate main entrance off the lift lobby, so you and your visitors don't go through the private-office corridor. Hot-desk seating, a coffee bar, printer, and meeting-room credits. Lowest-commitment plan on the floor.",
     highlights: [
       "Separate main entrance",
-      "Hot desk — no reservation needed",
+      "Hot desk: no reservation needed",
       "Coffee bar + lounge",
       "Meeting-room credits included",
       "No Ejari required",
@@ -405,7 +405,7 @@ export const officeListings: OfficeListing[] = [
     imageCount: 5,
     showOnHome: true,
     description:
-      "A step up from co-working — your own dedicated desk with a locker, inside a smaller shared room. Includes meeting-room access and optional parking. Choose the Ejari-included plan if you need the office on your trade licence for visa sponsorship.",
+      "A step up from co-working: your own dedicated desk with a locker, inside a smaller shared room. Includes meeting-room access and optional parking. Choose the Ejari-included plan if you need the office on your trade licence for visa sponsorship.",
     highlights: [
       "Dedicated desk + locker",
       "Meeting rooms included",
@@ -430,7 +430,7 @@ export const officeListings: OfficeListing[] = [
     image: "/offices/office-50.jpg",
     imageCount: 10,
     description:
-      "A photogenic private suite on the 19th floor. We're finalising the pricing — contact us for the current package and viewing appointment.",
+      "A photogenic private suite on the 19th floor. We're finalising the pricing; contact us for the current package and viewing appointment.",
     highlights: [
       "Private furnished office",
       "Ten photographs on file",

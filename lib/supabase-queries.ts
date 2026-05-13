@@ -254,9 +254,9 @@ export function propertyToOffice(p: PropertyWithCentre): OfficeListing {
     paymentOptions: p.payment_options.map((f) => f.value).filter(Boolean),
 
     fees: {
-      securityDeposit: p.fees.securityDeposit ?? "—",
-      managementFee: p.fees.managementFee ?? "—",
-      ejariFee: p.fees.ejariFee ?? "—",
+      securityDeposit: p.fees.securityDeposit ?? "–",
+      managementFee: p.fees.managementFee ?? "–",
+      ejariFee: p.fees.ejariFee ?? "–",
       ddaNoc: p.fees.ddaNoc,
       vat: p.fees.vat ?? "5%",
       parking: p.fees.parking,

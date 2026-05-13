@@ -170,7 +170,7 @@ export function FreeZonesHero() {
             >
               Every UAE free zone has its own activity list, cost band, visa
               quota and banking reputation. We compare all twelve and tell you
-              which one matches your business — not the one that pays us
+              which one matches your business, not the one that pays us
               highest commission.
             </m.p>
 

@@ -22,7 +22,7 @@ export function Blog({ posts }: { posts: BlogCardPost[] }) {
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-8 items-end mb-12 md:mb-16">
           <div className="col-span-12 lg:col-span-8">
             <SectionHeader
-              section="§ 10 — Journal"
+              section="§ 10 · Journal"
               title={
                 <>
                   Playbooks & field notes{" "}

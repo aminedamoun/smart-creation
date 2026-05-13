@@ -162,7 +162,7 @@ export function VisasHero() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="font-display font-medium tracking-[-0.03em] leading-[0.98] text-[clamp(2.4rem,6vw,4.6rem)] text-paper text-balance"
             >
-              <span className="block">Get residency right —</span>
+              <span className="block">Get residency right,</span>
               <span className="block">for you and</span>
               <span className="block text-brand">the people you bring.</span>
             </m.h1>
@@ -174,7 +174,7 @@ export function VisasHero() {
               className="mt-7 max-w-[36rem] text-[1.04rem] md:text-[1.1rem] leading-relaxed text-paper/70 text-pretty"
             >
               Investor visas, the Golden visa, family sponsorship and ongoing PRO
-              services. We file, follow up and renew — so your residency stays
+              services. We file, follow up and renew, so your residency stays
               valid while you focus on the business.
             </m.p>
 

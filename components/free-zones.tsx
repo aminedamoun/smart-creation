@@ -11,14 +11,14 @@ export function FreeZones() {
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-6 items-end mb-10 md:mb-14">
           <div className="col-span-12 lg:col-span-8">
             <SectionHeader
-              section="§ 05 — Free Zones"
+              section="§ 05 · Free Zones"
               title={
                 <>
                   Twelve jurisdictions.{" "}
                   <span className="text-brand-deep">One honest recommendation.</span>
                 </>
               }
-              lede="Direct relationships with every major free zone in the U.A.E. — and we're not paid more for sending you to any one of them. That is deliberate."
+              lede="Direct relationships with every major free zone in the U.A.E., and we're not paid more for sending you to any one of them. That is deliberate."
             />
           </div>
           <div className="col-span-12 lg:col-span-4 lg:text-right">
@@ -41,7 +41,7 @@ export function FreeZones() {
 
         <div className="mt-10 md:mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-ink/10 pt-6">
           <p className="max-w-xl text-[0.92rem] text-ink-mute">
-            Still choosing? In a 45-minute call we model three jurisdictions side-by-side —
+            Still choosing? In a 45-minute call we model three jurisdictions side-by-side:
             total cost, visa quota, timeline, and Corporate Tax impact.
           </p>
           <Link

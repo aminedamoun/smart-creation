@@ -10,7 +10,7 @@ import {
 export const metadata: Metadata = {
   title: "UAE Visas & Residency",
   description:
-    "Investor visas, the Golden visa, family sponsorship and PRO services. Smart Creation Group files, follows up and renews — keeping your residency valid while you focus on the business.",
+    "Investor visas, the Golden visa, family sponsorship and PRO services. Smart Creation Group files, follows up and renews, keeping your residency valid while you focus on the business.",
   alternates: { canonical: "/services/visas" },
 };
 
@@ -31,7 +31,7 @@ const sections: ServiceSectionData[] = [
       "Founders and HR teams who don't want to chase ICP / GDRFA portals",
       "New companies onboarding their first batch of employees",
       "Existing companies with renewals, status changes or quota issues",
-      "Anyone who's tired of \"the system is down — try tomorrow\"",
+      "Anyone who's tired of \"the system is down, try tomorrow\"",
     ],
     included: [
       "Visa applications, stamping and Emirates ID coordination",
@@ -48,7 +48,7 @@ const sections: ServiceSectionData[] = [
     ],
     highlight: {
       eyebrow: "Why teams put PRO with us",
-      title: "One WhatsApp away — and the file already moved.",
+      title: "One WhatsApp away, and the file already moved.",
       body: "Tell us the request once. We open the application, follow up across the right portal, send back a confirmation and update your team. No queues. No portals. No vague \"we're checking\".",
     },
     steps: [
@@ -65,7 +65,7 @@ const sections: ServiceSectionData[] = [
     title: "Investor visa",
     icon: "shield",
     lede:
-      "Residency for company owners and shareholders. Two-, five- or ten-year terms depending on the structure — sponsoring you and (if you choose) your family directly through your business.",
+      "Residency for company owners and shareholders. Two-, five- or ten-year terms depending on the structure, sponsoring you and (if you choose) your family directly through your business.",
     image: {
       src: "/services/visas/investor-visa.webp",
       alt: "UAE investor visa",
@@ -81,7 +81,7 @@ const sections: ServiceSectionData[] = [
       "Establishment-card update and visa quota provisioning",
       "Entry permit, status change, medical and Emirates ID booking",
       "Visa stamping and family-sponsorship setup if needed",
-      "Renewal calendar — we book it before it expires",
+      "Renewal calendar; we book it before it expires",
     ],
     meta: [
       { label: "Term options", value: "2 · 5 · 10 years" },
@@ -98,7 +98,7 @@ const sections: ServiceSectionData[] = [
       "Check the share certificate qualifies for the visa term you want.",
       "Open / update the establishment card and visa quota.",
       "File the entry permit and complete medical + EID.",
-      "Stamp the visa — and, if needed, sponsor the family.",
+      "Stamp the visa and, if needed, sponsor the family.",
     ],
   },
   {
@@ -116,13 +116,13 @@ const sections: ServiceSectionData[] = [
     },
     good: [
       "Founders and investors with sustained business activity in the UAE",
-      "Specialised talent — doctors, executives, engineers, creative professionals",
+      "Specialised talent: doctors, executives, engineers, creative professionals",
       "Real-estate investors meeting the property-value threshold",
       "Top performers preparing to bring family long-term",
     ],
     included: [
       "Eligibility audit across all current Golden-visa categories",
-      "Document pack — evidence of investment, achievement or property",
+      "Document pack: evidence of investment, achievement or property",
       "Nomination submission to the right authority (ICP, DET, etc.)",
       "Medical, Emirates ID and visa stamping coordination",
       "Family sponsorship under the same Golden umbrella",
@@ -135,14 +135,14 @@ const sections: ServiceSectionData[] = [
     ],
     highlight: {
       eyebrow: "How we strengthen the case",
-      title: "We don't just submit — we frame the file.",
+      title: "We don't just submit. We frame the file.",
       body: "The Golden visa is a discretionary nomination. We pick the strongest category for your profile, assemble the evidence the way the authority expects to see it, and stay on the file until it's approved.",
     },
     steps: [
       "Audit your profile against all Golden-visa categories.",
       "Pick the strongest route and build the evidence pack.",
       "Submit the nomination via the right authority.",
-      "Medical, EID, stamping — and family added under the same visa.",
+      "Medical, EID, stamping, and family added under the same visa.",
     ],
   },
   {
@@ -152,7 +152,7 @@ const sections: ServiceSectionData[] = [
     title: "Family sponsorship",
     icon: "users",
     lede:
-      "Bring your spouse, children and (where eligible) parents under your residency. We set the salary thresholds, attestations and tenancy requirements first — so the application doesn't get rejected after you've paid the fees.",
+      "Bring your spouse, children and (where eligible) parents under your residency. We set the salary thresholds, attestations and tenancy requirements first, so the application doesn't get rejected after you've paid the fees.",
     image: {
       src: "/services/visas/family-visa.webp",
       alt: "Family & dependent sponsorship",
@@ -161,7 +161,7 @@ const sections: ServiceSectionData[] = [
       "Residents who just got their own visa and want to bring family",
       "Parents bringing children before the new school term",
       "Sponsoring an adult son (under 25, in education) or unmarried daughter",
-      "Sponsoring elderly parents — usually requires extra documentation",
+      "Sponsoring elderly parents (usually requires extra documentation)",
     ],
     included: [
       "Eligibility check against salary, tenancy and visa-type rules",
@@ -174,12 +174,12 @@ const sections: ServiceSectionData[] = [
       { label: "Eligibility", value: "Salary + tenancy thresholds" },
       { label: "Term", value: "Matches sponsor's visa" },
       { label: "Setup time", value: "10–14 working days" },
-      { label: "Renewable", value: "Yes — with sponsor's renewal" },
+      { label: "Renewable", value: "Yes · with sponsor's renewal" },
     ],
     highlight: {
       eyebrow: "Avoid the classic mistake",
       title: "Don't book flights before the salary letter is approved.",
-      body: "Family sponsorship gets rejected most often on salary documentation, attestations or tenancy mismatches. We confirm the file is clean before applications start — so the approval lands when you expect it.",
+      body: "Family sponsorship gets rejected most often on salary documentation, attestations or tenancy mismatches. We confirm the file is clean before applications start, so the approval lands when you expect it.",
     },
     steps: [
       "Verify salary, tenancy and visa-type eligibility for each dependant.",
@@ -212,7 +212,7 @@ export default function VisasPage() {
                 <span className="text-brand-soft">We'll come back with a route.</span>
               </h2>
               <p className="mt-5 max-w-2xl text-[1.02rem] leading-relaxed text-paper/75">
-                Eligibility, term, sponsor structure, family — checked against the
+                Eligibility, term, sponsor structure, family: checked against the
                 latest ICP and GDRFA rules and back to you within one business day.
                 Free, 30-minute consultation.
               </p>

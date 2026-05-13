@@ -24,7 +24,7 @@ import { CentresMapSection } from "@/components/centres-map-section";
 export const metadata: Metadata = {
   title: "Contact Smart Creation Group",
   description:
-    "Tell us what you're building — company formation, free zone, visas, banking, office space — and we'll come back within one business day.",
+    "Tell us what you're building (company formation, free zone, visas, banking, office space) and we'll come back within one business day.",
   alternates: { canonical: "/contact" },
 };
 
@@ -62,7 +62,7 @@ const offices = [
   {
     key: "abna-rashid",
     logo: "/group-logos/abna-rashid.webp",
-    address: "Abna Rashid Hamd Bin Huwaidi Building, Street 27A, Al Nakhal — Naif, Deira",
+    address: "Abna Rashid Hamd Bin Huwaidi Building, Street 27A, Al Nakhal · Naif, Deira",
     note: "Owned freehold · trading-district base",
   },
 ];
@@ -83,7 +83,7 @@ const journey = [
   {
     n: "03",
     title: "You decide, we file",
-    body: "Trade name, MOA, Ejari, licence and immigration file — same team handles every step end-to-end.",
+    body: "Trade name, MOA, Ejari, licence and immigration file: same team handles every step end-to-end.",
     icon: Handshake,
   },
   {
@@ -381,7 +381,7 @@ export default function ContactPage() {
                 <span className="h-px w-8 bg-ink/25" />§ What happens after you send
               </div>
               <h2 className="font-display font-semibold text-[clamp(1.8rem,3vw,2.6rem)] leading-[1.1] tracking-[-0.02em] text-ink text-balance">
-                From brief to licence —{" "}
+                From brief to licence,{" "}
                 <span className="text-brand-deep">four predictable steps.</span>
               </h2>
             </div>
@@ -432,7 +432,7 @@ export default function ContactPage() {
         eyebrow="§ On the map"
         title={
           <>
-            Find us on the ground —{" "}
+            Find us on the ground.{" "}
             <span className="text-brand-deep">six pins, live office count.</span>
           </>
         }
@@ -452,7 +452,7 @@ export default function ContactPage() {
                 <span className="text-brand-deep">all walking distance from a metro line.</span>
               </h2>
               <p className="mt-5 max-w-2xl text-[1rem] leading-relaxed text-ink-mute">
-                Pop into any of them — same team handles your file regardless of
+                Pop into any of them. Same team handles your file regardless of
                 which one you start from.
               </p>
             </div>

@@ -114,7 +114,7 @@ export function AboutTeamGrid({ members }: { members: TeamMember[] }) {
           </h2>
           <p className="mt-5 max-w-2xl text-[1rem] leading-relaxed text-ink-mute">
             Whatever you write us about, the same team gets the file across the
-            line — from the consultant who reads your brief, to the PRO who
+            line: from the consultant who reads your brief, to the PRO who
             stands in the queue, to the accountant who closes your books at
             year-end.
           </p>

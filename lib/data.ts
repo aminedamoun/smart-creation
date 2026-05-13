@@ -13,6 +13,7 @@ import {
   Home,
   HardHat,
   Building,
+  Sparkles,
 } from "lucide-react";
 
 // ── Brand & company ──────────────────────────────────────────────────
@@ -25,9 +26,9 @@ export const BRAND = {
   ceoTitle: "C.E.O of Smart Creation Group of Companies",
   tagline: "Your Trusted Partner in Business Success",
   mission:
-    "To empower businesses by providing seamless, efficient, and innovative solutions for business setup, licensing, corporate structuring, and office space solutions. We aim to remove the complexities associated with establishing and managing a business in the UAE — enabling entrepreneurs and enterprises to focus on growth, productivity, and success.",
+    "To empower businesses by providing seamless, efficient, and innovative solutions for business setup, licensing, corporate structuring, and office space solutions. We aim to remove the complexities associated with establishing and managing a business in the UAE, enabling entrepreneurs and enterprises to focus on growth, productivity, and success.",
   vision:
-    "To become the leading workspace provider and business consultancy in the UAE — recognised for excellence, innovation, and client satisfaction. We aspire to create a business ecosystem where entrepreneurs can thrive, leveraging our expertise, resources, and cutting-edge office solutions.",
+    "To become the leading workspace provider and business consultancy in the UAE, recognised for excellence, innovation, and client satisfaction. We aspire to create a business ecosystem where entrepreneurs can thrive, leveraging our expertise, resources, and cutting-edge office solutions.",
 };
 
 export type MegaLink = {
@@ -108,7 +109,7 @@ export const navigation: NavItem[] = [
       feature: {
         eyebrow: "Free · 45 min",
         title: "Tell us what you're building. We'll come back with a plan.",
-        body: "Jurisdiction, costs, timeline, banking, visa quota — written up within one business day. No sales script.",
+        body: "Jurisdiction, costs, timeline, banking, visa quota: written up within one business day. No sales script.",
         cta: { label: "Book consultation", href: "/contact" },
       },
       footer: { label: "View all services", href: "/services" },
@@ -127,7 +128,7 @@ export const navigation: NavItem[] = [
             { label: "DMCC", href: "/free-zones/dubai#dmcc", desc: "Multi Commodities Centre" },
             { label: "DIFC", href: "/free-zones/dubai#difc", desc: "International Financial Centre" },
             { label: "Meydan", href: "/free-zones/dubai#meydan", desc: "Professional services" },
-            { label: "DCC", href: "/free-zones/dubai#dcc", desc: "Dubai CommerCity — e-commerce" },
+            { label: "DCC", href: "/free-zones/dubai#dcc", desc: "Dubai CommerCity for e-commerce" },
             { label: "DTEC", href: "/free-zones/dubai#dtec", desc: "Technology Entrepreneur Campus" },
             { label: "ANCFZ", href: "/free-zones/dubai#ancfz", desc: "Ajman NuVentures Centre" },
             { label: "UAQ", href: "/free-zones/dubai#uaq", desc: "Umm Al Quwain Free Trade Zone" },
@@ -146,7 +147,7 @@ export const navigation: NavItem[] = [
       feature: {
         eyebrow: "Decision tool",
         title: "Not sure which zone fits?",
-        body: "Compare all twelve side-by-side — cost, visa quota, activity list, setup time and Corporate Tax impact.",
+        body: "Compare all twelve side-by-side: cost, visa quota, activity list, setup time and Corporate Tax impact.",
         cta: { label: "Open the comparison", href: "/compare" },
       },
       footer: { label: "Every zone we cover", href: "/free-zones" },
@@ -195,7 +196,7 @@ export const groupCenters: GroupCenter[] = [
     country: "UAE",
     address: "19th Floor, Damac Executive Heights (Tecom), Jebel Ali Race Course Road, Dubai",
     summary:
-      "The flagship — 500 fully equipped, flexible offices ideal for startups and established businesses, with end-to-end company formation, PRO and tax support on the same floor.",
+      "The flagship. 500 fully equipped, flexible offices ideal for startups and established businesses, with end-to-end company formation, PRO and tax support on the same floor.",
     highlights: [
       "500 serviced offices",
       "Business setup & licensing",
@@ -212,7 +213,7 @@ export const groupCenters: GroupCenter[] = [
     country: "UAE",
     address: "Floor 226, Iridium Building, Umm Suqeim Street, Al Barsha, Dubai",
     summary:
-      "Modern, well-equipped workspace tailored for entrepreneurs, startups and established businesses — flexible office solutions with full setup and corporate support.",
+      "Modern, well-equipped workspace tailored for entrepreneurs, startups and established businesses. Flexible office solutions with full setup and corporate support.",
     highlights: [
       "Flexible furnished offices",
       "Company formation",
@@ -228,7 +229,7 @@ export const groupCenters: GroupCenter[] = [
     country: "UAE",
     address: "Al Arif Building, 15A Street, Al Hamriya, Bur Dubai, Dubai",
     summary:
-      "A professional business hub in a prime commercial location — fully equipped offices in a credible, efficient environment that supports daily operations and growth.",
+      "A professional business hub in a prime commercial location. Fully equipped offices in a credible, efficient environment that supports daily operations and growth.",
     highlights: [
       "Serviced offices",
       "Business setup & licensing",
@@ -245,7 +246,7 @@ export const groupCenters: GroupCenter[] = [
     country: "UAE",
     address: "2nd Floor, Block A, Dubai Municipality Building, Salah Al Din Street, Al Muraqabat, Dubai",
     summary:
-      "A premium business hub for modern entrepreneurs, startups and growing companies — fully furnished serviced offices, flexible workstations and modern meeting facilities.",
+      "A premium business hub for modern entrepreneurs, startups and growing companies. Fully furnished serviced offices, flexible workstations and modern meeting facilities.",
     highlights: [
       "Premium serviced offices",
       "Flexi desks & virtual offices",
@@ -262,7 +263,7 @@ export const groupCenters: GroupCenter[] = [
     country: "UAE",
     address: "Smart Founders Centre, Dubai, U.A.E.",
     summary:
-      "A dedicated workspace for early-stage founders and small teams — desks, meeting space and back-office support tailored to new businesses getting off the ground.",
+      "A dedicated workspace for early-stage founders and small teams: desks, meeting space and back-office support tailored to new businesses getting off the ground.",
     highlights: [
       "Founder-focused workspace",
       "Desks & meeting rooms",
@@ -276,9 +277,9 @@ export const groupCenters: GroupCenter[] = [
     logo: "/centres/abna-rashid.webp",
     city: "Naif, Deira",
     country: "UAE",
-    address: "Abna Rashid Hamd Bin Huwaidi Building, Street 27A, Al Nakhal — Naif, Deira, Dubai",
+    address: "Abna Rashid Hamd Bin Huwaidi Building, Street 27A, Al Nakhal · Naif, Deira, Dubai",
     summary:
-      "Our owned freehold building in Naif, Deira — Dubai's historic trading core. Multiple floors of flexible space serving import/export, wholesale and trading businesses, walking distance to the gold and spice souks.",
+      "Our owned freehold building in Naif, Deira, Dubai's historic trading core. Multiple floors of flexible space serving import/export, wholesale and trading businesses, walking distance to the gold and spice souks.",
     highlights: [
       "Owned freehold property",
       "Flexible commercial floors",
@@ -310,7 +311,7 @@ export const groupCompanies: GroupCompany[] = [
     country: "UAE",
     flag: "🇦🇪",
     summary:
-      "Flagship 500-office business centre at Damac Executive Heights — end-to-end company formation, licensing, PRO and tax services.",
+      "Flagship 500-office business centre at Damac Executive Heights, with end-to-end company formation, licensing, PRO and tax services.",
     icon: Building2,
     logo: "/group-logos/smart-creation-bc.webp",
   },
@@ -321,7 +322,7 @@ export const groupCompanies: GroupCompany[] = [
     country: "UAE",
     flag: "🇦🇪",
     summary:
-      "Modern flexible workspace at Iridium Building, Al Barsha — tailored for entrepreneurs and growing teams.",
+      "Modern flexible workspace at Iridium Building, Al Barsha, tailored for entrepreneurs and growing teams.",
     icon: Building2,
     logo: "/group-logos/smart-place.webp",
   },
@@ -365,7 +366,7 @@ export const groupCompanies: GroupCompany[] = [
     country: "UAE",
     flag: "🇦🇪",
     summary:
-      "Dedicated workspace for early-stage founders and small teams — desks, meeting rooms and back-office support tailored to new businesses getting off the ground.",
+      "Dedicated workspace for early-stage founders and small teams: desks, meeting rooms and back-office support tailored to new businesses getting off the ground.",
     icon: Building2,
     logo: "/group-logos/smart-founders.webp",
   },
@@ -376,7 +377,7 @@ export const groupCompanies: GroupCompany[] = [
     country: "UAE",
     flag: "🇦🇪",
     summary:
-      "Fully furnished short-term holiday rentals across Dubai — guest welcome, professional cleaning and 24/7 support included.",
+      "Fully furnished short-term holiday rentals across Dubai, with guest welcome, professional cleaning and 24/7 support included.",
     icon: Home,
     logo: "/group-logos/smart-holiday-homes.webp",
   },
@@ -387,7 +388,7 @@ export const groupCompanies: GroupCompany[] = [
     country: "Canada",
     flag: "🇨🇦",
     summary:
-      "Premier intercity transportation based in London, Ontario — scheduled routes, charter services and a value card programme.",
+      "Premier intercity transportation based in London, Ontario: scheduled routes, charter services and a value card programme.",
     icon: Bus,
     logo: "/group-logos/intercity-bus.webp",
   },
@@ -398,7 +399,7 @@ export const groupCompanies: GroupCompany[] = [
     country: "Pakistan",
     flag: "🇵🇰",
     summary:
-      "Pakistan-based contracting company — infrastructure, road development, civil works and general contracting for public and private projects.",
+      "Pakistan-based contracting company: infrastructure, road development, civil works and general contracting for public and private projects.",
     icon: HardHat,
     logo: "/group-logos/mm-contractor.webp",
   },
@@ -409,9 +410,42 @@ export const groupCompanies: GroupCompany[] = [
     country: "UAE",
     flag: "🇦🇪",
     summary:
-      "Dedicated bookkeeping, VAT, Corporate Tax registration and audit-readiness arm — calendared so nothing slips and every cycle files clean.",
+      "Dedicated bookkeeping, VAT, Corporate Tax registration and audit-readiness arm, calendared so nothing slips and every cycle files clean.",
     icon: Calculator,
     logo: "/group-logos/smart-accounting-tax.webp",
+  },
+  {
+    id: "smart-business-creation",
+    name: "Smart Business Creation",
+    sector: "Business Setup · UAE",
+    country: "UAE",
+    flag: "🇦🇪",
+    summary:
+      "Original founding brand of the Group, with company formation, banking and PRO services delivered under the Smart Business Creation banner since 2013.",
+    icon: Briefcase,
+    logo: "/group-logos/smart-business-creation.webp",
+  },
+  {
+    id: "next-journey",
+    name: "Next Journey",
+    sector: "Travel & Tourism · UAE",
+    country: "UAE",
+    flag: "🇦🇪",
+    summary:
+      "Travel and tourism arm of the Group: curated U.A.E. experiences, leisure packages and corporate travel for clients and visitors alike.",
+    icon: Globe2,
+    logo: "/group-logos/next-journey.webp",
+  },
+  {
+    id: "immersion",
+    name: "Immersion",
+    sector: "Experiences · UAE",
+    country: "UAE",
+    flag: "🇦🇪",
+    summary:
+      "Immersive experiences arm of the Group: events, brand activations and guided itineraries that bring the U.A.E.'s story to life.",
+    icon: Sparkles,
+    logo: "/group-logos/immersion.webp",
   },
 ];
 
@@ -477,7 +511,7 @@ export const services: Service[] = [
     index: "01",
     title: "Mainland Company Formation",
     summary:
-      "Dubai Department of Economy & Tourism licensing for LLCs, branches, and professional firms — with no restriction on where you can trade.",
+      "Dubai Department of Economy & Tourism licensing for LLCs, branches, and professional firms, with no restriction on where you can trade.",
     href: "/services/mainland",
     icon: Landmark,
   },
@@ -486,7 +520,7 @@ export const services: Service[] = [
     index: "02",
     title: "Free Zone Setup",
     summary:
-      "Direct relationships with every major UAE free zone. We recommend the right one for your sector — IFZA, DMCC, JAFZA, DIFC, and nine more.",
+      "Direct relationships with every major UAE free zone. We recommend the right one for your sector: IFZA, DMCC, JAFZA, DIFC, and nine more.",
     href: "/services/free-zone",
     icon: Building2,
   },
@@ -504,7 +538,7 @@ export const services: Service[] = [
     index: "04",
     title: "PRO & Visa Services",
     summary:
-      "Investor, employment, family, and Golden Visa processing. Emirates ID, medical, Tawjeeh — handled by our in-house PRO team.",
+      "Investor, employment, family, and Golden Visa processing. Emirates ID, medical, Tawjeeh: all handled by our in-house PRO team.",
     href: "/services/pro-visa",
     icon: IdCard,
   },
@@ -531,7 +565,7 @@ export const services: Service[] = [
     index: "07",
     title: "Four Business Centers",
     summary:
-      "Private offices, dedicated desks, virtual addresses and meeting rooms across four owned-and-operated locations in Dubai — from Tecom to Bur Dubai to Al Muraqabat.",
+      "Private offices, dedicated desks, virtual addresses and meeting rooms across four owned-and-operated locations in Dubai: from Tecom to Bur Dubai to Al Muraqabat.",
     href: "/business-centers",
     icon: Briefcase,
   },
@@ -583,7 +617,7 @@ export const differentiators: Differentiator[] = [
     index: "01",
     title: "Four real offices, not a PO box",
     body:
-      "We own and operate four business centres across Dubai — Damac Executive Heights, Iridium Tower (Al Barsha), Al Hamriya (Bur Dubai) and Salah Al Din Street (Al Muraqabat). When investors or clients visit you, they walk into a professional address — not a virtual mailbox.",
+      "We own and operate four business centres across Dubai: Damac Executive Heights, Iridium Tower (Al Barsha), Al Hamriya (Bur Dubai) and Salah Al Din Street (Al Muraqabat). When investors or clients visit you, they walk into a professional address, not a virtual mailbox.",
   },
   {
     index: "02",
@@ -595,13 +629,13 @@ export const differentiators: Differentiator[] = [
     index: "03",
     title: "Twelve years. Ten thousand companies.",
     body:
-      "Trusted since 2013 by founders, family offices and multinationals. The edge cases you're about to hit — we've already solved them. Probably twice this quarter.",
+      "Trusted since 2013 by founders, family offices and multinationals. The edge cases you're about to hit, we've already solved them. Probably twice this quarter.",
   },
   {
     index: "04",
     title: "Beyond the license",
     body:
-      "The license is the beginning, not the finish line. We handle visas, banking, accounting, Corporate Tax, audit and compliance — so your company doesn't just exist on paper, it operates.",
+      "The license is the beginning, not the finish line. We handle visas, banking, accounting, Corporate Tax, audit and compliance, so your company doesn't just exist on paper, it operates.",
   },
 ];
 
@@ -617,7 +651,7 @@ export const processSteps: ProcessStep[] = [
     index: "01",
     title: "Consultation",
     summary:
-      "A 45-minute call with a senior consultant. We map your activity, residency needs, and capital structure — and recommend a jurisdiction. No obligation, no sales script.",
+      "A 45-minute call with a senior consultant. We map your activity, residency needs, and capital structure, then recommend a jurisdiction. No obligation, no sales script.",
     duration: "Day 0",
   },
   {
@@ -631,21 +665,21 @@ export const processSteps: ProcessStep[] = [
     index: "03",
     title: "Visas & Emirates ID",
     summary:
-      "Establishment card, investor / employee visas, entry permits, medical, biometrics, and Emirates ID — processed by our in-house PRO team.",
+      "Establishment card, investor / employee visas, entry permits, medical, biometrics, and Emirates ID: processed by our in-house PRO team.",
     duration: "Days 10–25",
   },
   {
     index: "04",
     title: "Corporate banking",
     summary:
-      "We introduce you to the right banker, prepare your application dossier, and accompany you through compliance questions — across UAE and international banks.",
+      "We introduce you to the right banker, prepare your application dossier, and accompany you through compliance questions across UAE and international banks.",
     duration: "Days 20–45",
   },
   {
     index: "05",
     title: "Office & operations",
     summary:
-      "Flexi-desk, private office, or virtual address in our Barsha Heights centre — plus bookkeeping, VAT, and Corporate Tax from day one.",
+      "Flexi-desk, private office, or virtual address in our Barsha Heights centre, plus bookkeeping, VAT, and Corporate Tax from day one.",
     duration: "Ongoing",
   },
 ];
@@ -659,80 +693,91 @@ export type Testimonial = {
   rating: 1 | 2 | 3 | 4 | 5;
   date: string;
   avatarColor: string;
+  /** Optional reviewer photo under /public. Falls back to coloured initials. */
+  photo?: string;
 };
 
 export const googleRating = {
   average: 4.9,
   count: 327,
-  profileUrl: "https://www.google.com/maps",
+  /** Public Google Business profile (reads all reviews). */
+  profileUrl: "https://share.google/1dajNlp5Rf9qaLxXv",
+  /** Direct "write a review" link from Google Business. */
+  writeReviewUrl: "https://g.page/r/CTJ-ZCcQwEuBEBM/review",
 };
 
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Smart Creationstructured and licensed our DMCC holding entity in nine working days. They warned us about three compliance items our previous agent had missed — and fixed them before they became a problem. A rare partner that actually prevents problems instead of invoicing them.",
-    name: "Sarah Al Mansouri",
-    title: "Founder",
-    company: "Mirage Capital Partners",
-    initials: "SA",
+      "It was a great experience dealing with you. Highly appreciate your professionalism — you delivered service even while on your personal holiday. Your Ejari and other services were so prompt and fast that my licence renewal was done in a day. When we wanted to see a new office space you immediately showed us. Highly appreciate your timely, prompt and professional service.",
+    name: "CA Sonali Shah",
+    title: "Chartered Accountant",
+    company: "Verified Google review",
+    initials: "SS",
     rating: 5,
-    date: "2 weeks ago",
+    date: "Recently",
     avatarColor: "#1a73e8",
+    photo: "/reviews/sonali.png",
   },
   {
     quote:
-      "We moved our logistics arm to JAFZA and our trading arm to Meydan. Smart Creationran both tracks in parallel, handled visas for twelve staff, and opened our ADCB account in the same month. One partner, one invoice. Highly recommend.",
-    name: "Marcus Weber",
-    title: "Chief Executive Officer",
-    company: "Ironroot Logistics",
-    initials: "MW",
+      "Smart Creation Business Center is dedicated to providing top-notch office solutions, including virtual offices, business setup services and PRO assistance, all tailored to entrepreneurs and companies in Dubai. With a customer-centric approach, they ensure seamless operations, professional support and a prestigious business address. Whether you're a startup or an established firm, their efficient and affordable services make business growth easier and hassle-free.",
+    name: "M Shahid Asraaf Chohan",
+    title: "Client",
+    company: "Verified Google review",
+    initials: "MS",
     rating: 5,
-    date: "1 month ago",
+    date: "Recently",
     avatarColor: "#d93025",
+    photo: "/reviews/shahidasraafchohan.png",
   },
   {
     quote:
-      "I've worked with three setup firms in Dubai over ten years. Smart Creationis the only one where a partner actually picks up the phone — and has an answer. Corporate Tax registration was seamless.",
-    name: "Priya Shetty",
-    title: "Chief Operating Officer",
-    company: "Forge & Feld",
-    initials: "PS",
-    rating: 5,
-    date: "3 months ago",
-    avatarColor: "#188038",
-  },
-  {
-    quote:
-      "From first call to operational business bank account in 32 days. Clear timeline, fixed fees, and a consultant who answered WhatsApp after 9pm when we had a question before a board meeting. Exactly what we needed.",
-    name: "David Chen",
-    title: "Managing Director",
-    company: "Northlane Ventures",
-    initials: "DC",
-    rating: 5,
-    date: "4 months ago",
-    avatarColor: "#f9ab00",
-  },
-  {
-    quote:
-      "Professional, responsive, and genuinely knowledgeable about the trade-offs between free zones. They talked us out of a cheaper option that would have cost us more in year two. That honesty is worth the fee several times over.",
-    name: "Aisha Rahman",
+      "Smart Business Creation Center is undoubtedly a professional agency. I recently embarked on the journey of starting my business and encountered a multitude of requirements. The SBCC team not only provided invaluable assistance but also guided us through all the necessary services. I wholeheartedly endorse them, particularly for new company registration, securing office space, banking, visa procurement and related services. Highly recommend.",
+    name: "Raj Husen",
     title: "Founder",
-    company: "Qasr Holdings",
-    initials: "AR",
+    company: "Verified Google review",
+    initials: "RH",
     rating: 5,
-    date: "6 months ago",
-    avatarColor: "#9334e6",
+    date: "Recently",
+    avatarColor: "#188038",
+    photo: "/reviews/rajhusen.png",
   },
   {
     quote:
-      "Excellent service end-to-end. License, visas, Emirates ID, and a real office at Damac Executive Heights — all handled with zero friction. My Emirates NBD account was opened in under two weeks.",
-    name: "Rajesh Kumar",
-    title: "CEO",
-    company: "Ember & Oak Trading",
-    initials: "RK",
+      "Professional service, so helpful in supporting the set-up of the new company. Ongoing support is cost-effective and value for money. All staff at the business centre are brilliant, friendly and very helpful with every query. Brilliant access to car park for everyone.",
+    name: "Latica Grover",
+    title: "Founder",
+    company: "Verified Google review",
+    initials: "LG",
     rating: 5,
-    date: "7 months ago",
+    date: "Recently",
+    avatarColor: "#f9ab00",
+    photo: "/reviews/laticagrover.png",
+  },
+  {
+    quote:
+      "I would like to appreciate Shamsa and the Smart Creation team for their professionalism, commitment and high-quality services. The company has built a strong reputation by consistently delivering reliable solutions and exceeding client expectations. Their team demonstrates excellent expertise, integrity and dedication, which truly sets them apart. Always a pleasure to work with such a trusted, customer-focused organisation.",
+    name: "Umar Zaman",
+    title: "Client",
+    company: "Verified Google review",
+    initials: "UZ",
+    rating: 5,
+    date: "Recently",
+    avatarColor: "#9334e6",
+    photo: "/reviews/umarzaman.png",
+  },
+  {
+    quote:
+      "I first connected with Shamsa Kanwal, Smart Creation Business Setup Consultant & PRO, through a networking referral. I had inquiries on company formation in multiple jurisdictions and was impressed by her up-to-date knowledge of UAE mainland and free-zone regulations. Her timely, accurate responses helped us close a client inquiry quickly and with complete satisfaction. Proactive, eager to stay updated on new rules and compliance, and always cost-effective. Highly recommend for anyone setting up in Dubai or the UAE.",
+    name: "Arif Saeed",
+    title: "Business Professional",
+    company: "Verified Google review",
+    initials: "AS",
+    rating: 5,
+    date: "Recently",
     avatarColor: "#e8710a",
+    photo: "/reviews/arifsaeed.png",
   },
 ];
 
@@ -749,11 +794,11 @@ export const faqs: Faq[] = [
   },
   {
     q: "What is the most cost-effective way to set up in the UAE?",
-    a: "For a solo consultant, freelancer, or digital business, a free zone like IFZA, Meydan, Ajman FZ, or SHAMS can start from AED 12,500–18,000 per year for the license, with the option to add a single investor visa. We will quote the all-in cost — license, visa, Emirates ID, and our fee — on the first call.",
+    a: "For a solo consultant, freelancer, or digital business, a free zone like IFZA, Meydan, Ajman FZ, or SHAMS can start from AED 12,500–18,000 per year for the license, with the option to add a single investor visa. We will quote the all-in cost on the first call: license, visa, Emirates ID, and our fee.",
   },
   {
     q: "What's the difference between mainland and free zone?",
-    a: "A mainland license (issued by Dubai's DET or another emirate's DED) lets you trade anywhere in the UAE and directly contract with the federal government. A free zone license lets you trade internationally and within your zone, with tax and customs benefits, but requires a local distributor to trade onshore for goods. For most service businesses, both work — the choice comes down to cost, visa quota, and where your customers are.",
+    a: "A mainland license (issued by Dubai's DET or another emirate's DED) lets you trade anywhere in the UAE and directly contract with the federal government. A free zone license lets you trade internationally and within your zone, with tax and customs benefits, but requires a local distributor to trade onshore for goods. For most service businesses, both work; the choice comes down to cost, visa quota, and where your customers are.",
   },
   {
     q: "Do I need to be physically in the UAE to start the process?",
@@ -804,7 +849,7 @@ export const blogPosts: BlogPost[] = [
     slug: "business-setup-dubai-complete-guide-2026",
     title: "The complete guide to business setup in Dubai (2026)",
     excerpt:
-      "Every jurisdiction, every cost, every pitfall — the founder-level breakdown we wish we'd had when we started.",
+      "Every jurisdiction, every cost, every pitfall: the founder-level breakdown we wish we'd had when we started.",
     category: "Guide",
     date: "Apr 18, 2026",
     readTime: "14 min read",
@@ -815,7 +860,7 @@ export const blogPosts: BlogPost[] = [
     slug: "free-zone-vs-mainland-2026",
     title: "Free zone vs. mainland: which is right for your company?",
     excerpt:
-      "The 2021 reforms changed the math. Here's how we model the trade-off today — by activity, visa quota, and Corporate Tax exposure.",
+      "The 2021 reforms changed the math. Here's how we model the trade-off today: by activity, visa quota, and Corporate Tax exposure.",
     category: "Comparison",
     date: "Apr 09, 2026",
     readTime: "9 min read",
@@ -826,7 +871,7 @@ export const blogPosts: BlogPost[] = [
     slug: "corporate-tax-uae-founders-2026",
     title: "Corporate Tax in the U.A.E.: what founders need to know in 2026",
     excerpt:
-      "Qualifying free-zone income, substance tests, and transfer pricing — cut through the noise with what actually matters for a 9% (or 0%) outcome.",
+      "Qualifying free-zone income, substance tests, and transfer pricing: cut through the noise with what actually matters for a 9% (or 0%) outcome.",
     category: "Tax",
     date: "Mar 27, 2026",
     readTime: "11 min read",

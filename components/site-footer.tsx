@@ -11,7 +11,7 @@ const columns = [
   {
     title: "Free zones",
     links: freeZones.slice(0, 8).map((z) => ({
-      label: `${z.code} — ${z.emirate}`,
+      label: `${z.code} · ${z.emirate}`,
       href: z.href,
     })),
   },
@@ -56,7 +56,7 @@ export function SiteFooter() {
             <Logo onLight />
             <p className="mt-6 max-w-sm text-[0.95rem] leading-relaxed text-ink-mute">
               A multi-sector group spanning four Dubai business centres, real estate,
-              technology, hospitality, transport and contracting — trusted since 2013.
+              technology, hospitality, transport and contracting. Trusted since 2013.
             </p>
 
             <address className="not-italic mt-8 text-[0.92rem] text-ink leading-relaxed">

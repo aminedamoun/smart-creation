@@ -29,7 +29,7 @@ export function CeoWord() {
         >
           <span className="h-px w-8 bg-mist/40" />
           <span className="font-mono text-[0.65rem] uppercase tracking-[0.22em]">
-            § 03 — A word from the CEO
+            § 03 · A word from the CEO
           </span>
         </div>
 
@@ -41,7 +41,7 @@ export function CeoWord() {
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-paper/10 bg-ink-soft">
               <Image
                 src="/ceo-asad-hashmi.webp"
-                alt="Asad Hashmi — CEO, Smart Creation Group of Companies"
+                alt="Asad Hashmi · CEO, Smart Creation Group of Companies"
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"
                 className="object-cover"
@@ -58,7 +58,7 @@ export function CeoWord() {
               </div>
             </div>
             <figcaption className="mt-3 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-mist">
-              — Portrait · Asad Hashmi, Dubai
+              Portrait · Asad Hashmi, Dubai
             </figcaption>
           </figure>
 
@@ -75,7 +75,7 @@ export function CeoWord() {
               <p>
                 <strong className="text-paper font-semibold">Asad Hashmi</strong> is the
                 CEO of{" "}
-                <strong className="text-paper font-semibold">Smart Creation Group of Companies</strong> —
+                <strong className="text-paper font-semibold">Smart Creation Group of Companies</strong>,
                 a multi-sector group spanning business setup, real estate, technology,
                 hospitality, transport and contracting across the UAE, Canada and Pakistan.
                 With a proven track record of success, Asad leads the group with a
@@ -84,19 +84,19 @@ export function CeoWord() {
               <p>
                 <span className="text-paper font-semibold">Our mission</span> is to empower
                 businesses through seamless, efficient and innovative solutions for
-                business setup, licensing, corporate structuring and office space — so
+                business setup, licensing, corporate structuring and office space, so
                 entrepreneurs can focus on growth, productivity and success.
               </p>
               <p>
                 <span className="text-paper font-semibold">Our vision</span> is to be the
-                leading workspace provider and business consultancy in the UAE — recognised
+                leading workspace provider and business consultancy in the UAE, recognised
                 for excellence, innovation and client satisfaction. We aspire to create a
                 business ecosystem where entrepreneurs thrive.
               </p>
               <p>
                 Twelve years on, that promise has only deepened. We've helped over{" "}
                 <span className="text-paper font-semibold">10,000 businesses</span> find
-                their footing in the U.A.E. — every file passing through the same
+                their footing in the U.A.E., every file passing through the same
                 accountable team that's been doing this since 2013.
               </p>
             </div>

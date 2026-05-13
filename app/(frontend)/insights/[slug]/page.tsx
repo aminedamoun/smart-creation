@@ -14,6 +14,7 @@ import { InsightArticle } from "@/components/insight-article";
 import { ArticleHeroBg } from "@/components/article-hero-bg";
 import { ArticleProgress } from "@/components/article-progress";
 import { ArticleShare } from "@/components/article-share";
+import { NewsletterForm } from "@/components/newsletter-form";
 import {
   extractInsightToc,
   getInsightContent,
@@ -207,44 +208,18 @@ export default async function InsightArticlePage({
             <div className="relative">
               <div className="flex items-center gap-2 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-brand-deep mb-4">
                 <Mail className="h-3.5 w-3.5" strokeWidth={2} />
-                The insider — every other Thursday
+                The insider · every other Thursday
               </div>
               <h2 className="font-display font-semibold text-[clamp(1.4rem,2.2vw,1.9rem)] leading-[1.15] tracking-[-0.015em] text-ink text-balance">
                 One sharp note on Dubai setup,{" "}
                 <span className="text-brand-deep">straight to your inbox.</span>
               </h2>
               <p className="mt-3 max-w-xl text-[0.96rem] leading-relaxed text-ink-mute">
-                New rules, new free zones, new banking quirks — explained the
+                New rules, new free zones, new banking quirks, explained the
                 same way we explain them to clients. Free, no spam, unsubscribe
                 in one click.
               </p>
-              <form
-                className="mt-6 flex flex-col sm:flex-row gap-3"
-                action="https://formspree.io/f/xnnjkkkk"
-                method="POST"
-              >
-                <label className="sr-only" htmlFor="newsletter-email">
-                  Email address
-                </label>
-                <input
-                  id="newsletter-email"
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="you@company.com"
-                  className="flex-1 rounded-full border border-ink/15 bg-paper px-5 py-3 text-[0.95rem] text-ink placeholder:text-stone focus:outline-none focus:border-brand/60 focus:ring-2 focus:ring-brand/30"
-                />
-                <button
-                  type="submit"
-                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-brand-night px-6 py-3 text-[0.92rem] font-medium text-paper hover:bg-brand transition-colors"
-                >
-                  Subscribe
-                  <ArrowUpRight
-                    className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    strokeWidth={1.8}
-                  />
-                </button>
-              </form>
+              <NewsletterForm source={`Insights · /insights/${slug}`} />
             </div>
           </div>
         </div>
@@ -265,7 +240,7 @@ export default async function InsightArticlePage({
                 </h2>
                 <p className="mt-4 max-w-md text-[0.96rem] leading-relaxed text-ink-mute">
                   Specific to {meta.category.toLowerCase()}. Don't see yours
-                  here? Tap "Book a consultation" — we'll cover it on the call.
+                  here? Tap "Book a consultation"; we'll cover it on the call.
                 </p>
                 <Link
                   href="/contact"

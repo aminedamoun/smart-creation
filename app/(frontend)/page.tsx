@@ -34,10 +34,10 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Business Setup, Centres & More in Dubai",
   description:
-    "Smart Creation Group of Companies — four Dubai business centres plus company formation, real estate, technology, holiday rentals, transport and contracting. One trusted partner since 2013.",
+    "Smart Creation Group of Companies. Four Dubai business centres plus company formation, real estate, technology, holiday rentals, transport and contracting. One trusted partner since 2013.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Smart Creation Group — Business Setup, Centres & More in Dubai",
+    title: "Smart Creation Group · Business Setup, Centres & More in Dubai",
     description:
       "Four owned-and-operated Dubai business centres plus a multi-sector group across the UAE, Canada and Pakistan.",
     url: "/",
@@ -67,7 +67,7 @@ export default async function HomePage() {
       <Services />
       <Offices />
       <CentresMapSection
-        eyebrow="§ 03 — On the map"
+        eyebrow="§ 03 · On the map"
         title={
           <>
             Six centres across Dubai

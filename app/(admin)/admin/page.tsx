@@ -54,7 +54,7 @@ export default async function AdminDashboard() {
         >
           <div className="font-display text-[1.1rem] text-ink">Add a property</div>
           <p className="mt-1 text-[0.88rem] text-ink-mute">
-            Create a new office listing — links it to a centre and uploads a hero image.
+            Create a new office listing, links it to a centre and uploads a hero image.
           </p>
         </Link>
         <Link

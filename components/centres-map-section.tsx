@@ -74,7 +74,7 @@ export async function CentresMapSection({
             >
               {title ?? (
                 <>
-                  Six centres mapped —{" "}
+                  Six centres mapped.{" "}
                   <span className={isDark ? "text-brand-soft" : "text-brand-deep"}>
                     live office count and price range.
                   </span>

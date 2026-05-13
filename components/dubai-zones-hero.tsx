@@ -181,7 +181,7 @@ export function DubaiZonesHero() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="font-display font-medium tracking-[-0.03em] leading-[0.98] text-[clamp(2.4rem,6vw,4.6rem)] text-paper text-balance"
             >
-              <span className="block">Eight Dubai zones —</span>
+              <span className="block">Eight Dubai zones,</span>
               <span className="block">one team that</span>
               <span className="block text-brand">knows them all.</span>
             </m.h1>
@@ -192,7 +192,7 @@ export function DubaiZonesHero() {
               transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
               className="mt-7 max-w-[36rem] text-[1.04rem] md:text-[1.1rem] leading-relaxed text-paper/70 text-pretty"
             >
-              IFZA, DMCC, JAFZA, DIFC, Meydan, DAFZA, DWTC, DCC — every Dubai
+              IFZA, DMCC, JAFZA, DIFC, Meydan, DAFZA, DWTC, DCC. Every Dubai
               free zone has its own activity list, cost band and visa quota.
               We compare them all and apply through the right one.
             </m.p>

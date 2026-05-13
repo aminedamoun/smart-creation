@@ -18,13 +18,13 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "About Smart Creation Group",
   description:
-    "Twelve years setting up businesses across the U.A.E. — six Dubai centres, four jurisdictions, one accountable team. Meet the people behind every licence, bank account and visa we process.",
+    "Twelve years setting up businesses across the U.A.E.: six Dubai centres, four jurisdictions, one accountable team. Meet the people behind every licence, bank account and visa we process.",
   alternates: { canonical: "/about" },
 };
 
 const ceoBio = [
-  "Asad Hashmi founded Smart Creation Business Center in 2013 with a single floor at Damac Executive Heights and a clear thesis — every founder coming to Dubai deserves one accountable team for everything that touches their business, not a chain of brokers.",
-  "Twelve years on, that team handles company formation, banking introductions, visas, accounting, audit, Corporate Tax and the day-to-day PRO work for 10,000+ businesses across every U.A.E. jurisdiction. The Group has expanded into real estate, technology, hospitality, transport and contracting across the U.A.E., Canada and Pakistan — but the original promise hasn't changed.",
+  "Asad Hashmi founded Smart Creation Business Center in 2013 with a single floor at Damac Executive Heights and a clear thesis: every founder coming to Dubai deserves one accountable team for everything that touches their business, not a chain of brokers.",
+  "Twelve years on, that team handles company formation, banking introductions, visas, accounting, audit, Corporate Tax and the day-to-day PRO work for 10,000+ businesses across every U.A.E. jurisdiction. The Group has expanded into real estate, technology, hospitality, transport and contracting across the U.A.E., Canada and Pakistan, but the original promise hasn't changed.",
   "He is regularly consulted on business-formation strategy by founders, family offices and multinationals, and continues to lead the Group from Tecom.",
 ];
 
@@ -88,7 +88,7 @@ export default async function AboutPage() {
                   <span className="h-px w-8 bg-ink/25" />§ The Founder
                 </div>
                 <h2 className="font-display font-semibold text-[clamp(1.9rem,3vw,2.6rem)] leading-[1.05] tracking-[-0.02em] text-ink text-balance">
-                  Asad Hashmi —{" "}
+                  Asad Hashmi ·{" "}
                   <span className="text-brand-deep">CEO, Smart Creation Group.</span>
                 </h2>
               </Reveal>
@@ -98,7 +98,7 @@ export default async function AboutPage() {
                   <Quote className="absolute left-5 top-5 h-5 w-5 text-brand-deep" strokeWidth={2} />
                   <div className="pl-10 font-display text-[1.08rem] leading-[1.5] tracking-[-0.005em] text-ink">
                     &ldquo;Every founder coming to the U.A.E. deserves one
-                    accountable team — not a chain of brokers. We've held that
+                    accountable team, not a chain of brokers. We've held that
                     rule since day one. It's the reason we still file every
                     renewal, twelve years later.&rdquo;
                   </div>

@@ -33,7 +33,7 @@ const countries: Country[] = [
     name: "United Arab Emirates",
     region: "Headquarters · Dubai",
     headline: "Six owned centres. The whole back office.",
-    body: "Tecom, Al Barsha, Bur Dubai, Al Muraqabat, Smart Founders, Naif. Company formation, banking, accounting, audit, Corporate Tax, PRO, real estate and technology — every line under one accountable team.",
+    body: "Tecom, Al Barsha, Bur Dubai, Al Muraqabat, Smart Founders, Naif. Company formation, banking, accounting, audit, Corporate Tax, PRO, real estate and technology: every line under one accountable team.",
     metric: "10,000+",
     metricLabel: "Files launched · since 2013",
     pillars: [
@@ -49,7 +49,7 @@ const countries: Country[] = [
     name: "Canada",
     region: "London, Ontario",
     headline: "Intercity Bus Service.",
-    body: "Scheduled intercity routes and private charters operating out of London, Ontario. Same standard of operations, same family of companies — built for daily reliability.",
+    body: "Scheduled intercity routes and private charters operating out of London, Ontario. Same standard of operations, same family of companies, built for daily reliability.",
     metric: "2021",
     metricLabel: "Operating since",
     pillars: [{ icon: Bus, label: "Transport & charters" }],
@@ -59,7 +59,7 @@ const countries: Country[] = [
     name: "Pakistan",
     region: "Punjab",
     headline: "MM Contractor & General Order Supplies.",
-    body: "Civil works, infrastructure and general supplies through MM Contractor and the Group's order-supply arm — the contracting backbone of the Group's regional projects.",
+    body: "Civil works, infrastructure and general supplies through MM Contractor and the Group's order-supply arm: the contracting backbone of the Group's regional projects.",
     metric: "2021",
     metricLabel: "Operating since",
     pillars: [{ icon: HardHat, label: "Civil & infrastructure" }],
@@ -98,7 +98,7 @@ export function AboutPresence() {
             </h2>
             <p className="mt-5 max-w-2xl text-[1.02rem] leading-relaxed text-ink-mute">
               The Group is anchored in Dubai with operating arms in Canada and
-              Pakistan. Same family, same standards — every company we own ships
+              Pakistan. Same family, same standards. Every company we own ships
               the work it promises.
             </p>
           </m.div>

@@ -24,56 +24,56 @@ const milestones: Milestone[] = [
   {
     year: "2013",
     title: "One floor. One promise.",
-    body: "Smart Creation Business Center is founded at Damac Executive Heights, Tecom — Asad Hashmi's bet that founders deserve one accountable team for every part of setting up in the U.A.E.",
+    body: "Smart Creation Business Center is founded at Damac Executive Heights, Tecom. Asad Hashmi's bet that founders deserve one accountable team for every part of setting up in the U.A.E.",
     tag: "Founded · Tecom, Dubai",
     icon: Rocket,
   },
   {
     year: "2015",
     title: "The first thousand.",
-    body: "Banking introductions, PRO and visa services scale alongside formation. We pass our first thousand U.A.E. companies launched — across mainland and free-zone jurisdictions.",
+    body: "Banking introductions, PRO and visa services scale alongside formation. We pass our first thousand U.A.E. companies launched, across mainland and free-zone jurisdictions.",
     tag: "1,000+ companies launched",
     icon: Compass,
   },
   {
     year: "2017",
-    title: "Smart Place opens — Al Barsha.",
-    body: "A second owned centre opens at Iridium Building, Umm Suqeim Street — flexible furnished offices for entrepreneurs and growing teams in Al Barsha.",
+    title: "Smart Place opens in Al Barsha.",
+    body: "A second owned centre opens at Iridium Building, Umm Suqeim Street: flexible furnished offices for entrepreneurs and growing teams in Al Barsha.",
     tag: "2nd owned centre · Al Barsha 1",
     icon: Building2,
   },
   {
     year: "2019",
-    title: "Smart View — Bur Dubai.",
-    body: "We expand into Bur Dubai with serviced offices designed for credible daily operations — local sponsorship, corporate structuring, and finance & tax under one roof.",
+    title: "Smart View in Bur Dubai.",
+    body: "We expand into Bur Dubai with serviced offices designed for credible daily operations: local sponsorship, corporate structuring, and finance & tax under one roof.",
     tag: "3rd owned centre · Bur Dubai",
     icon: Building2,
   },
   {
     year: "2021",
     title: "The Group goes international.",
-    body: "Intercity Bus Service launches in London, Ontario. MM Contractor begins infrastructure works in Pakistan. The same accountable team — now across three countries.",
+    body: "Intercity Bus Service launches in London, Ontario. MM Contractor begins infrastructure works in Pakistan. The same accountable team, now across three countries.",
     tag: "🇦🇪 · 🇨🇦 · 🇵🇰",
     icon: Globe2,
   },
   {
     year: "2022",
-    title: "Future Space — Al Muraqabat.",
-    body: "Premium serviced offices, flexi desks and virtual offices open at Salah Al Din Street — our fourth owned centre and a full operational footprint across central Dubai.",
+    title: "Future Space in Al Muraqabat.",
+    body: "Premium serviced offices, flexi desks and virtual offices open at Salah Al Din Street: our fourth owned centre and a full operational footprint across central Dubai.",
     tag: "4th owned centre · Deira",
     icon: Landmark,
   },
   {
     year: "2024",
     title: "Compliance, properly.",
-    body: "AML, ESR, UBO and Corporate Tax frameworks rolled out across the client base. Three regulators, three deadlines, one calendar — no missed filings.",
+    body: "AML, ESR, UBO and Corporate Tax frameworks rolled out across the client base. Three regulators, three deadlines, one calendar. No missed filings.",
     tag: "Compliance & tax frameworks",
     icon: Sparkles,
   },
   {
     year: "2026",
     title: "Six centres. Ten companies. One Group.",
-    body: "Smart Creation Group of Companies — six owned Dubai centres, ten sister companies across the U.A.E., Canada and Pakistan, and 10,000+ businesses launched on the ground.",
+    body: "Smart Creation Group of Companies: six owned Dubai centres, ten sister companies across the U.A.E., Canada and Pakistan, and 10,000+ businesses launched on the ground.",
     tag: "Today · 25 people on staff",
     icon: Trophy,
   },
@@ -115,13 +115,13 @@ export function AboutJourney() {
             <span className="h-px w-8 bg-ink/25" />§ The journey
           </div>
           <h2 className="font-display font-semibold text-[clamp(1.9rem,3.6vw,3rem)] leading-[1.04] tracking-[-0.02em] text-ink text-balance">
-            From one floor in 2013 —{" "}
+            From one floor in 2013,{" "}
             <span className="text-brand-deep">
               to a Group of ten, today.
             </span>
           </h2>
           <p className="mt-5 max-w-2xl text-[1.02rem] leading-relaxed text-ink-mute">
-            Twelve years of compounding work — every centre we own, every
+            Twelve years of compounding work: every centre we own, every
             renewal we file, every company we launch sits on the same operating
             promise we made on day one.
           </p>

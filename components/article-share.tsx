@@ -26,7 +26,7 @@ export function ArticleShare({
     ? `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`
     : "#";
   const waHref = url
-    ? `https://wa.me/?text=${encodeURIComponent(`${title} — ${url}`)}`
+    ? `https://wa.me/?text=${encodeURIComponent(`${title} · ${url}`)}`
     : "#";
 
   const onCopy = async () => {

@@ -30,7 +30,7 @@ export default async function InsightsList() {
           </h1>
           <p className="mt-2 text-[0.92rem] text-ink-mute">
             Long-form blog posts. New ones automatically pick up the same
-            premium layout — title, cover, byline, pull-quote, sticky TOC,
+            premium layout: title, cover, byline, pull-quote, sticky TOC,
             FAQ, related posts, CTA.
           </p>
         </div>

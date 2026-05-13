@@ -18,8 +18,8 @@ const ServiceDonut = dynamic(
 
 const trustItems = [
   { value: "12+", label: "Years in U.A.E.", meta: "Founded 2013" },
-  { value: "4", label: "Business centres", meta: "Owned & operated, Dubai" },
-  { value: "9", label: "Group companies", meta: "Across UAE, Canada & Pakistan" },
+  { value: "6", label: "Business centres", meta: "Owned & operated, Dubai" },
+  { value: "12", label: "Group companies", meta: "Across UAE, Canada & Pakistan" },
   { value: "10,000+", label: "Companies launched", meta: "Across every emirate" },
 ];
 
@@ -117,7 +117,7 @@ export function Hero() {
         {/* Masthead line — visible immediately for LCP/SI */}
         <div className="mb-10 flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-mist">
           <span className="h-px w-8 bg-paper/25" />
-          <span>Smart Creation Group of Companies — UAE · Canada · Pakistan</span>
+          <span>Smart Creation Group of Companies · UAE · Canada · Pakistan</span>
         </div>
 
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-14 items-center">
@@ -130,7 +130,7 @@ export function Hero() {
             </h1>
 
             <p className="mt-7 max-w-[34rem] text-[1.05rem] md:text-[1.12rem] leading-relaxed text-paper/70 text-pretty">
-              Smart Creation Group brings four Dubai business centres together with company formation, technology, real estate, holiday rentals, transport and contracting — one trusted partner since 2013.
+              Smart Creation Group brings four Dubai business centres together with company formation, technology, real estate, holiday rentals, transport and contracting. One trusted partner since 2013.
             </p>
 
             <div className="mt-9 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">

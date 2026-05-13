@@ -13,7 +13,7 @@ export function BusinessCenter() {
                                                                       className="flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-stone"
             >
               <span className="h-px w-8 bg-ink/20" />
-              § 08 — Our Business Centres
+              § 08 · Our Business Centres
             </span>
             <h2
                                                                       className="font-display mt-5 text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[1.04] tracking-[-0.02em] text-ink text-balance max-w-3xl"
@@ -25,7 +25,7 @@ export function BusinessCenter() {
                                                                       className="mt-5 text-[1.02rem] leading-relaxed text-ink-mute text-pretty max-w-2xl"
             >
               Most setup agents send you home with a PO box. Smart Creation Group
-              puts your company inside one of six business centres across Dubai —
+              puts your company inside one of six business centres across Dubai:
               flagship offices at Damac Executive Heights, plus locations in Al
               Barsha, Bur Dubai, Al Muraqabat, Smart Founders and our owned
               freehold building in Naif, Deira.

@@ -19,11 +19,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "Smart Creation Group of Companies — Business Setup, Centres & More in Dubai",
+      "Smart Creation Group of Companies · Business Setup, Centres & More in Dubai",
     template: "%s · Smart Creation Group",
   },
   description:
-    "Smart Creation Group of Companies — four Dubai business centres, plus company formation, real estate, technology, holiday homes, transport and contracting across the UAE, Canada and Pakistan. Trusted since 2013.",
+    "Smart Creation Group of Companies. Four Dubai business centres, plus company formation, real estate, technology, holiday homes, transport and contracting across the UAE, Canada and Pakistan. Trusted since 2013.",
   keywords: [
     "Smart Creation Group",
     "Smart Creation Business Center",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE_URL,
     siteName: "Smart Creation Group of Companies",
-    title: "Smart Creation Group — Business Setup, Centres & More in Dubai",
+    title: "Smart Creation Group · Business Setup, Centres & More in Dubai",
     description:
       "Four owned-and-operated Dubai business centres plus company formation, technology, real estate, hospitality, transport and contracting under one trusted group. Since 2013.",
     locale: "en_AE",
@@ -59,13 +59,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Smart Creation Group of Companies — Dubai",
+        alt: "Smart Creation Group of Companies · Dubai",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Smart Creation Group — Business Setup & Centres in Dubai",
+    title: "Smart Creation Group · Business Setup & Centres in Dubai",
     description:
       "Four Dubai business centres plus company formation, technology, real estate, hospitality, transport and contracting.",
     images: ["/og-image.png"],
@@ -107,7 +107,7 @@ const jsonLd = {
       foundingDate: "2013",
       founder: { "@type": "Person", name: "Asad Hashmi" },
       description:
-        "Smart Creation Group of Companies — a multi-sector group operating four Dubai business centres alongside company formation, real estate, technology (Next Journey), holiday rentals, transport and contracting across the UAE, Canada and Pakistan.",
+        "Smart Creation Group of Companies, a multi-sector group operating four Dubai business centres alongside company formation, real estate, technology (Next Journey), holiday rentals, transport and contracting across the UAE, Canada and Pakistan.",
       sameAs: [
         "https://www.linkedin.com/company/smartbusinesscreation",
         "https://www.instagram.com/smartbusinesscreation",
@@ -127,7 +127,7 @@ const jsonLd = {
     {
       "@type": ["LocalBusiness", "ProfessionalService"],
       "@id": `${SITE_URL}#localbusiness`,
-      name: "Smart Creation Group of Companies — HQ",
+      name: "Smart Creation Group of Companies · HQ",
       image: `${SITE_URL}/reception.jpg`,
       url: SITE_URL,
       telephone: "+97143939099",

@@ -14,14 +14,14 @@ export function Services() {
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-12 items-end mb-16 md:mb-24">
           <div className="col-span-12 lg:col-span-5">
             <SectionHeader
-              section="§ 01 — Services"
+              section="§ 01 · Services"
               title={
                 <>
                   Everything a company needs{" "}
                   <span className="text-brand-deep">under one group.</span>
                 </>
               }
-              lede="From trade license to corporate bank account to Corporate Tax filing, Smart Creation Group is the one partner a Dubai business actually needs. Eight practices, one standard — backed by four owned-and-operated business centres."
+              lede="From trade license to corporate bank account to Corporate Tax filing, Smart Creation Group is the one partner a Dubai business actually needs. Twelve practices, one standard, backed by six owned-and-operated business centres."
             />
           </div>
 
@@ -33,7 +33,7 @@ export function Services() {
               {RECEPTION_IMAGE_READY ? (
                 <Image
                   src={RECEPTION_IMAGE_SRC}
-                  alt="Reception at Smart Creation Group HQ — 19th Floor, Damac Executive Heights, Tecom, Dubai"
+                  alt="Reception at Smart Creation Group HQ · 19th Floor, Damac Executive Heights, Tecom, Dubai"
                   fill
                   sizes="(max-width: 1024px) 100vw, 58vw"
                   className="object-cover"
@@ -60,14 +60,14 @@ export function Services() {
                   Damac Executive Heights · Barsha Heights (Tecom)
                 </div>
                 <div className="mt-1 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-mist">
-                  Visit us — Sun to Thu, 09:00 – 18:00 GST
+                  Visit us · Sun to Thu, 09:00 – 18:00 GST
                 </div>
               </div>
             </div>
 
             {/* External caption — like a photo credit */}
             <figcaption className="mt-3 flex items-center justify-between font-mono text-[0.62rem] uppercase tracking-[0.2em] text-stone">
-              <span>— Photograph · Office lobby, Dubai</span>
+              <span>Photograph · Office lobby, Dubai</span>
               <Link
                 href="/business-centers"
                 className="group inline-flex items-center gap-1.5 text-ink hover:text-brand-deep transition-colors"
@@ -268,7 +268,7 @@ function ReceptionPlaceholder() {
       {/* Placeholder hint — clearly marks where the real photo goes */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="rounded-full bg-ink/60 backdrop-blur px-4 py-2 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-paper/90">
-          Reception photograph — pending
+          Reception photograph · pending
         </div>
       </div>
     </>

@@ -8,9 +8,9 @@ import {
 } from "@/components/service-section";
 
 export const metadata: Metadata = {
-  title: "Sharjah & Northern Emirates Free Zones — SHAMS, SPC, RAKEZ, AFZA",
+  title: "Sharjah & Northern Emirates Free Zones · SHAMS, SPC, RAKEZ, AFZA",
   description:
-    "Sharjah Media City, Sharjah Publishing City, RAKEZ and Ajman Free Zone — every Northern Emirates option compared by cost, activity list and visa quota.",
+    "Sharjah Media City, Sharjah Publishing City, RAKEZ and Ajman Free Zone: every Northern Emirates option compared by cost, activity list and visa quota.",
   alternates: { canonical: "/free-zones/northern-emirates" },
 };
 
@@ -21,9 +21,9 @@ const sections: ServiceSectionData[] = [
     eyebrow: "Sharjah · media & creative",
     title: "SHAMS",
     icon: "globe",
-    image: { src: "/free-zones/shams-large.webp", alt: "SHAMS — Sharjah" },
+    image: { src: "/free-zones/shams-large.webp", alt: "SHAMS · Sharjah" },
     lede:
-      "Sharjah Media City — affordable, fast and creative-friendly. Right for content creators, freelancers, agencies and small media-adjacent businesses. Two-day licence, low cost, broad activity list.",
+      "Sharjah Media City is affordable, fast and creative-friendly. Right for content creators, freelancers, agencies and small media-adjacent businesses. Two-day licence, low cost, broad activity list.",
     good: [
       "Solo founders, freelancers and creators",
       "Marketing agencies and content studios on a budget",
@@ -33,7 +33,7 @@ const sections: ServiceSectionData[] = [
     included: [
       "Activity classification against SHAMS' creative list",
       "Application + KYC submission",
-      "Flexi-desk lease — Sharjah-resident-friendly",
+      "Flexi-desk lease, Sharjah-resident-friendly",
       "Establishment card, immigration file, visa quota",
       "Bank account introduction",
     ],
@@ -46,7 +46,7 @@ const sections: ServiceSectionData[] = [
     highlight: {
       eyebrow: "Why SHAMS punches above its weight",
       title: "Two-day licence at the lowest credible cost.",
-      body: "SHAMS isn't Dubai-prestige but for solo founders, freelancers and small creative shops it's the fastest way to a real licence with bank-acceptable paperwork — and you can bring family on the same visa.",
+      body: "SHAMS isn't Dubai-prestige but for solo founders, freelancers and small creative shops it's the fastest way to a real licence with bank-acceptable paperwork, and you can bring family on the same visa.",
     },
     steps: [
       "Match your activity to SHAMS' creative list.",
@@ -61,9 +61,9 @@ const sections: ServiceSectionData[] = [
     eyebrow: "Sharjah · publishing & content",
     title: "SPC",
     icon: "globe",
-    image: { src: "/free-zones/spc-large.webp", alt: "SPC — Sharjah" },
+    image: { src: "/free-zones/spc-large.webp", alt: "SPC · Sharjah" },
     lede:
-      "Sharjah Publishing City — built for publishing, e-learning, content production and intellectual-property businesses. Strong cultural and academic ecosystem, IP-friendly licensing.",
+      "Sharjah Publishing City is built for publishing, e-learning, content production and intellectual-property businesses. Strong cultural and academic ecosystem, IP-friendly licensing.",
     good: [
       "Publishers, e-learning and EdTech companies",
       "Authors, agents and rights-management businesses",
@@ -101,9 +101,9 @@ const sections: ServiceSectionData[] = [
     eyebrow: "RAK · industrial & SME",
     title: "RAKEZ",
     icon: "globe",
-    image: { src: "/free-zones/rakez-large.webp", alt: "RAKEZ — Ras Al Khaimah" },
+    image: { src: "/free-zones/rakez-large.webp", alt: "RAKEZ · Ras Al Khaimah" },
     lede:
-      "Ras Al Khaimah Economic Zone — the most cost-efficient industrial and SME licensing in the UAE. Industrial parks, plots, warehouses and offices at a fraction of Dubai pricing, with broad activity lists and 0% personal income tax.",
+      "Ras Al Khaimah Economic Zone is the most cost-efficient industrial and SME licensing in the UAE. Industrial parks, plots, warehouses and offices at a fraction of Dubai pricing, with broad activity lists and 0% personal income tax.",
     good: [
       "Manufacturing, industrial and SME operators",
       "Cost-sensitive trading and import-export businesses",
@@ -126,7 +126,7 @@ const sections: ServiceSectionData[] = [
     highlight: {
       eyebrow: "Why RAKEZ for industrial",
       title: "Half the cost of Dubai for the same legal protections.",
-      body: "If your business doesn't depend on a Dubai postcode, RAKEZ delivers the same UAE corporate framework, same 100% foreign ownership, same banking access — for materially lower setup and renewal cost.",
+      body: "If your business doesn't depend on a Dubai postcode, RAKEZ delivers the same UAE corporate framework, same 100% foreign ownership, same banking access, for materially lower setup and renewal cost.",
     },
     steps: [
       "Match activity to RAKEZ industrial / commercial list.",
@@ -141,9 +141,9 @@ const sections: ServiceSectionData[] = [
     eyebrow: "Ajman · fastest entry",
     title: "AFZA",
     icon: "globe",
-    image: { src: "/free-zones/afza-large.webp", alt: "AFZA — Ajman" },
+    image: { src: "/free-zones/afza-large.webp", alt: "AFZA · Ajman" },
     lede:
-      "Ajman Free Zone (AFZA) — one of the fastest and cheapest UAE free-zone licences. Right for first-time entrepreneurs, small trading and consulting firms, and bootstrapped founders who want a real UAE licence without Dubai overhead.",
+      "Ajman Free Zone (AFZA) is one of the fastest and cheapest UAE free-zone licences. Right for first-time entrepreneurs, small trading and consulting firms, and bootstrapped founders who want a real UAE licence without Dubai overhead.",
     good: [
       "First-time founders launching their first UAE business",
       "Small consulting, trading and service businesses",
@@ -166,7 +166,7 @@ const sections: ServiceSectionData[] = [
     highlight: {
       eyebrow: "Why AFZA for first-time founders",
       title: "Cheapest credible UAE licence, in days.",
-      body: "AFZA isn't Dubai prestige, but it's a fully legitimate UAE free-zone licence. Lower stakes, lower cost, lower risk — the right way to test an idea in the UAE without committing capital you don't yet need to.",
+      body: "AFZA isn't Dubai prestige, but it's a fully legitimate UAE free-zone licence. Lower stakes, lower cost, lower risk: the right way to test an idea in the UAE without committing capital you don't yet need to.",
     },
     steps: [
       "Confirm activity matches AFZA's list.",
@@ -200,7 +200,7 @@ export default function NorthernEmiratesZonesPage() {
               </h2>
               <p className="mt-5 max-w-2xl text-[1.02rem] leading-relaxed text-paper/75">
                 Activity, ownership, visa quota, banking, lease type and total
-                year-one cost — assessed against all four Northern Emirates zones
+                year-one cost: assessed against all four Northern Emirates zones
                 and back to you within one business day.
               </p>
             </div>

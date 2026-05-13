@@ -115,7 +115,7 @@ export default async function PropertiesList({
                   </div>
                   <div className="p-4">
                     <div className="font-mono text-[0.6rem] uppercase tracking-[0.22em] text-stone">
-                      {p.office_no} · {centre?.name ?? "—"}
+                      {p.office_no} · {centre?.name ?? "–"}
                     </div>
                     <h3 className="mt-1 font-display text-[1.1rem] tracking-[-0.01em] text-ink truncate">
                       {p.title}

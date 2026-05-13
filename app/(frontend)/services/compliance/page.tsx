@@ -8,7 +8,7 @@ import {
 } from "@/components/service-section";
 
 export const metadata: Metadata = {
-  title: "Compliance & Licensing — Trademark, AML, ESR, UBO, Renewals",
+  title: "Compliance & Licensing · Trademark, AML, ESR, UBO, Renewals",
   description:
     "Trademark filing, AML / ESR / UBO frameworks, MOFA & embassy attestation and annual licence renewals. Smart Creation Group calendars and files everything that keeps your business legal.",
   alternates: { canonical: "/services/compliance" },
@@ -22,7 +22,7 @@ const sections: ServiceSectionData[] = [
     title: "Trademark",
     icon: "copyright",
     lede:
-      "Register your brand name, logo and word-marks in the UAE — and, when you're ready, internationally through the Madrid System. Most disputes start because the trademark wasn't filed early enough; we make sure yours is.",
+      "Register your brand name, logo and word-marks in the UAE, and, when you're ready, internationally through the Madrid System. Most disputes start because the trademark wasn't filed early enough; we make sure yours is.",
     image: {
       src: "/services/compliance/trademark.webp",
       alt: "Trademark filing",
@@ -31,31 +31,31 @@ const sections: ServiceSectionData[] = [
       "Founders launching a new brand or product line",
       "Companies expanding into a new emirate or international market",
       "Businesses that just received a copy-cat warning or threat",
-      "Anyone whose name is on a contract — protect it before someone else files it",
+      "Anyone whose name is on a contract; protect it before someone else files it",
     ],
     included: [
       "Pre-filing similarity search across UAE, GCC and key markets",
       "Class selection across the 45 Nice classification classes",
       "Application drafting, filing fee handling and Ministry follow-up",
       "Publication, opposition window and certificate issuance",
-      "International filing via the Madrid Protocol — multiple countries in one file",
+      "International filing via the Madrid Protocol (multiple countries in one file)",
     ],
     meta: [
-      { label: "Authority", value: "MoE — Ministry of Economy" },
+      { label: "Authority", value: "MoE · Ministry of Economy" },
       { label: "Term", value: "10 years · renewable" },
       { label: "Filing time", value: "8–12 months to certificate" },
-      { label: "International", value: "Madrid Protocol — single filing, many countries" },
+      { label: "International", value: "Madrid Protocol · single filing, many countries" },
     ],
     highlight: {
       eyebrow: "The classic mistake",
       title: "Trade licence is not a trademark.",
-      body: "Your trade licence proves you can operate. Your trademark proves the brand belongs to you. We see disputes every quarter because owners assumed the licence was enough — file the trademark while the brand is still small.",
+      body: "Your trade licence proves you can operate. Your trademark proves the brand belongs to you. We see disputes every quarter because owners assumed the licence was enough. File the trademark while the brand is still small.",
     },
     steps: [
       "Run a similarity search across UAE and target markets.",
       "Pick the right classes (the 45-class system).",
       "File with MoE and respond to any office action.",
-      "Publish, clear opposition window — receive certificate.",
+      "Publish, clear opposition window, receive certificate.",
     ],
   },
   {
@@ -65,14 +65,14 @@ const sections: ServiceSectionData[] = [
     title: "AML / ESR / UBO",
     icon: "badge-check",
     lede:
-      "Anti-Money-Laundering frameworks, Economic Substance Regulations notifications and Ultimate Beneficial Owner filings. Each one carries fines if missed — we put the framework in place and file every cycle on time.",
+      "Anti-Money-Laundering frameworks, Economic Substance Regulations notifications and Ultimate Beneficial Owner filings. Each one carries fines if missed. We put the framework in place and file every cycle on time.",
     image: {
       src: "/services/compliance/aml-esr-ubo.webp",
       alt: "AML, ESR and UBO compliance",
     },
     good: [
       "DNFBPs (real estate, dealers in precious metals, accountants, advisors)",
-      "Companies engaged in relevant ESR activities — IP, holding, banking, leasing",
+      "Companies engaged in relevant ESR activities: IP, holding, banking, leasing",
       "Free-zone and mainland companies with multiple beneficial owners",
       "Boards needing a documented compliance framework, not just a filing",
     ],
@@ -86,19 +86,19 @@ const sections: ServiceSectionData[] = [
     meta: [
       { label: "Authorities", value: "FIU · MoE · DET · free-zone regulators" },
       { label: "Cadence", value: "Annual + change-driven filings" },
-      { label: "Fines if missed", value: "AED 10k–1M · per breach" },
+      { label: "Fines if missed", value: "AED 10k–1M per breach" },
       { label: "Coverage", value: "Mainland · free zone · offshore" },
     ],
     highlight: {
       eyebrow: "Why these get missed",
       title: "Three filings, three authorities, three deadlines.",
-      body: "AML, ESR and UBO each go to a different regulator on a different schedule. We track all three on one calendar so the year-end never becomes a fire drill — and the policies behind them are real, not template-only.",
+      body: "AML, ESR and UBO each go to a different regulator on a different schedule. We track all three on one calendar so the year-end never becomes a fire drill, and the policies behind them are real, not template-only.",
     },
     steps: [
       "Risk-assess the entity for AML, ESR and UBO obligations.",
       "Draft policies, registers and KYC frameworks.",
       "File the relevant notifications and returns.",
-      "Recertify each cycle — no missed deadlines.",
+      "Recertify each cycle. No missed deadlines.",
     ],
   },
   {
@@ -108,7 +108,7 @@ const sections: ServiceSectionData[] = [
     title: "Document attestation",
     icon: "file-signature",
     lede:
-      "Notarisation, Ministry of Foreign Affairs and embassy attestation for documents you need accepted in the UAE — or UAE documents you need accepted abroad. Education certificates, marriage certificates, MOAs, powers of attorney and corporate documents.",
+      "Notarisation, Ministry of Foreign Affairs and embassy attestation for documents you need accepted in the UAE, or UAE documents you need accepted abroad. Education certificates, marriage certificates, MOAs, powers of attorney and corporate documents.",
     image: {
       src: "/services/compliance/attestation.webp",
       alt: "Document attestation",
@@ -117,14 +117,14 @@ const sections: ServiceSectionData[] = [
       "Newcomers attesting marriage, birth and education certificates",
       "Founders preparing MOAs and shareholder docs for a new entity",
       "Companies signing cross-border contracts with attested PoAs",
-      "Owners taking UAE documents abroad — selling property, opening accounts",
+      "Owners taking UAE documents abroad: selling property, opening accounts",
     ],
     included: [
-      "Document review — what attestation chain is required",
+      "Document review to confirm the attestation chain required",
       "Translation through approved legal translators",
       "Notarisation, Ministry of Justice and MOFA attestation",
       "Embassy / consulate attestation for the destination country",
-      "Pickup, delivery and tracking — we handle the queues",
+      "Pickup, delivery and tracking; we handle the queues",
     ],
     meta: [
       { label: "Touchpoints", value: "Notary · MoJ · MOFA · embassies" },
@@ -134,14 +134,14 @@ const sections: ServiceSectionData[] = [
     ],
     highlight: {
       eyebrow: "Why timing matters",
-      title: "The chain is sequential — get one stamp wrong and you start over.",
-      body: "MOFA won't attest what wasn't notarised first. Embassies won't accept what MOFA hasn't stamped. We map the right chain for your destination country before the first stamp — so you don't lose two weeks redoing it.",
+      title: "The chain is sequential. Get one stamp wrong and you start over.",
+      body: "MOFA won't attest what wasn't notarised first. Embassies won't accept what MOFA hasn't stamped. We map the right chain for your destination country before the first stamp, so you don't lose two weeks redoing it.",
     },
     steps: [
       "Review the document and target country requirements.",
       "Translate (if required) through approved translators.",
       "Walk through Notary → MoJ → MOFA in order.",
-      "Final embassy / consulate stamp — delivered ready to use.",
+      "Final embassy / consulate stamp, delivered ready to use.",
     ],
   },
   {
@@ -151,7 +151,7 @@ const sections: ServiceSectionData[] = [
     title: "License renewal",
     icon: "refresh-cw",
     lede:
-      "Trade licence renewals across mainland, every UAE free zone and offshore. We run the calendar, send the invoice, file before expiry and keep a clean activity history — so your licence never lapses and your operations never stop.",
+      "Trade licence renewals across mainland, every UAE free zone and offshore. We run the calendar, send the invoice, file before expiry and keep a clean activity history, so your licence never lapses and your operations never stop.",
     image: {
       src: "/services/compliance/renewal.webp",
       alt: "Annual licence renewal",
@@ -160,28 +160,28 @@ const sections: ServiceSectionData[] = [
       "Companies that missed a renewal once and don't want to repeat it",
       "Multi-entity groups managing licences across several jurisdictions",
       "Founders who want a single point of accountability for renewals",
-      "Owners about to travel — get the renewal closed before you leave",
+      "Owners about to travel: get the renewal closed before you leave",
     ],
     included: [
       "Renewal calendar with reminders 60 / 30 / 7 days before expiry",
       "Tenancy contract / Ejari renewal coordination if required",
-      "Authority filings — DET, free-zone authority or offshore registry",
-      "Activity audit — add, remove or amend activities at renewal",
+      "Authority filings: DET, free-zone authority or offshore registry",
+      "Activity audit: add, remove or amend activities at renewal",
       "Trade licence reissued and circulated to your team",
     ],
     meta: [
       { label: "Coverage", value: "Mainland · all free zones · offshore" },
       { label: "Reminder cadence", value: "60 / 30 / 7 days" },
-      { label: "Lapse policy", value: "We file before expiry — no fines" },
+      { label: "Lapse policy", value: "We file before expiry. No fines" },
       { label: "Bundles", value: "Combine with PRO, Ejari, accounting" },
     ],
     highlight: {
       eyebrow: "Why we never let a licence lapse",
-      title: "We don't ask you to remember — we just file.",
+      title: "We don't ask you to remember. We just file.",
       body: "Renewals get missed because they're tied to one busy person. We hold the calendar, prep the invoice, follow up if anything's outstanding, and file before the deadline. Your only role is to approve.",
     },
     steps: [
-      "Audit the licence — activities, ownership, address, validity.",
+      "Audit the licence: activities, ownership, address, validity.",
       "Renew the tenancy / Ejari if it underpins the licence.",
       "File with the authority before the expiry date.",
       "Reissued licence delivered, calendar updated for next year.",
@@ -212,7 +212,7 @@ export default function CompliancePage() {
               </h2>
               <p className="mt-5 max-w-2xl text-[1.02rem] leading-relaxed text-paper/75">
                 Trademark gaps, AML / ESR / UBO obligations, attestation needs and
-                renewal dates — assessed and back to you within one business day.
+                renewal dates: assessed and back to you within one business day.
                 Free, 30-minute review.
               </p>
             </div>

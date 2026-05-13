@@ -95,7 +95,7 @@ function MemberRow({
           )}
         </div>
         <div className="mt-0.5 text-[0.85rem] text-ink-mute truncate">
-          {m.role || "—"}
+          {m.role || "–"}
         </div>
       </div>
 
@@ -348,7 +348,7 @@ export function TeamList({ initial }: { initial: Member[] }) {
         <div className="rounded-3xl border border-dashed border-ink/15 bg-paper-soft px-6 py-14 text-center">
           <div className="font-display text-[1.1rem] text-ink">No team members yet</div>
           <p className="mt-2 text-[0.92rem] text-ink-mute max-w-md mx-auto">
-            Add your first member — photo, role, LinkedIn — and they&apos;ll
+            Add your first member (photo, role, LinkedIn) and they&apos;ll
             appear on the About page within seconds.
           </p>
           <Link

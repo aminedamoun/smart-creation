@@ -30,7 +30,7 @@ export function FinalCTA() {
           <div className="col-span-12 lg:col-span-7">
             <div className="flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-mist">
               <span className="h-px w-8 bg-paper/25" />
-              § 10 — Start your company
+              § 10 · Start your company
             </div>
 
             <h2 className="font-display mt-6 text-[clamp(2.2rem,5.5vw,4.2rem)] leading-[1.02] tracking-[-0.025em] text-paper text-balance">
@@ -40,7 +40,7 @@ export function FinalCTA() {
 
             <p className="mt-6 max-w-xl text-[1.05rem] leading-relaxed text-paper/75 text-pretty">
               Book a free 45-minute consultation. Tell us what you're building. We'll come
-              back with a written plan — jurisdiction, costs, timeline, and the next steps —
+              back with a written plan (jurisdiction, costs, timeline, and the next steps)
               within one working day. No sales script.
             </p>
 
@@ -104,7 +104,7 @@ export function FinalCTA() {
               </div>
 
               <div className="mt-10 hairline-t pt-5 flex items-center justify-between font-mono text-[0.68rem] uppercase tracking-[0.2em] text-mist">
-                <span>Sun — Thu · 09:00 – 18:00 GST</span>
+                <span>Sun to Thu · 09:00 – 18:00 GST</span>
                 <span className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-brand animate-pulse" />
                   Open now

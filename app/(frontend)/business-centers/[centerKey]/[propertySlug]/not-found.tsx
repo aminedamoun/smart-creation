@@ -7,7 +7,7 @@ export default function NotFound() {
       <div className="container-edit">
         <div className="max-w-xl">
           <div className="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-stone mb-3">
-            § 404 — Office not found
+            § 404 · Office not found
           </div>
           <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-medium tracking-[-0.02em] leading-[1.02] text-ink">
             We couldn't find that office.

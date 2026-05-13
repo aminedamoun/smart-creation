@@ -30,14 +30,14 @@ const items: Diff[] = [
   },
   {
     title: "Plain-English, fee-blind advice",
-    body: "Mainland or free zone, QFZP exposure, banking acceptance — every variable mapped to your activity in one written brief. We say what we'd do, not what makes the bigger fee.",
+    body: "Mainland or free zone, QFZP exposure, banking acceptance: every variable mapped to your activity in one written brief. We say what we'd do, not what makes the bigger fee.",
     metric: "1 day",
     metricLabel: "brief → costed plan",
     icon: Sparkles,
   },
   {
     title: "Owned infrastructure",
-    body: "Six business centres we own and operate — Tecom, Al Barsha, Bur Dubai, Al Muraqabat, Smart Founders and Naif. Walk-in tours, floors we control, no broker layer.",
+    body: "Six business centres we own and operate: Tecom, Al Barsha, Bur Dubai, Al Muraqabat, Smart Founders and Naif. Walk-in tours, floors we control, no broker layer.",
     metric: "6",
     metricLabel: "owned Dubai centres",
     icon: Building2,
@@ -51,14 +51,14 @@ const items: Diff[] = [
   },
   {
     title: "Built to renew, not just open",
-    body: "Twelve years means we've seen the renewal cycle, the audit cycle, the corporate-tax cycle. We don't disappear after the licence — we file every year, on the calendar.",
+    body: "Twelve years means we've seen the renewal cycle, the audit cycle, the corporate-tax cycle. We don't disappear after the licence; we file every year, on the calendar.",
     metric: "100%",
     metricLabel: "renewals before expiry",
     icon: Calendar,
   },
   {
     title: "Compliance, properly",
-    body: "AML, ESR, UBO, Corporate Tax, VAT, e-invoicing. Three regulators, three deadlines, one calendar — no missed filings, no fines, no fires.",
+    body: "AML, ESR, UBO, Corporate Tax, VAT, e-invoicing. Three regulators, three deadlines, one calendar. No missed filings, no fines, no fires.",
     metric: "0",
     metricLabel: "missed filings · 12 yrs",
     icon: ShieldCheck,
@@ -91,7 +91,7 @@ export function AboutDifferentiators() {
               <span className="h-px w-8 bg-ink/25" />§ Why founders choose us
             </div>
             <h2 className="font-display font-semibold text-[clamp(1.9rem,3.6vw,3rem)] leading-[1.04] tracking-[-0.02em] text-ink text-balance">
-              Six habits we don't compromise on —{" "}
+              Six habits we don't compromise on,{" "}
               <span className="text-brand-deep">
                 and our clients feel them daily.
               </span>
@@ -196,7 +196,7 @@ export function AboutDifferentiators() {
                 <h3 className="font-display font-semibold text-[1.3rem] md:text-[1.55rem] leading-[1.2] tracking-[-0.02em] text-ink text-balance">
                   Want to see the centres themselves?{" "}
                   <span className="text-brand-deep">
-                    Six owned floors across Dubai — every room, every price, live.
+                    Six owned floors across Dubai. Every room, every price, live.
                   </span>
                 </h3>
               </div>

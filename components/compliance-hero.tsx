@@ -154,7 +154,7 @@ export function ComplianceHero() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="font-display font-medium tracking-[-0.03em] leading-[0.98] text-[clamp(2.4rem,6vw,4.6rem)] text-paper text-balance"
             >
-              <span className="block">Stay compliant —</span>
+              <span className="block">Stay compliant.</span>
               <span className="block">never lose a day</span>
               <span className="block text-brand">to paperwork.</span>
             </m.h1>
@@ -166,7 +166,7 @@ export function ComplianceHero() {
               className="mt-7 max-w-[36rem] text-[1.04rem] md:text-[1.1rem] leading-relaxed text-paper/70 text-pretty"
             >
               Trademarks, AML / ESR / UBO frameworks, MOFA attestation and
-              every annual licence renewal — owned, calendared and filed by
+              every annual licence renewal, owned, calendared and filed by
               the same team. Nothing slips, nothing expires unnoticed.
             </m.p>
 

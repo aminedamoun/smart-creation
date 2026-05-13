@@ -63,7 +63,7 @@ const CHIPS: Chip[] = [
     anim: { duration: "1.7s", delay: "-0.7s" },
   },
   {
-    companyId: "smart-accounting-tax",
+    companyId: "smart-business-creation",
     cx: 710,
     cy: 80,
     path: "M 590 280 v -42 q 0 -14 14 -14 h 92 q 14 0 14 -14 v -70",
@@ -192,16 +192,16 @@ export function GroupOfCompanies() {
           <SectionHeader
             theme="dark"
             align="center"
-            section="§ 04 — The Group"
+            section="§ 04 · The Group"
             title={
               <>
                 Smart Creation Group
                 <span className="block text-brand-soft">
-                  One parent, ten affiliated companies.
+                  One parent, twelve affiliated companies.
                 </span>
               </>
             }
-            lede="The Group sits at the centre of the circuit. Around it, ten specialist companies plug in — five sister business centres, real estate, hospitality, transport, contracting and accounting & tax across the UAE, Canada and Pakistan."
+            lede="The Group sits at the centre of the circuit. Around it, twelve specialist companies plug in: six sister business centres, real estate, hospitality, travel, transport, contracting and accounting & tax across the UAE, Canada and Pakistan."
           />
         </div>
 
@@ -346,7 +346,7 @@ export function GroupOfCompanies() {
 
         {/* Footnote */}
         <div className="mt-10 hidden md:flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-mist">
-          <span>Live circuit · 10 affiliates · 3 countries</span>
+          <span>Live circuit · 12 affiliates · 3 countries</span>
           <span className="text-mist/50">·</span>
           <Link
             href="/business-centers"
@@ -400,7 +400,7 @@ function CentreCard({ compact = false }: { compact?: boolean }) {
             <span className="absolute inset-0 inline-flex animate-ping rounded-full bg-brand opacity-70" />
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
           </span>
-          10 affiliates · 3 countries
+          12 affiliates · 3 countries
         </div>
       </div>
     </div>
@@ -421,6 +421,7 @@ function PerimeterCard({ company }: { company: GroupCompany }) {
     "abna-rashid": "scale-[1.2]",
     "mm-contractor": "scale-[1.85]",
     "intercity-bus": "scale-[1.05]",
+    "smart-business-creation": "scale-[0.9]",
   };
   const scaleClass = logoScale[company.id] ?? "";
 

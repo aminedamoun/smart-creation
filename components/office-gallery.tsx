@@ -52,7 +52,7 @@ export function OfficeGallery({ images, title }: OfficeGalleryProps) {
           >
             <Image
               src={images[activeIdx]}
-              alt={`${title} — photo ${activeIdx + 1} of ${images.length}`}
+              alt={`${title} · photo ${activeIdx + 1} of ${images.length}`}
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 80vw"

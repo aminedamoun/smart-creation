@@ -186,12 +186,12 @@ export function CentresHero({
             </div>
             <h1 className="font-display font-medium tracking-[-0.03em] leading-[0.98] text-[clamp(2.2rem,5.4vw,4.4rem)] text-paper text-balance">
               <span className="block">{headlineCount} centres</span>
-              <span className="block">across Dubai —</span>
+              <span className="block">across Dubai,</span>
               <span className="block text-brand">pick where you work.</span>
             </h1>
             <p className="mt-7 max-w-2xl text-[1.02rem] md:text-[1.08rem] leading-relaxed text-paper/70 text-pretty">
               Every Smart Creation Group centre is owned, fully serviced and
-              Ejari-ready — managed by the same team that handles your trade
+              Ejari-ready, managed by the same team that handles your trade
               licence, bank account and visa. Click into a centre for the
               address, local advantages and live property availability.
             </p>

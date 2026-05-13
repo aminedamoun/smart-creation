@@ -175,7 +175,7 @@ export function NorthernEmiratesZonesHero() {
               className="font-display font-medium tracking-[-0.03em] leading-[0.98] text-[clamp(2.4rem,6vw,4.6rem)] text-paper text-balance"
             >
               <span className="block">The most affordable</span>
-              <span className="block">free zones —</span>
+              <span className="block">free zones,</span>
               <span className="block text-brand">outside Dubai.</span>
             </m.h1>
 
@@ -185,8 +185,8 @@ export function NorthernEmiratesZonesHero() {
               transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
               className="mt-7 max-w-[36rem] text-[1.04rem] md:text-[1.1rem] leading-relaxed text-paper/70 text-pretty"
             >
-              SHAMS, SPC, RAKEZ, AFZA — Sharjah, Ras Al Khaimah and Ajman free
-              zones. Lower setup cost, equally legitimate licence, same 100%
+              SHAMS, SPC, RAKEZ, AFZA across Sharjah, Ras Al Khaimah and Ajman
+              free zones. Lower setup cost, equally legitimate licence, same 100%
               foreign ownership. Right when budget matters more than the Dubai
               postcode.
             </m.p>

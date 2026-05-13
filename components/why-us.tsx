@@ -4,20 +4,20 @@ import { SectionHeader } from "@/components/ui/section-header";
 
 const cardImages: Record<string, { src: string; alt: string }> = {
   "01": {
-    src: "/reception.jpg",
-    alt: "Smart Creation Group reception — Damac Executive Heights, 19th Floor, Dubai",
+    src: "/services-banner.webp",
+    alt: "Smart Creation Group reception · Damac Executive Heights, 19th Floor, Dubai",
   },
   "02": {
     src: "/difference/02.webp",
-    alt: "Dubai skyline — home of every major U.A.E. free zone",
+    alt: "Dubai skyline · home of every major U.A.E. free zone",
   },
   "03": {
     src: "/difference/03.webp",
-    alt: "Fifteen years of company files — ten thousand companies",
+    alt: "Fifteen years of company files · ten thousand companies",
   },
   "04": {
     src: "/difference/04.webp",
-    alt: "Contracts, reports & ongoing compliance — beyond the license",
+    alt: "Contracts, reports & ongoing compliance · beyond the license",
   },
 };
 
@@ -27,14 +27,14 @@ export function WhyUs() {
       <div className="container-edit">
         <div className="max-w-3xl mb-14 md:mb-20">
           <SectionHeader
-            section="§ 06 — The difference"
+            section="§ 06 · The difference"
             title={
               <>
                 Why founders who have done it before{" "}
                 <span className="text-brand-deep">come back to us.</span>
               </>
             }
-            lede="Setup agencies are not commodities. The difference shows up in the second year — when the hand-off fails, the visa renewal gets stuck, or the Corporate Tax deadline arrives. Here's what we do differently."
+            lede="Setup agencies are not commodities. The difference shows up in the second year, when the hand-off fails, the visa renewal gets stuck, or the Corporate Tax deadline arrives. Here's what we do differently."
           />
         </div>
 

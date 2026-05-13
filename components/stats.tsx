@@ -7,7 +7,7 @@ export function Stats() {
       <div className="container-edit">
         <div className="flex items-center gap-3 font-mono text-[0.68rem] uppercase tracking-[0.22em] text-stone mb-10">
           <span className="h-px w-8 bg-ink/20" />
-          § 09 — The record
+          § 09 · The record
         </div>
 
         <ul className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-4 md:gap-x-8">

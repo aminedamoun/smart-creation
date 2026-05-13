@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, Star } from "lucide-react";
 import { googleRating, testimonials } from "@/lib/data";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -10,7 +11,7 @@ export function Testimonials() {
         <div className="grid grid-cols-12 gap-x-4 md:gap-x-8 gap-y-10 items-end mb-14 md:mb-20">
           <div className="col-span-12 lg:col-span-7">
             <SectionHeader
-              section="§ 10 — Founders on record"
+              section="§ 10 · Founders on record"
               title={
                 <>
                   The references are our founders.{" "}
@@ -19,7 +20,7 @@ export function Testimonials() {
                   </span>
                 </>
               }
-              lede="Verified reviews from founders we've licensed, banked, and visa'd. No curated testimonials, no edits — the same reviews Google shows the world."
+              lede="Verified reviews from founders we've licensed, banked, and visa'd. No curated testimonials, no edits. The same reviews Google shows the world."
             />
           </div>
 
@@ -59,16 +60,28 @@ export function Testimonials() {
             >
               {/* Header — avatar + name + Google badge */}
               <div className="flex items-start gap-3">
-                <div
-                  aria-hidden
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full font-semibold text-[0.95rem]"
-                  style={{
-                    backgroundColor: t.avatarColor,
-                    color: contrastingText(t.avatarColor),
-                  }}
-                >
-                  {t.initials}
-                </div>
+                {t.photo ? (
+                  <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-ink/10 bg-paper-soft">
+                    <Image
+                      src={t.photo}
+                      alt={`${t.name} profile photo`}
+                      fill
+                      sizes="44px"
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    aria-hidden
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full font-semibold text-[0.95rem]"
+                    style={{
+                      backgroundColor: t.avatarColor,
+                      color: contrastingText(t.avatarColor),
+                    }}
+                  >
+                    {t.initials}
+                  </div>
+                )}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-1.5">
                     <span className="font-medium text-[0.95rem] text-ink truncate">
@@ -106,7 +119,7 @@ export function Testimonials() {
             highest compliment you can pay a boutique firm.
           </p>
           <Link
-            href={googleRating.profileUrl}
+            href={googleRating.writeReviewUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 rounded-full bg-brand-night px-5 py-2.5 text-[0.9rem] font-medium text-paper hover:bg-brand transition-colors"

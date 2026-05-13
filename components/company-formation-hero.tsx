@@ -161,7 +161,7 @@ export function CompanyFormationHero() {
               className="font-display font-medium tracking-[-0.03em] leading-[0.98] text-[clamp(2.4rem,6vw,4.6rem)] text-paper text-balance"
             >
               <span className="block">Pick the right</span>
-              <span className="block">structure first —</span>
+              <span className="block">structure first,</span>
               <span className="block text-brand">everything else gets easier.</span>
             </m.h1>
 
@@ -171,7 +171,7 @@ export function CompanyFormationHero() {
               transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
               className="mt-7 max-w-[36rem] text-[1.04rem] md:text-[1.1rem] leading-relaxed text-paper/70 text-pretty"
             >
-              Mainland, free zone, offshore or a holding-company group — we set up
+              Mainland, free zone, offshore or a holding-company group: we set up
               companies across every UAE jurisdiction. One team accountable from
               name reservation to your first invoice.
             </m.p>

@@ -127,7 +127,7 @@ export function SiteHeader() {
             inverted ? "text-mist" : "text-stone"
           )}
         >
-          <span>Dubai — Abu Dhabi — Sharjah — RAK</span>
+          <span>Dubai · Abu Dhabi · Sharjah · RAK</span>
           <span>Est. MMXIII · Trusted since 2013</span>
         </div>
       </div>

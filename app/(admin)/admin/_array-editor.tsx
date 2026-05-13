@@ -83,7 +83,7 @@ export function ArrayEditor<T extends Record<string, string>>({
           </li>
         ))}
         {items.length === 0 && (
-          <li className="text-[0.84rem] text-ink-mute italic">No items yet — click "+ Add"</li>
+          <li className="text-[0.84rem] text-ink-mute italic">No items yet. Click "+ Add"</li>
         )}
       </ul>
       <input type="hidden" name={name} value={JSON.stringify(items)} />

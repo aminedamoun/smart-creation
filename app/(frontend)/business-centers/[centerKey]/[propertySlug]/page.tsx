@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!raw) return {};
   const office = propertyToOffice(raw);
 
-  const title = `${office.officeNo} — ${office.title}`;
+  const title = `${office.officeNo} · ${office.title}`;
   const description = `${office.sqft ?? office.capacity} ${office.category.toLowerCase()} at ${office.building}, ${office.location}. ${office.availability}. From AED ${office.price.amount}${office.price.period}. Trusted since 2013.`;
   const url = `/business-centers/${centerKey}/${propertySlug}`;
 
@@ -84,7 +84,7 @@ export default async function PropertyDetailPage({ params }: PageProps) {
     { label: "DDA NOC", value: office.fees.ddaNoc },
     { label: "VAT", value: office.fees.vat },
     { label: "Parking", value: office.fees.parking },
-  ].filter((r) => r.value && r.value !== "—");
+  ].filter((r) => r.value && r.value !== "–" && r.value !== "—");
 
   return (
     <>
@@ -291,7 +291,7 @@ export default async function PropertyDetailPage({ params }: PageProps) {
                 <p className="text-[0.88rem] text-ink-mute leading-relaxed">
                   Every tenant gets free company-formation and PRO consultation.
                   If you need a trade license, visas, or a bank account alongside
-                  the office — we handle all three.
+                  the office, we handle all three.
                 </p>
               </div>
             </div>
@@ -324,7 +324,7 @@ export default async function PropertyDetailPage({ params }: PageProps) {
                   <Link href={`/business-centers/${centerKey}/${o.slug}`} className="group flex flex-col h-full rounded-3xl border border-ink/10 bg-paper overflow-hidden transition-all hover:border-ink/25 hover:shadow-[0_20px_60px_-30px_rgba(13,16,19,0.25)]">
                     <div className="relative h-[180px] overflow-hidden bg-paper-deep">
                       {o.image && (
-                        <Image src={o.image} alt={`${o.officeNo} — ${o.title}`} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+                        <Image src={o.image} alt={`${o.officeNo} · ${o.title}`} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
                       )}
                       <div className="absolute top-3 left-3 rounded-full bg-ink/70 backdrop-blur-md px-2.5 py-1 font-mono text-[0.6rem] uppercase tracking-[0.22em] text-paper">
                         {o.category}
