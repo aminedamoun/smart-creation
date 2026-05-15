@@ -184,16 +184,6 @@ export function FinancialHero() {
                   strokeWidth={2}
                 />
               </Link>
-              <Link
-                href="#banking"
-                className="group inline-flex items-center gap-2 rounded-full border border-paper/20 bg-paper/5 backdrop-blur px-5 py-3 text-[0.9rem] text-paper hover:bg-paper/10 transition-colors"
-              >
-                Compare services
-                <ArrowRight
-                  className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"
-                  strokeWidth={1.8}
-                />
-              </Link>
             </m.div>
 
             <m.div

@@ -39,21 +39,12 @@ export function FreeZones() {
           ))}
         </ul>
 
-        <div className="mt-10 md:mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-ink/10 pt-6">
+        <div className="mt-10 md:mt-12 border-t border-ink/10 pt-6">
           <p className="max-w-xl text-[0.92rem] text-ink-mute">
-            Still choosing? In a 45-minute call we model three jurisdictions side-by-side:
-            total cost, visa quota, timeline, and Corporate Tax impact.
+            Still choosing? In a 45-minute call we model three jurisdictions
+            side-by-side: total cost, visa quota, timeline and Corporate Tax
+            impact.
           </p>
-          <Link
-            href="/contact"
-            className="group inline-flex items-center gap-2 rounded-full border border-ink/15 bg-paper px-5 py-2.5 text-[0.9rem] text-ink hover:border-ink/40 transition-colors"
-          >
-            Book the comparison call
-            <ArrowUpRight
-              className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              strokeWidth={1.6}
-            />
-          </Link>
         </div>
       </div>
     </section>

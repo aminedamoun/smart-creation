@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Group Companies — Smart Creation Group",
   description:
     "Six specialist companies under Smart Creation Group across the UAE, Canada and Pakistan. Smart Business Creation, Next Journey Technology, Smart Holiday Homes, Intercity Bus, MM Contractor and Immersion Social.",
-  alternates: { canonical: "/affiliated-companies" },
+  alternates: { canonical: "/group-companies" },
 };
 
 const sections: ServiceSectionData[] = [
@@ -23,6 +23,7 @@ const sections: ServiceSectionData[] = [
     icon: "building",
     logoSrc: "/group-logos/smart-business-creation.webp",
     mediaMode: "logo",
+    logoTheme: "dark",
     lede:
       "The founding company of the Group. Smart Business Creation has licensed, banked and visa'd more than 10,000 businesses across every UAE jurisdiction since 2013. Mainland, free zone, offshore, holding structures and the day-to-day PRO file every founder lives inside.",
     image: {
@@ -69,6 +70,7 @@ const sections: ServiceSectionData[] = [
     icon: "globe",
     logoSrc: "/group-logos/next-journey.webp",
     mediaMode: "logo",
+    logoTheme: "dark",
     lede:
       "The Group's technology arm. Next Journey Technology builds and manages the digital backbone of Smart Creation's clients — websites, customer portals, in-house CRMs, integrations and the IT infrastructure that keeps Dubai operations running.",
     image: {
@@ -113,6 +115,7 @@ const sections: ServiceSectionData[] = [
     icon: "star",
     logoSrc: "/group-logos/smart-holiday-homes.webp",
     mediaMode: "logo",
+    logoTheme: "dark",
     lede:
       "Furnished, hotel-grade short-term rentals across Dubai. Smart Holiday Homes manages the full guest experience — welcome, cleaning, maintenance, listings and pricing — so owners can convert their apartment into a yield-generating asset without the day-to-day operations.",
     image: {
@@ -158,6 +161,7 @@ const sections: ServiceSectionData[] = [
     icon: "globe",
     logoSrc: "/group-logos/intercity-bus.webp",
     mediaMode: "logo",
+    logoTheme: "dark",
     lede:
       "Premier intercity bus operator based in London, Ontario. Scheduled routes, private charters and a value-card programme — built for daily commuters, students and corporate transport across southern Ontario.",
     image: {
@@ -202,6 +206,8 @@ const sections: ServiceSectionData[] = [
     icon: "shield",
     logoSrc: "/group-logos/mm-contractor.webp",
     mediaMode: "logo",
+    logoTheme: "dark",
+    logoScale: "scale-[1.7]",
     lede:
       "Pakistan-based contracting arm of the Group. MM Contractor handles civil works, road development, infrastructure projects and general order supplies for public-sector and private-sector clients across Punjab.",
     image: {
@@ -247,6 +253,7 @@ const sections: ServiceSectionData[] = [
     icon: "users",
     logoSrc: "/group-logos/immersion.webp",
     mediaMode: "logo",
+    logoTheme: "dark",
     lede:
       "The Group's experiences arm. Immersion Social designs events, brand activations, curated dinners and member-style gatherings that connect founders, clients and partners across Dubai's business community.",
     image: {

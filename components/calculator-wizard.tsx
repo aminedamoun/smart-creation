@@ -20,10 +20,12 @@ import {
   MessageCircle,
   Phone,
   Quote,
+  ShoppingBag,
   Sparkles,
   User,
   Users,
   Utensils,
+  Warehouse,
 } from "lucide-react";
 import { CONTACT } from "@/lib/data";
 import { PhoneInput, emptyPhoneValue, type PhoneInputValue } from "@/components/phone-input";
@@ -54,19 +56,16 @@ const JURISDICTION_OPTIONS: Option[] = [
   { id: "not-sure",  label: "Not sure",   desc: "We'll recommend the right structure",                 icon: ChevronRight },
 ];
 
-const VISA_OPTIONS: Option[] = [
-  { id: "0",    label: "No visas",  desc: "Just the licence, for now",       icon: User },
-  { id: "1",    label: "1 visa",    desc: "Investor / owner visa only",      icon: User },
-  { id: "2-5",  label: "2 – 5",     desc: "Small team",                       icon: Users },
-  { id: "6-10", label: "6 – 10",    desc: "Growing team",                     icon: Users },
-  { id: "10+",  label: "10+",       desc: "Mid-size to large operation",      icon: Users },
-];
+/** Numeric pill choices for the "setup details" step. */
+const SHAREHOLDER_OPTIONS = ["1", "2", "3", "4", "5", "6", "7", "8+"];
+const VISA_OPTIONS_PILL = ["0", "1", "2", "3", "4", "5", "6", "7+"];
 
 const OFFICE_OPTIONS: Option[] = [
-  { id: "virtual",  label: "Virtual office",  desc: "Address + mail handling only",      icon: Mail },
-  { id: "flexi",    label: "Flexi-desk",      desc: "Hot-desk in a shared business centre", icon: Briefcase },
-  { id: "private",  label: "Private office",  desc: "Dedicated room at one of our six centres", icon: Building2 },
-  { id: "own",      label: "I have my own",   desc: "Existing premises or Ejari",        icon: Home },
+  { id: "separate-office", label: "Separate office",  desc: "Standalone leased commercial unit",       icon: Building2 },
+  { id: "business-centre", label: "Business centre",  desc: "Serviced office in one of our six centres", icon: Briefcase },
+  { id: "warehouse",       label: "Warehouse",        desc: "Storage, logistics or light industrial",   icon: Warehouse },
+  { id: "shop",            label: "Shop",             desc: "Ground-floor retail or showroom",          icon: ShoppingBag },
+  { id: "own",             label: "I have my own",    desc: "Existing premises or Ejari",               icon: Home },
 ];
 
 const TIMELINE_OPTIONS: Option[] = [
@@ -76,9 +75,18 @@ const TIMELINE_OPTIONS: Option[] = [
   { id: "exploring",  label: "Just exploring",desc: "No timeline yet",              icon: Clock },
 ];
 
+const REASON_OPTIONS: Option[] = [
+  { id: "new-company",  label: "New company formation", desc: "Starting fresh, first U.A.E. licence",        icon: Sparkles },
+  { id: "expansion",    label: "Expansion plan",        desc: "New branch, franchise or additional entity",  icon: Building2 },
+  { id: "relocation",   label: "Company relocation",    desc: "Moving an existing business into the U.A.E.", icon: Globe2 },
+  { id: "visa",         label: "Visa purposes only",    desc: "Need residency through a company structure",  icon: User },
+];
+
 type State = {
   activity?: string;
   jurisdiction?: string;
+  reason?: string;
+  shareholders?: string;
   visas?: string;
   office?: string;
   timeline?: string;
@@ -87,7 +95,7 @@ type State = {
   phone: PhoneInputValue;
 };
 
-const STEPS = ["activity", "jurisdiction", "visas", "office", "timeline", "contact"] as const;
+const STEPS = ["activity", "jurisdiction", "reason", "office", "timeline", "contact"] as const;
 type Step = (typeof STEPS)[number];
 
 export function CalculatorWizard() {
@@ -131,7 +139,9 @@ export function CalculatorWizard() {
       const summary = [
         `Business activity: ${labelFor(ACTIVITY_OPTIONS, state.activity)}`,
         `Jurisdiction preference: ${labelFor(JURISDICTION_OPTIONS, state.jurisdiction)}`,
-        `Visa quota: ${labelFor(VISA_OPTIONS, state.visas)}`,
+        `Setup reason: ${labelFor(REASON_OPTIONS, state.reason)}`,
+        `Shareholders: ${state.shareholders ?? "—"}`,
+        `Visa quota: ${state.visas ?? "—"}`,
         `Office requirement: ${labelFor(OFFICE_OPTIONS, state.office)}`,
         `Timeline: ${labelFor(TIMELINE_OPTIONS, state.timeline)}`,
       ].join("\n");
@@ -170,6 +180,8 @@ export function CalculatorWizard() {
   const canSubmit =
     !!state.activity &&
     !!state.jurisdiction &&
+    !!state.reason &&
+    !!state.shareholders &&
     !!state.visas &&
     !!state.office &&
     !!state.timeline &&
@@ -197,20 +209,11 @@ export function CalculatorWizard() {
     );
 
     const visaPhrase = (() => {
-      switch (state.visas) {
-        case "0":
-          return "no visas yet";
-        case "1":
-          return "1 visa";
-        case "2-5":
-          return "2 to 5 visas";
-        case "6-10":
-          return "6 to 10 visas";
-        case "10+":
-          return "10+ visas";
-        default:
-          return "your team";
-      }
+      const v = state.visas;
+      if (!v) return "your team";
+      if (v === "0") return "no visas yet";
+      if (v === "1") return "1 visa";
+      return `${v} visas`;
     })();
 
     return (
@@ -362,8 +365,8 @@ export function CalculatorWizard() {
               ? "Activity"
               : current === "jurisdiction"
                 ? "Jurisdiction"
-                : current === "visas"
-                  ? "Team & visas"
+                : current === "reason"
+                  ? "Setup details"
                   : current === "office"
                     ? "Office"
                     : current === "timeline"
@@ -401,13 +404,10 @@ export function CalculatorWizard() {
             />
           )}
 
-          {current === "visas" && (
-            <StepPick
-              title="How many visas do you need?"
-              subtitle="Owner, employees and family. We size your licence accordingly."
-              options={VISA_OPTIONS}
-              value={state.visas}
-              onPick={(id) => pick("visas", id)}
+          {current === "reason" && (
+            <StepSetupDetails
+              state={state}
+              onChange={(patch) => setState((s) => ({ ...s, ...patch }))}
             />
           )}
 
@@ -484,7 +484,8 @@ export function CalculatorWizard() {
             disabled={
               (current === "activity" && !state.activity) ||
               (current === "jurisdiction" && !state.jurisdiction) ||
-              (current === "visas" && !state.visas) ||
+              (current === "reason" &&
+                (!state.reason || !state.shareholders || !state.visas)) ||
               (current === "office" && !state.office) ||
               (current === "timeline" && !state.timeline)
             }
@@ -504,6 +505,133 @@ export function CalculatorWizard() {
           {error}
         </p>
       )}
+    </div>
+  );
+}
+
+/* ── Setup details step (reason + shareholders + visas) ─────────── */
+
+function StepSetupDetails({
+  state,
+  onChange,
+}: {
+  state: State;
+  onChange: (patch: Partial<State>) => void;
+}) {
+  return (
+    <div>
+      <h2 className="font-display font-semibold text-[1.4rem] md:text-[1.65rem] leading-[1.2] tracking-[-0.015em] text-ink text-balance">
+        Tell us a bit more about your setup.
+      </h2>
+      <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-mute">
+        Three quick questions so we can size your licence correctly.
+      </p>
+
+      {/* Reason */}
+      <div className="mt-6">
+        <p className="font-display text-[1.02rem] text-ink mb-3 flex items-center gap-2">
+          <Sparkles className="h-4 w-4 text-brand-deep" strokeWidth={1.8} />
+          What&apos;s your main reason for setting up in the U.A.E.?
+        </p>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          {REASON_OPTIONS.map((o) => {
+            const Icon = o.icon;
+            const active = state.reason === o.id;
+            return (
+              <li key={o.id}>
+                <button
+                  type="button"
+                  onClick={() => onChange({ reason: o.id })}
+                  className={
+                    "group w-full flex items-center gap-3 rounded-2xl border px-3.5 py-3 text-left transition-all " +
+                    (active
+                      ? "border-brand-deep bg-brand/[0.06] shadow-[0_10px_24px_-14px_rgba(72,168,219,0.5)]"
+                      : "border-ink/12 bg-paper hover:border-brand/45 hover:bg-paper-soft")
+                  }
+                >
+                  <span
+                    className={
+                      "flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border transition-colors " +
+                      (active
+                        ? "border-brand bg-brand text-ink"
+                        : "border-ink/10 bg-paper-soft text-brand-deep")
+                    }
+                  >
+                    <Icon className="h-4 w-4" strokeWidth={1.8} />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block font-display text-[0.95rem] tracking-[-0.005em] text-ink">
+                      {o.label}
+                    </span>
+                    <span className="block mt-0.5 text-[0.78rem] text-ink-mute">
+                      {o.desc}
+                    </span>
+                  </span>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      {/* Shareholders */}
+      <div className="mt-7">
+        <p className="font-display text-[1.02rem] text-ink mb-3 flex items-center gap-2">
+          <Users className="h-4 w-4 text-brand-deep" strokeWidth={1.8} />
+          How many owners / shareholders?
+        </p>
+        <PillRow
+          options={SHAREHOLDER_OPTIONS}
+          value={state.shareholders}
+          onPick={(v) => onChange({ shareholders: v })}
+        />
+      </div>
+
+      {/* Visas */}
+      <div className="mt-7">
+        <p className="font-display text-[1.02rem] text-ink mb-3 flex items-center gap-2">
+          <User className="h-4 w-4 text-brand-deep" strokeWidth={1.8} />
+          How many residence visas do you need?
+        </p>
+        <PillRow
+          options={VISA_OPTIONS_PILL}
+          value={state.visas}
+          onPick={(v) => onChange({ visas: v })}
+        />
+      </div>
+    </div>
+  );
+}
+
+function PillRow({
+  options,
+  value,
+  onPick,
+}: {
+  options: string[];
+  value: string | undefined;
+  onPick: (id: string) => void;
+}) {
+  return (
+    <div className="grid grid-cols-4 sm:grid-cols-8 gap-2">
+      {options.map((o) => {
+        const active = value === o;
+        return (
+          <button
+            key={o}
+            type="button"
+            onClick={() => onPick(o)}
+            className={
+              "h-12 rounded-2xl border text-[0.95rem] font-medium transition-all " +
+              (active
+                ? "border-brand-night bg-brand-night text-paper shadow-[0_8px_20px_-10px_rgba(14,53,84,0.5)]"
+                : "border-ink/12 bg-paper text-ink hover:border-brand/45 hover:bg-paper-soft")
+            }
+          >
+            {o}
+          </button>
+        );
+      })}
     </div>
   );
 }

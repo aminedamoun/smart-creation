@@ -307,40 +307,42 @@ export function GroupOfCompanies() {
             <CentreCard compact />
           </div>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {groupCompanies.map((c) => (
-              <li
-                key={c.id}
-                className="flex items-center gap-3 rounded-2xl border border-paper/10 bg-paper/[0.03] p-3"
-              >
-                <div className="flex h-14 w-20 shrink-0 items-center justify-center overflow-hidden">
-                  {c.logo ? (
-                    <Image
-                      src={c.logo}
-                      alt={`${c.name} logo`}
-                      width={120}
-                      height={56}
-                      className="max-h-full max-w-full w-auto h-auto object-contain"
-                    />
-                  ) : (
-                    <c.icon
-                      className="h-5 w-5 text-brand-soft"
-                      strokeWidth={1.6}
-                    />
-                  )}
-                </div>
-                <div className="min-w-0 flex-1">
-                  <div className="font-display text-[0.95rem] leading-tight text-paper">
-                    {c.name}
+            {CHIPS.map((chip) => companyById[chip.companyId])
+              .filter((c): c is GroupCompany => Boolean(c))
+              .map((c) => (
+                <li
+                  key={c.id}
+                  className="flex items-center gap-3 rounded-2xl border border-paper/10 bg-paper/[0.03] p-3"
+                >
+                  <div className="flex h-14 w-20 shrink-0 items-center justify-center overflow-hidden">
+                    {c.logo ? (
+                      <Image
+                        src={c.logo}
+                        alt={`${c.name} logo`}
+                        width={120}
+                        height={56}
+                        className="max-h-full max-w-full w-auto h-auto object-contain"
+                      />
+                    ) : (
+                      <c.icon
+                        className="h-5 w-5 text-brand-soft"
+                        strokeWidth={1.6}
+                      />
+                    )}
                   </div>
-                  <div className="mt-1 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-mist truncate">
-                    <span aria-hidden className="mr-1.5">
-                      {c.flag}
-                    </span>
-                    {c.sector}
+                  <div className="min-w-0 flex-1">
+                    <div className="font-display text-[0.95rem] leading-tight text-paper">
+                      {c.name}
+                    </div>
+                    <div className="mt-1 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-mist truncate">
+                      <span aria-hidden className="mr-1.5">
+                        {c.flag}
+                      </span>
+                      {c.sector}
+                    </div>
                   </div>
-                </div>
-              </li>
-            ))}
+                </li>
+              ))}
           </ul>
         </div>
 

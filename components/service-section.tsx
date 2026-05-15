@@ -87,6 +87,19 @@ export type ServiceSectionData = {
    *   free-zone-style boxes on the homepage). Requires `logoSrc`.
    */
   mediaMode?: "image" | "logo";
+  /**
+   * Logo plate theme. Only applies when `mediaMode === "logo"`.
+   * - "light" (default): bright brand-blue gradient with white grid.
+   * - "dark": deep navy plate with a subtle brand-blue glow — better when
+   *   the logo artwork is white-on-dark.
+   */
+  logoTheme?: "light" | "dark";
+  /**
+   * Optional Tailwind scale class for the logo image (e.g. "scale-125",
+   * "scale-150"). Used for logos that look small relative to others
+   * because of their intrinsic aspect ratio.
+   */
+  logoScale?: string;
 };
 
 function MaskedLogo({
@@ -265,13 +278,6 @@ export function ServiceSection({
                   strokeWidth={1.8}
                 />
               </Link>
-              <Link
-                href="#mainland"
-                className="group inline-flex items-center gap-2 rounded-full border border-ink/15 bg-paper px-4 py-2.5 text-[0.85rem] text-ink hover:border-ink/40 transition-colors"
-              >
-                <Sparkles className="h-3.5 w-3.5 text-brand-deep" strokeWidth={2} />
-                Compare to others
-              </Link>
             </div>
           </m.div>
 
@@ -293,40 +299,81 @@ export function ServiceSection({
                 style={{ y: imgY }}
                 whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="relative aspect-[5/4] overflow-hidden rounded-3xl border border-ink/10 bg-[#48a8db] shadow-[0_30px_80px_-30px_rgba(72,168,219,0.55)]"
+                className={cn(
+                  "relative aspect-[5/4] overflow-hidden rounded-3xl border",
+                  s.logoTheme === "dark"
+                    ? "border-paper/10 bg-ink shadow-[0_30px_80px_-30px_rgba(13,16,19,0.6)]"
+                    : "border-ink/10 bg-[#48a8db] shadow-[0_30px_80px_-30px_rgba(72,168,219,0.55)]",
+                )}
               >
-                <div
-                  aria-hidden
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, #62b5df 0%, #48a8db 55%, #2e8ab8 100%)",
-                  }}
-                />
-                <div
-                  aria-hidden
-                  className="absolute inset-0 opacity-[0.12]"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(to right, rgba(246,243,236,0.6) 1px, transparent 1px), linear-gradient(to bottom, rgba(246,243,236,0.6) 1px, transparent 1px)",
-                    backgroundSize: "32px 32px",
-                  }}
-                />
-                <div className="absolute inset-0 flex items-center justify-center p-10">
-                  <div className="relative h-[60%] w-[75%] drop-shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
+                {s.logoTheme === "dark" ? (
+                  <>
+                    {/* Dark plate — deep navy with brand-blue ambient pool */}
+                    <div
+                      aria-hidden
+                      className="absolute inset-0"
+                      style={{
+                        background:
+                          "radial-gradient(140% 90% at 50% 110%, rgba(72,168,219,0.28) 0%, rgba(46,138,184,0.16) 35%, rgba(13,16,19,1) 75%)",
+                      }}
+                    />
+                    <div
+                      aria-hidden
+                      className="absolute inset-0 opacity-[0.08]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(to right, rgba(141,194,221,0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(141,194,221,0.5) 1px, transparent 1px)",
+                        backgroundSize: "32px 32px",
+                      }}
+                    />
+                  </>
+                ) : (
+                  <>
+                    {/* Light plate — original bright brand gradient */}
+                    <div
+                      aria-hidden
+                      className="absolute inset-0"
+                      style={{
+                        background:
+                          "linear-gradient(135deg, #62b5df 0%, #48a8db 55%, #2e8ab8 100%)",
+                      }}
+                    />
+                    <div
+                      aria-hidden
+                      className="absolute inset-0 opacity-[0.12]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(to right, rgba(246,243,236,0.6) 1px, transparent 1px), linear-gradient(to bottom, rgba(246,243,236,0.6) 1px, transparent 1px)",
+                        backgroundSize: "32px 32px",
+                      }}
+                    />
+                  </>
+                )}
+                <div className="absolute inset-0 flex items-center justify-center p-6 md:p-8">
+                  <div className="relative h-[78%] w-[88%] drop-shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
                     <Image
                       src={s.logoSrc}
                       alt={s.image.alt}
                       fill
-                      sizes="(max-width: 1024px) 60vw, 35vw"
-                      className="object-contain"
+                      sizes="(max-width: 1024px) 80vw, 45vw"
+                      className={cn(
+                        "object-contain",
+                        s.logoScale ?? "",
+                      )}
                     />
                   </div>
                 </div>
-                <div className="absolute right-5 bottom-5 inline-flex items-center gap-1.5 rounded-full border border-paper/25 bg-ink/40 backdrop-blur-md px-3 py-1 font-mono text-[0.58rem] uppercase tracking-[0.22em] text-paper">
+                <div
+                  className={cn(
+                    "absolute right-5 bottom-5 inline-flex items-center gap-1.5 rounded-full backdrop-blur-md px-3 py-1 font-mono text-[0.58rem] uppercase tracking-[0.22em] text-paper",
+                    s.logoTheme === "dark"
+                      ? "border border-paper/15 bg-paper/[0.06]"
+                      : "border border-paper/25 bg-ink/40",
+                  )}
+                >
                   <span className="relative flex h-1.5 w-1.5">
-                    <span className="absolute inset-0 animate-ping rounded-full bg-paper opacity-75" />
-                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-paper" />
+                    <span className="absolute inset-0 animate-ping rounded-full bg-brand opacity-75" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
                   </span>
                   Trusted since 2013
                 </div>

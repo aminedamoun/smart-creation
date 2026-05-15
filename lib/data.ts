@@ -173,12 +173,12 @@ export const navigation: NavItem[] = [
         {
           title: "Group Companies",
           links: [
-            { label: "Smart Business Creation",  href: "/affiliated-companies#smart-business-creation", desc: "Business setup · UAE" },
-            { label: "Next Journey Technology",  href: "/affiliated-companies#next-journey",           desc: "Technology · UAE" },
-            { label: "Smart Holiday Homes",      href: "/affiliated-companies#smart-holiday-homes",    desc: "Hospitality · UAE" },
-            { label: "Intercity Bus Service",    href: "/affiliated-companies#intercity-bus",          desc: "Transport · Canada" },
-            { label: "MM Contractor",            href: "/affiliated-companies#mm-contractor",          desc: "Construction · Pakistan" },
-            { label: "Immersion Social",         href: "/affiliated-companies#immersion-social",       desc: "Experiences · UAE" },
+            { label: "Smart Business Creation",  href: "/group-companies#smart-business-creation", desc: "Business setup · UAE" },
+            { label: "Next Journey Technology",  href: "/group-companies#next-journey",           desc: "Technology · UAE" },
+            { label: "Smart Holiday Homes",      href: "/group-companies#smart-holiday-homes",    desc: "Hospitality · UAE" },
+            { label: "Intercity Bus Service",    href: "/group-companies#intercity-bus",          desc: "Transport · Canada" },
+            { label: "MM Contractor",            href: "/group-companies#mm-contractor",          desc: "Construction · Pakistan" },
+            { label: "Immersion Social",         href: "/group-companies#immersion-social",       desc: "Experiences · UAE" },
           ],
         },
       ],
@@ -496,7 +496,7 @@ export type TeamMember = {
 export const team: TeamMember[] = [
   // CEO — kept here so the dedicated spotlight section can read it.
   // Filtered out of the team grid (he's already shown above on the about page).
-  { name: "Asad Hashmi", role: "Chief Executive Officer", photo: "/ceo-asad-hashmi.webp" },
+  { name: "Asad Hashmi", role: "Chief Executive Officer", photo: "/ceo-asad-hashmi-about.webp" },
 
   // Management
   { name: "Mahwish", role: "Managing Partner", linkedin: "https://www.linkedin.com/in/mahwishch/" },
