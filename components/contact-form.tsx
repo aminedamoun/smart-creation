@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { m, AnimatePresence } from "framer-motion";
+import { PhoneInput, emptyPhoneValue, type PhoneInputValue } from "@/components/phone-input";
 import {
   ArrowUpRight,
   CheckCircle2,
@@ -25,9 +26,15 @@ const TOPICS = [
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
   const [error, setError] = useState<string | null>(null);
+  const [phone, setPhone] = useState<PhoneInputValue>(emptyPhoneValue());
+  const [showPhoneError, setShowPhoneError] = useState(false);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!phone.valid) {
+      setShowPhoneError(true);
+      return;
+    }
     setStatus("sending");
     setError(null);
 
@@ -36,7 +43,7 @@ export function ContactForm() {
     const payload = {
       name: String(data.get("name") ?? ""),
       email: String(data.get("email") ?? ""),
-      phone: String(data.get("phone") ?? ""),
+      phone: phone.e164,
       topic: String(data.get("topic") ?? ""),
       message: String(data.get("message") ?? ""),
     };
@@ -57,6 +64,8 @@ export function ContactForm() {
       }
       setStatus("sent");
       form.reset();
+      setPhone(emptyPhoneValue());
+      setShowPhoneError(false);
       setTimeout(() => setStatus("idle"), 6000);
     } catch (err) {
       setStatus("idle");
@@ -104,12 +113,12 @@ export function ContactForm() {
             className="w-full bg-transparent border-0 border-b border-ink/15 focus:border-brand-deep focus:ring-0 px-0 py-2.5 text-[0.98rem] text-ink placeholder:text-stone/80 outline-none transition-colors"
           />
         </Field>
-        <Field label="Phone (optional)" icon={<Phone className="h-3.5 w-3.5" />}>
-          <input
-            name="phone"
-            type="tel"
-            placeholder="+971 …"
-            className="w-full bg-transparent border-0 border-b border-ink/15 focus:border-brand-deep focus:ring-0 px-0 py-2.5 text-[0.98rem] text-ink placeholder:text-stone/80 outline-none transition-colors"
+        <Field label="Phone" icon={<Phone className="h-3.5 w-3.5" />}>
+          <PhoneInput
+            value={phone}
+            onChange={setPhone}
+            required
+            showError={showPhoneError}
           />
         </Field>
         <Field label="Topic">

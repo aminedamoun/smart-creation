@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Our Business Centres",
   description:
-    "Smart Creation Group operates five business centres across Dubai: flagship Tecom skyline offices, ground-floor Bur Dubai trading suites, Deira freehold space, and more.",
+    "Smart Creation Group operates six business centres across Dubai: flagship Tecom skyline offices, Al Barsha and Bur Dubai serviced suites, Al Muraqabat, Umm Ramool and Deira/Naif locations.",
   alternates: { canonical: "/business-centers" },
 };
 

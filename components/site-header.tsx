@@ -13,6 +13,7 @@ import {
 import { m, AnimatePresence } from "framer-motion";
 import { navigation, CONTACT, type NavItem } from "@/lib/data";
 import { Logo } from "@/components/logo";
+import { ConsultationModal } from "@/components/consultation-modal";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -20,6 +21,7 @@ export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeMega, setActiveMega] = useState<string | null>(null);
   const [isClosing, setIsClosing] = useState(false);
+  const [consultOpen, setConsultOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const exitTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -127,8 +129,7 @@ export function SiteHeader() {
             inverted ? "text-mist" : "text-stone"
           )}
         >
-          <span>Dubai · Abu Dhabi · Sharjah · RAK</span>
-          <span>Est. MMXIII · Trusted since 2013</span>
+          <span>Abu Dhabi · Dubai · Sharjah · Ajman · Umm Al Quwain · Ras Al Khaimah · Fujairah</span>
         </div>
       </div>
 
@@ -167,8 +168,10 @@ export function SiteHeader() {
               <span>{CONTACT.phone}</span>
             </Link>
 
-            <Link
-              href="/contact"
+            <button
+              type="button"
+              onClick={() => setConsultOpen(true)}
+              aria-haspopup="dialog"
               className={cn(
                 "group inline-flex items-center gap-1.5 rounded-full px-3 sm:px-4 py-2.5 text-[0.82rem] sm:text-[0.85rem] font-medium whitespace-nowrap transition-colors",
                 inverted
@@ -182,7 +185,7 @@ export function SiteHeader() {
                 className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 strokeWidth={2}
               />
-            </Link>
+            </button>
 
             <button
               type="button"
@@ -228,9 +231,21 @@ export function SiteHeader() {
         doesn't trap it as the containing block for position: fixed. */}
     <AnimatePresence>
       {menuOpen && (
-        <MobileDrawer onClose={() => setMenuOpen(false)} />
+        <MobileDrawer
+          onClose={() => setMenuOpen(false)}
+          onBookConsultation={() => {
+            setMenuOpen(false);
+            setConsultOpen(true);
+          }}
+        />
       )}
     </AnimatePresence>
+
+    {/* Book-consultation modal — controlled by the header button + mobile drawer CTA */}
+    <ConsultationModal
+      open={consultOpen}
+      onClose={() => setConsultOpen(false)}
+    />
     </>
   );
 }
@@ -538,7 +553,13 @@ function MegaPanel({
 
 /* ────────────────────────────────────────────────────────────────── */
 
-function MobileDrawer({ onClose }: { onClose: () => void }) {
+function MobileDrawer({
+  onClose,
+  onBookConsultation,
+}: {
+  onClose: () => void;
+  onBookConsultation: () => void;
+}) {
   const [expanded, setExpanded] = useState<string | null>(null);
 
   const easeOut = [0.22, 1, 0.36, 1] as const;
@@ -829,9 +850,9 @@ function MobileDrawer({ onClose }: { onClose: () => void }) {
             </span>
           </div>
 
-          <Link
-            href="/contact"
-            onClick={onClose}
+          <button
+            type="button"
+            onClick={onBookConsultation}
             className="group flex items-center justify-center gap-2 rounded-full bg-brand px-5 py-3 text-[0.95rem] font-medium text-ink hover:bg-paper transition-colors"
           >
             Book free consultation
@@ -839,7 +860,7 @@ function MobileDrawer({ onClose }: { onClose: () => void }) {
               className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               strokeWidth={2}
             />
-          </Link>
+          </button>
         </m.div>
       </m.div>
     </>

@@ -17,7 +17,7 @@ function dubaiNow(): { time: string; weekday: string; isOpen: boolean } {
     timeZone: DUBAI_TZ,
     weekday: "short",
   }).format(now);
-  // Dubai office hours: Mon–Fri 9:00–18:00, Sat 10:00–14:00, Sun closed
+  // Dubai office hours: Mon–Sat 09:00–18:00, Sun closed.
   const hour = Number(
     new Intl.DateTimeFormat("en-GB", {
       timeZone: DUBAI_TZ,
@@ -25,9 +25,7 @@ function dubaiNow(): { time: string; weekday: string; isOpen: boolean } {
       hour12: false,
     }).format(now),
   );
-  const isOpen =
-    (weekday !== "Sun" && weekday !== "Sat" && hour >= 9 && hour < 18) ||
-    (weekday === "Sat" && hour >= 10 && hour < 14);
+  const isOpen = weekday !== "Sun" && hour >= 9 && hour < 18;
   return { time, weekday, isOpen };
 }
 

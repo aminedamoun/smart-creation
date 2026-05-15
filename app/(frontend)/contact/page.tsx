@@ -300,7 +300,7 @@ export default function ContactPage() {
                   <Phone className="h-5 w-5" strokeWidth={1.8} />
                 </span>
                 <span className="font-mono text-[0.58rem] uppercase tracking-[0.22em] text-stone">
-                  Mon – Fri 9 – 6
+                  Mon – Sat 9 – 6
                 </span>
               </div>
               <div className="relative mt-6 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-stone">

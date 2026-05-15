@@ -29,7 +29,7 @@ const columns = [
   {
     title: "Resources",
     links: [
-      { label: "Cost calculator", disabled: true },
+      { label: "Cost calculator", href: "/calculator" },
       { label: "Free zone comparison", href: "/free-zones" },
       { label: "Golden Visa guide", href: "/services/visas#golden-visa" },
       { label: "Corporate Tax guide", href: "/services/financial#corporate-tax" },
@@ -161,9 +161,9 @@ export function SiteFooter() {
             </span>
           </div>
           <ul className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.82rem] text-ink-mute">
-            <li><span title="Coming soon" className="text-ink-mute/55 cursor-default">Privacy</span></li>
-            <li><span title="Coming soon" className="text-ink-mute/55 cursor-default">Terms</span></li>
-            <li><span title="Coming soon" className="text-ink-mute/55 cursor-default">Cookies</span></li>
+            <li><Link href="/privacy" className="hover:text-ink transition-colors">Privacy</Link></li>
+            <li><Link href="/terms" className="hover:text-ink transition-colors">Terms</Link></li>
+            <li><Link href="/cookies" className="hover:text-ink transition-colors">Cookies</Link></li>
             <li><Link href="/sitemap.xml" className="hover:text-ink transition-colors inline-flex items-center gap-1">
               Sitemap <ArrowUpRight className="h-3 w-3" strokeWidth={1.5} />
             </Link></li>

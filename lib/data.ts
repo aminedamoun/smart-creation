@@ -154,8 +154,42 @@ export const navigation: NavItem[] = [
     },
   },
   {
-    label: "Business Centers",
+    label: "Smart Group",
     href: "/business-centers",
+    noLink: true,
+    mega: {
+      groups: [
+        {
+          title: "Business Centres",
+          links: [
+            { label: "Smart Creation",  href: "/business-centers/smart-creation", desc: "Tecom · Barsha Heights" },
+            { label: "Smart Place",     href: "/business-centers/smart-place",    desc: "Al Barsha 1" },
+            { label: "Smart View",      href: "/business-centers/smart-view",     desc: "Bur Dubai" },
+            { label: "Future Space",    href: "/business-centers/future-space",   desc: "Al Muraqabat" },
+            { label: "Smart Founders",  href: "/business-centers/smart-founders", desc: "Umm Ramool" },
+            { label: "Abna Rashid",     href: "/business-centers/abna-rashid",    desc: "Naif · Deira" },
+          ],
+        },
+        {
+          title: "Group Companies",
+          links: [
+            { label: "Smart Business Creation",  href: "/affiliated-companies#smart-business-creation", desc: "Business setup · UAE" },
+            { label: "Next Journey Technology",  href: "/affiliated-companies#next-journey",           desc: "Technology · UAE" },
+            { label: "Smart Holiday Homes",      href: "/affiliated-companies#smart-holiday-homes",    desc: "Hospitality · UAE" },
+            { label: "Intercity Bus Service",    href: "/affiliated-companies#intercity-bus",          desc: "Transport · Canada" },
+            { label: "MM Contractor",            href: "/affiliated-companies#mm-contractor",          desc: "Construction · Pakistan" },
+            { label: "Immersion Social",         href: "/affiliated-companies#immersion-social",       desc: "Experiences · UAE" },
+          ],
+        },
+      ],
+      feature: {
+        eyebrow: "Operating snapshot",
+        title: "One Group. Three countries. Twelve years.",
+        body: "Six owned business centres across Dubai plus six specialist arms in the UAE, Canada and Pakistan — every file run by the same accountable team.",
+        cta: { label: "Meet the Group", href: "/about" },
+      },
+      footer: { label: "About the Group", href: "/about" },
+    },
   },
   {
     label: "About",
@@ -563,9 +597,9 @@ export const services: Service[] = [
   {
     id: "business-centers",
     index: "07",
-    title: "Four Business Centers",
+    title: "Six Business Centers",
     summary:
-      "Private offices, dedicated desks, virtual addresses and meeting rooms across four owned-and-operated locations in Dubai: from Tecom to Bur Dubai to Al Muraqabat.",
+      "Private offices, dedicated desks, virtual addresses and meeting rooms across six owned-and-operated locations in Dubai: from Tecom to Bur Dubai to Al Muraqabat.",
     href: "/business-centers",
     icon: Briefcase,
   },
@@ -592,18 +626,24 @@ export type FreeZone = {
 };
 
 export const freeZones: FreeZone[] = [
-  { code: "IFZA", name: "International Free Zone Authority", emirate: "Dubai", focus: "General trading & services", leadTime: "3–5 days", href: "/free-zones/dubai#ifza" },
-  { code: "JAFZA", name: "Jebel Ali Free Zone", emirate: "Dubai", focus: "Industrial & logistics", leadTime: "5–10 days", href: "/free-zones/dubai#jafza" },
-  { code: "MEYDAN", name: "Meydan Free Zone", emirate: "Dubai", focus: "Professional services", leadTime: "3–5 days", href: "/free-zones/dubai#meydan" },
-  { code: "DAFZA", name: "Dubai Airport Free Zone", emirate: "Dubai", focus: "Aviation & e-commerce", leadTime: "5–7 days", href: "/free-zones/dubai#dafza" },
-  { code: "DWTC", name: "Dubai World Trade Centre", emirate: "Dubai", focus: "Events & services", leadTime: "5–7 days", href: "/free-zones/dubai#dwtc" },
-  { code: "DTEC", name: "Dubai Technology Entrepreneur Campus", emirate: "Dubai", focus: "Technology & digital focus", leadTime: "3–5 days", href: "/free-zones/dubai#dtec", logoSrc: "/free-zones/dtec.webp" },
-  { code: "SHAMS", name: "Sharjah Media City", emirate: "Sharjah", focus: "Media & creative", leadTime: "2–4 days", href: "/free-zones/northern-emirates#shams" },
-  { code: "SPC", name: "Sharjah Publishing City", emirate: "Sharjah", focus: "Publishing & content", leadTime: "3–5 days", href: "/free-zones/northern-emirates#spc" },
-  { code: "RAKEZ", name: "Ras Al Khaimah Economic Zone", emirate: "RAK", focus: "Industrial & SME", leadTime: "3–5 days", href: "/free-zones/northern-emirates#rakez" },
-  { code: "AFZA", name: "Ajman Free Zone", emirate: "Ajman", focus: "SMEs & low-cost trade", leadTime: "2–4 days", href: "/free-zones/northern-emirates#afza" },
-  { code: "UAQ", name: "Umm Al Quwain Free Trade Zone", emirate: "UAQ", focus: "Fast-setup environment for SMEs", leadTime: "2–4 days", href: "/free-zones/northern-emirates#uaq", logoSrc: "/free-zones/uaq.webp" },
-  { code: "ANC", name: "ANC Free Zone", emirate: "Abu Dhabi", focus: "Tailored for startups & SMEs", leadTime: "2–4 days", href: "/free-zones/dubai#anc", logoSrc: "/free-zones/anc.webp" },
+  // Dubai zones — each anchor matches a `<section id="…">` on /free-zones/dubai
+  // NOTE: the .png files in /public/free-zones are exported in a shifted
+  // order — each file contains a different zone's logo than its filename
+  // suggests. The logoSrc below points each card to the FILE that holds
+  // its correct artwork (observed from the rendered cards).
+  { code: "DMCC",   name: "Dubai Multi Commodities Centre",          emirate: "Dubai",     focus: "General trading & commodities",   leadTime: "5–7 days", href: "/free-zones/dubai#dmcc",   logoSrc: "/free-zones/ifza.png" },
+  { code: "MEYDAN", name: "Meydan Free Zone",                        emirate: "Dubai",     focus: "Professional services",            leadTime: "3–5 days", href: "/free-zones/dubai#meydan", logoSrc: "/free-zones/jafza.png" },
+  { code: "DIFC",   name: "Dubai International Financial Centre",     emirate: "Dubai",     focus: "Finance & professional services",  leadTime: "20+ days", href: "/free-zones/dubai#difc",   logoSrc: "/free-zones/meydan.png" },
+  { code: "DCC",    name: "Dubai CommerCity",                         emirate: "Dubai",     focus: "E-commerce & digital trade",       leadTime: "5–7 days", href: "/free-zones/dubai#dcc",    logoSrc: "/free-zones/dafza.png" },
+  { code: "IFZA",   name: "International Free Zone Authority",        emirate: "Dubai",     focus: "General trading & services",       leadTime: "3–5 days", href: "/free-zones/dubai#ifza",   logoSrc: "/free-zones/afza.png" },
+  { code: "DTEC",   name: "Dubai Technology Entrepreneur Campus",     emirate: "Dubai",     focus: "Technology & digital focus",       leadTime: "3–5 days", href: "/free-zones/dubai#dtec",   logoSrc: "/free-zones/dtec.webp" },
+  { code: "ANCFZ",  name: "Ajman NuVentures Centre Free Zone",        emirate: "Dubai",     focus: "Startups & SMEs",                  leadTime: "2–4 days", href: "/free-zones/dubai#ancfz",  logoSrc: "/free-zones/anc.webp" },
+  { code: "UAQ",    name: "Umm Al Quwain Free Trade Zone",            emirate: "Dubai",     focus: "Fast-setup environment for SMEs",  leadTime: "2–4 days", href: "/free-zones/dubai#uaq",    logoSrc: "/free-zones/uaq.webp" },
+  // Northern emirates — each anchor matches /free-zones/northern-emirates
+  { code: "SHAMS",  name: "Sharjah Media City",                       emirate: "Sharjah",   focus: "Media & creative",                 leadTime: "2–4 days", href: "/free-zones/northern-emirates#shams", logoSrc: "/free-zones/dwtc.png" },
+  { code: "SPC",    name: "Sharjah Publishing City",                  emirate: "Sharjah",   focus: "Publishing & content",             leadTime: "3–5 days", href: "/free-zones/northern-emirates#spc",   logoSrc: "/free-zones/shams.png" },
+  { code: "RAKEZ",  name: "Ras Al Khaimah Economic Zone",             emirate: "RAK",       focus: "Industrial & SME",                 leadTime: "3–5 days", href: "/free-zones/northern-emirates#rakez", logoSrc: "/free-zones/spc.png" },
+  { code: "AFZA",   name: "Ajman Free Zone",                          emirate: "Ajman",     focus: "SMEs & low-cost trade",            leadTime: "2–4 days", href: "/free-zones/northern-emirates#afza",  logoSrc: "/free-zones/rakez.png" },
 ];
 
 export type Differentiator = {
@@ -617,7 +657,7 @@ export const differentiators: Differentiator[] = [
     index: "01",
     title: "Four real offices, not a PO box",
     body:
-      "We own and operate four business centres across Dubai: Damac Executive Heights, Iridium Tower (Al Barsha), Al Hamriya (Bur Dubai) and Salah Al Din Street (Al Muraqabat). When investors or clients visit you, they walk into a professional address, not a virtual mailbox.",
+      "We own and operate six business centres across Dubai: Damac Executive Heights (Tecom), Iridium Tower (Al Barsha), Al Hamriya (Bur Dubai), Salah Al Din Street (Al Muraqabat), Umm Ramool (Smart Founders) and Naif/Deira (Abna Rashid). When investors or clients visit you, they walk into a professional address, not a virtual mailbox.",
   },
   {
     index: "02",

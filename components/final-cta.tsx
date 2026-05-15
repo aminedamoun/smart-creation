@@ -104,7 +104,7 @@ export function FinalCTA() {
               </div>
 
               <div className="mt-10 hairline-t pt-5 flex items-center justify-between font-mono text-[0.68rem] uppercase tracking-[0.2em] text-mist">
-                <span>Sun to Thu · 09:00 – 18:00 GST</span>
+                <span>Mon to Sat · 09:00 – 18:00 GST</span>
                 <span className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-brand animate-pulse" />
                   Open now

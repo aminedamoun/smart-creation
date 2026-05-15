@@ -60,7 +60,7 @@ export function Services() {
                   Damac Executive Heights · Barsha Heights (Tecom)
                 </div>
                 <div className="mt-1 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-mist">
-                  Visit us · Sun to Thu, 09:00 – 18:00 GST
+                  Visit us · Mon to Sat, 09:00 – 18:00 GST
                 </div>
               </div>
             </div>

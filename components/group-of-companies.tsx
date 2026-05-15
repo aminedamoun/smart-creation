@@ -197,7 +197,7 @@ export function GroupOfCompanies() {
               <>
                 Smart Creation Group
                 <span className="block text-brand-soft">
-                  One parent, twelve affiliated companies.
+                  One parent, twelve group companies.
                 </span>
               </>
             }
@@ -346,7 +346,7 @@ export function GroupOfCompanies() {
 
         {/* Footnote */}
         <div className="mt-10 hidden md:flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-mist">
-          <span>Live circuit · 12 affiliates · 3 countries</span>
+          <span>Live circuit · 12 companies · 3 countries</span>
           <span className="text-mist/50">·</span>
           <Link
             href="/business-centers"
@@ -400,7 +400,7 @@ function CentreCard({ compact = false }: { compact?: boolean }) {
             <span className="absolute inset-0 inline-flex animate-ping rounded-full bg-brand opacity-70" />
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
           </span>
-          12 affiliates · 3 countries
+          12 companies · 3 countries
         </div>
       </div>
     </div>
